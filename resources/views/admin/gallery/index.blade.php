@@ -13,9 +13,8 @@
                 <form action="{{ route('gallery.destroy', $gallary->id) }}" method="post">
                     @csrf
                     @method('DELETE')
-                    <button type="submit"
-                    onclick="return confirm('Are you  sure to delete?')"
-                    class="absolute right-0 p-2 hidden group-hover:block transition duration-100">
+                    <button type="submit" onclick="return confirm('Are you  sure to delete?')"
+                        class="absolute right-0 p-2 hidden group-hover:block transition duration-100">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-6 text-red-600">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -23,14 +22,14 @@
                         </svg>
                     </button>
                 </form>
-                <img class="w-full max-h-72 rounded-lg" src="{{ asset('uploads/gallerys/' . $gallary->name) }}"
+                <img class="w-full max-h-72 rounded-lg" src="{{ asset('uploads/galleries/' . $gallary->name) }}"
                     alt="">
             </div>
         @empty
-            <div>
-                <div class="text-gray-800 dark:text-gray-200 text-center py-4">
-                    Gallery photo not found.</div>
-            </div>
+                <div class="col-span-12 text-gray-800 dark:text-gray-200 text-center py-4">
+                    <p>Gallery photo not found.</p>
+                </div>
+
         @endforelse
 
     </div>

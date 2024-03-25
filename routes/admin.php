@@ -25,7 +25,7 @@ use App\Http\Controllers\Admin\UserController;
 
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
-    Route::resource('role',RoleController::class);
+    Route::resource('role', RoleController::class);
     Route::resource('admin', AdminController::class);
     Route::resource('software', SoftwareController::class);
     Route::resource('blog', BlogController::class);
@@ -44,7 +44,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
     Route::resource('service',            ServiceController::class);
     Route::get('service/{id}/create-faq', [ServicefaqController::class, 'create'])->name('service.faq.create');
-    Route::post('service/{id}/create-faq',[ServicefaqController::class, 'store'])->name('service.faq.store');
+    Route::post('service/{id}/create-faq', [ServicefaqController::class, 'store'])->name('service.faq.store');
 
     Route::get('service/{id}/create-package',  [ServicepackageController::class, 'create'])->name('service.package.create');
     Route::post('service/{id}/create-package', [ServicepackageController::class, 'store'])->name('service.package.store');
@@ -53,9 +53,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('ajax/subcategory/{id}', [AjaxSubCategoryController::class, 'subcategoryByCategoryId']);
 
     Route::group(['prefix' => 'setting'], function () {
-        Route::get('/',[SettingController::class,'index'])->name('settingpage');
-        Route::get('/site-setting',[SiteSettingController::class,'sitesetting'])->name('sitesetting');
-        Route::get('/chat-section',[ChatSectionController::class,'chatsection'])->name('chatsection');
+        Route::get('/', [SettingController::class, 'index'])->name('settingpage');
+        Route::get('/site-setting', [SiteSettingController::class, 'sitesetting'])->name('sitesetting');
+        Route::get('/chat-section', [ChatSectionController::class, 'chatsection'])->name('chatsection');
     });
 });
-

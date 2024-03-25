@@ -7,16 +7,9 @@
         <div class="card">
             <div class="card-header">
                 <div class="p-6">
-
-                    {{-- <form action="{{ route('gallery.store') }}" class="dropzone" id="my-awesome-dropzone" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <input type="file" name="thumbnail" />
-                    </form> --}}
-                    {{-- <form action="{{ route('gallery.store') }}" class="dropzone" id="my-awesome-dropzone">
-                        @csrf
-                    </form> --}}
                     <form action="{{ route('gallery.store') }}" class="dropzone" id="my-great-dropzone">
                         @csrf
+                        <x-form.select name="category_id" label="Select Category" :data="$categories" />
                     </form>
 
                 </div>

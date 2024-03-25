@@ -18,7 +18,7 @@
                     </svg>
                 </button>
                 <a href="{{ route('dashboard') }}" class="flex items-center ml-2 md:mr-24">
-                    <img src="{{ asset('img/logo.webp') }}" class="h-12 mr-3" alt="Monodeep" />
+                    <img src="{{ asset('logo.png') }}" class="h-8 mr-3" alt="Monodeep" />
                     <span
                         class="self-center text-xl font-semibold text-gray-500 uppercase sm:text-2xl whitespace-nowrap dark:text-gray-200">Monodeep</span>
                 </a>

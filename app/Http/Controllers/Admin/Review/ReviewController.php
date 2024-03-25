@@ -46,23 +46,13 @@ class ReviewController extends Controller
             'review'         => 'required'
         ]);
 
-        $thumbnailname = null;
-        if ($request->file('thumbnail')) {
-            $imagethumbnail = $request->file('thumbnail');
-            $extension = $imagethumbnail->getClientOriginalExtension();
-            $thumbnailname = Str::uuid() . '.' . $extension;
-            $request->file('thumbnail')->move(public_path('uploads/reviews/'), $thumbnailname);
-            $data['thumbnail'] = $thumbnailname;
-        }
-
-
         $data = [
             'name'           => $request->name,
              'slug'          => Str::slug($request->name, '-'),
             'rating'         => $request->rating,
             'date'           => $request->date,
             'review'         => $request->review,
-            'thumbnail'      => $thumbnailname,
+            'thumbnail'      => $request->thumbnail,
             'review_type_id' => $request->review_type_id,
             'category_id'    => $request->category_id,
             'review_url'     => $request->review_url,
@@ -108,7 +98,6 @@ class ReviewController extends Controller
             'review'         => 'required'
         ]);
 
-        $thumbnailname = null;
         $data = [
             'name'           => $request->name,
              'slug'          => Str::slug($request->name, '-'),
@@ -118,17 +107,9 @@ class ReviewController extends Controller
             'review_type_id' => $request->review_type_id,
             'category_id'    => $request->category_id,
             'review_url'     => $request->review_url,
+            'thumbnail'     => $request->thumbnail,
             'status'         => $request->status
         ];
-
-        if ($request->file('thumbnail')) {
-            $imagethumbnail = $request->file('thumbnail');
-            $extension = $imagethumbnail->getClientOriginalExtension();
-            $thumbnailname = Str::uuid() . '.' . $extension;
-            $request->file('thumbnail')->move(public_path('uploads/reviews/'), $thumbnailname);
-            $data['thumbnail'] = $thumbnailname;
-        }
-
 
 
 

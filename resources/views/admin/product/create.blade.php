@@ -91,7 +91,7 @@
                                     <template x-for="image in images" :key="image.id">
                                         <div class="flex items-center justify-between border">
                                             <input type="hidden" :value="image.id" name="images[]">
-                                            <img :src="`${window.location.origin}/uploads/gallerys/${image.name}`"
+                                            <img :src="`${window.location.origin}/uploads/galleries/${image.name}`"
                                                 class="w-10 h-10" alt="Image">
                                             <span class="px-4 text-red-500 cursor-pointer"
                                                 x-on:click="checkedImage(image)">
@@ -149,7 +149,7 @@
                                                         class="inline-flex items-center justify-between w-full p-2 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                                         <div class="block">
                                                             <img class="w-full rounded-lg max-h-72"
-                                                                src="{{ asset('uploads/gallerys/' . $gallary->name) }}"
+                                                                src="{{ asset('uploads/galleries/' . $gallary->name) }}"
                                                                 alt="">
                                                         </div>
                                                     </label>

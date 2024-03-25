@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Gallery;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Gallery;
+use App\Models\Admin\GalleryCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -26,8 +27,8 @@ class GalleryController extends Controller
      */
     public function create()
     {
-
-        return view('admin.gallery.create');
+        $categories = GalleryCategory::get();
+        return view('admin.gallery.create',compact('categories'));
     }
 
     /**
@@ -41,8 +42,8 @@ class GalleryController extends Controller
         $imagethumbnail = $request->file('file');
         $extension = $imagethumbnail->getClientOriginalExtension();
         $thumbnailname = Str::uuid() . '.' . $extension;
-        Image::make($imagethumbnail)->save('uploads/gallerys/' . $thumbnailname);
-        $data = ['name'   => $thumbnailname, 'author_id' => Auth::user()->id];
+        Image::make($imagethumbnail)->save('uploads/galleries/' . $thumbnailname);
+        $data = ['name'   => $thumbnailname, 'author_id' => Auth::user()->id,'category_id'=> $request->category_id];
 
         Gallery::create($data);
         return redirect()->route('gallery.index');

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\Ajax\GalleryAjaxController;
 use App\Http\Controllers\ArticlesController;
 use App\Http\Controllers\BlogComtroller;
 use App\Http\Controllers\ConditionController;
@@ -24,16 +25,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomepageController::class, 'index'])->name('homepage');
-Route::get('about',[AboutController::class,'index'])->name('aboutpage');
+Route::get('about', [AboutController::class, 'index'])->name('aboutpage');
 Route::get('price', [PricepageController::class, 'index'])->name('pricepage');
 // Route::get('blog', [BlogComtroller::class, 'index'])->name('blogpage');
 Route::get('terms', [TearmsController::class, 'index'])->name('termspage');
-Route::get('articles',[ArticlesController::class,'index'])->name('articlespage');
-Route::get('faq',[FaqController::class,'index'])->name('faqpage');
-Route::get('contact',[ContuctController::class,'index'])->name('contactpage');
+Route::get('articles', [ArticlesController::class, 'index'])->name('articlespage');
+Route::get('faq', [FaqController::class, 'index'])->name('faqpage');
+Route::get('contact', [ContuctController::class, 'index'])->name('contactpage');
 
 Route::get('/test', function () {
     return view('test');
+});
+
+
+Route::group(['prefix' => 'ajax'], function () {
+    Route::get('galleries', [GalleryAjaxController::class, 'getGallery'])->name('ajax.galleries');
+    Route::get('galleries/paginate', [GalleryAjaxController::class, 'getPaginateGallery']);
 });
 
 
@@ -44,4 +51,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
