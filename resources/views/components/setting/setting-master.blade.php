@@ -60,7 +60,7 @@
         <div class="grid grid-cols-6">
             <div class="col-span-1 border dark:border-gray-500">
                 {{-- sidebar start --}}
-                <a href="#"
+                <a href="{{route('website.setting')}}"
                     class="flex items-center p-2 text-base text-gray-900 border-b border-gray-200 shadow-sm dark:border-gray-500 hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700">
                     <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                             fill="currentColor" viewBox="0 0 16 16" class="sidebaricon">
@@ -70,7 +70,7 @@
                                 d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
                         </svg>
 
-                    <span class="ml-3" sidebar-toggle-item>Home Settings</span>
+                    <span class="ml-3" sidebar-toggle-item>Site Settings</span>
                 </a>
 
                 <ul class="pb-2 space-y-2 border-t border-gray-200 shadow-sm dark:border-gray-500">
@@ -87,7 +87,19 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="{{ route('socialmedia.setting') }}"
+                            class="flex items-center p-2 text-base text-gray-900 border-b-2 dark:border-gray-500 hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z" />
+                              </svg>
+
+
+
+                            <span class="ml-3 text-gray-600 rounded-lg hover:text-gray-800 hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700 " sidebar-toggle-item>Social Media</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('contact.setting')}}"
                             class="flex items-center p-2 text-base text-gray-900 border-b-2 dark:border-gray-500 hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 0 1-1.125-1.125M3.375 19.5h7.5c.621 0 1.125-.504 1.125-1.125m-9.75 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125m1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125m0 3.75h-7.5A1.125 1.125 0 0 1 12 18.375m9.75-12.75c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125m19.5 0v1.5c0 .621-.504 1.125-1.125 1.125M2.25 5.625v1.5c0 .621.504 1.125 1.125 1.125m0 0h17.25m-17.25 0h7.5c.621 0 1.125.504 1.125 1.125M3.375 8.25c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125m17.25-3.75h-7.5c-.621 0-1.125.504-1.125 1.125m8.625-1.125c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h7.5m-7.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125M12 10.875v-1.5m0 1.5c0 .621-.504 1.125-1.125 1.125M12 10.875c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125M13.125 12h7.5m-7.5 0c-.621 0-1.125.504-1.125 1.125M20.625 12c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h7.5M12 14.625v-1.5m0 1.5c0 .621-.504 1.125-1.125 1.125M12 14.625c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125m0 1.5v-1.5m0 0c0-.621.504-1.125 1.125-1.125m0 0h7.5" />
@@ -95,7 +107,7 @@
 
 
 
-                            <span class="ml-3 text-gray-600 rounded-lg hover:text-gray-800 hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700 " sidebar-toggle-item>Styling Options</span>
+                            <span class="ml-3 text-gray-600 rounded-lg hover:text-gray-800 hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700 " sidebar-toggle-item>Contact Setting</span>
                         </a>
                     </li>
                     <li>

@@ -59,7 +59,7 @@
         <div class="grid grid-cols-6">
             <div class="col-span-1 border dark:border-gray-500">
                 {{-- sidebar start --}}
-                <a href="{{ route('sitesetting') }}"
+                <a href="{{ route('website.setting') }}"
                     class="flex items-center p-2 text-base text-gray-900 border-b border-gray-200 shadow-sm dark:border-gray-500 hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700">
                     <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                             fill="currentColor" viewBox="0 0 16 16" class="sidebaricon">
@@ -83,6 +83,18 @@
 
 
                             <span class="ml-3 text-gray-600 rounded-lg hover:text-gray-800 hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700 " sidebar-toggle-item>Chat Section</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('socialmedia.setting')}}"
+                            class="flex items-center p-2 text-base text-gray-900 border-b-2 dark:border-gray-500 hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 0 1-1.125-1.125M3.375 19.5h7.5c.621 0 1.125-.504 1.125-1.125m-9.75 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125m1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125m0 3.75h-7.5A1.125 1.125 0 0 1 12 18.375m9.75-12.75c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125m19.5 0v1.5c0 .621-.504 1.125-1.125 1.125M2.25 5.625v1.5c0 .621.504 1.125 1.125 1.125m0 0h17.25m-17.25 0h7.5c.621 0 1.125.504 1.125 1.125M3.375 8.25c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125m17.25-3.75h-7.5c-.621 0-1.125.504-1.125 1.125m8.625-1.125c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h7.5m-7.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125M12 10.875v-1.5m0 1.5c0 .621-.504 1.125-1.125 1.125M12 10.875c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125M13.125 12h7.5m-7.5 0c-.621 0-1.125.504-1.125 1.125M20.625 12c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h7.5M12 14.625v-1.5m0 1.5c0 .621-.504 1.125-1.125 1.125M12 14.625c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125m0 1.5v-1.5m0 0c0-.621.504-1.125 1.125-1.125m0 0h7.5" />
+                              </svg>
+
+
+
+                            <span class="ml-3 text-gray-600 rounded-lg hover:text-gray-800 hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700 " sidebar-toggle-item>Social Media</span>
                         </a>
                     </li>
                     <li>

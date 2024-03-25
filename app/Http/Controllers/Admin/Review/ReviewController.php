@@ -124,18 +124,7 @@ class ReviewController extends Controller
      */
     public function destroy(string $id)
     {
-        $review = Review::firstWhere('id', $id);
-        // return   $review;
-
-        if ($review->thumbnail) {
-            $path = 'uploads/reviews/'. $review->thumbnail;
-            if (file_exists($path)) {
-                unlink($path);
-            }
-        }
-
-        $review->delete();
-
+        Review::firstWhere('id', $id)->delete();
         return redirect()->back();
     }
 }

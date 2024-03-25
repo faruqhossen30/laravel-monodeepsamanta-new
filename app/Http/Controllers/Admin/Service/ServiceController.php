@@ -36,25 +36,19 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
+
+        // return $request->all();
         $request->validate([
             'title' => 'required',
             'description' => 'required',
             'category_id' => 'required'
         ]);
 
-        // return $request->all();
-
-        $thumbnailname = null;
-
-
-        $video = null;
-
         $data = [
             'title'            => $request->title,
             'slug'             => Str::slug($request->title, '-'),
             'description'      => $request->description,
-            'thumbnail'        => $thumbnailname,
-            'video'            => $video,
+            'thumbnail'        => $request->thumbnail,
             'category_id'      => $request->category_id,
             'user_id'          => Auth::user()->id,
             'status'           => $request->status,

@@ -18,8 +18,11 @@ use App\Http\Controllers\Admin\Service\ServiceController;
 use App\Http\Controllers\Admin\Service\ServicefaqController;
 use App\Http\Controllers\Admin\Service\ServicepackageController;
 use App\Http\Controllers\Admin\Setting\ChatSectionController;
+use App\Http\Controllers\Admin\Setting\ContactSettingController;
 use App\Http\Controllers\Admin\Setting\SideSettingController;
 use App\Http\Controllers\Admin\Setting\SiteSettingController;
+use App\Http\Controllers\Admin\Setting\SocialmediaSettingController;
+use App\Http\Controllers\Admin\Setting\WebsiteSettingController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\UserController;
 
@@ -56,5 +59,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         Route::get('/', [SettingController::class, 'index'])->name('settingpage');
         Route::get('/site-setting', [SiteSettingController::class, 'sitesetting'])->name('sitesetting');
         Route::get('/chat-section', [ChatSectionController::class, 'chatsection'])->name('chatsection');
+
+        Route::get('/website-setting',[WebsiteSettingController::class,'websitesetting'])->name('website.setting');
+        Route::post('/website-setting',[WebsiteSettingController::class,'websitestoresetting'])->name('website.setting.store');
+        Route::get('/social-media',[SocialmediaSettingController::class,'socialmedia'])->name('socialmedia.setting');
+        Route::post('/social-media/store',[SocialmediaSettingController::class,'socialmediastore'])->name('socialmedia.setting.store');
+        Route::get('/contact-setting',[ContactSettingController::class,'contactsetting'])->name('contact.setting');
+        Route::post('/contact-setting/store',[ContactSettingController::class,'contactsettingstore'])->name('contact.setting.store');
     });
 });
