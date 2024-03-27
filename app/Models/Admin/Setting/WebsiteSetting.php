@@ -25,6 +25,10 @@ class WebsiteSetting extends Model
         'linkedin_link',
         'youtube_link',
         'intro_video_link',
+        'behance_link',
+        'dribbble_link',
+        'flickr_link',
+        'monogram_link',
         'logo',
         'info',
     ];

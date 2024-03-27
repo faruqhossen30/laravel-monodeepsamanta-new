@@ -1,10 +1,11 @@
 @extends('admin.layouts.app')
 @section('breadcrumb')
-<div class="flex justify-between">
 
-    <x-breadcrumb pageone="Blog" />
-    <x-button.button-plus route="{{route('blog.create')}}" title="Create Blog" />
-</div>
+    <div class="flex justify-between items-center">
+        <x-breadcrumb pageone="Blog" />
+        <x-button.button-plus route="{{ route('blog.create') }}" title="Create Blog" />
+    </div>
+
 @endsection
 @section('content')
 <div class="flex flex-row-reverse py-2">
@@ -42,7 +43,8 @@
                                             {{ $blog->title }}
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">
-                                            <img src="{{ asset('uploads/blog/' . $blog->thumbnail) }}" class="h-6 w-auto" alt="">
+                                            <img src="{{ asset('uploads/galleries/' . $blog->thumbnail) }}"
+                                            class="h-6 w-auto" alt="">
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
 

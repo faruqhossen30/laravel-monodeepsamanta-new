@@ -28,6 +28,10 @@ return new class extends Migration
             $table->string('linkedin_link')->nullable();
             $table->string('youtube_link')->nullable();
             $table->string('intro_video_link')->nullable();
+            $table->string('behance_link')->nullable();
+            $table->string('dribbble_link')->nullable();
+            $table->string('flickr_link')->nullable();
+            $table->string('monogram_link')->nullable();
             $table->string('info')->nullable();
             $table->string('logo')->nullable();
             $table->timestamps();

@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('breadcrumb')
-<div class="flex justify-between">
+<div class="flex justify-between items-center">
     <x-breadcrumb pageone="Category" />
     <x-button.button-plus route="{{route('category.create')}}" title="Create Category" />
 </div>
@@ -22,6 +22,9 @@
                                         S.N</th>
                                     <th scope="col"
                                         class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-gray-400">
+                                        Photo</th>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-gray-400">
                                         Name</th>
                                     <th scope="col"
                                         class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase dark:text-gray-400">
@@ -29,11 +32,16 @@
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-                                @forelse ($categories as $category)
+                                @forelse ($categoris as $category)
                                     <tr>
                                         <td
                                             class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">
-                                            {{$categories->firstItem() + $loop->index}}</td>
+                                            {{$categoris->firstItem() + $loop->index}}</td>
+                                            <td
+                                            class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">
+                                            <img src="{{ asset('uploads/galleries/' . $category->thumbnail) }}"
+                                            class="h-6 w-auto" alt="">
+                                        </td>
                                         <td
                                             class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">
                                             {{$category->name}}
@@ -51,7 +59,7 @@
                         </table>
                     </div>
                     <div class="py-4">
-                        {{$categories->links()}}
+                        {{$categoris->links()}}
                     </div>
                 </div>
             </div>

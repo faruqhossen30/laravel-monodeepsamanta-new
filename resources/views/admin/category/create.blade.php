@@ -10,7 +10,21 @@
 
 			<form action="{{route('category.store')}}" method="POST">
                 @csrf
-				<x-form.input label="Category Name" name="name" />
+
+
+                <div class="grid grid-cols-12 gap-5 ">
+                    <div class="col-span-12 lg:col-span-8 bg-white dark:bg-gray-800 p-4 rounded-lg">
+                        <x-form.input label="Category Name" name="name" />
+
+                    </div>
+                    <div class="col-span-12 lg:col-span-4 bg-white dark:bg-gray-800 p-4 rounded-lg">
+                        <x-form.thumbnail-single />
+                    </div>
+
+                </div>
+
+
+                @include('admin.inc.modal.photo-gallery')
 				<x-form.submit-button />
 		</form>
 	</div>

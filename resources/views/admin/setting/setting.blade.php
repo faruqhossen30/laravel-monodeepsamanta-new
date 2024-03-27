@@ -2,7 +2,7 @@
 @section('breadcrumb')
     <div class="flex justify-between">
         <x-breadcrumb pageone="Settingpage" />
-        <x-button.button-plus route="{{ route('settingpage') }}" title="Create Settingpage" />
+        {{-- <x-button.button-plus route="{{ route('settingpage') }}" title="Create Settingpage" /> --}}
     </div>
 @endsection
 @section('content')

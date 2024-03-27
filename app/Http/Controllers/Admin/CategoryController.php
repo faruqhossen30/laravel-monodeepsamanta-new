@@ -17,7 +17,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categoris = Category::latest()->paginate(10);
-        return view('admin.product.category.index', compact('categoris'));
+        return view('admin.category.index', compact('categoris'));
     }
 
     /**
@@ -25,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.product.category.create');
+        return view('admin.category.create');
     }
 
     /**
@@ -40,18 +40,12 @@ class CategoryController extends Controller
         ]);
 
 
-        $thumbnailname = null;
-        if ($request->file('thumbnail')) {
-            $imagethumbnail = $request->file('thumbnail');
-            $extension = $imagethumbnail->getClientOriginalExtension();
-            $thumbnailname = Str::uuid() . '.' . $extension;
-            Image::make($imagethumbnail)->save('uploads/category/' . $thumbnailname);
-        }
+
         $data=[
-            'name'=> $request->name,
-            'slug'=> Str::slug($request->name),
-            'author_id'=> Auth::user()->id,
-            'thumbnail'=> $thumbnailname,
+            'name'      => $request->name,
+            'slug'      => Str::slug($request->name),
+            'author_id' => Auth::user()->id,
+            'thumbnail' => $request->thumbnail,
         ];
 
         Category::create($data);
@@ -74,7 +68,7 @@ class CategoryController extends Controller
     {
         $category = Category::where('id', $id)->first();
         // return $category;
-        return view('admin.product.category.edit', compact('category'));
+        return view('admin.category.edit', compact('category'));
     }
 
     /**
@@ -83,17 +77,12 @@ class CategoryController extends Controller
     public function update(Request $request, string $id)
     {
         $data = [
-            'name'=> $request->name,
-            'slug'=> Str::slug($request->name),
-            'author_id'=> Auth::user()->id,
+            'name'      => $request->name,
+            'slug'      => Str::slug($request->name),
+            'author_id' => Auth::user()->id,
+            'thumbnail' => $request->thumbnail,
         ];
-        if ($request->file('thumbnail')) {
-            $imagethumbnail = $request->file('thumbnail');
-            $extension = $imagethumbnail->getClientOriginalExtension();
-            $thumbnailname = Str::uuid() . '.' . $extension;
-            Image::make($imagethumbnail)->save('uploads/category/' . $thumbnailname);
-            $data['thumbnail'] = $thumbnailname;
-        }
+
 
 
         Category::firstwhere('id', $id)->update($data);

@@ -1,3 +1,4 @@
+<div><span>Thumbnail</span></div>
 <div class="flex items-center justify-center w-full max-h-72 py-2">
     <div for="dropzone-file" id="dropZoneArea"
         class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg  bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">

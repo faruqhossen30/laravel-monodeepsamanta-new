@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('breadcrumb')
-<div class="flex justify-between">
+<div class="flex justify-between items-center">
 
         <x-breadcrumb pageone="Service" />
         <x-button.button-plus route="{{route('service.create')}}" title="Create Service" />
@@ -49,7 +49,7 @@
                                         <td
                                         class="px-1 py-2 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">
                                         <div class="flex">
-                                            <a href="#"
+                                            <a href="{{route('service.slider.create',$service->id)}}"
                                                 class="px-2 hover:text-green-500">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                                     viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"

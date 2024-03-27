@@ -32,6 +32,10 @@ class SocialmediaSettingController extends Controller
             'linkedin_link'       => $request->linkedin_link,
             'youtube_link'        => $request->youtube_link,
             'intro_video_link'    => $request->intro_video_link,
+            'behance_link'        => $request->behance_link,
+            'dribbble_link'       => $request->dribbble_link,
+            'flickr_link'         => $request->flickr_link,
+            'monogram_link'       => $request->monogram_link,
 
         ]);
 

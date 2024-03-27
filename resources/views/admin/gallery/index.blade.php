@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('breadcrumb')
-    <div class="flex justify-between">
+    <div class="flex justify-between items-center">
         <x-breadcrumb pageone="Gallery" />
         <x-button.button-plus route="{{ route('gallery.create') }}" title="Upload Photo" />
     </div>

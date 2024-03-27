@@ -26,8 +26,7 @@ class ContactSettingController extends Controller
             'email'               => $request->email,
             'mobile_no'           => $request->mobile_no,
             'telephone_no'        => $request->telephone_no,
-            'facebook_page_link'  => $request->facebook_page_link,
-            'facebook_group_link' => $request->facebook_group_link,
+
 
         ]);
 

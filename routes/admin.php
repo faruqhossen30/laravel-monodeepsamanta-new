@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\Review\ReviewtypeController;
 use App\Http\Controllers\Admin\Service\ServiceController;
 use App\Http\Controllers\Admin\Service\ServicefaqController;
 use App\Http\Controllers\Admin\Service\ServicepackageController;
+use App\Http\Controllers\Admin\Service\ServicesliderController;
 use App\Http\Controllers\Admin\Setting\ChatSectionController;
 use App\Http\Controllers\Admin\Setting\ContactSettingController;
 use App\Http\Controllers\Admin\Setting\SideSettingController;
@@ -45,6 +46,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('review',             ReviewController::class);
     Route::resource('portfolio',          PortfolioController::class);
 
+
+    Route::get('service/{id}/delete',[ ServicesliderController::class, 'removeImage'])->name('removesliderimage');
     Route::resource('service',            ServiceController::class);
     Route::get('service/{id}/create-faq', [ServicefaqController::class, 'create'])->name('service.faq.create');
     Route::post('service/{id}/create-faq', [ServicefaqController::class, 'store'])->name('service.faq.store');
@@ -52,6 +55,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('service/{id}/create-package',  [ServicepackageController::class, 'create'])->name('service.package.create');
     Route::post('service/{id}/create-package', [ServicepackageController::class, 'store'])->name('service.package.store');
 
+    Route::get('service/{id}/create-slider',  [ServicesliderController::class, 'create'])->name('service.slider.create');
+    Route::post('service/{id}/create-slider', [ServicesliderController::class, 'store'])->name('service.slider.store');
     // Ajax Calling
     Route::get('ajax/subcategory/{id}', [AjaxSubCategoryController::class, 'subcategoryByCategoryId']);
 

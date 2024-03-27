@@ -19,7 +19,7 @@ class WebsiteSettingController extends Controller
 
     public function websitestoresetting(Request $request){
 
-
+// return $request->all();
 
         $thumbnailname = null;
         if ($request->file('logo')) {
@@ -47,6 +47,10 @@ class WebsiteSettingController extends Controller
             'instagram_link'      => $request->instagram_link,
             'linkedin_link'       => $request->linkedin_link,
             'youtube_link'        => $request->youtube_link,
+            'behance_link'        => $request->behance_link,
+            'dribbble_link'       => $request->dribbble_link,
+            'flickr_link'         => $request->flickr_link,
+            'monogram_link'       => $request->monogram_link,
             'intro_video_link'    => $request->intro_video_link,
             'logo'                => $thumbnailname,
             'info'                => $request->info,

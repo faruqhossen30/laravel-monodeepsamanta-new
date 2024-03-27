@@ -48,22 +48,13 @@ class BlogController extends Controller
                 'description'         => 'required',
             ]
         );
-
-        $thumbnailname = null;
-        if ($request->file('thumbnail')) {
-            $imagethumbnail = $request->file('thumbnail');
-            $extension = $imagethumbnail->getClientOriginalExtension();
-            $thumbnailname = Str::uuid() . '.' . $extension;
-            $request->file('thumbnail')->move(public_path('uploads/reviews/'), $thumbnailname);
-            $data['thumbnail'] = $thumbnailname;
-        }
         $data = [
             'title'               => $request->title,
             'slug'                => Str::slug($request->title, '-'),
             'short_description'   => $request->short_description,
             'project_description' => $request->project_description,
             'description'         => $request->description,
-            'thumbnail'           => $thumbnailname,
+            'thumbnail'         => $request->thumbnail,
             'user_id'             => Auth::user()->id,
             'meta_title'          => $request->meta_title,
             'meta_description'    => $request->meta_description,
@@ -132,11 +123,12 @@ class BlogController extends Controller
         );
 
         $data = [
-           'title'               => $request->title,
+           'title'                => $request->title,
             'slug'                => Str::slug($request->title, '-'),
             'short_description'   => $request->short_description,
             'project_description' => $request->project_description,
             'description'         => $request->description,
+            'thumbnail'           => $request->thumbnail,
             'user_id'             => Auth::user()->id,
             'meta_title'          => $request->meta_title,
             'meta_description'    => $request->meta_description,
@@ -144,14 +136,7 @@ class BlogController extends Controller
             'status'              => $request->status
         ];
 
-        $thumbnailname = null;
-        if ($request->file('thumbnail')) {
-            $imagethumbnail    = $request->file('thumbnail');
-            $extension         = $imagethumbnail->getClientOriginalExtension();
-            $thumbnailname     = Str::uuid() . '.' . $extension;
-            $request->file('thumbnail')->move(public_path('uploads/blog/'), $thumbnailname);
-            $data['thumbnail'] = $thumbnailname;
-        }
+
 
         $blog = Blog::firstWhere('id',$id)->update($data);
 

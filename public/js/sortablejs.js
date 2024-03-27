@@ -3,8 +3,8 @@ $(function() {
 
 
   // Simple list example
-  if ($("#simple-list").length) {
-    var simpleList = document.querySelector("#simple-list");
+  if ($("#photosDiv").length) {
+    var simpleList = document.querySelector("#photosDiv");
     new Sortable(simpleList, {
       animation: 150,
       ghostClass: 'bg-light'
@@ -97,7 +97,7 @@ $(function() {
   }
 
 
-  
+
   // Filter example
   if ($("#filter-example").length) {
     var filterExample = document.querySelector("#filter-example");
