@@ -61,15 +61,15 @@
     @stack('styles')
 </head>
 
-<body class="bg-gray-50 dark:bg-gray-900">
+<body class="bg-gray-100 dark:bg-gray-900">
 
     @include('admin.layouts.topbar')
 
-    <div class="flex pt-16 overflow-hidden bg-gray-50 dark:bg-gray-900">
+    <div class="flex pt-16 overflow-hidden bg-gray-100 dark:bg-gray-900">
         @include('admin.layouts.sidebar')
 
-        <div id="main-content" class="relative w-full h-full overflow-y-auto bg-gray-50 lg:ml-64 dark:bg-gray-900">
-            <main class="px-4 pt-6">
+        <div id="main-content" class="relative w-full h-full overflow-y-auto bg-gray-100 lg:ml-64 dark:bg-gray-900">
+            <main class="px-4">
                 @yield('breadcrumb')
                 @yield('content')
             </main>

@@ -1,15 +1,20 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AboutpageController;
 use App\Http\Controllers\Ajax\GalleryAjaxController;
 use App\Http\Controllers\ArticlesController;
 use App\Http\Controllers\BlogComtroller;
+use App\Http\Controllers\BlogpageController;
 use App\Http\Controllers\ConditionController;
 use App\Http\Controllers\ContuctController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\PortfoliopageController;
 use App\Http\Controllers\PricepageController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReviewpageController;
+use App\Http\Controllers\ServicepageController;
 use App\Http\Controllers\TearmsController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,13 +30,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomepageController::class, 'index'])->name('homepage');
-Route::get('about', [AboutController::class, 'index'])->name('aboutpage');
-Route::get('price', [PricepageController::class, 'index'])->name('pricepage');
-// Route::get('blog', [BlogComtroller::class, 'index'])->name('blogpage');
-Route::get('terms', [TearmsController::class, 'index'])->name('termspage');
-Route::get('articles', [ArticlesController::class, 'index'])->name('articlespage');
-Route::get('faq', [FaqController::class, 'index'])->name('faqpage');
-Route::get('contact', [ContuctController::class, 'index'])->name('contactpage');
+Route::get('portfolio', [PortfoliopageController::class, 'index'])->name('portfoliopage');
+Route::get('portfolio/{slug}', [PortfoliopageController::class, 'singlePortfolio'])->name('singleportfolio');
+Route::get('about-me', [AboutpageController::class, 'index'])->name('aboutpage');
+Route::get('services', [ServicepageController::class, 'index'])->name('servicepage');
+Route::get('services/{slug}', [ServicepageController::class, 'singleService'])->name('singleservice');
+Route::get('reviews', [ReviewpageController::class, 'index'])->name('reviewpage');
+Route::get('blogs', [BlogpageController::class, 'index'])->name('blogpage');
 
 Route::get('/test', function () {
     return view('test');
@@ -41,6 +46,9 @@ Route::get('/test', function () {
 Route::group(['prefix' => 'ajax'], function () {
     Route::get('galleries', [GalleryAjaxController::class, 'getGallery'])->name('ajax.galleries');
     Route::get('galleries/paginate', [GalleryAjaxController::class, 'getPaginateGallery']);
+    // Multi Photo Modal
+    Route::get('multi-photo/galleries', [GalleryAjaxController::class, 'getMultiPhotoGallery'])->name('ajax.multiphto.galleries');
+    Route::get('multi-photo/galleries/paginate', [GalleryAjaxController::class, 'getPaginateMultiPhotoGallery']);
 });
 
 

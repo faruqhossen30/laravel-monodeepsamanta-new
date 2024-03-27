@@ -93,7 +93,10 @@ class ServiceController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $service = Service::with('features')->firstWhere('id',$id);
+        $categories = Category::get();
+        // return $service;
+        return view('admin.services.edit', compact('service','categories'));
     }
 
     /**

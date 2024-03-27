@@ -114,7 +114,7 @@
 
                                         <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
 
-                                            <x-table.crudactionbutton route="review" :id="$service->id" />
+                                            <x-table.crudactionbutton route="service" :id="$service->id" />
                                         </td>
                                     </tr>
                                 @empty

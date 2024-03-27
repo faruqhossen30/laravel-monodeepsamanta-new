@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Portfolio;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Portfolio\Portfolio;
 use App\Models\Admin\Portfolio\PortfolioImage;
+use App\Models\Admin\Portfolio\PortfolioVideo;
 use App\Models\Admin\Product\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -36,20 +37,35 @@ class PortfolioController extends Controller
      */
     public function store(Request $request)
     {
+        // return $request->all();
+
         $request->validate([
             'title' => 'required'
         ]);
 
         $data = [
-            'title'       => $request->title,
-            'slug'        => Str::slug($request->title, '-'),
-            'user_id'     => Auth::user()->id,
-            'category_id' => $request->category_id,
-            'thumbnail'   => $request->thumbnail,
-            'status'      => $request->status,
+            'title'            => $request->title,
+            'slug'             => Str::slug($request->title, '-'),
+            'user_id'          => Auth::user()->id,
+            'category_id'      => $request->category_id,
+            'thumbnail'        => $request->thumbnail,
+            'slider'           => json_encode($request->slider),
+            'meta_tag'         => $request->meta_tag,
+            'meta_description' => $request->meta_description,
+            'keyword'          => $request->keyword,
+            'status'           => $request->status,
         ];
 
         $porfolio = Portfolio::create($data);
+
+        if ($porfolio && $request->video_id && $request->pull_zone && $request->resolution) {
+            PortfolioVideo::create([
+                'portfolio_id' => $porfolio->id,
+                'video_id'      => $request->video_id,
+                'pull_zone'     => $request->pull_zone,
+                'resolution'    => $request->resolution
+            ]);
+        }
         Session::flash('create');
         return redirect()->route('portfolio.index');
     }
@@ -68,7 +84,9 @@ class PortfolioController extends Controller
     public function edit(string $id)
     {
         $categories = Category::get();
-        $portfolio  = Portfolio::with('images')->firstWhere('id', $id);
+        $portfolio  = Portfolio::with('video')->firstWhere('id', $id);
+
+        // return $portfolio;
         return view('admin.portfolio.edit', compact('categories', 'portfolio'));
     }
 
@@ -82,16 +100,30 @@ class PortfolioController extends Controller
         ]);
 
 
-        $thumbnailname = null;
         $data = [
-            'title'       => $request->title,
-            'slug'        => Str::slug($request->title, '-'),
-            'category_id' => $request->category_id,
-            'status'      => $request->status,
-            'thumbnail'   => $request->thumbnail,
+            'title'            => $request->title,
+            'slug'             => Str::slug($request->title, '-'),
+            'category_id'      => $request->category_id,
+            'thumbnail'        => $request->thumbnail,
+            'slider'           => json_encode($request->slider),
+            'meta_tag'         => $request->meta_tag,
+            'meta_description' => $request->meta_description,
+            'keyword'          => $request->keyword,
+            'status'           => $request->status,
         ];
 
         Portfolio::firstWhere('id', $id)->update($data);
+
+        if ($request->video_id && $request->pull_zone && $request->resolution) {
+            PortfolioVideo::updateOrInsert([
+                'portfolio_id' => $id
+            ], [
+                'portfolio_id' => $id,
+                'video_id'      => $request->video_id,
+                'pull_zone'     => $request->pull_zone,
+                'resolution'    => $request->resolution
+            ]);
+        }
 
 
         Session::flash('create');

@@ -8,7 +8,23 @@ use Illuminate\Database\Eloquent\Model;
 class Portfolio extends Model
 {
     use HasFactory;
-    protected $fillable = ['title','slug','thumbnail','video','user_id','category_id', 'edit_user_id','status'];
+    protected $fillable = [
+        'title',
+        'slug',
+        'category_id',
+        'thumbnail',
+        'slider',
+        'user_id',
+        'meta_tag',
+        'meta_description',
+        'keyword',
+        'status'
+    ];
+
+    public function video()
+    {
+        return $this->hasOne(PortfolioVideo::class, 'portfolio_id');
+    }
 
     public function images()
     {
