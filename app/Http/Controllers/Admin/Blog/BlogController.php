@@ -3,15 +3,15 @@
 namespace App\Http\Controllers\Admin\Blog;
 
 use App\Http\Controllers\Controller;
-use App\Models\Admin\Blog\BlogCategory;
-use App\Models\Admin\Blog\BlogSoftware;
-use App\Models\Admin\Blog\Software;
-use App\Models\Admin\Product\Category;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Blog;
+use App\Models\Blog\BlogCategory;
+use App\Models\Blog\BlogSoftware;
+use App\Models\Blog\Software;
+use App\Models\Category;
 use Image;
 
 class BlogController extends Controller

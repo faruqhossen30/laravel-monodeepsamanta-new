@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Ajax;
 
 use App\Http\Controllers\Controller;
-use App\Models\Admin\Gallery;
-use App\Models\Admin\GalleryCategory;
+use App\Models\Gallery;
 use Illuminate\Http\Request;
 
 use function Termwind\render;

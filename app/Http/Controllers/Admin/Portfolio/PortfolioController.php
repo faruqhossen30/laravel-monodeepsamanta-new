@@ -3,10 +3,8 @@
 namespace App\Http\Controllers\Admin\Portfolio;
 
 use App\Http\Controllers\Controller;
-use App\Models\Admin\Portfolio\Portfolio;
-use App\Models\Admin\Portfolio\PortfolioImage;
-use App\Models\Admin\Portfolio\PortfolioVideo;
-use App\Models\Admin\Product\Category;
+use App\Models\Category;
+use App\Models\Portfolio\Portfolio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;

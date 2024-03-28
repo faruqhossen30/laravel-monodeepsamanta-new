@@ -42,6 +42,11 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://flowbite-admin-dashboard.vercel.app/images/og-image.png">
     <meta property="og:image:type" content="image/png">
+    <style>
+        * {
+            font-family: "Roboto Flex", Sans-serif
+        }
+    </style>
 
     <script>
         if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
@@ -58,9 +63,7 @@
 <body class="bg-gray-50 dark:bg-gray-900">
 
     @include('layouts.header')
-    <div class="container mx-auto md:p-0 px-4 lg:px-0">
-        @yield('content')
-    </div>
+    @yield('content')
     @include('layouts.footer')
 
 

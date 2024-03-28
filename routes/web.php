@@ -33,6 +33,7 @@ Route::get('/', [HomepageController::class, 'index'])->name('homepage');
 Route::get('portfolio', [PortfoliopageController::class, 'index'])->name('portfoliopage');
 Route::get('portfolio/{slug}', [PortfoliopageController::class, 'singlePortfolio'])->name('singleportfolio');
 Route::get('about-me', [AboutpageController::class, 'index'])->name('aboutpage');
+
 Route::get('services', [ServicepageController::class, 'index'])->name('servicepage');
 Route::get('services/{slug}', [ServicepageController::class, 'singleService'])->name('singleservice');
 Route::get('reviews', [ReviewpageController::class, 'index'])->name('reviewpage');

@@ -2,11 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Admin\Gallery;
-use App\Models\Admin\GalleryCategory;
-use App\Models\Admin\Product\Category;
-use App\Models\Admin\Product\SubCategory;
-use App\Models\Admin\Review\ReviewType;
+use App\Models\GalleryCategory;
+use App\Models\Review\ReviewType;
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 
 

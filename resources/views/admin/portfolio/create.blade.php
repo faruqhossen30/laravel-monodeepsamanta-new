@@ -30,6 +30,11 @@
                                 <x-form.input label="Meta Tag" name="meta_tag" />
                                 <x-form.textarea label="Meta Description" name="meta_description" />
                                 <x-form.input label="Meta Keyword" name="keyword" />
+                                {{-- <label for="input-label"
+                                    class="block text-sm font-medium mb-2 dark:text-white">Email</label>
+                                <input type="email" id="input-label"
+                                    class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
+                                    placeholder="you@site.com" data-role="tagsinput"> --}}
 
                             </div>
                             <div class="col-span-12 lg:col-span-4 bg-white dark:bg-gray-800 p-4 rounded-lg">
@@ -48,3 +53,20 @@
         </div>
     </div>
 @endsection
+
+@push('styles')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.css">
+    <style>
+        .label-info {
+            background-color: blue;
+            padding: 8px 16px;
+            color: white;
+            border-radius: 16px;
+            font-weight: bold;
+        }
+    </style>
+@endpush
+
+@push('scripts')
+    <script src="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script>
+@endpush

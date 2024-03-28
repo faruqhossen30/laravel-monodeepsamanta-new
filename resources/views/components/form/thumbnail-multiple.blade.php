@@ -12,7 +12,7 @@
 
     <div class="space-y-2 py-2" id="photosDiv">
 
-        @if ($photo)
+        {{-- @if ($photo)
             <div class="flex items-center justify-between border dark:border-gray-800">
                 <input type="hidden" value="{{asset('')}}" name="slider[]">
                 <img src="" class="w-10 h-10" alt="Image">
@@ -24,6 +24,6 @@
                     </svg>
                 </span>
             </div>
-        @endif
+        @endif --}}
     </div>
 </div>

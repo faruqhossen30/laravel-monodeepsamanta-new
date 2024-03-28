@@ -1,5 +1,5 @@
 @php
-    use App\Models\Admin\GalleryCategory;
+    use App\Models\GalleryCategory;
     $categories = GalleryCategory::get();
 @endphp
 

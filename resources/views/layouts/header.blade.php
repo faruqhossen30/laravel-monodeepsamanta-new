@@ -1,5 +1,5 @@
 @php
-    use App\Models\Admin\Review\Review;
+    use App\Models\Review\Review;
     $reviews = Review::where('status', true)->count();
 @endphp
 

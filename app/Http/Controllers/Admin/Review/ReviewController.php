@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin\Review;
 
 use App\Http\Controllers\Controller;
-use App\Models\Admin\Product\Category;
-use App\Models\Admin\Review\Review;
-use App\Models\Admin\Review\ReviewType;
+use App\Models\Review\Review;
+use App\Models\Review\ReviewType;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Portfolio\Portfolio;
 use App\Models\Category;
-use App\Models\Portfolio;
-use App\Models\PortfolioCategory;
+
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -34,7 +34,7 @@ class PortfoliopageController extends Controller
         $categories = Category::get();
         // return $portfolios;
 
-        return view('portfoliopagenew', compact('portfolios', 'categories'));
+        return view('portfoliopage', compact('portfolios', 'categories'));
     }
     /**
      * Display the user's profile form.
