@@ -44,15 +44,7 @@ class PortfoliopageController extends Controller
 
         $portfolio = Portfolio::with('images')->firstWhere('slug', $slug);
 
-        // $previous = Portfolio::firstWhere('id', $portfolio->id-1);
-        // $next = Portfolio::firstWhere('id', $portfolio->id+1);
-
-        $previous = null;
-        $next = null;
-
         // return $portfolio;
-
-
         return view('single.portfolio', compact('portfolio'));
     }
 }

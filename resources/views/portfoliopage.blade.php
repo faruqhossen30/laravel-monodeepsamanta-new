@@ -24,16 +24,15 @@
     </section>
 
     <!--Image Gellary Section Start From Here-->
-    <div class="overflow-hidden">
+    <div class="container mx-auto">
         <div class="grid grid-cols-12 gap-3 mixingContainer">
             @foreach ($portfolios as $portfolio)
                 <x-portfolio.portfolioitem :portfolio="$portfolio" />
             @endforeach
         </div>
-        <div class="pt-5">
+        <div class="py-10">
             {{ $portfolios->links('pagination::custom') }}
         </div>
-        <!--Image Card Parent End Here-->
     </div>
     <x-section-chat />
     {{-- <x-section-service /> --}}

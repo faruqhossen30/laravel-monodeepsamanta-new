@@ -6,17 +6,16 @@
     <!--layer end-->
     @if ($portfolio->video)
         <video autoplay loop muted class="w-full h-full">
-            <source src="{{ asset('uploads/portfolio/' . $portfolio->video) }}" type="video/mp4">
+            <source src="{{video_link($portfolio->video)}}" type="video/mp4">
         </video>
     @else
         <img class="object-cover w-full h-full transition duration-500 max-h-80 group-hover:scale-110 group-hover:rotate-3"
-            src="{{ asset('uploads/portfolio/' . $portfolio->thumbnail) }}" alt="">
+            src="{{ asset('uploads/galleries/' . $portfolio->thumbnail) }}" alt="">
     @endif
 
 
     <div class="absolute bottom-0 z-10 hidden space-y-2 group-hover:bottom-6 group-hover:left-6 group-hover:block">
         <h1 class="text-2xl">{{ $portfolio->title }}</h1>
-
         <span class="hover:text-[#FF003A] transition flex items-center space-x-2">
             <span>See All</span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="#FF003A" viewBox="0 0 24 24" stroke-width="1.5"

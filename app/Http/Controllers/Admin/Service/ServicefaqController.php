@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin\Service;
 
 use App\Http\Controllers\Controller;
-use App\Models\Admin\Service\Service;
-use App\Models\Admin\Service\ServiceFaq;
+use App\Models\Service\Service;
+use App\Models\Service\ServiceFaq;
 use Illuminate\Http\Request;
 
 class ServicefaqController extends Controller

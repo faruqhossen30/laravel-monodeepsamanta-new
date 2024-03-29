@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin\Portfolio;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Portfolio\Portfolio;
+use App\Models\Portfolio\PortfolioImage;
+use App\Models\Portfolio\PortfolioVideo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -64,6 +66,18 @@ class PortfolioController extends Controller
                 'resolution'    => $request->resolution
             ]);
         }
+
+        if (!empty($request->slider)) {
+            foreach ($request->slider as $index => $img) {
+                PortfolioImage::create([
+                    'portfolio_id' => $porfolio->id,
+                    'image'        => $img,
+                    'caption'      => null,
+                ]);
+            }
+        }
+
+
         Session::flash('create');
         return redirect()->route('portfolio.index');
     }

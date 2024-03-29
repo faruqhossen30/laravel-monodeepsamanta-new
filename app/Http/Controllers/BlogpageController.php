@@ -10,7 +10,7 @@ class BlogpageController extends Controller
 {
     public function index(): View
     {
-        $posts = Blog::latest()->paginate(12);
+        $posts = Blog::latest()->paginate(10);
         return view('blogpage', compact('posts'));
     }
     public function singleBlog($slug)

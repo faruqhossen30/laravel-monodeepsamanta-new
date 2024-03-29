@@ -76,6 +76,9 @@
                     </a>
                 @endforeach
             </div>
+            <div class="py-10">
+                {{ $posts->links('pagination::custom') }}
+            </div>
         </div>
     </section>
 

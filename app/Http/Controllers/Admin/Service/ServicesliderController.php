@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin\Service;
 
 use App\Http\Controllers\Controller;
-use App\Models\Admin\Service\Service;
-use App\Models\Admin\Service\ServiceSlider;
+use App\Models\Service\Service;
+use App\Models\Service\ServiceSlider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Image ;
