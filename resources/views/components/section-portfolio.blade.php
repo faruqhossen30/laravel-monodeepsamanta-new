@@ -2,7 +2,7 @@
     use App\Models\Category;
     $categories = Category::get();
 @endphp
-<section class="container mx-auto py-[30px]">
+<section class="container mx-auto px-3 lg:px-0 py-[30px]">
     <div class="flex flex-row items-center justify-between">
         <x-heading.heading-one>
             <x-icon.photo />
@@ -13,7 +13,7 @@
         </x-arrow-link>
     </div>
 </section>
-<section class="hidden lg:block container mx-auto">
+<section class="hidden lg:block container mx-auto px-3 lg:px-0">
     <div class="grid grid-cols-12 gap-4">
         @foreach ($categories as $category)
             <a href="{{ route('portfoliopage', ['category' => $category->slug]) }}"
@@ -43,7 +43,7 @@
 </section>
 
 
-<section class="lg:hidden container mx-auto">
+<section class="lg:hidden container mx-auto px-3 lg:px-0">
     <div id="portfolioSlider" class="owl-carousel owl-theme grid grid-cols-12 gap-4">
         @foreach ($categories as $category)
             <a href="{{ route('portfoliopage', ['category' => $category->slug]) }}"

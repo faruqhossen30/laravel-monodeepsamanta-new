@@ -1,5 +1,5 @@
 
-<section class="container mx-auto py-[30px]">
+<section class="container mx-auto px-3 lg:px-0 py-[30px]">
     <div class="flex flex-row items-center justify-between">
         <x-heading.heading-one>
             <x-icon.lock />
@@ -9,7 +9,7 @@
 </section>
 
 
-<section class="container mx-auto">
+<section class="container mx-auto px-3 lg:px-0">
     <div id="clientSlider" class="grid-cols-12 gap-4 lg:grid owl-carousel">
         <div class="flex justify-center col-span-3 border md:col-span-2">
             <img class="object-center" src="{{ asset('img/client/Group1.jpg') }}" alt="">

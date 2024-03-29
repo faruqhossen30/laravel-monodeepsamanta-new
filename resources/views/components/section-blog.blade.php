@@ -16,7 +16,7 @@
     </div>
 </section>
 
-<section class="container mx-auto">
+<section class="container mx-auto px-3 lg:px-0">
     <div class="hidden lg:grid grid-cols-12 gap-6">
         @foreach ($posts as $post)
             <a href="#" class="col-span-6 lg:col-span-4 overflow-hidden rounded-lg group dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
@@ -35,13 +35,8 @@
         @endforeach
     </div>
 </section>
-
-
-
-
-
 {{-- Blog Slider start --}}
-<div class="block md:hidden">
+<div class="block lg:hidden container px-3 lg:px-0">
     <div id="blogslider" class="grid grid-cols-2 gap-2 owl-carousel owl-theme sm:grid-cols-2 lg:grid-cols-4">
         @foreach ($posts as $post)
             <a class="overflow-hidden rounded-lg group dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
@@ -62,8 +57,4 @@
 
     </div>
 </div>
-{{-- Blog Slider end --}}
 
-
-
-{{-- <div class="h-8 lg:h-24"></div> --}}

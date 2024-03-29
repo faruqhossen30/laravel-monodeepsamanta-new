@@ -1,7 +1,7 @@
 <!-- drawer init and toggle -->
 <div class="text-center">
     <button
-        class="md:hidden overflow-y-auto text-black bg-white hover:bg-bran font-medium rounded-lg text-sm px-2 py-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none "
+        class="md:hidden overflow-y-auto text-black bg-white hover:bg-bran font-medium rounded-lg text-sm py-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none "
         type="button" data-drawer-target="drawer-top-example" data-drawer-show="drawer-top-example"
         data-drawer-placement="top" aria-controls="drawer-top-example">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h10 rotate-180 font-bold">
@@ -26,12 +26,12 @@
     </button>
     <div class="text-white bg-brand px-10 py-20">
         <ul class="list-none space-y-4">
-            <li><a href="#" class="text-2xl font-semibold @if (request()->routeIs('homepage')) text-[#221429] @endif">Home</a></li>
-            <li><a href="#" class="text-2xl font-semibold @if (request()->routeIs('portfoliopage')) text-[#221429] @endif">Portfolio</a></li>
-            <li><a href="#" class="text-2xl font-semibold @if (request()->routeIs('aboutpage')) text-[#221429] @endif">About Me</a></li>
-            <li><a href="#" class="text-2xl font-semibold @if (request()->routeIs('servicepage')) text-[#221429] @endif">Services</a></li>
-            <li><a href="#" class="text-2xl font-semibold @if (request()->routeIs('reviewpage')) text-[#221429] @endif">Reviews</a></li>
-            <li><a href="#" class="text-2xl font-semibold @if (request()->routeIs('blogpage')) text-[#221429] @endif">Blog</a></li>
+            <li><a href="{{route('homepage')}}" class="text-2xl font-semibold @if (request()->routeIs('homepage')) text-[#221429] @endif">Home</a></li>
+            <li><a href="{{route('portfoliopage')}}" class="text-2xl font-semibold @if (request()->routeIs('portfoliopage')) text-[#221429] @endif">Portfolio</a></li>
+            <li><a href="{{route('aboutpage')}}" class="text-2xl font-semibold @if (request()->routeIs('aboutpage')) text-[#221429] @endif">About Me</a></li>
+            <li><a href="{{route('servicepage')}}" class="text-2xl font-semibold @if (request()->routeIs('servicepage')) text-[#221429] @endif">Services</a></li>
+            <li><a href="{{route('reviewpage')}}" class="text-2xl font-semibold @if (request()->routeIs('reviewpage')) text-[#221429] @endif">Reviews</a></li>
+            <li><a href="{{route('blogpage')}}" class="text-2xl font-semibold @if (request()->routeIs('blogpage')) text-[#221429] @endif">Blog</a></li>
           </ul>
     </div>
     <div class="bg-[#221429] px-10 py-20 space-y-6 h-full">

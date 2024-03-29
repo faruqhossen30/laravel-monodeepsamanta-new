@@ -42,7 +42,7 @@
                 items: 3,
                 loop: true,
                 margin: 10,
-                nav: true,
+                nav: false,
                 autoplay: true,
                 slideTransition: 'linear',
                 // autoplayTimeout: 2000,
@@ -77,11 +77,17 @@
                 margin: 10,
                 dots: true
             });
-            $('#blogslider').owlCarousel({
+            $('#serviceslider').owlCarousel({
                 items: 2,
                 loop: true,
                 margin: 10,
                 dots:false
+            });
+            $('#blogslider').owlCarousel({
+                items: 2,
+                loop: true,
+                margin: 10,
+                dots: false
             });
         });
     </script>
