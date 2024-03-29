@@ -58,7 +58,7 @@
         const multiPhtoModaloptions = {
             placement: "top-center",
             backdrop: "static",
-            backdropClasses: "bg-gray-900/50 dark:bg-gray-900/80 fixed inset-0 z-40",
+            // backdropClasses: "bg-gray-900/50 dark:bg-gray-900/80 fixed inset-0 z-40",
             closable: true,
             onHide: () => {
                 $('#multiPhotoModalBoddy').empty();

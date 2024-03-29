@@ -2,8 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Admin\Blog\Software;
-use App\Models\Admin\Product\Category;
+use App\Models\Blog\Software;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 

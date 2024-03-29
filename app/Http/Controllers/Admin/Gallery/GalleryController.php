@@ -37,12 +37,13 @@ class GalleryController extends Controller
     public function store(Request $request)
     {
 
-        // $request->validate( ['thumbnail' => 'required',]);
-
         $imagethumbnail = $request->file('file');
         $extension = $imagethumbnail->getClientOriginalExtension();
         $thumbnailname = Str::uuid() . '.' . $extension;
-        Image::make($imagethumbnail)->save('uploads/galleries/' . $thumbnailname);
+
+        // Image::make($imagethumbnail)->save('uploads/galleries/' . $thumbnailname);
+
+        $request->file('file')->move(public_path('uploads/galleries/'), $thumbnailname);
         $data = ['name'   => $thumbnailname, 'author_id' => Auth::user()->id,'category_id'=> $request->category_id];
 
         Gallery::create($data);

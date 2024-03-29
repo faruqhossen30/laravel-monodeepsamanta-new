@@ -12,7 +12,6 @@ use App\Models\Blog\BlogCategory;
 use App\Models\Blog\BlogSoftware;
 use App\Models\Blog\Software;
 use App\Models\Category;
-use Image;
 
 class BlogController extends Controller
 {

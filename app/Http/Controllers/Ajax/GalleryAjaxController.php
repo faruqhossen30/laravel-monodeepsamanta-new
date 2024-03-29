@@ -20,6 +20,7 @@ class GalleryAjaxController extends Controller
         $thumbnails  = Gallery::when($gallery_category_id, function ($query, $gallery_category_id) {
             return $query->where('category_id', $gallery_category_id);
         })
+            ->latest()
             ->paginate(8);
 
         // $categories = GalleryCategory::get();
@@ -38,6 +39,7 @@ class GalleryAjaxController extends Controller
         $thumbnails  = Gallery::when($gallery_category_id, function ($query, $gallery_category_id) {
             return $query->where('category_id', $gallery_category_id);
         })
+            ->latest()
             ->paginate(8);
 
         // return $request->gallery_category_id;
@@ -55,6 +57,7 @@ class GalleryAjaxController extends Controller
         $thumbnails  = Gallery::when($gallery_category_id, function ($query, $gallery_category_id) {
             return $query->where('category_id', $gallery_category_id);
         })
+            ->latest()
             ->paginate(8);
 
         return view('admin.ajax.gallerymultiphtomodalbody', compact('thumbnails'))->render();
@@ -70,9 +73,9 @@ class GalleryAjaxController extends Controller
         $thumbnails  = Gallery::when($gallery_category_id, function ($query, $gallery_category_id) {
             return $query->where('category_id', $gallery_category_id);
         })
+            ->latest()
             ->paginate(8);
 
         return view('admin.ajax.gallerymultiphtomodalbody', compact('thumbnails'))->render();
     }
-
 }

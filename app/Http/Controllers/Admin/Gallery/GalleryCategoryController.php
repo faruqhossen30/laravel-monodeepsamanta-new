@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin\Gallery;
 
 use App\Http\Controllers\Controller;
-use App\Models\Admin\GalleryCategory;
+use App\Models\GalleryCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;

@@ -13,7 +13,7 @@
 
 <!-- drawer component -->
 <div id="drawer-top-example"
-    class="bg-[#221429] fixed top-0 left-0 right-0 min-h-full z-[100] w-full transition-transform duration-1000 -translate-y-full  dark:bg-gray-800"
+    class="bg-[#221429] fixed top-0 left-0 right-0 min-h-full w-full transition-transform duration-1000 -translate-y-full  dark:bg-gray-800"
     tabindex="-1" aria-labelledby="drawer-top-label">
 
     <button type="button" data-drawer-hide="drawer-top-example" aria-controls="drawer-top-example"

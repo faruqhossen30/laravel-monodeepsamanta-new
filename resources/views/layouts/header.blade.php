@@ -3,7 +3,7 @@
     $reviews = Review::where('status', true)->count();
 @endphp
 
-<header class="sticky top-0 bg-white mynavbar">
+<header class="sticky top-0 bg-white mynavbar z-50">
     <div class="flex container mx-auto items-center justify-between lg:py-2 py-2 px-4 lg:px-0">
         <div class="flex items-center space-x-6 ">
             <a href="{{ route('homepage') }}" class="flex-none text-xl font-semibold dark:text-white">
@@ -101,6 +101,7 @@
         </div>
     </div>
 </header>
+
 
 <section class="hidden md:block  bg-white border-b z-0 px-4 2xlg:px-0">
     <nav class="bg-white flex space-x-6 text-gray-400 container mx-auto">

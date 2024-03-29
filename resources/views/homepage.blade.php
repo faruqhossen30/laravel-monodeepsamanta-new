@@ -2,7 +2,9 @@
 @section('title', 'Dashboard & UX/UI Designer | Home')
 @section('content')
     <x-section-portfolio />
-    <x-section-chat />
+    <div class="py-[30px] pt-8">
+        <x-section-chat />
+    </div>
     <x-section-aboutme />
     <x-section-client />
     <x-section-feature />
@@ -10,12 +12,24 @@
     <x-section-service />
     <x-section-video />
     <x-section-testmonial />
-    <x-section-blog />
+    <div class="py-[30px] pb-8">
+        <x-section-blog />
+    </div>
 @endsection
 
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
+    <style>
+        .owl-item {
+            overflow: hidden;
+        }
+
+        .owl-theme .owl-dots .owl-dot.active span,
+        .owl-theme .owl-dots .owl-dot:hover span {
+            background-color: #FF003A;
+        }
+    </style>
 @endpush
 
 @push('scripts')
@@ -23,6 +37,7 @@
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
     <script>
         $(document).ready(function() {
+            // Client Slider
             $('#clientSlider').owlCarousel({
                 items: 3,
                 loop: true,
@@ -45,6 +60,28 @@
                     },
                 }
 
+            });
+
+            // Portfili slider : Only show on mobile
+            $('#portfolioSlider').owlCarousel({
+                items: 2,
+                center: true,
+                loop: true,
+                margin: 10,
+                dots: false
+            });
+            $('#testmonialSlider').owlCarousel({
+                items: 1,
+                dots: true,
+                loop: true,
+                margin: 10,
+                dots: true
+            });
+            $('#blogslider').owlCarousel({
+                items: 2,
+                loop: true,
+                margin: 10,
+                dots:false
             });
         });
     </script>

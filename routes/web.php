@@ -38,6 +38,7 @@ Route::get('services', [ServicepageController::class, 'index'])->name('servicepa
 Route::get('services/{slug}', [ServicepageController::class, 'singleService'])->name('singleservice');
 Route::get('reviews', [ReviewpageController::class, 'index'])->name('reviewpage');
 Route::get('blogs', [BlogpageController::class, 'index'])->name('blogpage');
+Route::get('blog/slug', [BlogpageController::class, 'singleBlog'])->name('singleblog');
 
 Route::get('/test', function () {
     return view('test');

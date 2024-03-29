@@ -21,17 +21,6 @@
             @endforeach
         </div>
 
-        {{-- <div class="sticky z-30 block bg-white lg:hidden top-16 lg:top-20">
-            <div id="categorySlider" class="w-full py-4 mr-4 space-y-2 text-gray-500 owl-carousel owl-theme">
-                <a href="{{ route('portfoliopage') }}"
-                    class="mb-2 inline-block font-bold border px-6 py-1 rounded  transition @if (!$query) bg-black text-white @endif">All
-                    Capabilities</a>
-                @foreach ($categories as $cat)
-                    <a href="{{ route('portfoliopage', ['category' => $cat->slug]) }}"
-                        class="mb-2 inline-block font-bold border px-6 py-1 rounded  transition @if ($cat->slug == $query) bg-black text-white @endif">{{ $cat->name }}</a>
-                @endforeach
-            </div>
-        </div> --}}
     </section>
 
     <!--Image Gellary Section Start From Here-->

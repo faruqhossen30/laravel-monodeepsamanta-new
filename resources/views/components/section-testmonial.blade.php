@@ -1,5 +1,5 @@
-<div style="background-image: url('/img/world-map.png')" data-aos="fade" data-aos-duration="2000">
-    <div class="mt-6 owl-carousel owl-theme">
+<div style="background-image: url('/img/world-map.png')">
+    <div id="testmonialSlider" class="mt-6 owl-carousel owl-theme">
         <div class="max-w-sm py-10 mx-auto item">
             <h2 class="text-[22px] leading-[28px] font-bold py-4">Pushing My Clothing Brand Through Rain or Shine. He Knows Some Real
                 Magic!</h2>
@@ -10,7 +10,7 @@
             <div class="py-6 rounded-b-xl dark:bg-slate-700">
                 <div class="flex space-x-3">
                     <div class="">
-                        <img class="h-8 w-8 rounded-full sm:h-[2.875rem] sm:w-[2.875rem]"
+                        <img class="h-8 w-8 max-h-8 max-w-8 rounded-full"
                             src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80"
                             alt="Image Description">
                     </div>
@@ -67,7 +67,7 @@
             <div class="py-6 rounded-b-xl dark:bg-slate-700">
                 <div class="flex space-x-3">
                     <div class="">
-                        <img class="h-8 w-8 rounded-full sm:h-[2.875rem] sm:w-[2.875rem]"
+                        <img class="h-8 w-8 max-h-8 max-w-8 rounded-full"
                             src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80"
                             alt="Image Description">
                     </div>
@@ -124,7 +124,7 @@
             <div class="py-6 rounded-b-xl dark:bg-slate-700">
                 <div class="flex space-x-3">
                     <div class="">
-                        <img class="h-8 w-8 rounded-full sm:h-[2.875rem] sm:w-[2.875rem]"
+                        <img class="h-8 w-8 max-h-8 max-w-8 rounded-full"
                             src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80"
                             alt="Image Description">
                     </div>
