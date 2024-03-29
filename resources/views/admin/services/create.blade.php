@@ -23,7 +23,7 @@
                         class=" space-y-1">
                         @csrf
                         <div class="grid grid-cols-12 gap-5">
-                            <div class="col-span-12 lg:col-span-8">
+                            <div class="grid col-span-12 lg:col-span-8">
                                 <x-form.input label="Title" name="title" />
                                 <x-form.select label="Select Category" name="category_id" :data="$categories" />
                                 <x-form.select-status />
@@ -33,11 +33,6 @@
                                     <p class="text-sm text-red-600 mt-2">{{ $message }}</p>
                                 @enderror
 
-                                <x-form.card title="SEO Section" class="my-5">
-                                    <x-form.input label="Meta Title" name="meta_title" />
-                                    <x-form.textarea label="Meta Description" name="meta_description" />
-                                    <x-form.input label="Meta Keyword" name="meta_keyword" />
-                                 </x-form.card>
                             </div>
                             <div class="col-span-12 lg:col-span-4">
 
