@@ -1,4 +1,4 @@
-<div style="background-image: url('/img/world-map.png')">
+<section class="container mx-auto" style="background-image: url('/img/world-map.png')">
     <div id="testmonialSlider" class="mt-6 owl-carousel owl-theme">
         <div class="max-w-sm py-10 mx-auto item">
             <h2 class="text-[22px] leading-[28px] font-bold py-4">Pushing My Clothing Brand Through Rain or Shine. He Knows Some Real
@@ -175,5 +175,5 @@
     <div class="py-12 text-center">
         <a href="{{route('reviewpage')}}" class=" text-primary">You Folks think I'm pretty glad. I'm rated 4.8/5 from 1,730 Customer Reviews</a>
     </div>
-</div>
+</section>
 

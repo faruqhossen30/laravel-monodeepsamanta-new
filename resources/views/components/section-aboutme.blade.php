@@ -1,4 +1,4 @@
-<section class="container mx-auto py-[30px]">
+<section class="container mx-auto px-3 lg:px-0 py-[30px]">
     <div class="flex flex-row items-center justify-between">
         <x-heading.heading-one>
             <svg class="w-6 h-6 text-brand" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -12,7 +12,7 @@
 </section>
 
 
-<section class="container mx-auto">
+<section class="container mx-auto px-3 lg:px-0">
     <div class="grid grid-cols-12 gap-4">
         <div class="order-2 col-span-12 lg:col-span-8 lg:order-1">
             <div class="pr-12 mb-5 space-y-2 text-lg lg:mb-14 md:mb-0" data-aos="fade-up" data-aos-duration="1000">

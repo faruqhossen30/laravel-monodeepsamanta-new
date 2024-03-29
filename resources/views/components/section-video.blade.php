@@ -1,4 +1,4 @@
-<section class="container mx-auto py-[30px]">
+<section class="container mx-auto px-3 lg:px-0 py-[30px]">
     <div class="flex flex-row items-center justify-between">
         <x-heading.heading-one>
             <x-icon.clients />
@@ -10,7 +10,7 @@
     </div>
 </section>
 
-<section class="container mx-auto">
+<section class="container mx-auto px-3 lg:px-0">
     <video controls class="w-full" data-aos="zoom-in" data-aos-duration="1000">
         <source src="{{ asset('testimonial-video.mp4') }}" type="video/mp4">
     </video>
