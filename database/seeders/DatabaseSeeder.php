@@ -24,6 +24,6 @@ class DatabaseSeeder extends Seeder
             ReviewSeeder::class,
             SoftwareSeeder::class,
         ]);
-        \App\Models\User::factory(50)->create();
+        // \App\Models\User::factory(50)->create();
     }
 }

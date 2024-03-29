@@ -28,7 +28,7 @@ class GalleryController extends Controller
     public function create()
     {
         $categories = GalleryCategory::get();
-        return view('admin.gallery.create',compact('categories'));
+        return view('admin.gallery.create', compact('categories'));
     }
 
     /**
@@ -44,7 +44,7 @@ class GalleryController extends Controller
         // Image::make($imagethumbnail)->save('uploads/galleries/' . $thumbnailname);
 
         $request->file('file')->move(public_path('uploads/galleries/'), $thumbnailname);
-        $data = ['name'   => $thumbnailname, 'author_id' => Auth::user()->id,'category_id'=> $request->category_id];
+        $data = ['name'   => $thumbnailname, 'author_id' => Auth::user()->id, 'category_id' => $request->category_id];
 
         Gallery::create($data);
         return redirect()->route('gallery.index');
@@ -79,8 +79,13 @@ class GalleryController extends Controller
      */
     public function destroy(string $id)
     {
-        Gallery::firstWhere('id', $id)->delete();
+        $gallery = Gallery::firstWhere('id', $id);
 
+            $path = 'uploads/galleries/' . $gallery->name;
+            if (file_exists($path)) {
+                unlink($path);
+            }
+            $gallery->delete();
         return redirect()->back();
     }
 }

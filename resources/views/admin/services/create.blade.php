@@ -33,11 +33,17 @@
                                     <p class="text-sm text-red-600 mt-2">{{ $message }}</p>
                                 @enderror
 
+                                <x-form.card title="SEO Section" class="my-5">
+                                    <x-form.input label="Meta Title" name="meta_title" />
+                                    <x-form.textarea label="Meta Description" name="meta_description" />
+                                    <x-form.input label="Meta Keyword" name="meta_keyword" />
+                                 </x-form.card>
                             </div>
                             <div class="col-span-12 lg:col-span-4">
-                                <x-form.input label="Meta Title" name="meta_title" />
-                                <x-form.textarea label="Meta Description" name="meta_description" />
-                                <x-form.input label="Meta Keyword" name="meta_keyword" />
+
+
+
+                                @include('components.form.video-thumbnail')
                                 <x-form.thumbnail-single />
                             </div>
                             <div class="col-span-12 lg:col-span-12">

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Service\Service;
 use App\Models\Service\ServiceFeature;
+use App\Models\Service\ServiceVideo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -58,6 +59,17 @@ class ServiceController extends Controller
         ];
 
         $service = Service::create($data);
+
+
+        if ($service && $request->video_id && $request->pull_zone && $request->resolution) {
+            ServiceVideo::create([
+                'service_id' => $service->id,
+                'video_id'      => $request->video_id,
+                'pull_zone'     => $request->pull_zone,
+                'resolution'    => $request->resolution
+            ]);
+        }
+
 
         if (!empty($request->featuredetails)) {
             $starter  = $request->starter;

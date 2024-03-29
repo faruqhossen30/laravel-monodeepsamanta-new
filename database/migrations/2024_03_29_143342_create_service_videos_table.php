@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('service_videos', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('service_id')->constrained('services')->onDelete('cascade');
+            $table->string('pull_zone');
+            $table->string('video_id');
+            $table->string('resolution');
             $table->timestamps();
         });
     }
