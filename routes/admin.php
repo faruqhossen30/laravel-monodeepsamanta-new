@@ -64,7 +64,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         Route::get('/site-setting', [SiteSettingController::class, 'sitesetting'])->name('sitesetting');
         Route::get('/chat-section', [ChatSectionController::class, 'chatsection'])->name('chatsection');
 
-        Route::get('/website-setting',[WebsiteSettingController::class,'websitesetting'])->name('website.setting');
+        Route::get('/website-setting',[WebsiteSettingController::class,'websitesetting'])->name('website.setting')->middleware(['can:websitesetting']);
         Route::post('/website-setting',[WebsiteSettingController::class,'websitestoresetting'])->name('website.setting.store');
         Route::get('/social-media',[SocialmediaSettingController::class,'socialmedia'])->name('socialmedia.setting');
         Route::post('/social-media/store',[SocialmediaSettingController::class,'socialmediastore'])->name('socialmedia.setting.store');
