@@ -88,7 +88,7 @@
     </div>
 </section>
 {{-- Mobile service slider start --}}
-<div class="md:hidden">
+<div class="md:hidden container mx-auto px-3 lg:px-0">
     <div id="serviceslider" class="grid grid-cols-2 gap-2 owl-carousel owl-theme sm:grid-cols-2 lg:grid-cols-4">
         @foreach ($services as $service)
             <a href="{{ route('singleservice', $service->slug) }}"

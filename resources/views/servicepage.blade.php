@@ -2,7 +2,7 @@
 @section('title', 'Dashboard & UX/UI Designer | Service')
 @section('content')
 
-    <section class="container mx-auto py-[30px]">
+    <section class="container mx-auto px-3 lg:px-0 py-[30px]">
         <div class="flex flex-row items-center justify-between">
             <x-heading.heading-one>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 16 18" fill="none">
@@ -16,7 +16,7 @@
         </div>
     </section>
 
-<section class="container mx-auto">
+<section class="container mx-auto px-3 lg:px-0">
     <div class="grid grid-cols-12 gap-3">
         @foreach ($services as $service)
             <a href="{{ route('singleservice', $service->slug) }}"
@@ -44,15 +44,39 @@
         {{ $services->links('pagination::custom') }}
     </div>
 </section>
-
     <x-section-chat />
     <x-section-portfolio />
-
-    {{-- <div class="py-14"></div> --}}
 @endsection
 
-@push('style')
+
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
+    <style>
+        .owl-item {
+            overflow: hidden;
+        }
+
+        .owl-theme .owl-dots .owl-dot.active span,
+        .owl-theme .owl-dots .owl-dot:hover span {
+            background-color: #FF003A;
+        }
+    </style>
 @endpush
 
-@push('script')
+@push('scripts')
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            // Portfili slider : Only show on mobile
+            $('#portfolioSlider').owlCarousel({
+                items: 2,
+                center: true,
+                loop: true,
+                margin: 10,
+                dots: false
+            });
+        });
+    </script>
 @endpush
