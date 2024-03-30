@@ -36,4 +36,9 @@ class Service extends Model
         public function package(){
             return $this->hasOne(ServicePackage::class);
         }
+
+        public function video()
+        {
+            return $this->hasOne(ServiceVideo::class ,'service_id');
+        }
 }

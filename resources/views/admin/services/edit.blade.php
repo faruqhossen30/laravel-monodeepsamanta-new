@@ -3,7 +3,6 @@
     <x-breadcrumb pageone="Service" pageoneRoute="{{ route('service.index') }}" pagetwo="Create" />
 @endsection
 @section('content')
-
     @if ($errors->any())
         <div class="alert alert-danger">
             <p><strong>Opps Something went wrong</strong></p>
@@ -14,33 +13,87 @@
             </ul>
         </div>
     @endif
-    <div class="bg-white dark:bg-gray-800 dark:text-slate-400 p-2">
+
+    <div class="dark:text-slate-400 p-2">
         <div class="flex flex-col">
             <div class="-m-1.5 overflow-x-auto">
                 <div class="p-1.5 min-w-full inline-block align-middle">
-
-                    <form action="{{ route('service.store') }}" method="POST" enctype="multipart/form-data"
-                        class=" space-y-1">
+                    <form action="{{ route('service.update', $service->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <div class="grid grid-cols-12 gap-5">
-                            <div class="col-span-12 lg:col-span-8">
-                                <x-form.input label="Title" name="title" value="{{$service->title}}" />
-                                <x-form.select label="Select Category" name="category_id" :data="$categories" :id="$service->id" />
+                        @method('PUT')
+                        <div class="grid grid-cols-12 gap-5 ">
+                            <div class="col-span-12 lg:col-span-8 bg-white dark:bg-gray-800 p-4 rounded-lg">
+                                <x-form.input label="Title" name="title" value="{{ $service->title }}" />
+                                <x-form.select label="Select Category" name="category_id" :data="$categories"
+                                    :id="$service->id" />
                                 <x-form.select-status :status="$service->status" />
-                                <br>
-                                <textarea name="description" id="editor" cols="30" rows="10">{{$service->description}}</textarea>
-                                @error('description')
-                                    <p class="text-sm text-red-600 mt-2">{{ $message }}</p>
-                                @enderror
+                                <div>
+                                    <textarea name="description" id="editor" cols="30" rows="10">{{ $service->description }}</textarea>
+                                    @error('description')
+                                        <p class="text-sm text-red-600 mt-2">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                                <div class="pt-8">
+                                    <x-form.card title="SEO Section" class="p-8">
+                                        <x-form.input label="Meta Title" name="meta_title" :value="$service->meta_title" />
+                                        <x-form.textarea label="Meta Description" name="meta_description"
+                                            :value="$service->meta_description" />
+                                        <x-form.input label="Meta Keyword" name="meta_keyword" :value="$service->meta_keyword" />
+                                    </x-form.card>
+                                </div>
 
                             </div>
-                            <div class="col-span-12 lg:col-span-4">
-                                <x-form.input label="Meta Title" name="meta_title" :value="$service->meta_title" />
-                                <x-form.textarea label="Meta Description" name="meta_description" :value="$service->meta_description" />
-                                <x-form.input label="Meta Keyword" name="meta_keyword" :value="$service->meta_keyword" />
-                                <x-form.thumbnail-single :thumbnail="$service->thumbnail"/>
+                            <div class="col-span-12 lg:col-span-4 bg-white dark:bg-gray-800 p-4 rounded-lg">
+
+
+                                @if ($service->video)
+                                    <div>
+                                        @php
+                                            $resolution_data = ['240p', '360p', '480p', '720p', '1080p'];
+                                        @endphp
+                                        <label class="inline-flex items-center me-5 cursor-pointer space-x-2 py-2">
+                                            <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Video
+                                            </span>
+                                            <input type="checkbox" value="" class="sr-only peer" checked disabled>
+                                            <div
+                                                class="relative w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-focus:ring-4 peer-focus:ring-green-300 dark:peer-focus:ring-green-800 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600">
+                                            </div>
+                                        </label>
+
+                                        <x-form.input name="pull_zone" label="Zone" :value="$service->video->pull_zone" />
+                                        <x-form.input name="video_id" label="Video ID" :value="$service->video->video_id" />
+                                        <div class="py-1">
+                                            <label for="resolution" class="text-gray-500 dark:text-gray-500">Video
+                                                Resolution {{ $service->video->resolution }}</label>
+                                            <select name="resolution" id="resolution"
+                                                class="js-example-basic-multiple py-2 px-4 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600">
+                                                <option value="">Select</option>
+                                                <option value="240p" @if ($service->video->resolution == '240p') selected @endif>
+                                                    240p</option>
+                                                <option value="360p" @if ($service->video->resolution == '360p') selected @endif>
+                                                    360p</option>
+                                                <option value="480p" @if ($service->video->resolution == '480p') selected @endif>
+                                                    480p</option>
+                                                <option value="720p" @if ($service->video->resolution == '720p') selected @endif>
+                                                    720p</option>
+                                                <option value="1080p" @if ($service->video->resolution == '1080p') selected @endif>
+                                                    1080p</option>
+                                            </select>
+                                            @error('{{ $resolution }}')
+                                                <p class="text-sm text-red-600 mt-2">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+
+
+                                    </div>
+                                @else
+                                    @include('components.form.video-thumbnail')
+                                @endif
+                                {{-- @include('components.form.video-thumbnail') --}}
+                                <x-form.thumbnail-single :thumbnail="$service->thumbnail" />
                             </div>
-                            <div class="col-span-12 lg:col-span-12">
+
+                            <div class="col-span-12 lg:col-span-12 bg-white  dark:bg-gray-800 p-4 rounded-lg">
                                 <div>
                                     <h4 class="p-2">Servie Featurs Table </h4>
                                     <div>
@@ -105,34 +158,36 @@
                                                         <tbody id="simple-list"
                                                             class="divide-y divide-gray-200 dark:divide-gray-700">
                                                             @foreach ($service->features as $feature)
-                                                            <tr>
-                                                                <input type="hidden" name="featuredetails[]"
-                                                                    value="{{ $feature->feature }}">
-                                                                <input type="hidden" name="starter[]" value="{{ $feature->starter }}">
-                                                                <input type="hidden" name="standard[]"
-                                                                    value="{{ $feature->standard }}">
-                                                                <input type="hidden" name="advanced[]"
-                                                                    value="{{ $feature->advanced }}">
-                                                                <td
-                                                                    class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
-                                                                    #</td>
-                                                                <td
-                                                                    class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
-                                                                    {{ $feature->feature }} </td>
-                                                                <td
-                                                                    class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
-                                                                    {{ $feature->starter }} </td>
-                                                                <td
-                                                                    class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
-                                                                    {{ $feature->standard }} </td>
-                                                                <td
-                                                                    class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200 flex justify-between items-center">
-                                                                    <span class="">{{ $feature->advanced }}</span>
-                                                                    <span
-                                                                        class="bg-red-500 p-1 rounded-full text-white cursor-pointer close-icon">x</span>
-                                                                </td>
-                                                            </tr>
-                                                        @endforeach
+                                                                <tr>
+                                                                    <input type="hidden" name="featuredetails[]"
+                                                                        value="{{ $feature->feature }}">
+                                                                    <input type="hidden" name="starter[]"
+                                                                        value="{{ $feature->starter }}">
+                                                                    <input type="hidden" name="standard[]"
+                                                                        value="{{ $feature->standard }}">
+                                                                    <input type="hidden" name="advanced[]"
+                                                                        value="{{ $feature->advanced }}">
+                                                                    <td
+                                                                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
+                                                                        #</td>
+                                                                    <td
+                                                                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
+                                                                        {{ $feature->feature }} </td>
+                                                                    <td
+                                                                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
+                                                                        {{ $feature->starter }} </td>
+                                                                    <td
+                                                                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
+                                                                        {{ $feature->standard }} </td>
+                                                                    <td
+                                                                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200 flex justify-between items-center">
+                                                                        <span
+                                                                            class="">{{ $feature->advanced }}</span>
+                                                                        <span
+                                                                            class="bg-red-500 p-1 rounded-full text-white cursor-pointer close-icon">x</span>
+                                                                    </td>
+                                                                </tr>
+                                                            @endforeach
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -143,10 +198,9 @@
                             </div>
 
 
-
                         </div>
-
                         @include('admin.inc.modal.photo-gallery')
+                        @include('admin.inc.modal.multi-photo-gallery')
                         <x-form.submit-button />
                     </form>
                 </div>
@@ -154,6 +208,12 @@
         </div>
     </div>
 @endsection
+
+
+
+
+
+
 
 @push('style')
     <script src="{{ asset('js/ckeditor.js') }}"></script>
