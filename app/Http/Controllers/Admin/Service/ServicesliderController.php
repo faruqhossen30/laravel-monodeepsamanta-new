@@ -12,9 +12,9 @@ class ServicesliderController extends Controller
 {
     public function create($id){
 
-        $service = Service::firstWhere('id', $id);
+        $service = Service::with('sliders')->firstWhere('id', $id);
         $photos = ServiceSlider::where('service_id', $id)->get();
-        // return $photos;
+        // return $service;
         return view('admin.services.slider.create', compact('service', 'photos'));
 
     }

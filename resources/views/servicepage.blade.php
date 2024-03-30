@@ -16,34 +16,35 @@
         </div>
     </section>
 
-<section class="container mx-auto px-3 lg:px-0">
-    <div class="grid grid-cols-12 gap-3">
-        @foreach ($services as $service)
-            <a href="{{ route('singleservice', $service->slug) }}"
-                class="col-span-12 p-3 border group md:col-span-6 lg:col-span-4" data-aos="fade" data-aos-duration="2000">
-                <div class="relative overflow-hidden font-bold text-white rounded-md shadow cursor-pointer">
-                    @if ($service->video)
-                        <video autoplay loop muted class="w-full h-full">
-                            <source src="{{ asset('uploads/service/video/' . $service->video) }}" type="video/mp4">
-                        </video>
-                    @else
-                        <img src="{{ asset('uploads/galleries/' . $service->thumbnail) }}"
-                            class="transition duration-500 group-hover:scale-110 group-hover:rotate-3" alt="">
-                    @endif
+    <section class="container mx-auto px-3 lg:px-0">
+        <div class="grid grid-cols-12 gap-3">
+            @foreach ($services as $service)
+                <a href="{{ route('singleservice', $service->slug) }}"
+                    class="col-span-12 p-3 border group md:col-span-6 lg:col-span-4" data-aos="fade"
+                    data-aos-duration="2000">
+                    <div class="relative overflow-hidden font-bold text-white rounded-md shadow cursor-pointer">
+                        @if ($service->video)
+                            <video autoplay loop muted class="w-full h-full">
+                                <source src="{{ video_link($service->video) }}" type="video/mp4">
+                            </video>
+                        @else
+                            <img src="{{ asset('uploads/galleries/' . $service->thumbnail) }}"
+                                class="transition duration-500 group-hover:scale-110 group-hover:rotate-3" alt="">
+                        @endif
 
-                </div>
-                <div class="py-2 mt-5 space-y-1">
-                    <h3 class="text-xl font-bold hover:text-brand">{{ $service->title }}</h3>
-                    <h2 class="text-lg text-brand font-bold">Starting at ${{ $service->package->starter_price ?? '' }}
-                    </h2>
-                </div>
-            </a>
-        @endforeach
-    </div>
-    <div class="py-10">
-        {{ $services->links('pagination::custom') }}
-    </div>
-</section>
+                    </div>
+                    <div class="py-2 mt-5 space-y-1">
+                        <h3 class="text-xl font-bold hover:text-brand">{{ $service->title }}</h3>
+                        <h2 class="text-lg text-brand font-bold">Starting at ${{ $service->package->starter_price ?? '' }}
+                        </h2>
+                    </div>
+                </a>
+            @endforeach
+        </div>
+        <div class="py-10">
+            {{ $services->links('pagination::custom') }}
+        </div>
+    </section>
     <x-section-chat />
     <x-section-portfolio />
 @endsection

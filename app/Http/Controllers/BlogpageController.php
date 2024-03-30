@@ -17,6 +17,6 @@ class BlogpageController extends Controller
     {
         $post = Blog::firstWhere('slug', $slug);
         // return $post;
-        return view('single.blog', compact('post'));
+        return view('single.post', compact('post'));
     }
 }

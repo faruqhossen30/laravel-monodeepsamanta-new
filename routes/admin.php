@@ -46,8 +46,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('portfolio',          PortfolioController::class);
 
 
-    Route::get('service/{id}/delete',[ ServicesliderController::class, 'removeImage'])->name('removesliderimage');
     Route::resource('service',            ServiceController::class);
+    Route::get('service/{id}/delete',[ ServicesliderController::class, 'removeImage'])->name('removesliderimage');
     Route::get('service/{id}/create-faq', [ServicefaqController::class, 'create'])->name('service.faq.create');
     Route::post('service/{id}/create-faq', [ServicefaqController::class, 'store'])->name('service.faq.store');
 

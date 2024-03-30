@@ -170,11 +170,12 @@
         function generatePhotoInput() {
             $('#photosDiv').empty();
             $.each(photos, function(index, value) {
+                console.log('some');
                 $('#photosDiv').append(
                     `
                     <div class="flex items-center justify-between border dark:border-gray-800">
                         <input type="hidden" value="${value}" name="slider[]">
-                        <img src="${window.location.origin}/uploads/galleries/${value}" class="w-10 h-10"
+                        <img src="${window.location.origin}/uploads/galleries/${value}" class="w-14 h-14"
                             alt="Image">
                         <span class="px-4 text-red-500 cursor-pointer" onclick="removePhoto('${value}')">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"

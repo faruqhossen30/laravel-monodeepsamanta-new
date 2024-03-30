@@ -1,6 +1,6 @@
 @php
-    use App\Models\Post\Post;
-    $posts = Post::where('status', true)->latest()->take(5)->get();
+    use App\Models\Blog;
+    $posts = Blog::where('status', true)->latest()->take(5)->get();
 @endphp
 @push('OG')
     @section('OG')
