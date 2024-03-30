@@ -33,6 +33,10 @@ class Service extends Model
             return $this->hasMany(ServiceFaq::class);
         }
 
+        public function sliders(){
+            return $this->hasMany(ServiceSlider::class);
+        }
+
         public function package(){
             return $this->hasOne(ServicePackage::class);
         }

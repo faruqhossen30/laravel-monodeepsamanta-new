@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin\Service;
 
 use App\Http\Controllers\Controller;
-use App\Models\Admin\Service\Service;
-use App\Models\Admin\Service\ServicePackage;
+use App\Models\Service\Service;
+use App\Models\Service\ServicePackage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 

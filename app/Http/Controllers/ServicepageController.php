@@ -13,7 +13,6 @@ class ServicepageController extends Controller
     public function index()
     {
         $services = Service::with('package')->where('status',true)->latest()->paginate(12);
-        // return $services;
         return view('servicepage', compact('services'));
     }
     public function singleService($slug)
