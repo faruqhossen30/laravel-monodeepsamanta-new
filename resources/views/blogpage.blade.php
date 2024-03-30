@@ -1,9 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Dashboard & UX/UI Designer | Blogs')
 @section('content')
-
-
-    <section class="container mx-auto">
+    <section class="container mx-auto px-3 lg:px-0">
         <div class="grid grid-cols-12 py-20">
             <!--FEATURED WORK section start from here-->
             <div class="col-span-7 space-y-4">
@@ -43,7 +41,7 @@
 
 
 
-    <section class="container mx-auto">
+    <section class="container mx-auto px-3 lg:px-0">
         <div class="flex items-center space-x-2 py-2 px-4">
             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
                 fill="none">

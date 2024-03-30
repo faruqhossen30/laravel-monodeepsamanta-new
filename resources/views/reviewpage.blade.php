@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Dashboard & UX/UI Designer | Reviews')
 @section('content')
-    <section class="container mx-auto">
+    <section class="container mx-auto px-3 lg:px-0">
         <div class="flex flex-row items-center justify-between py-3 lg:py-10" data-aos="fade-down" data-aos-duration="1000">
             <div class="flex items-center space-x-2">
                 <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
@@ -18,7 +18,7 @@
         </div>
     </section>
 
-    <section class="container mx-auto">
+    <section class="container mx-auto px-3 lg:px-0">
         @foreach ($reviews as $review)
             <div class="justify-between py-6 md:flex lg:py-12">
                 <div class="flex space-x-3" data-aos="fade-right" data-aos-duration="1000">

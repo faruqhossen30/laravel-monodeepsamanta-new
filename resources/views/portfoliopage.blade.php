@@ -9,8 +9,7 @@
 @section('content')
 
     <x-portfolio.creativework />
-    <section class="container mx-auto">
-
+    <section class="container mx-auto px-3 lg:px-0 py-8">
         <div class=" text-gray-500 space-x-2" data-aos="fade-down" data-aos-duration="1000">
             <a href="{{ route('portfoliopage') }}"
                 class="mb-2 inline-block font-bold border px-6 py-1 rounded  transition @if (!$query) bg-black text-white @endif">All
@@ -23,8 +22,7 @@
 
     </section>
 
-    <!--Image Gellary Section Start From Here-->
-    <div class="container mx-auto">
+    <div class="container mx-auto px-3 lg:px-0">
         <div class="grid grid-cols-12 gap-3 mixingContainer">
             @foreach ($portfolios as $portfolio)
                 <x-portfolio.portfolioitem :portfolio="$portfolio" />
@@ -35,7 +33,6 @@
         </div>
     </div>
     <x-section-chat />
-    {{-- <x-section-service /> --}}
     <x-section-service islink="true" />
     <div class="pb-[20px]"></div>
 @endsection

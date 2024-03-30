@@ -1,4 +1,4 @@
-<footer class="px-4 pb-16 mx-auto bg-black py-28 sm:px-6 lg:px-8 lg:mt-[60px]">
+<footer class="px-4 pb-16 mx-auto bg-black py-28 sm:px-6 lg:px-8 mt-10 lg:mt-[60px]">
     <!-- Grid -->
     <div class="text-center ">
       <div class="flex justify-center">

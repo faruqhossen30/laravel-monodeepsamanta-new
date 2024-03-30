@@ -4,7 +4,7 @@
 
 @endphp
 
-<section class="container mx-auto py-[30px]">
+<section class="container mx-auto px-3 lg:px-0 py-[30px]">
     <div class="flex flex-row items-center justify-between">
         <x-heading.heading-one>
             <x-icon.clients />
@@ -36,7 +36,7 @@
     </div>
 </section>
 {{-- Blog Slider start --}}
-<div class="block lg:hidden container px-3 lg:px-0">
+<div class="block lg:hidden container mx-auto px-3 lg:px-0">
     <div id="blogslider" class="grid grid-cols-2 gap-2 owl-carousel owl-theme sm:grid-cols-2 lg:grid-cols-4">
         @foreach ($posts as $post)
             <a class="overflow-hidden rounded-lg group dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"

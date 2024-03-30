@@ -2,7 +2,7 @@
 @section('title', "Dashboard & UX/UI Designer | {$portfolio->title}")
 @section('content')
 
-    <section class="container mx-auto mb-24 pt-3">
+    <section class="container mx-auto px-3 lg:px-0 mb-24 pt-3">
         <x-h1>{{ $portfolio->title }}</x-h1>
         {{-- <h3 class="lg:-mt-4 text-3xl font-bold">{{ $portfolio->title }}</h3> --}}
         <div class="my-6">
@@ -29,8 +29,8 @@
         </div>
     </section>
 
-    <section class="container mx-auto">
-        <div class="flex justify-between space-y-8 md:space-y-0 py-2">
+    <section class="container mx-auto px-3 lg:px-0">
+        <div class="flex justify-between items-center space-y-8 md:space-y-0 py-2">
             <div class="">
                 @if (isset($portfolio->previous))
                     <p class="text-sm text-gray-400 font-bold mb-1">PREVIOUS PROJECT</p>
