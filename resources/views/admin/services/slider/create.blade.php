@@ -16,9 +16,50 @@
     @endif
 
     <div class="bg-white dark:bg-gray-800 dark:text-slate-400 p-2">
+
+
+
+
+
+
+
+
         <form action="{{ route('service.slider.store', $service->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <x-form.thumbnail-multiple />
+
+
+            <div class="grid grid-cols-12 gap-5 ">
+                <div class="col-span-12 lg:col-span-6 bg-white dark:bg-gray-800 p-4 rounded-lg">
+                    <x-form.thumbnail-multiple  />
+
+                </div>
+                <div class="col-span-12 lg:col-span-6 bg-white dark:bg-gray-800 p-4 rounded-lg">
+                    <div class="py-2">
+                        <button type="button" onclick="showMultiPhotoModal()"
+                            class="py-3 w-full px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-500 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
+                              </svg>
+
+
+                            Video Gallery
+                        </button>
+
+                        <div class="space-y-2 py-2" id="photosDiv">
+
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+
+
+
+            </div>
+
 
 
             <x-form.submit-button title="Update" />
