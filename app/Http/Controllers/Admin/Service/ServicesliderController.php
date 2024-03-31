@@ -7,28 +7,50 @@ use App\Models\Service\Service;
 use App\Models\Service\ServiceSlider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Image ;
+use Image;
+
 class ServicesliderController extends Controller
 {
-    public function create($id){
+    public function create($id)
+    {
 
         $service = Service::with('sliders')->firstWhere('id', $id);
         $photos = ServiceSlider::where('service_id', $id)->get();
         // return $service;
         return view('admin.services.slider.create', compact('service', 'photos'));
-
     }
 
     public function store(Request $request, $id)
     {
         // return $request->all();
+        $request->validate(
+            [
+                'slider' => 'required|array'
+            ],
+            [
+                'slider.required' => 'Image of Video code not found'
+            ]
+        );
 
 
-        foreach($request->slider as $slider){
-            ServiceSlider::create([
-                'service_id'=> $id,
-                'thumbnail'=> $slider,
-            ]);
+        if (!empty($request->slider)) {
+            $old = ServiceSlider::where('service_id', $id)->delete();
+            foreach ($request->slider as $slider) {
+                $is_video = str_contains($slider, 'https://iframe.mediadelivery.net');
+                if ($is_video) {
+                    ServiceSlider::create([
+                        'service_id' => $id,
+                        'video' => $slider,
+                        'thumbnail' => null,
+                    ]);
+                } else {
+                    ServiceSlider::create([
+                        'service_id' => $id,
+                        'thumbnail' => $slider,
+                        'video' => null,
+                    ]);
+                }
+            }
         }
 
 

@@ -43,7 +43,12 @@
     <meta property="og:image" content="https://flowbite-admin-dashboard.vercel.app/images/og-image.png">
     <meta property="og:image:type" content="image/png">
 
-
+<style>
+    #sliderVideoTag{
+        max-width: 50px;
+        max-width: 50px;
+    }
+</style>
 
 
 
