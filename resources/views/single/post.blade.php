@@ -24,8 +24,8 @@
 @section('title', 'Home Page')
 @section('content')
 
-    <article>
-        <aside class="sticky top-36 z-50 pt-14  max-w-[1260px] mx-auto hidden lg:block" data-aos="fade-right"
+    <article class="">
+        <aside class="sticky top-36 z-40 pt-14  container mx-auto hidden lg:block" data-aos="fade-right"
             data-aos-duration="1000">
             <ul class="space-y-2">
                 <li>
@@ -103,13 +103,13 @@
             </div>
         </div>
 
-        <div class=" container mx-auto">
-            <div class="w-11/12 max-w-5xl mx-auto -mt-44" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="container mx-auto">
+            <div class="w-11/12 max-w-6xl mx-auto -mt-44">
                 <img class="rounded-md w-full" src="{{ asset('uploads/galleries/' . $post->thumbnail) }}" alt="">
             </div>
         </div>
 
-        <div class="grid w-11/12 max-w-5xl grid-cols-12 gap-10 px-10 mx-auto my-6 text-sm border rounded-md shadow py-14"
+        <div class="grid w-10/12 max-w-6xl grid-cols-12 gap-10 px-10 mx-auto my-6 text-sm border rounded-md shadow py-14"
             data-aos="fade-right" data-aos-duration="1000">
             <div class="col-span-12 lg:col-span-6">
                 <h2 class="mb-5 font-semibold uppercase ">About This Project</h2>
@@ -139,7 +139,7 @@
             {!! $post->description !!}
         </div>
 
-        <div class="w-11/12 max-w-5xl bg-[#CFE2F3] mx-auto flex flex-col items-center py-10 rounded-lg" data-aos="zoom-in"
+        <div class="w-11/12 max-w-6xl bg-[#CFE2F3] mx-auto flex flex-col items-center py-10 rounded-lg" data-aos="zoom-in"
             data-aos-duration="1000">
             <svg class="w-20 h-20 text-green-500" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                 fill="currentColor" class="bi bi-quote" viewBox="0 0 16 16">
@@ -147,7 +147,7 @@
                     d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z" />
             </svg>
             <div class="py-10 ">
-                <p class="px-10 text-2xl leading-[42px] font-bold text-center max-w-5xl">
+                <p class="px-10 text-2xl leading-[42px] font-bold text-center max-w-6xl">
                     I'm Monodeep Samanat, an award-winning senior UX/UI designer based in London. Over my 15-year career
                     journey in UX/UI design, I've navigated through various challenges and triumphs. Now, I'm excited to
                     share my insights and experiences through articles. Join me as I delve into the dynamic world of UX/UI
@@ -169,19 +169,17 @@
 
 
 
-    <div class="max-w-[1260px] mx-auto">
-        <div class="py-10 text-center">
-            <h1 class="text-3xl font-bold" data-aos="fade-right" data-aos-duration="1000">
+    <div class="container mx-auto">
+        <div class="py-10 mt-14 text-center">
+            <h1 class="text-3xl font-bold" >
                 Related posts
             </h1>
-            <p class="py-4" data-aos="fade-left" data-aos-duration="1000">Check out more blogs and stories.</p>
+            <p class="py-4 text-lg font-normal text-gray-500">Check out more blogs and stories.</p>
         </div>
-        <div class="py-5"></div>
-
         <div id="postSlider"
-            class="grid grid-cols-2 px-4 py-20 lg:px-0 owl-carousel owl-theme sm:grid-cols-2 lg:grid-cols-4 slider">
+            class="grid grid-cols-2 px-4 py-16 lg:px-0 owl-carousel owl-theme sm:grid-cols-2 lg:grid-cols-4 slider">
             @foreach ($posts as $post)
-                <a data-aos="zoom-in" data-aos-duration="1000"
+                <a
                     class="overflow-hidden rounded-lg group dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                     href="{{ route('singleblog', $post->slug) }}">
                     <div class="relative pt-[50%] sm:pt-[70%] rounded-lg overflow-hidden">
@@ -221,6 +219,30 @@
             background-color: #FF003A;
         }
     </style>
+        <style>
+            #postSlider .owl-nav .owl-prev:hover {
+                background-color: transparent !important;
+                color: #FF003A !important;
+            }
+
+            #postSlider .owl-nav .owl-next:hover {
+                background-color: transparent !important;
+                color: #FF003A !important;
+            }
+        </style>
+        <style type="text/css">
+            #postSlider .slider {
+                position: relative;
+                margin: 0 auto;
+            }
+
+            .owl-nav {
+                position: absolute;
+                top: -5%;
+                left: calc(50% - 50px);
+                width: 100px;
+            }
+        </style>
 @endpush
 
 @push('scripts')
@@ -228,11 +250,22 @@
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
     <script>
         $(document).ready(function() {
+
+            const next = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
+                        </svg>
+                        `;
+        const prev = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                        </svg>
+                        `;
+
             $('#postSlider').owlCarousel({
                 items: 3,
                 loop: true,
                 margin: 50,
                 nav: true,
+                dots:false,
                 navText: [next, prev],
                 responsive: {
                     0: {

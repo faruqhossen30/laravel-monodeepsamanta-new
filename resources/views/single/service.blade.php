@@ -13,14 +13,12 @@
                             @foreach ($service->sliders as $key => $slider)
                                 <div class="item mx-auto" data-hash="{{ $key }}" style="width: calc(100% - 50px)">
                                     @if ($slider->video)
-                                        <video controls loop muted class="w-full h-full">
-                                            <source src="{{ asset('uploads/service/video/' . $service->video) }}"
-                                                type="video/mp4">
-                                        </video>
+                                        {!! $slider->video !!}
                                     @else
                                         <a href="{{ asset('uploads/galleries/' . $slider->thumbnail) }}"
                                             class="cwa-lightbox-image" data-desc="{{ $service->title }}">
-                                            <img src="{{ asset('uploads/galleries/' . $slider->thumbnail) }}" class=" h-[495px]" alt="">
+                                            <img src="{{ asset('uploads/galleries/' . $slider->thumbnail) }}"
+                                                class=" h-[495px]" alt="">
                                         </a>
                                     @endif
 
@@ -30,8 +28,14 @@
                         <div class="flex space-x-2 py-2">
                             @foreach ($service->sliders as $key => $slider)
                                 <a href="#{{ $key }}" class="" data-slider="{{ $key }}">
-                                    <img src="{{ asset('uploads/galleries/' . $slider->thumbnail) }}" alt=""
-                                        class="w-32 custompacity sliderlinkimage{{ $key }}">
+                                    @if ($slider->video)
+                                        <img src="{{asset('img/media-player.png')}}" alt=""
+                                            class="w-32 custompacity sliderlinkimage{{ $key }}">
+                                    @else
+                                        <img src="{{ asset('uploads/galleries/' . $slider->thumbnail) }}" alt=""
+                                            class="w-32 custompacity sliderlinkimage{{ $key }}">
+                                    @endif
+
                                 </a>
                             @endforeach
                         </div>
@@ -319,8 +323,8 @@
         }
 
         /* .owl-nav .owl-next span{
-                                                            font-size: 30px;
-                                                        } */
+                                                                font-size: 30px;
+                                                            } */
 
         .owl-nav .owl-prev {
             position: absolute;
@@ -351,6 +355,7 @@
         .custompacity {
             opacity: .2;
         }
+
         .full_description ul {
             list-style: circle;
             margin-left: 30px;
@@ -361,7 +366,6 @@
             line-height: 38px;
             color: #282828;
         }
-
     </style>
 @endpush
 

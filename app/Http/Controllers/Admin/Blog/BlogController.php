@@ -45,6 +45,8 @@ class BlogController extends Controller
                 'short_description'   => 'required',
                 'project_description' => 'required',
                 'description'         => 'required',
+                'description'         => 'required',
+                'status'              => 'required',
             ]
         );
         $data = [
