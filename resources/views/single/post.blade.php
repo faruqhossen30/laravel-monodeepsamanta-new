@@ -22,7 +22,7 @@
 
 @extends('layouts.app')
 @section('title', 'Home Page')
-@section('blog')
+@section('content')
 
 <article>
     <aside class="sticky top-36 z-50 pt-14  max-w-[1260px] mx-auto hidden lg:block" data-aos="fade-right" data-aos-duration="1000">
