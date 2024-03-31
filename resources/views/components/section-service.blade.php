@@ -1,8 +1,6 @@
 @php
     use App\Models\Service\Service;
-    $services = Service::with('package')
-        ->take(6)
-        ->get();
+    $services = Service::with('package')->take(6)->get();
 @endphp
 
 <section class="container mx-auto px-3 lg:px-0 py-[30px]">
@@ -19,80 +17,34 @@
 
 <section class="hidden md:block container mx-auto px-3 lg:px-0">
     <div class="grid-cols-12 gap-3 lg:grid">
-        <a href="#"
-            class="col-span-12 p-3 border group md:col-span-6 lg:col-span-4" data-aos="fade" data-aos-duration="2000">
-            <div class="relative overflow-hidden font-bold text-white rounded-md shadow cursor-pointer">
-                <img src="{{ asset('service.webp') }}"
-                    class="transition duration-500 group-hover:scale-110 group-hover:rotate-3" alt="">
-            </div>
-            <div class="py-2 mt-5 space-y-1">
-                <h3 class="text-xl font-bold hover:text-[#FF003A]">Larave Dashboard Desigh</h3>
-                <h2 class="text-lg text-brand font-bold">Starting at 100 </h2>
-            </div>
-        </a>
-        <a href="#"
-            class="col-span-12 p-3 border group md:col-span-6 lg:col-span-4" data-aos="fade" data-aos-duration="2000">
-            <div class="relative overflow-hidden font-bold text-white rounded-md shadow cursor-pointer">
-                <img src="{{ asset('service.webp') }}"
-                    class="transition duration-500 group-hover:scale-110 group-hover:rotate-3" alt="">
-            </div>
-            <div class="py-2 mt-5 space-y-1">
-                <h3 class="text-xl font-bold hover:text-[#FF003A]">Larave Dashboard Desigh</h3>
-                <h2 class="text-lg text-brand font-bold">Starting at 100 </h2>
-            </div>
-        </a>
-        <a href="#"
-            class="col-span-12 p-3 border group md:col-span-6 lg:col-span-4" data-aos="fade" data-aos-duration="2000">
-            <div class="relative overflow-hidden font-bold text-white rounded-md shadow cursor-pointer">
-                <img src="{{ asset('service.webp') }}"
-                    class="transition duration-500 group-hover:scale-110 group-hover:rotate-3" alt="">
-            </div>
-            <div class="py-2 mt-5 space-y-1">
-                <h3 class="text-xl font-bold hover:text-[#FF003A]">Larave Dashboard Desigh</h3>
-                <h2 class="text-lg text-brand font-bold">Starting at 100 </h2>
-            </div>
-        </a>
-        <a href="#"
-            class="col-span-12 p-3 border group md:col-span-6 lg:col-span-4" data-aos="fade" data-aos-duration="2000">
-            <div class="relative overflow-hidden font-bold text-white rounded-md shadow cursor-pointer">
-                <img src="{{ asset('service.webp') }}"
-                    class="transition duration-500 group-hover:scale-110 group-hover:rotate-3" alt="">
-            </div>
-            <div class="py-2 mt-5 space-y-1">
-                <h3 class="text-xl font-bold hover:text-[#FF003A]">Larave Dashboard Desigh</h3>
-                <h2 class="text-lg text-brand font-bold">Starting at 100 </h2>
-            </div>
-        </a>
-        <a href="#"
-            class="col-span-12 p-3 border group md:col-span-6 lg:col-span-4" data-aos="fade" data-aos-duration="2000">
-            <div class="relative overflow-hidden font-bold text-white rounded-md shadow cursor-pointer">
-                <img src="{{ asset('service.webp') }}"
-                    class="transition duration-500 group-hover:scale-110 group-hover:rotate-3" alt="">
-            </div>
-            <div class="py-2 mt-5 space-y-1">
-                <h3 class="text-xl font-bold hover:text-[#FF003A]">Larave Dashboard Desigh</h3>
-                <h2 class="text-lg text-brand font-bold">Starting at 100 </h2>
-            </div>
-        </a>
-        <a href="#"
-            class="col-span-12 p-3 border group md:col-span-6 lg:col-span-4" data-aos="fade" data-aos-duration="2000">
-            <div class="relative overflow-hidden font-bold text-white rounded-md shadow cursor-pointer">
-                <img src="{{ asset('service.webp') }}"
-                    class="transition duration-500 group-hover:scale-110 group-hover:rotate-3" alt="">
-            </div>
-            <div class="py-2 mt-5 space-y-1">
-                <h3 class="text-xl font-bold hover:text-[#FF003A]">Larave Dashboard Desigh</h3>
-                <h2 class="text-lg text-brand font-bold">Starting at 100 </h2>
-            </div>
-        </a>
+        @foreach ($services as $service)
+            <a href="#" class="col-span-12 p-3 border group md:col-span-6 lg:col-span-4" data-aos="fade"
+                data-aos-duration="2000">
+                <div class="relative overflow-hidden font-bold text-white rounded-md shadow cursor-pointer">
+                    @if ($service->video)
+                        <video autoplay loop muted class="w-full h-full">
+                            <source src="{{ video_link($service->video) }}" type="video/mp4">
+                        </video>
+                    @else
+                        <img src="{{ asset('uploads/galleries/' . $service->thumbnail) }}"
+                            class="transition duration-500 group-hover:scale-110 group-hover:rotate-3" alt="">
+                    @endif
+                </div>
+                <div class="py-2 mt-5 space-y-1">
+                    <h3 class="text-xl font-bold hover:text-[#FF003A]">Larave Dashboard Desigh</h3>
+                    <h2 class="text-lg text-brand font-bold">Starting at 100 </h2>
+                </div>
+            </a>
+        @endforeach
+
     </div>
 </section>
 {{-- Mobile service slider start --}}
 <div class="md:hidden container mx-auto px-3 lg:px-0">
     <div id="serviceslider" class="grid grid-cols-2 gap-2 owl-carousel owl-theme sm:grid-cols-2 lg:grid-cols-4">
         @foreach ($services as $service)
-            <a href="{{ route('singleservice', $service->slug) }}"
-                class="col-span-12 p-3 md:col-span-6 lg:col-span-4" data-aos="fade" data-aos-duration="2000">
+            <a href="{{ route('singleservice', $service->slug) }}" class="col-span-12 p-3 md:col-span-6 lg:col-span-4"
+                data-aos="fade" data-aos-duration="2000">
                 <div class="relative overflow-hidden font-bold text-white rounded-md shadow cursor-pointer">
                     <img src="{{ asset('uploads/galleries/' . $service->thumbnail) }}"
                         class="transition duration-500 group-hover:scale-110 group-hover:rotate-3" alt="">
