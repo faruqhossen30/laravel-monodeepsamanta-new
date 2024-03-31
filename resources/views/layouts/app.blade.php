@@ -60,7 +60,7 @@
     @stack('styles')
 </head>
 
-<body class="bg-gray-50 dark:bg-gray-900">
+<body class="bg-white dark:bg-gray-900">
 
     @include('layouts.header')
     @yield('content')

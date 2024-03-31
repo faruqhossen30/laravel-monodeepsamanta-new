@@ -34,7 +34,7 @@
 
                     </div>
                     <div class="py-2 mt-5 space-y-1">
-                        <h3 class="text-xl font-bold hover:text-brand">{{ $service->title }}</h3>
+                        <h3 class="text-2xl font-bold hover:text-brand">{{ $service->title }}</h3>
                         <h2 class="text-lg text-brand font-bold">Starting at ${{ $service->package->starter_price ?? '' }}
                         </h2>
                     </div>

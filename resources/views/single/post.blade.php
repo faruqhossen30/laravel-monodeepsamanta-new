@@ -24,62 +24,30 @@
 @section('title', 'Home Page')
 @section('content')
 
-<article>
-    <aside class="sticky top-36 z-50 pt-14  max-w-[1260px] mx-auto hidden lg:block" data-aos="fade-right" data-aos-duration="1000">
-        <ul class="space-y-2">
-            <li>
-                <a href="https://www.facebook.com/sharer/sharer.php?u={{ route('singleblog', $post->slug) }}"
-                    class="inline-flex items-center p-4 text-sm font-medium text-center text-white bg-gray-100 rounded-full me-2">
-                    <img src="{{ asset('img/icon/facebook-app-symbol.png') }}" class="w-4" alt="">
-                </a>
-
-            </li>
-            <li>
-                <a href="https://twitter.com/intent/tweet?url={{ route('singleblog', $post->slug) }}"
-                    class="inline-flex items-center p-4 text-sm font-medium text-center text-white bg-gray-100 rounded-full me-2">
-                    <svg class="text-black" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                        fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
-                        <path
-                            d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15" />
-                    </svg>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ route('singleblog', $post->slug) }}"
-                    class="inline-flex items-center p-4 text-sm font-medium text-center text-white bg-gray-100 rounded-full me-2">
-                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                        viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;">
-                        <circle cx="4.983" cy="5.009" r="2.188"></circle>
-                        <path
-                            d="M9.237 8.855v12.139h3.769v-6.003c0-1.584.298-3.118 2.262-3.118 1.937 0 1.961 1.811 1.961 3.218v5.904H21v-6.657c0-3.27-.704-5.783-4.526-5.783-1.835 0-3.065 1.007-3.568 1.96h-.051v-1.66H9.237zm-6.142 0H6.87v12.139H3.095z">
-                        </path>
-                    </svg>
-                </a>
-            </li>
-        </ul>
-    </aside>
-
-    <div class="lg:-mt-[216px] ">
-        <div class=" bg-[#CFE2F3] py-10 w-full pb-60">
-            <div class="flex justify-center space-y-3 text-center lg:text-right lg:hidden">
-                <div class="py-2 lg:py-0">
+    <article>
+        <aside class="sticky top-36 z-50 pt-14  max-w-[1260px] mx-auto hidden lg:block" data-aos="fade-right"
+            data-aos-duration="1000">
+            <ul class="space-y-2">
+                <li>
                     <a href="https://www.facebook.com/sharer/sharer.php?u={{ route('singleblog', $post->slug) }}"
-                        class="inline-flex items-center p-4 text-sm font-medium text-center text-white bg-white rounded-full me-2">
+                        class="inline-flex items-center p-4 text-sm font-medium text-center text-white bg-gray-100 rounded-full me-2">
                         <img src="{{ asset('img/icon/facebook-app-symbol.png') }}" class="w-4" alt="">
                     </a>
 
+                </li>
+                <li>
                     <a href="https://twitter.com/intent/tweet?url={{ route('singleblog', $post->slug) }}"
-                        class="inline-flex items-center p-4 text-sm font-medium text-center text-white bg-white rounded-full me-2">
+                        class="inline-flex items-center p-4 text-sm font-medium text-center text-white bg-gray-100 rounded-full me-2">
                         <svg class="text-black" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                             fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
                             <path
                                 d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15" />
                         </svg>
                     </a>
-
-
+                </li>
+                <li>
                     <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ route('singleblog', $post->slug) }}"
-                        class="inline-flex items-center p-4 text-sm font-medium text-center text-white bg-white rounded-full me-2">
+                        class="inline-flex items-center p-4 text-sm font-medium text-center text-white bg-gray-100 rounded-full me-2">
                         <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                             viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;">
                             <circle cx="4.983" cy="5.009" r="2.188"></circle>
@@ -88,23 +56,61 @@
                             </path>
                         </svg>
                     </a>
+                </li>
+            </ul>
+        </aside>
 
+        <div class="lg:-mt-[216px] ">
+            <div class=" bg-[#CFE2F3] py-10 w-full pb-60">
+                <div class="flex justify-center space-y-3 text-center lg:text-right lg:hidden">
+                    <div class="py-2 lg:py-0">
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ route('singleblog', $post->slug) }}"
+                            class="inline-flex items-center p-4 text-sm font-medium text-center text-white bg-white rounded-full me-2">
+                            <img src="{{ asset('img/icon/facebook-app-symbol.png') }}" class="w-4" alt="">
+                        </a>
+
+                        <a href="https://twitter.com/intent/tweet?url={{ route('singleblog', $post->slug) }}"
+                            class="inline-flex items-center p-4 text-sm font-medium text-center text-white bg-white rounded-full me-2">
+                            <svg class="text-black" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                                <path
+                                    d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15" />
+                            </svg>
+                        </a>
+
+
+                        <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ route('singleblog', $post->slug) }}"
+                            class="inline-flex items-center p-4 text-sm font-medium text-center text-white bg-white rounded-full me-2">
+                            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;">
+                                <circle cx="4.983" cy="5.009" r="2.188"></circle>
+                                <path
+                                    d="M9.237 8.855v12.139h3.769v-6.003c0-1.584.298-3.118 2.262-3.118 1.937 0 1.961 1.811 1.961 3.218v5.904H21v-6.657c0-3.27-.704-5.783-4.526-5.783-1.835 0-3.065 1.007-3.568 1.96h-.051v-1.66H9.237zm-6.142 0H6.87v12.139H3.095z">
+                                </path>
+                            </svg>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div class="mx-auto mt-12">
+                    <h1 class=" font-bold text-3xl lg:text-[40px] leading-[48px] text[#0b0c0d] max-w-4xl mx-auto text-center mb-10"
+                        data-aos="fade-down" data-aos-duration="1000">
+                        {{ $post->title }}</h1>
+                    <p class="max-w-xl mx-auto text-center leading-7 text-[#0b0c0d]" data-aos="fade-up"
+                        data-aos-duration="1000">{{ $post->short_description }}</p>
                 </div>
             </div>
+        </div>
 
-            <div class="mx-auto mt-12">
-                <h1 class=" font-bold text-3xl lg:text-[40px] leading-[48px] text[#0b0c0d] max-w-4xl mx-auto text-center mb-10" data-aos="fade-down" data-aos-duration="1000">
-                    {{ $post->title }}</h1>
-                <p class="max-w-xl mx-auto text-center leading-7 text-[#0b0c0d]" data-aos="fade-up" data-aos-duration="1000">{{ $post->short_description }}</p>
+        <div class=" container mx-auto">
+            <div class="w-11/12 max-w-5xl mx-auto -mt-44" data-aos="zoom-in" data-aos-duration="1000">
+                <img class="rounded-md w-full" src="{{ asset('uploads/galleries/' . $post->thumbnail) }}" alt="">
             </div>
         </div>
-        </div>
 
-        <div class="w-11/12 max-w-5xl mx-auto -mt-44" data-aos="zoom-in" data-aos-duration="1000">
-            <img class="rounded-md" src="{{ asset('uploads/post/' . $post->thumbnail) }}" alt="">
-        </div>
-
-        <div class="grid w-11/12 max-w-5xl grid-cols-12 gap-10 px-10 mx-auto my-6 text-sm border rounded-md shadow py-14" data-aos="fade-right" data-aos-duration="1000">
+        <div class="grid w-11/12 max-w-5xl grid-cols-12 gap-10 px-10 mx-auto my-6 text-sm border rounded-md shadow py-14"
+            data-aos="fade-right" data-aos-duration="1000">
             <div class="col-span-12 lg:col-span-6">
                 <h2 class="mb-5 font-semibold uppercase ">About This Project</h2>
                 <p class="font-normal text-[16px] leading-[26px]">{{ $post->project_description }}</p>
@@ -133,7 +139,8 @@
             {!! $post->description !!}
         </div>
 
-        <div class="w-11/12 max-w-5xl bg-[#CFE2F3] mx-auto flex flex-col items-center py-10 rounded-lg" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="w-11/12 max-w-5xl bg-[#CFE2F3] mx-auto flex flex-col items-center py-10 rounded-lg" data-aos="zoom-in"
+            data-aos-duration="1000">
             <svg class="w-20 h-20 text-green-500" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                 fill="currentColor" class="bi bi-quote" viewBox="0 0 16 16">
                 <path
@@ -141,7 +148,10 @@
             </svg>
             <div class="py-10 ">
                 <p class="px-10 text-2xl leading-[42px] font-bold text-center max-w-5xl">
-                    I'm Monodeep Samanat, an award-winning senior UX/UI designer based in London. Over my 15-year career journey in UX/UI design, I've navigated through various challenges and triumphs. Now, I'm excited to share my insights and experiences through articles. Join me as I delve into the dynamic world of UX/UI design.
+                    I'm Monodeep Samanat, an award-winning senior UX/UI designer based in London. Over my 15-year career
+                    journey in UX/UI design, I've navigated through various challenges and triumphs. Now, I'm excited to
+                    share my insights and experiences through articles. Join me as I delve into the dynamic world of UX/UI
+                    design.
                 </p>
             </div>
             <div class="flex flex-col items-center py-10 font-bold">
@@ -153,9 +163,9 @@
 
 
 
-    </div>
+        </div>
 
-</article>
+    </article>
 
 
 
@@ -176,7 +186,7 @@
                     href="{{ route('singleblog', $post->slug) }}">
                     <div class="relative pt-[50%] sm:pt-[70%] rounded-lg overflow-hidden">
                         <img class="absolute top-0 object-cover w-full h-full transition-transform duration-500 ease-in-out rounded-lg start-0 group-hover:scale-105"
-                            src="{{ asset('uploads/post/' . $post->thumbnail) }}" alt="Image Description">
+                            src="{{ asset('uploads/galleries/' . $post->thumbnail) }}" alt="Image Description">
                     </div>
 
                     <div class="mt-7">
@@ -198,7 +208,52 @@
 
 @endsection
 
-@push('style')
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
+    <style>
+        .owl-item {
+            overflow: hidden;
+        }
+
+        .owl-theme .owl-dots .owl-dot.active span,
+        .owl-theme .owl-dots .owl-dot:hover span {
+            background-color: #FF003A;
+        }
+    </style>
+@endpush
+
+@push('scripts')
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#postSlider').owlCarousel({
+                items: 3,
+                loop: true,
+                margin: 50,
+                nav: true,
+                navText: [next, prev],
+                responsive: {
+                    0: {
+                        items: 1,
+                    },
+                    768: {
+                        items: 2,
+                    },
+                    1200: {
+                        items: 3,
+                    },
+                }
+
+            });
+        });
+    </script>
+@endpush
+
+
+
+{{-- @push('style')
     <style>
         #postSlider .owl-nav .owl-prev:hover {
             background-color: transparent !important;
@@ -226,4 +281,4 @@
 @endpush
 
 @push('style')
-@endpush
+@endpush --}}

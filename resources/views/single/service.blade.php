@@ -8,31 +8,33 @@
                 <x-h1>{{ $service->title }}</x-h1>
                 {{-- Slider Start --}}
                 @if ($service->sliders->count())
-                    <div id="singleServiceCarousel" class="owl-carousel owl-theme slider bg-gray-100 mx-5">
-                        @foreach ($service->sliders as $key => $slider)
-                            <div class="item mx-auto" data-hash="{{ $key }}" style="width: calc(100% - 50px)">
-                                @if ($slider->video)
-                                    <video controls loop muted class="w-full h-full">
-                                        <source src="{{ asset('uploads/service/video/' . $service->video) }}"
-                                            type="video/mp4">
-                                    </video>
-                                @else
-                                    <a href="{{ asset('uploads/galleries/' . $slider->thumbnail) }}"
-                                        class="cwa-lightbox-image" data-desc="{{ $service->title }}">
-                                        <img src="{{ asset('uploads/galleries/' . $slider->thumbnail) }}" alt="">
-                                    </a>
-                                @endif
+                    <div class="pt-4">
+                        <div id="singleServiceCarousel" class="owl-carousel owl-theme slider bg-gray-100 mx-5">
+                            @foreach ($service->sliders as $key => $slider)
+                                <div class="item mx-auto" data-hash="{{ $key }}" style="width: calc(100% - 50px)">
+                                    @if ($slider->video)
+                                        <video controls loop muted class="w-full h-full">
+                                            <source src="{{ asset('uploads/service/video/' . $service->video) }}"
+                                                type="video/mp4">
+                                        </video>
+                                    @else
+                                        <a href="{{ asset('uploads/galleries/' . $slider->thumbnail) }}"
+                                            class="cwa-lightbox-image" data-desc="{{ $service->title }}">
+                                            <img src="{{ asset('uploads/galleries/' . $slider->thumbnail) }}" class=" h-[495px]" alt="">
+                                        </a>
+                                    @endif
 
-                            </div>
-                        @endforeach
-                    </div>
-                    <div class="flex space-x-2 py-2">
-                        @foreach ($service->sliders as $key => $slider)
-                            <a href="#{{ $key }}" class="" data-slider="{{ $key }}">
-                                <img src="{{ asset('uploads/galleries/' . $slider->thumbnail) }}" alt=""
-                                    class="w-32 custompacity sliderlinkimage{{ $key }}">
-                            </a>
-                        @endforeach
+                                </div>
+                            @endforeach
+                        </div>
+                        <div class="flex space-x-2 py-2">
+                            @foreach ($service->sliders as $key => $slider)
+                                <a href="#{{ $key }}" class="" data-slider="{{ $key }}">
+                                    <img src="{{ asset('uploads/galleries/' . $slider->thumbnail) }}" alt=""
+                                        class="w-32 custompacity sliderlinkimage{{ $key }}">
+                                </a>
+                            @endforeach
+                        </div>
                     </div>
                 @endif
                 {{-- Package Tab Only for mobile --}}
@@ -349,6 +351,17 @@
         .custompacity {
             opacity: .2;
         }
+        .full_description ul {
+            list-style: circle;
+            margin-left: 30px;
+            list-style-image: url("/img/check.png");
+        }
+
+        .full_description ul li {
+            line-height: 38px;
+            color: #282828;
+        }
+
     </style>
 @endpush
 
