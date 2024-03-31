@@ -77,14 +77,15 @@
     </script>
 
     <script>
-
-
         $(document).on('click', '#modalInsertVideoButton', function() {
-           let iframe = $('textarea[name="iframe"]').val();
-           photos.push(iframe);
-           console.log(photos);
-           generatePhotoInput();
-        });
+            let iframe = $('textarea[name="iframe"]').val();
+            photos.push(iframe);
+            console.log(photos);
+            generatePhotoInput();
+            var addVideoModalObject = new Modal(addVideoModal, addVideoModaloptions);
+            addVideoModalObject.hide();
+            $('textarea[name="iframe"]').val('')
 
+        });
     </script>
 @endprepend

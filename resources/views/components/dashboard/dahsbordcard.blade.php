@@ -8,8 +8,8 @@ class="w-full h-full bg-white shadow-md rounded-lg py-2 px-4 dark:bg-gray-800 bo
           </svg>
     </div>
     <div class="flex-shrink-0">
-        <h3 class="block text-lg font-normal text-gray-800 dark:text-gray-200">123</h3>
-        <h6 class="font-normal ext-gray-800 dark:text-gray-200">Demo</h6>
+        <h3 class="block text-lg font-normal text-gray-800 dark:text-gray-200">{{$data ?? ''}}</h3>
+        <h6 class="font-normal ext-gray-800 dark:text-gray-200">{{$title ?? 'N/A'}}</h6>
     </div>
 </div>
 </div>
