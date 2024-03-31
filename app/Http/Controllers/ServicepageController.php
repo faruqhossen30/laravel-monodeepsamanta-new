@@ -12,7 +12,7 @@ class ServicepageController extends Controller
 {
     public function index()
     {
-        $services = Service::with('package','video')->where('status',true)->latest()->paginate(12);
+        $services = Service::with('package','video')->where('status',true)->paginate(12);
         // return $services;
         return view('servicepage', compact('services'));
     }

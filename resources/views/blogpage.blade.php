@@ -2,9 +2,9 @@
 @section('title', 'Dashboard & UX/UI Designer | Blogs')
 @section('content')
     <section class="container mx-auto px-3 lg:px-0">
-        <div class="grid grid-cols-12 py-20">
+        <div class="grid grid-cols-12 py-20 space-y-8 lg:space-y-0">
             <!--FEATURED WORK section start from here-->
-            <div class="col-span-7 space-y-4">
+            <div class="col-span-12 lg:col-span-7 gap-10 space-y-4">
                 <div class="pb-5">
                     <x-h1>
                         <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
@@ -28,7 +28,7 @@
                     vibrant UI/UX design blog community.</p>
             </div>
             <!--FEATURED WORK section End from here-->
-            <div class="col-span-5">
+            <div class="col-span-12 lg:col-span-5">
                 <div style="position:relative;padding-top:56.25%;"><iframe
                         src="https://iframe.mediadelivery.net/embed/223687/f270e63c-dbb6-46ce-8936-4e407cd9bffa?autoplay=true&loop=true&muted=true&preload=false&responsive=true"
                         loading="lazy" style="border:0;position:absolute;top:0;height:100%;width:100%;"

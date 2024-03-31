@@ -5,7 +5,10 @@
     <section class="container mx-auto">
         <div class="grid grid-cols-12 gap-1 pt-3">
             <div class="col-span-12 lg:col-span-8 lg:pr-10">
-                <x-h1>{{ $service->title }}</x-h1>
+                <x-heading.heading-one>
+                    <x-h1>{{ $service->title }}</x-h1>
+                </x-heading.heading-one>
+
                 {{-- Slider Start --}}
                 @if ($service->sliders->count())
                     <div class="pt-4">
