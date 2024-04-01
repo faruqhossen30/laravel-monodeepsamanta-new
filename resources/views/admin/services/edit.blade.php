@@ -25,10 +25,10 @@
                             <div class="col-span-12 lg:col-span-8 bg-white dark:bg-gray-800 p-4 rounded-lg">
                                 <x-form.input label="Title" name="title" value="{{ $service->title }}" />
                                 <x-form.select label="Select Category" name="category_id" :data="$categories"
-                                    :id="$service->id" />
+                                    :id="$service->category_id" />
                                 <x-form.select-status :status="$service->status" />
                                 <div>
-                                    <textarea name="description" id="editor" cols="30" rows="10">{{ $service->description }}</textarea>
+                                    <textarea name="description" class="ckeditor" id="editor" cols="30" rows="10">{{ $service->description }}</textarea>
                                     @error('description')
                                         <p class="text-sm text-red-600 mt-2">{{ $message }}</p>
                                     @enderror
@@ -216,34 +216,14 @@
 
 
 @push('style')
-    <script src="{{ asset('js/ckeditor.js') }}"></script>
-    <link rel="stylesheet" href="{{ asset('css/ckeditor.css') }}">
-    {{-- <link rel="stylesheet" href="{{ asset('css/dropify.min.css') }}"> --}}
-    <style>
-        .ck-editor__editable_inline {
-            height: 300px;
-        }
+<script src="{{asset('ckeditor/ckeditor.js')}}"></script>
 
-        .dropify-message p {
-            font-size: 24px
-        }
-    </style>
 @endpush
 
 @push('script')
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="{{ asset('plugin/Sortable.min.js') }}"></script>
     <script src="{{ asset('js/sortablejs.js') }}"></script>
-    {{-- <script src="{{ asset('js/dropify.min.js') }}"></script> --}}
-    <script>
-        ClassicEditor
-            .create(document.querySelector('#editor'))
-            .catch(error => {
-                console.error(error);
-            });
-    </script>
-
-
     <script>
         $(document).ready(function() {
             let num = 0;

@@ -31,7 +31,7 @@
                                 </div>
                                 <x-form.select-status />
 
-                                <textarea name="description" id="editor" cols="30" rows="10"></textarea>
+                                <textarea name="description"  class="ckeditor" id="editor" cols="30" rows="10"></textarea>
                                 @error('description')
                                     <p class="text-sm text-red-600 mt-2">{{ $message }}</p>
                                 @enderror
@@ -91,17 +91,9 @@
     </div>
 @endsection
 @push('styles')
-    <script src="{{ asset('js/ckeditor.js') }}"></script>
-    <link rel="stylesheet" href="{{ asset('css/ckeditor.css') }}">
+<script src="{{asset('ckeditor/ckeditor.js')}}"></script>
     <link rel="stylesheet" href="{{ asset('css/dropify.min.css') }}">
-    <style>
-        .ck-editor__editable_inline {
-            height: 300px;
-        }
 
-        .dropify-message p {
-            font-size: 24px
-        }
     </style>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 @endpush

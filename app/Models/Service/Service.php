@@ -43,6 +43,6 @@ class Service extends Model
 
         public function video()
         {
-            return $this->hasOne(ServiceVideo::class ,'service_id');
+            return $this->hasOne(ServiceVideo::class, 'service_id');
         }
-}
+    }

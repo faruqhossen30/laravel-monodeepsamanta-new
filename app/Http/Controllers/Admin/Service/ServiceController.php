@@ -105,11 +105,11 @@ class ServiceController extends Controller
      */
     public function edit(string $id)
     {
-        $service = Service::with('features', 'video')->firstWhere('id', $id);
+        $service = Service::with('video','features')->firstWhere('id', $id);
         $categories = Category::get();
 
         // return $service;
-        // return gettype($service->video);
+        // return $service->video;
         return view('admin.services.edit', compact('service', 'categories'));
     }
 
@@ -154,25 +154,25 @@ class ServiceController extends Controller
         }
 
 
-        if (!empty($request->featuredetails)) {
-            $starter  = $request->starter;
-            $standard = $request->standard;
-            $advanced = $request->advanced;
+        // if (!empty($request->featuredetails)) {
+        //     $starter  = $request->starter;
+        //     $standard = $request->standard;
+        //     $advanced = $request->advanced;
 
-            foreach ($request->featuredetails as  $index => $feature) {
-                ServiceFeature::updateOrInsert([
-                    'service_id' => $service->id,
-                ], [
+        //     foreach ($request->featuredetails as  $index => $feature) {
+        //         ServiceFeature::updateOrInsert([
+        //             'service_id' => $service->id,
+        //         ], [
 
 
-                    'service_id' => $service->id,
-                    'feature'    => $feature,
-                    'starter'    => $starter[$index],
-                    'standard'   => $standard[$index],
-                    'advanced'   => $advanced[$index]
-                ]);
-            }
-        }
+        //             'service_id' => $service->id,
+        //             'feature'    => $feature,
+        //             'starter'    => $starter[$index],
+        //             'standard'   => $standard[$index],
+        //             'advanced'   => $advanced[$index]
+        //         ]);
+        //     }
+        // }
 
 
         Session::flash('create');

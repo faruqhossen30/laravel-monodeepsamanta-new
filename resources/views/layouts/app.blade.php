@@ -46,6 +46,9 @@
         * {
             font-family: "Roboto Flex", Sans-serif
         }
+        li::marker {
+            color: black !important;
+        }
     </style>
 
     <script>

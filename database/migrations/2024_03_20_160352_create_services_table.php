@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('slug');
             $table->longText('description');
             $table->string('thumbnail')->nullable();
-            $table->string('video')->nullable();
             $table->unsignedBigInteger('category_id')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->string('meta_title')->nullable();
