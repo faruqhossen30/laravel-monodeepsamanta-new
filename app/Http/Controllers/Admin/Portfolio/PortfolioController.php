@@ -19,6 +19,10 @@ class PortfolioController extends Controller
      */
     public function index()
     {
+
+        if(!Auth::user()->can('protfolio list')){
+            abort(403);
+        }
         $portfolios = Portfolio::latest()->paginate(10);
         return view('admin.portfolio.index', compact('portfolios'));
     }
@@ -28,6 +32,10 @@ class PortfolioController extends Controller
      */
     public function create()
     {
+
+        if(!Auth::user()->can('protfolio create')){
+            abort(403);
+        }
         $categories = Category::get();
         return view('admin.portfolio.create', compact('categories'));
     }
@@ -87,7 +95,9 @@ class PortfolioController extends Controller
      */
     public function show(string $id)
     {
-        //
+        if(!Auth::user()->can('protfolio show')){
+            abort(403);
+        }
     }
 
     /**
@@ -95,6 +105,10 @@ class PortfolioController extends Controller
      */
     public function edit(string $id)
     {
+
+        if(!Auth::user()->can('protfolio update')){
+            abort(403);
+        }
         $categories = Category::get();
         $portfolio  = Portfolio::with('video')->firstWhere('id', $id);
 
@@ -107,6 +121,10 @@ class PortfolioController extends Controller
      */
     public function update(Request $request, string $id)
     {
+
+        if(!Auth::user()->can('protfolio update')){
+            abort(403);
+        }
         $request->validate([
             'title' => 'required'
         ]);
@@ -148,6 +166,10 @@ class PortfolioController extends Controller
     public function destroy(string $id)
     {
 
+
+        if(!Auth::user()->can('protfolio delete')){
+            abort(403);
+        }
         Portfolio::firstWhere('id', $id)->delete();
 
         return redirect()->route('portfolio.index');

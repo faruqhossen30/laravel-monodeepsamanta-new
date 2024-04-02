@@ -14,6 +14,9 @@ class ServicesliderController extends Controller
     public function create($id)
     {
 
+        if(!Auth::user()->can('service create')){
+            abort(403);
+        }
         $service = Service::with('sliders')->firstWhere('id', $id);
         $photos = ServiceSlider::where('service_id', $id)->get();
         // return $service;

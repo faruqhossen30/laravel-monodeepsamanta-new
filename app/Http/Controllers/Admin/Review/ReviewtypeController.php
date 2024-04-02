@@ -16,6 +16,11 @@ class ReviewtypeController extends Controller
      */
     public function index()
     {
+
+        if(!Auth::user()->can('review_type list')){
+            abort(403);
+        }
+
         $types = ReviewType::paginate();
         return view('admin.review.reviewtype.index',compact('types'));
     }
@@ -25,6 +30,10 @@ class ReviewtypeController extends Controller
      */
     public function create()
     {
+
+        if(!Auth::user()->can('review_type create')){
+            abort(403);
+        }
         return view('admin.review.reviewtype.create');
     }
 
@@ -55,7 +64,9 @@ class ReviewtypeController extends Controller
      */
     public function show(string $id)
     {
-        //
+        if(!Auth::user()->can('review_type show')){
+            abort(403);
+        }
     }
 
     /**
@@ -63,6 +74,10 @@ class ReviewtypeController extends Controller
      */
     public function edit(string $id)
     {
+
+        if(!Auth::user()->can('review_type update')){
+            abort(403);
+        }
         $type = ReviewType::firstWhere('id',$id);
         return view('admin.review.reviewtype.edit', compact('type'));
     }
@@ -72,6 +87,11 @@ class ReviewtypeController extends Controller
      */
     public function update(Request $request, string $id)
     {
+
+        if(!Auth::user()->can('review_type update')){
+            abort(403);
+        }
+
         $request->validate([
             'name' => 'required'
         ]);
@@ -93,6 +113,10 @@ class ReviewtypeController extends Controller
      */
     public function destroy(string $id)
     {
+
+        if(!Auth::user()->can('review_type delete')){
+            abort(403);
+        }
         ReviewType::where('id', $id)->delete();
         return redirect()->route('reviewtype.index');
     }

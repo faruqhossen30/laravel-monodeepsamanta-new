@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 
@@ -15,6 +16,9 @@ class AdminController extends Controller
      */
     public function index()
     {
+        if(!Auth::user()->can('admin list')){
+            abort(403);
+        }
 
         $admins = User::latest()->paginate(10);
         // return $admins;
@@ -26,6 +30,9 @@ class AdminController extends Controller
      */
     public function create()
     {
+        if(!Auth::user()->can('admin create')){
+            abort(403);
+        }
         $roles = Role::all();
         return view('admin.admin.create', compact('roles'));
     }
@@ -60,7 +67,9 @@ class AdminController extends Controller
      */
     public function show(string $id)
     {
-        //
+        if(!Auth::user()->can('admin show')){
+            abort(403);
+        }
     }
 
     /**
@@ -68,6 +77,9 @@ class AdminController extends Controller
      */
     public function edit(string $id)
     {
+        if(!Auth::user()->can('admin update')){
+            abort(403);
+        }
         $admin = User::where('id', $id)->first();
         $roles = Role::all();
         return view('admin.admin.edit', compact('admin', 'roles'));
@@ -78,6 +90,9 @@ class AdminController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        if(!Auth::user()->can('admin update')){
+            abort(403);
+        }
         $ids = array_map('intval', $request->role_ids);
         $admin = User::firstWhere('id', $id);
 
@@ -101,6 +116,9 @@ class AdminController extends Controller
      */
     public function destroy(string $id)
     {
+        if(!Auth::user()->can('admin delete')){
+            abort(403);
+        }
         User::where('id', $id)->delete();
         return redirect()->route('admin.index');
     }

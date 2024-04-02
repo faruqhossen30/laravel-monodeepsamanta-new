@@ -89,7 +89,6 @@
                                 @else
                                     @include('components.form.video-thumbnail')
                                 @endif
-                                {{-- @include('components.form.video-thumbnail') --}}
                                 <x-form.thumbnail-single :thumbnail="$service->thumbnail" />
                             </div>
 
@@ -201,7 +200,7 @@
                         </div>
                         @include('admin.inc.modal.photo-gallery')
                         @include('admin.inc.modal.multi-photo-gallery')
-                        <x-form.submit-button />
+                        <x-form.submit-button  title="Update"/>
                     </form>
                 </div>
             </div>

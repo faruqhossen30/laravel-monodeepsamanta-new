@@ -15,6 +15,9 @@ class ServicepackageController extends Controller
      */
     public function create($id){
 
+        if(!Auth::user()->can('service create')){
+            abort(403);
+        }
         $service = Service::firstWhere('id', $id);
         $package = ServicePackage::firstWhere('service_id', $id);
 

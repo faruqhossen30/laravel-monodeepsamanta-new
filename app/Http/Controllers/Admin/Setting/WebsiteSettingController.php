@@ -5,12 +5,16 @@ namespace App\Http\Controllers\Admin\Setting;
 use App\Http\Controllers\Controller;
 use App\Models\Setting\WebsiteSetting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Image ;
 class WebsiteSettingController extends Controller
 {
     public function websitesetting(){
 
+        if(!Auth::user()->can('websitesetting')){
+            abort(403);
+        }
         $site = WebsiteSetting::first();
         // return  $site;
         return view('admin.setting.website-setting',compact('site'));
