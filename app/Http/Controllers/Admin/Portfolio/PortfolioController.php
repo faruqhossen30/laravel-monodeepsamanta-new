@@ -45,7 +45,7 @@ class PortfolioController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request->all();
+        return $request->all();
 
         $request->validate([
             'title' => 'required'
@@ -98,6 +98,9 @@ class PortfolioController extends Controller
         if(!Auth::user()->can('portfolio show')){
             abort(403);
         }
+
+        return view('admin.portfolio.show');
+
     }
 
     /**
