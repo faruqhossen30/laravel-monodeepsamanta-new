@@ -1,13 +1,13 @@
 @extends('layouts.app')
 @section('title', 'Dashboard & UX/UI Designer | Blogs')
 @section('content')
-    <section class="container mx-auto px-3 lg:px-0">
-        <div class="grid grid-cols-12 py-20 space-y-8 lg:space-y-0">
+    <section class="container px-3 mx-auto lg:px-0">
+        <div class="grid grid-cols-12 gap-5 space-y-8 max-[768px]:pt-3 py-10 lg:py-20 lg:space-y-0">
             <!--FEATURED WORK section start from here-->
-            <div class="col-span-12 lg:col-span-7 gap-10 space-y-4">
+            <div class="col-span-12 space-y-4 lg:col-span-7">
                 <div class="pb-5">
                     <x-h1>
-                        <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                        <svg class="inline w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                             viewBox="0 0 20 20" fill="none">
                             <path
                                 d="M17.334 0.833984H2.66732C1.65898 0.833984 0.833984 1.65898 0.833984 2.66732V19.1673L4.50065 15.5007H17.334C18.3423 15.5007 19.1673 14.6757 19.1673 13.6673V2.66732C19.1673 1.65898 18.3423 0.833984 17.334 0.833984ZM17.334 13.6673H3.73982L2.66732 14.7398V2.66732H17.334V13.6673Z"
@@ -19,11 +19,11 @@
                         Design Matters
                     </x-h1>
                 </div>
-                <p class="text-lg">I am sharing practical tips and real-world experiences to help both budding and seasoned
+                <p class="text-lg text-justify">I am sharing practical tips and real-world experiences to help both budding and seasoned
                     designers level up their skills. Dive into the latest trends, discover the best tools, and explore the
                     art
                     of creating user-friendly designs.</p>
-                <p class="text-lg">My articles are your go-to source for simplified design wisdom. Let’s grow together in
+                <p class="text-lg text-justify">My articles are your go-to source for simplified design wisdom. Let’s grow together in
                     this
                     vibrant UI/UX design blog community.</p>
             </div>
@@ -41,8 +41,8 @@
 
 
 
-    <section class="container mx-auto px-3 lg:px-0">
-        <div class="flex items-center space-x-2 py-2 px-4">
+    <section class="container px-3 mx-auto lg:px-0">
+        <div class="flex items-center px-4 py-2 space-x-2">
             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
                 fill="none">
                 <path
@@ -56,12 +56,12 @@
 
         </div>
         <div>
-            <div class="p-4 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid gap-6 p-4 sm:grid-cols-2 lg:grid-cols-3">
                 @foreach ($posts as $post)
                     <a href="{{ route('singleblog', $post->slug) }}"
-                        class="group rounded-lg overflow-hidden dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+                        class="overflow-hidden rounded-lg group dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
                         <div class="relative pt-[50%] sm:pt-[70%] rounded-lg overflow-hidden">
-                            <img class="w-full h-full absolute top-0 start-0 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out rounded-lg"
+                            <img class="absolute top-0 object-cover w-full h-full transition-transform duration-500 ease-in-out rounded-lg start-0 group-hover:scale-105"
                                 src="{{ asset('uploads/galleries/' . $post->thumbnail) }}" alt="{{ $post->title }}">
 
                         </div>

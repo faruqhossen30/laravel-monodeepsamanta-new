@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Dashboard & UX/UI Designer | Reviews')
 @section('content')
-    <section class="container mx-auto px-3 lg:px-0">
+    <section class="container px-3 pb-0 mx-auto lg:px-0">
         <div class="flex flex-row items-center justify-between py-3 lg:py-10" data-aos="fade-down" data-aos-duration="1000">
             <div class="flex items-center space-x-2">
                 <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
@@ -13,12 +13,13 @@
                         d="M10.0013 12.7507L11.4405 9.60648L14.5846 8.16732L11.4405 6.72815L10.0013 3.58398L8.56214 6.72815L5.41797 8.16732L8.56214 9.60648L10.0013 12.7507Z"
                         fill="#FF003A"></path>
                 </svg>
-                <h1 class="text-lg lg:text-[26px] font-bold">Reviews</h1>
+                <x-h1>Reviews</x-h1>
+                {{-- <h1 class="text-lg text-[26px] font-bold">Reviews</h1> --}}
             </div>
         </div>
     </section>
 
-    <section class="container mx-auto px-3 lg:px-0">
+    <section class="container px-3 mx-auto lg:px-0">
         @foreach ($reviews as $review)
             <div class="justify-between py-6 md:flex lg:py-12">
                 <div class="flex space-x-3" data-aos="fade-right" data-aos-duration="1000">

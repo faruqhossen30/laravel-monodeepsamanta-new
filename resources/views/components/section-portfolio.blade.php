@@ -2,22 +2,22 @@
     use App\Models\Category;
     $categories = Category::get();
 @endphp
-<section class="container mx-auto px-3 lg:px-0 py-[30px]">
+<section class="container mx-auto px-3 lg:px-0 pb-[30px] max-[768px]:pt-3 min-[768px]:py-[30px]">
     <div class="flex flex-row items-center justify-between">
         <x-heading.heading-one>
             <x-icon.photo />
             <x-h1>Check Out My Portfolio</x-h1>
         </x-heading.heading-one>
         <x-arrow-link route="portfoliopage">
-            See All Portfolios
+            <span class=" max-[399px]:hidden">See All Portfolios</span>
         </x-arrow-link>
     </div>
 </section>
-<section class="hidden lg:block container mx-auto px-3 lg:px-0">
+<section class="container hidden px-3 mx-auto lg:block lg:px-0">
     <div class="grid grid-cols-12 gap-4">
         @foreach ($categories as $category)
             <a href="{{ route('portfoliopage', ['category' => $category->slug]) }}"
-                class="col-span-12 md:col-span-6 lg:col-span-3 relative overflow-hidden font-bold text-white rounded-md shadow cursor-pointer group">
+                class="relative col-span-12 overflow-hidden font-bold text-white rounded-md shadow cursor-pointer md:col-span-6 lg:col-span-3 group">
                 <!--layer start-->
                 <div
                     class="absolute top-0 left-0 z-10 hidden w-full h-full transition bg-gradient-to-t from-gray-800 opacity-70 group-hover:block">
@@ -43,11 +43,11 @@
 </section>
 
 
-<section class="lg:hidden container mx-auto px-3 lg:px-0">
-    <div id="portfolioSlider" class="owl-carousel owl-theme grid grid-cols-12 gap-4">
+<section class="container px-3 mx-auto lg:hidden lg:px-0">
+    <div id="portfolioSlider" class="grid grid-cols-12 gap-4 owl-carousel owl-theme">
         @foreach ($categories as $category)
             <a href="{{ route('portfoliopage', ['category' => $category->slug]) }}"
-                class="col-span-12 md:col-span-6 lg:col-span-3 relative overflow-hidden font-bold text-white rounded-md shadow cursor-pointer group" style="overflow: hidden">
+                class="relative col-span-12 overflow-hidden font-bold text-white rounded-md shadow cursor-pointer md:col-span-6 lg:col-span-3 group" style="overflow: hidden">
                 <!--layer start-->
                 <div
                     class="absolute top-0 left-0 hidden w-full h-full transition bg-gradient-to-t from-gray-800 opacity-70 group-hover:block">
@@ -56,7 +56,7 @@
                 <img class="object-top w-full transition duration-500 group-hover:scale-110 group-hover:rotate-3"
                     src="{{ asset('uploads/galleries/' . $category->thumbnail) }}" alt="">
                 <div
-                    class="absolute bottom-0  hidden space-y-2 group-hover:bottom-6 group-hover:left-6 group-hover:block">
+                    class="absolute bottom-0 hidden space-y-2 group-hover:bottom-6 group-hover:left-6 group-hover:block">
                     <h1 class="text-2xl">{{ $category->name }}</h1>
                     <span class="hover:text-[#FF003A] transition flex items-center space-x-2">
                         <span>See All</span>
