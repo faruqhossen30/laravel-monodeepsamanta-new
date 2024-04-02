@@ -2,7 +2,7 @@
 @section('title', 'Dashboard & UX/UI Designer | Service')
 @section('content')
 
-    <section class="container mx-auto px-3 lg:px-0 py-[30px]">
+    <section class="container mx-auto px-3 lg:px-0 pb-[30px] max-[768px]:pt-3 min-[768px]:py-[30px]">
         <div class="flex flex-row items-center justify-between">
             <x-heading.heading-one>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 16 18" fill="none">
@@ -16,7 +16,7 @@
         </div>
     </section>
 
-    <section class="container mx-auto px-3 lg:px-0">
+    <section class="container px-3 mx-auto lg:px-0">
         <div class="grid grid-cols-12 gap-3">
             @foreach ($services as $service)
                 <a href="{{ route('singleservice', $service->slug) }}"
@@ -35,7 +35,7 @@
                     </div>
                     <div class="py-2 mt-5 space-y-1">
                         <h3 class="text-2xl font-bold hover:text-brand">{{ $service->title }}</h3>
-                        <h2 class="text-lg text-brand font-bold">Starting at ${{ $service->package->starter_price ?? '' }}
+                        <h2 class="text-lg font-bold text-brand">Starting at ${{ $service->package->starter_price ?? '' }}
                         </h2>
                     </div>
                 </a>
