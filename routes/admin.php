@@ -60,8 +60,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     // Ajax Calling
     Route::get('ajax/subcategory/{id}', [AjaxSubCategoryController::class, 'subcategoryByCategoryId']);
 
-    Route::get('adminprofile/',[AdminProfileController::class,'adminProfile'])->name('admin.profile');
-    Route::put('adminprofile/update/{id}',[AdminProfileController::class,'UpdateAdminProfile'])->name('admin.profile.update');
+    Route::get('profile/',[AdminProfileController::class,'adminProfile'])->name('admin.profile');
+    Route::put('profile/update/{id}',[AdminProfileController::class,'UpdateAdminProfile'])->name('admin.profile.update');
+    Route::get('profile/resetpassword/{id}',[AdminProfileController::class,'resetpasswordAdminProfile'])->name('admin.profile.resetpassword');
+    Route::put('profile/changepassword/{id}',[AdminProfileController::class,'changepasswordProfile'])->name('admin.profile.changepassword');
     Route::group(['prefix' => 'setting'], function () {
         Route::get('/', [SettingController::class, 'index'])->name('settingpage');
         Route::get('/site-setting', [SiteSettingController::class, 'sitesetting'])->name('sitesetting')->middleware('can:websitesetting');
