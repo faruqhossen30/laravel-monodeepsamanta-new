@@ -247,7 +247,7 @@ w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text
                     @endcanany
                     <!------------Blog end------------->
                     <!------------User Start----------->
-                    {{-- <li>
+                    <li>
                         <a href="{{ route('user.index') }}"
                             class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700 ">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -257,9 +257,9 @@ w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text
                                     clip-rule="evenodd" />
                             </svg>
 
-                            <span class="ml-3" sidebar-toggle-item>User</span>
+                            <span class="ml-3" sidebar-toggle-item>Profile</span>
                         </a>
-                    </li> --}}
+                    </li>
                     <!------------User end------------->
                     <!------------Category start------->
                     @canany(['category list'])

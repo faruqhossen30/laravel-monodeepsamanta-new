@@ -20,7 +20,7 @@ class PortfolioController extends Controller
     public function index()
     {
 
-        if(!Auth::user()->can('protfolio list')){
+        if(!Auth::user()->can('portfolio list')){
             abort(403);
         }
         $portfolios = Portfolio::latest()->paginate(10);
@@ -33,7 +33,7 @@ class PortfolioController extends Controller
     public function create()
     {
 
-        if(!Auth::user()->can('protfolio create')){
+        if(!Auth::user()->can('portfolio create')){
             abort(403);
         }
         $categories = Category::get();
@@ -95,7 +95,7 @@ class PortfolioController extends Controller
      */
     public function show(string $id)
     {
-        if(!Auth::user()->can('protfolio show')){
+        if(!Auth::user()->can('portfolio show')){
             abort(403);
         }
     }
@@ -106,7 +106,7 @@ class PortfolioController extends Controller
     public function edit(string $id)
     {
 
-        if(!Auth::user()->can('protfolio update')){
+        if(!Auth::user()->can('portfolio update')){
             abort(403);
         }
         $categories = Category::get();
@@ -122,7 +122,7 @@ class PortfolioController extends Controller
     public function update(Request $request, string $id)
     {
 
-        if(!Auth::user()->can('protfolio update')){
+        if(!Auth::user()->can('portfolio update')){
             abort(403);
         }
         $request->validate([
@@ -167,7 +167,7 @@ class PortfolioController extends Controller
     {
 
 
-        if(!Auth::user()->can('protfolio delete')){
+        if(!Auth::user()->can('portfolio delete')){
             abort(403);
         }
         Portfolio::firstWhere('id', $id)->delete();

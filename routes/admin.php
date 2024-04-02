@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\Admin\RoleController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\Ajax\AjaxSubCategoryController;
 use App\Http\Controllers\Admin\Blog\BlogController;
 use App\Http\Controllers\Admin\Blog\SoftwareController;
@@ -59,6 +60,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     // Ajax Calling
     Route::get('ajax/subcategory/{id}', [AjaxSubCategoryController::class, 'subcategoryByCategoryId']);
 
+    Route::get('adminprofile/',[AdminProfileController::class,'adminProfile'])->name('admin.profile');
+    Route::get('adminprofile/{id}/edit',[AdminProfileController::class,'editAdminProfile'])->name('admin.profile.edit');
     Route::group(['prefix' => 'setting'], function () {
         Route::get('/', [SettingController::class, 'index'])->name('settingpage');
         Route::get('/site-setting', [SiteSettingController::class, 'sitesetting'])->name('sitesetting')->middleware('can:websitesetting');

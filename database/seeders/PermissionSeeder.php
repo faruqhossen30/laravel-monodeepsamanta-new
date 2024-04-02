@@ -52,11 +52,11 @@ class PermissionSeeder extends Seeder
 
 
             //  Portfolio
-            ['name' => 'protfolio list',   'module_name' => 'protfolio'],
-            ['name' => 'protfolio create', 'module_name' => 'protfolio'],
-            ['name' => 'protfolio update', 'module_name' => 'protfolio'],
-            ['name' => 'protfolio delete', 'module_name' => 'protfolio'],
-            ['name' => 'protfolio show',   'module_name' => 'protfolio'],
+            ['name' => 'portfolio list',   'module_name' => 'portfolio'],
+            ['name' => 'portfolio create', 'module_name' => 'portfolio'],
+            ['name' => 'portfolio update', 'module_name' => 'portfolio'],
+            ['name' => 'portfolio delete', 'module_name' => 'portfolio'],
+            ['name' => 'portfolio show',   'module_name' => 'portfolio'],
             //Gallery
             ['name' => 'gallery list',   'module_name' => 'gallery'],
             ['name' => 'gallery create', 'module_name' => 'gallery'],
