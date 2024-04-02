@@ -6,20 +6,33 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Role;
 
 class AdminProfileController extends Controller
 {
    function adminProfile(){
 
-    $adminprofile = Auth::guard('web')->user();
-
+    $adminprofile = Auth::user();
+    // return $roles;
     return view('admin.profile.profile',compact('adminprofile'));
    }
 
-   public function editAdminProfile(){
+   public function UpdateAdminProfile(Request $request){
 
-    $admin = Auth::user();
 
-    return view('admin.profile.edit-profile' ,compact('admin'));
+    // return "abc";
+    // return $request->all();
+    $adminid = Auth::user()->id;
+
+    User::findOrFail($adminid)->update([
+        'name'   => $request->name,
+      'password' => $request->password,
+      'thumbnail' => $request->thumbnail,
+
+
+    ]);
+    return redirect()->back()->with('success', 'successfully data added');
+
+
    }
 }

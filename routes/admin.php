@@ -61,7 +61,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('ajax/subcategory/{id}', [AjaxSubCategoryController::class, 'subcategoryByCategoryId']);
 
     Route::get('adminprofile/',[AdminProfileController::class,'adminProfile'])->name('admin.profile');
-    Route::get('adminprofile/{id}/edit',[AdminProfileController::class,'editAdminProfile'])->name('admin.profile.edit');
+    Route::put('adminprofile/update/{id}',[AdminProfileController::class,'UpdateAdminProfile'])->name('admin.profile.update');
     Route::group(['prefix' => 'setting'], function () {
         Route::get('/', [SettingController::class, 'index'])->name('settingpage');
         Route::get('/site-setting', [SiteSettingController::class, 'sitesetting'])->name('sitesetting')->middleware('can:websitesetting');
