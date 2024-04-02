@@ -18,6 +18,9 @@ class ReviewController extends Controller
      */
     public function index()
     {
+        if(!Auth::user()->can('review list')){
+            abort(403);
+        }
         $reviews = Review::latest()->paginate(10);
         // return $reviews;
         return view('admin.review.index', compact('reviews'));
@@ -28,6 +31,10 @@ class ReviewController extends Controller
      */
     public function create()
     {
+
+        if(!Auth::user()->can('review create')){
+            abort(403);
+        }
         $types      = ReviewType::get();
         $categories = Category::get();
         return view('admin.review.create',compact('types','categories'));
@@ -71,7 +78,9 @@ class ReviewController extends Controller
      */
     public function show(string $id)
     {
-
+        if(!Auth::user()->can('review show')){
+            abort(403);
+        }
     }
 
     /**
@@ -79,6 +88,9 @@ class ReviewController extends Controller
      */
     public function edit(string $id)
     {
+        if(!Auth::user()->can('review update')){
+            abort(403);
+        }
         $types      = ReviewType::get();
         $review     = Review::firstWhere('id', $id);
         $categories = Category::get();
@@ -90,6 +102,11 @@ class ReviewController extends Controller
      */
     public function update(Request $request, string $id)
     {
+
+
+        if(!Auth::user()->can('review update')){
+            abort(403);
+        }
         $request->validate([
             'name'           => 'required',
             'rating'         => 'required',
@@ -124,6 +141,10 @@ class ReviewController extends Controller
      */
     public function destroy(string $id)
     {
+
+        if(!Auth::user()->can('review delete')){
+            abort(403);
+        }
         Review::firstWhere('id', $id)->delete();
         return redirect()->back();
     }

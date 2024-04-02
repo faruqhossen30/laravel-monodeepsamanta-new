@@ -15,6 +15,10 @@ class GalleryCategoryController extends Controller
      */
     public function index()
     {
+
+        if(!Auth::user()->can('gallery_category list')){
+            abort(403);
+        }
         $gallerycategory = GalleryCategory::paginate(10);
         return view('admin.gallerycategory.index', compact('gallerycategory'));
     }
@@ -24,6 +28,9 @@ class GalleryCategoryController extends Controller
      */
     public function create()
     {
+        if(!Auth::user()->can('gallery_category create')){
+            abort(403);
+        }
         return view('admin.gallerycategory.create');
     }
 
@@ -32,6 +39,9 @@ class GalleryCategoryController extends Controller
      */
     public function store(Request $request)
     {
+        if(!Auth::user()->can('gallery_category create')){
+            abort(403);
+        }
         $request->validate([
             'name' => 'required',
 
@@ -53,7 +63,9 @@ class GalleryCategoryController extends Controller
      */
     public function show(string $id)
     {
-        //
+        if(!Auth::user()->can('gallery_category show')){
+            abort(403);
+        }
     }
 
     /**
@@ -61,6 +73,10 @@ class GalleryCategoryController extends Controller
      */
     public function edit(string $id)
     {
+
+        if(!Auth::user()->can('gallery_category update')){
+            abort(403);
+        }
         $gallerycategory = GalleryCategory::where('id', $id)->first();
         // return $gallerycategory;
         return view('admin.gallerycategory.edit', compact('gallerycategory'));
@@ -71,6 +87,9 @@ class GalleryCategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        if(!Auth::user()->can('gallery_category update')){
+            abort(403);
+        }
         GalleryCategory::where('id', $id)->update([
             'name' => $request->name,
             'slug' => Str::slug($request->name, '-')
@@ -84,6 +103,9 @@ class GalleryCategoryController extends Controller
      */
     public function destroy(string $id)
     {
+        if(!Auth::user()->can('gallery_category delete')){
+            abort(403);
+        }
         GalleryCategory::where('id', $id)->delete();
         return redirect()->route('gallery-category.index');
     }

@@ -19,6 +19,10 @@ class ServiceController extends Controller
      */
     public function index()
     {
+
+    if(!Auth::user()->can('service list')){
+        abort(403);
+    }
         $servies = Service::latest()->paginate();
         return view('admin.services.index', compact('servies'));
     }
@@ -28,6 +32,9 @@ class ServiceController extends Controller
      */
     public function create()
     {
+        if(!Auth::user()->can('service create')){
+            abort(403);
+        }
         $categories = Category::get();
         return view('admin.services.create', compact('categories'));
     }
@@ -37,6 +44,10 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
+        if(!Auth::user()->can('service create')){
+            abort(403);
+        }
+
 
         // return $request->all();
         $request->validate([
@@ -105,6 +116,9 @@ class ServiceController extends Controller
      */
     public function edit(string $id)
     {
+        if(!Auth::user()->can('service update')){
+            abort(403);
+        }
         $service = Service::with('video','features')->firstWhere('id', $id);
         $categories = Category::get();
 
@@ -119,6 +133,9 @@ class ServiceController extends Controller
     public function update(Request $request, string $id)
     {
 
+        if(!Auth::user()->can('service update')){
+            abort(403);
+        }
         // return $request->all();
         $request->validate([
             'title'       => 'required',
@@ -142,6 +159,8 @@ class ServiceController extends Controller
 
         $service=  Service::firstWhere('id', $id)->update($data);
 
+
+        // return  $service;
         if ($request->video_id && $request->pull_zone && $request->resolution) {
             ServiceVideo::updateOrInsert([
                 'service_id' => $id
@@ -154,28 +173,26 @@ class ServiceController extends Controller
         }
 
 
-        // if (!empty($request->featuredetails)) {
-        //     $starter  = $request->starter;
-        //     $standard = $request->standard;
-        //     $advanced = $request->advanced;
-
-        //     foreach ($request->featuredetails as  $index => $feature) {
-        //         ServiceFeature::updateOrInsert([
-        //             'service_id' => $service->id,
-        //         ], [
+        if($service && !empty($request->featuredetails)){
+            ServiceFeature::where('service_id', $id)->delete();
+            $starter = $request->starter;
+            $standard = $request->standard;
+            $advanced = $request->advanced;
 
 
-        //             'service_id' => $service->id,
-        //             'feature'    => $feature,
-        //             'starter'    => $starter[$index],
-        //             'standard'   => $standard[$index],
-        //             'advanced'   => $advanced[$index]
-        //         ]);
-        //     }
-        // }
+            foreach($request->featuredetails as  $index => $feature){
+                ServiceFeature::create([
+                    'service_id' => $id,
+                    'feature'    => $feature,
+                    'starter'    => $starter[$index],
+                    'standard'   => $standard[$index],
+                    'advanced'   => $advanced[$index]
+                ]);
+            }
+        }
 
 
-        Session::flash('create');
+        Session::flash('Update');
         return redirect()->route('service.index');
     }
 
@@ -184,6 +201,10 @@ class ServiceController extends Controller
      */
     public function destroy(string $id)
     {
+
+        if(!Auth::user()->can('service delete')){
+            abort(403);
+        }
         Service::firstWhere('id', $id)->delete();
         return redirect()->route('service.index');
     }

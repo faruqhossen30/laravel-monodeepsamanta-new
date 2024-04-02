@@ -5,11 +5,16 @@ namespace App\Http\Controllers\Admin\Setting;
 use App\Http\Controllers\Controller;
 use App\Models\Setting\WebsiteSetting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SocialmediaSettingController extends Controller
 {
     public function socialmedia()
     {
+
+        if(!Auth::user()->can('contactsetting')){
+            abort(403);
+        }
         $site = WebsiteSetting::first();
         // return  $site;
         return view('admin.setting.socialmida-setting', compact('site'));

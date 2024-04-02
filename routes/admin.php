@@ -51,7 +51,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('service/{id}/create-faq', [ServicefaqController::class, 'create'])->name('service.faq.create');
     Route::post('service/{id}/create-faq', [ServicefaqController::class, 'store'])->name('service.faq.store');
 
-    Route::get('service/{id}/create-package',  [ServicepackageController::class, 'create'])->name('service.package.create');
+    Route::get('service/{id}/create-package',  [ServicepackageController::class, 'create'])->name('service.package.create')->middleware('can:service update');
     Route::post('service/{id}/create-package', [ServicepackageController::class, 'store'])->name('service.package.store');
 
     Route::get('service/{id}/create-slider',  [ServicesliderController::class, 'create'])->name('service.slider.create');
@@ -61,7 +61,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
     Route::group(['prefix' => 'setting'], function () {
         Route::get('/', [SettingController::class, 'index'])->name('settingpage');
-        Route::get('/site-setting', [SiteSettingController::class, 'sitesetting'])->name('sitesetting');
+        Route::get('/site-setting', [SiteSettingController::class, 'sitesetting'])->name('sitesetting')->middleware('can:websitesetting');
         Route::get('/chat-section', [ChatSectionController::class, 'chatsection'])->name('chatsection');
 
         Route::get('/website-setting',[WebsiteSettingController::class,'websitesetting'])->name('website.setting');

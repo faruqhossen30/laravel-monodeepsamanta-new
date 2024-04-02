@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Service\Service;
 use App\Models\Service\ServiceFaq;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ServicefaqController extends Controller
 {
@@ -15,6 +16,10 @@ class ServicefaqController extends Controller
      */
     public function create($id){
 
+
+        if(!Auth::user()->can('service create')){
+            abort(403);
+        }
         $service = Service::firstWhere('id', $id);
         $faqs    = ServiceFaq::where('service_id', $id)->get();
         return view('admin.services.faq.create',compact('service','faqs'));
@@ -25,6 +30,9 @@ class ServicefaqController extends Controller
      */
     public function store(Request $request, $id){
 
+        if(!Auth::user()->can('service update')){
+            abort(403);
+        }
         $request->validate([
             'question' => 'required',
             'answer'   => 'required',

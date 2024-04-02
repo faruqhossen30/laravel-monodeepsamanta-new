@@ -17,6 +17,9 @@ class GalleryController extends Controller
      */
     public function index()
     {
+        if(!Auth::user()->can('gallery list')){
+            abort(403);
+        }
         $thumbnails = Gallery::latest()->paginate(8);
         //    return $thumbnail;
         return view('admin.gallery.index', compact('thumbnails'));
@@ -27,6 +30,9 @@ class GalleryController extends Controller
      */
     public function create()
     {
+        if(!Auth::user()->can('gallery create')){
+            abort(403);
+        }
         $categories = GalleryCategory::get();
         return view('admin.gallery.create', compact('categories'));
     }
@@ -55,7 +61,9 @@ class GalleryController extends Controller
      */
     public function show(string $id)
     {
-        //
+        if(!Auth::user()->can('gallery show')){
+            abort(403);
+        }
     }
 
     /**
@@ -63,7 +71,9 @@ class GalleryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        if(!Auth::user()->can('gallery edit')){
+            abort(403);
+        }
     }
 
     /**
@@ -71,7 +81,9 @@ class GalleryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        if(!Auth::user()->can('pgallery update')){
+            abort(403);
+        }
     }
 
     /**
@@ -79,6 +91,10 @@ class GalleryController extends Controller
      */
     public function destroy(string $id)
     {
+
+        if(!Auth::user()->can('gallery delete')){
+            abort(403);
+        }
         $gallery = Gallery::firstWhere('id', $id);
 
             $path = 'uploads/galleries/' . $gallery->name;
