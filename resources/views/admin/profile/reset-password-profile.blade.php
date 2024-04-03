@@ -4,7 +4,8 @@
 @endsection
 @section('content')
     <main>
-        <form action="{{ route('admin.profile.update', $adminprofile->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.profile.changepassword', $adminprofile->id) }}" method="POST"
+            enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="grid grid-cols-1 px-1 pt-1 xl:grid-cols-3 xl:gap-4 dark:bg-gray-900">
@@ -30,7 +31,8 @@
                                             </button>
                                             <input type="hidden" name="thumbnail" value="{{ $adminprofile->thumbnail }}">
                                             <img class="max-h-60 w-auto rounded-full p-4"
-                                                src="{{ asset('uploads/galleries/' . $adminprofile->thumbnail) }}" alt="thumbnail">
+                                                src="{{ asset('uploads/galleries/' . $adminprofile->thumbnail) }}"
+                                                alt="thumbnail">
                                         </div>
                                     @else
                                         <div class="flex flex-col items-center justify-center pt-5 pb-6 cursor-pointer"
@@ -97,22 +99,21 @@
                 <div class="col-span-2">
                     <div
                         class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
-                        <div class="flex justify-between">
-                            <div>
-                                <h3 class="mb-4 text-xl font-semibold dark:text-white">Reset your password information !!!</h3>
-                            </div>
-                            <div>
-                              <a href="{{route('admin.profile.resetpassword',$adminprofile->id)}}" class="py-1 my-2 px-3 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800">Reset Password</a>
-                            </div>
-                        </div>
+                        <h3 class="mb-4 text-xl font-semibold dark:text-white">Reset your password information !!!</h3>
+                                @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                            <x-form.input name="current_password" label="Old Password" type="password"/>
+                            <x-form.input name="password" label="Password" type="password"  />
+                            <x-form.input name="password_confirmation" label="Confirm Password" type="password" />
 
-                        <x-form.input label="Name" name="name" value="{{ $adminprofile->name }}" />
-                        <x-form.input name="email" label="Email" type="email" disable="disabled"
-                            value="{{ $adminprofile->email }}" />
-
-                        {{-- <x-form.input name="password" label="Password" type="password" />
-                        <x-form.input name="password_confirmation" label="Confirm Password" type="password" /> --}}
-                        <x-form.submit-button />
+                            <x-form.submit-button />
 
                     </div>
                 </div>
