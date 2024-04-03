@@ -9,8 +9,23 @@
 @section('content')
 
     <x-portfolio.creativework />
-    <section class="container mx-auto px-3 lg:px-0 py-8">
-        <div class=" text-gray-500 space-x-2" data-aos="fade-down" data-aos-duration="1000">
+    <section class="hidden lg:block sticky top-[90px] z-30 bg-white">
+        <div class="container mx-auto px-3 lg:px-0 my-5 py-3 ">
+            <div class=" text-gray-500 space-x-2" data-aos="fade-down" data-aos-duration="1000">
+                <a href="{{ route('portfoliopage') }}"
+                    class="mb-2 inline-block font-bold border px-6 py-1 rounded  transition @if (!$query) bg-black text-white @endif">All
+                    Capabilities</a>
+                @foreach ($categories as $cat)
+                    <a href="{{ route('portfoliopage', ['category' => $cat->slug]) }}"
+                        class="mb-2 inline-block font-bold border px-6 py-1 rounded  transition @if ($cat->slug == $query) bg-black text-white @endif">{{ $cat->name }}</a>
+                @endforeach
+            </div>
+
+        </div>
+    </section>
+
+    <div class="container mx-auto sticky z-30 block bg-white lg:hidden top-20 lg:top-20">
+        <div id="categorySlider" class="w-full py-2 mr-4 space-y-2 text-gray-500 owl-carousel owl-theme">
             <a href="{{ route('portfoliopage') }}"
                 class="mb-2 inline-block font-bold border px-6 py-1 rounded  transition @if (!$query) bg-black text-white @endif">All
                 Capabilities</a>
@@ -19,8 +34,8 @@
                     class="mb-2 inline-block font-bold border px-6 py-1 rounded  transition @if ($cat->slug == $query) bg-black text-white @endif">{{ $cat->name }}</a>
             @endforeach
         </div>
+    </div>
 
-    </section>
 
     <div class="container mx-auto px-3 lg:px-0">
         <div class="grid grid-cols-12 gap-3 mixingContainer">
@@ -37,11 +52,23 @@
     <div class="pb-[20px]"></div>
 @endsection
 
-@push('style')
+@push('styles')
+<link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
+<link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
 @endpush
 
-@push('script')
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="{{ asset('js/cwa_lightbox_bundle_v1.js') }}"></script>
+@push('scripts')
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#categorySlider').owlCarousel({
+                items: 2,
+                loop: true,
+                margin: 10,
+                dots: false,
+                autoWidth: true
+            });
+        });
+    </script>
 @endpush

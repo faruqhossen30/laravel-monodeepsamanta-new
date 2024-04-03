@@ -45,8 +45,8 @@
                 nav: false,
                 autoplay: true,
                 slideTransition: 'linear',
-                // autoplayTimeout: 2000,
-                autoplaySpeed: 1000,
+                autoplayTimeout: 2000,
+                autoplaySpeed: 5000,
                 autoplayHoverPause: true,
                 responsive: {
                     0: {

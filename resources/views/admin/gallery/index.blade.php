@@ -23,7 +23,7 @@
                     </button>
                 </form>
                 <img class="w-full max-h-72 rounded-lg" src="{{ asset('uploads/galleries/' . $gallary->name) }}"
-                    alt="">
+                    alt="Photo">
             </div>
         @empty
                 <div class="col-span-12 text-gray-800 dark:text-gray-200 text-center py-4">

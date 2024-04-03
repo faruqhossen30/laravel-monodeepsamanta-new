@@ -109,15 +109,16 @@
             </div>
         </div>
 
-        <div class="grid w-10/12 max-w-6xl grid-cols-12 gap-10 px-10 mx-auto my-6 text-sm border rounded-md shadow py-14"
-            data-aos="fade-right" data-aos-duration="1000">
+        {{-- start --}}
+        <div class="grid w-11/12 max-w-6xl grid-cols-12 lg:gap-10 px-5 lg:px-10 mx-auto my-6 text-sm border rounded-md shadow py-14 space-y-4"
+            >
             <div class="col-span-12 lg:col-span-6">
                 <h2 class="mb-5 font-semibold uppercase ">About This Project</h2>
                 <p class="font-normal text-[16px] leading-[26px]">{{ $post->project_description }}</p>
             </div>
             <div class="col-span-12 md:col-span-6 lg:col-span-3">
-                <h2 class="mb-5 font-semibold ">SERVICES</h2>
-                <ul>
+                <h2 class="mb-5 font-semibold">SERVICES</h2>
+                <ul class="space-y-2">
                     @foreach ($post->categories as $cat)
                         <li><a class="underline" href="#">{{ $cat->name }}</a></li>
                     @endforeach
@@ -127,7 +128,7 @@
 
             <div class="col-span-12 md:col-span-6 lg:col-span-3">
                 <h2 class="mb-5 font-semibold uppercase ">Technologies </h2>
-                <ul>
+                <ul class="space-y-2">
                     @foreach ($post->softwares as $soft)
                         <li>{{ $soft->name }}</li>
                     @endforeach
@@ -135,12 +136,13 @@
             </div>
         </div>
 
-        <div class="w-11/12 max-w-3xl py-10 mx-auto prose " data-aos="fade" data-aos-duration="1000">
+        {{-- End --}}
+        <div class="w-11/12 max-w-3xl py-10 mx-auto prose ">
             {!! $post->description !!}
         </div>
 
-        <div class="w-11/12 max-w-6xl bg-[#CFE2F3] mx-auto flex flex-col items-center py-10 rounded-lg" data-aos="zoom-in"
-            data-aos-duration="1000">
+
+        <div class="w-11/12 max-w-6xl bg-[#CFE2F3] mx-auto flex flex-col items-center py-10 rounded-lg">
             <svg class="w-20 h-20 text-green-500" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                 fill="currentColor" class="bi bi-quote" viewBox="0 0 16 16">
                 <path
@@ -171,7 +173,7 @@
 
     <div class="container mx-auto">
         <div class="py-10 mt-14 text-center">
-            <h1 class="text-3xl font-bold" >
+            <h1 class="text-3xl font-bold">
                 Related posts
             </h1>
             <p class="py-4 text-lg font-normal text-gray-500">Check out more blogs and stories.</p>
@@ -179,8 +181,7 @@
         <div id="postSlider"
             class="grid grid-cols-2 px-4 py-16 lg:px-0 owl-carousel owl-theme sm:grid-cols-2 lg:grid-cols-4 slider">
             @foreach ($posts as $post)
-                <a
-                    class="overflow-hidden rounded-lg group dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                <a class="overflow-hidden rounded-lg group dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                     href="{{ route('singleblog', $post->slug) }}">
                     <div class="relative pt-[50%] sm:pt-[70%] rounded-lg overflow-hidden">
                         <img class="absolute top-0 object-cover w-full h-full transition-transform duration-500 ease-in-out rounded-lg start-0 group-hover:scale-105"
@@ -219,30 +220,30 @@
             background-color: #FF003A;
         }
     </style>
-        <style>
-            #postSlider .owl-nav .owl-prev:hover {
-                background-color: transparent !important;
-                color: #FF003A !important;
-            }
+    <style>
+        #postSlider .owl-nav .owl-prev:hover {
+            background-color: transparent !important;
+            color: #FF003A !important;
+        }
 
-            #postSlider .owl-nav .owl-next:hover {
-                background-color: transparent !important;
-                color: #FF003A !important;
-            }
-        </style>
-        <style type="text/css">
-            #postSlider .slider {
-                position: relative;
-                margin: 0 auto;
-            }
+        #postSlider .owl-nav .owl-next:hover {
+            background-color: transparent !important;
+            color: #FF003A !important;
+        }
+    </style>
+    <style type="text/css">
+        #postSlider .slider {
+            position: relative;
+            margin: 0 auto;
+        }
 
-            .owl-nav {
-                position: absolute;
-                top: -5%;
-                left: calc(50% - 50px);
-                width: 100px;
-            }
-        </style>
+        .owl-nav {
+            position: absolute;
+            top: -5%;
+            left: calc(50% - 50px);
+            width: 100px;
+        }
+    </style>
 @endpush
 
 @push('scripts')
@@ -255,7 +256,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
                         </svg>
                         `;
-        const prev = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-6">
+            const prev = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
                         </svg>
                         `;
@@ -265,7 +266,7 @@
                 loop: true,
                 margin: 50,
                 nav: true,
-                dots:false,
+                dots: false,
                 navText: [next, prev],
                 responsive: {
                     0: {

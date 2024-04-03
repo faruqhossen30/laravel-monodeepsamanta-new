@@ -4,8 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description"
-        content="Multi Award Winning United Kingdom Designer">
+    <meta name="description" content="Multi Award Winning United Kingdom Designer">
     <meta name="author" content="Faruq Hossen">
     <meta name="generator" content="MonodeepSamanta 2.0">
 
@@ -42,10 +41,40 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://flowbite-admin-dashboard.vercel.app/images/og-image.png">
     <meta property="og:image:type" content="image/png">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-824VLTPPNZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-824VLTPPNZ');
+    </script>
+    <!-- clarity -->
+    <script type="text/javascript">
+        (function(c, l, a, r, i, t, y) {
+            c[a] = c[a] || function() {
+                (c[a].q = c[a].q || []).push(arguments)
+            };
+            t = l.createElement(r);
+            t.async = 1;
+            t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0];
+            y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "l8z5lmk9qs");
+    </script>
+
+
+
+
     <style>
         * {
             font-family: "Roboto Flex", Sans-serif
         }
+
         li::marker {
             color: black !important;
         }
@@ -68,6 +97,7 @@
     @include('layouts.header')
     @yield('content')
     @include('layouts.footer')
+    <script src="//code.tidio.co/ef702oknsoksvys0gdqiewpvf0pz9olw.js" async></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script>
         $(function() {

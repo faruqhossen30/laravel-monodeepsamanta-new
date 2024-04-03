@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\Gallery\GalleryCategoryController;
 use App\Http\Controllers\Admin\Gallery\GalleryController;
 use App\Http\Controllers\Admin\Portfolio\PortfolioController;
+use App\Http\Controllers\Admin\Portfolio\PortfolioImageController;
 use App\Http\Controllers\Admin\Review\ReviewController;
 use App\Http\Controllers\Admin\Review\ReviewtypeController;
 use App\Http\Controllers\Admin\Service\ServiceController;
@@ -44,7 +45,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('gallery-category',   GalleryCategoryController::class);
     Route::resource('reviewtype',         ReviewtypeController::class);
     Route::resource('review',             ReviewController::class);
+
     Route::resource('portfolio',          PortfolioController::class);
+    Route::get('portfolio/image/{id}', [PortfolioImageController::class, 'index'])->name('portfolioimage.create');
 
 
     Route::resource('service',            ServiceController::class);

@@ -156,6 +156,8 @@ class PortfolioController extends Controller
                 'pull_zone'     => $request->pull_zone,
                 'resolution'    => $request->resolution
             ]);
+        }else{
+            PortfolioVideo::firstWhere('portfolio_id', $id)->delete();
         }
 
 

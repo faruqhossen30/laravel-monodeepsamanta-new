@@ -5,11 +5,11 @@
     </div>
     <!--layer end-->
     @if ($portfolio->video)
-        <video autoplay loop muted class="w-full h-full">
+        <video autoplay loop muted class="w-full h-full transition duration-1000 group-hover:scale-110 group-hover:rotate-3">
             <source src="{{video_link($portfolio->video)}}" type="video/mp4">
         </video>
     @else
-        <img class="object-cover w-full h-full transition duration-500 max-h-80 group-hover:scale-110 group-hover:rotate-3"
+        <img class="object-cover w-full h-full transition duration-1000 max-h-80 group-hover:scale-110 group-hover:rotate-3"
             src="{{ asset('uploads/galleries/' . $portfolio->thumbnail) }}" alt="">
     @endif
 
