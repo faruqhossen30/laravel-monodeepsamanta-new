@@ -45,9 +45,8 @@
 
                                             <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span
                                                     class="font-semibold">Click to
-                                                    upload</span> or drag and drop</p>
-                                            <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX.
-                                                800x400px)</p>
+                                                    Update Profile Photo</span></p>
+                                            <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF</p>
                                         </div>
                                     @endif
 
@@ -57,24 +56,10 @@
                             </div>
                         </div>
                         <div class="items-center sm:flex xl:block 2xl:flex sm:space-x-4 xl:space-x-0 2xl:space-x-4">
-                            <div class="justify-center">
+                            <div class="justify-center text-gray-500 dark:text-gray-400">
                                 <h3 class="mb-1 text-xl font-bold text-gray-900 dark:text-white">Profile picture</h3>
                                 <div class="mb-4 text-sm text-gray-500 dark:text-gray-400">
                                     JPG, GIF or PNG. Max size of 800K
-                                </div>
-                                <div class="flex items-center space-x-4">
-                                    <button type="button"
-                                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                                        <svg class="w-4 h-4 mr-2 -ml-1" fill="currentColor" viewBox="0 0 20 20"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M5.5 13a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 13H11V9.413l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13H5.5z">
-                                            </path>
-                                            <path d="M9 13h2v5a1 1 0 11-2 0v-5z"></path>
-                                        </svg>
-                                        Upload picture
-                                    </button>
-
                                 </div>
 
                                 <div class="grid grid-cols-5 px-1 py-1  mt-5">
@@ -99,7 +84,7 @@
                 <div class="col-span-2">
                     <div
                         class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
-                        <h3 class="mb-4 text-xl font-semibold dark:text-white">Reset your password information !!!</h3>
+                        <h3 class="mb-4 text-xl font-semibold dark:text-white">Reset your password !!!</h3>
                                 @if ($errors->any())
                                 <div class="alert alert-danger">
                                     <ul>
@@ -113,7 +98,7 @@
                             <x-form.input name="password" label="Password" type="password"  />
                             <x-form.input name="password_confirmation" label="Confirm Password" type="password" />
 
-                            <x-form.submit-button />
+                            <x-form.submit-button title="Update Password" />
 
                     </div>
                 </div>

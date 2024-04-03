@@ -3,7 +3,7 @@
     style="background-image: url('{{ asset('img/action-bg.webp') }}')">
     <h5 class="font-black text-3xl lg:text-[40px] lg:leading-[50px] mt-2">HAVE A PROJECT</h5>
     <h5 class="text-lg lg:text-[24px]  lg:leading-[28px] font-black">THAT NEEDS SOME SOME</h5>
-    <button
+    <button onclick="tidioChatApi.display(true);tidioChatApi.open()"
         class="bg-brand bg-primary py-2 px-6 inline-flex items-center gap-x-2 text-lg rounded-md text-white font-bold  shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600 hover:text-[#FF003A]">
         <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
             class="bi bi-wechat" viewBox="0 0 16 16">

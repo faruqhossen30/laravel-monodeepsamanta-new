@@ -2,28 +2,9 @@
 
     <div class="p-4">
         <form action="" method="post">
-            <div
-                class="py-3 font-extrabold flex items-center text-lg text-gray-800 before:flex-[1_1_0%] before:border-t before:border-gray-200 before:me-6 after:flex-[1_1_0%] after:border-t after:border-gray-200 after:ms-6 dark:text-white dark:before:border-gray-600 dark:after:border-gray-600">
-                Thumbnail Section</div>
-            <div class="grid grid-cols-2 gap-10">
-                <div class="col-span-2 lg:col-span-1">
-                    <div class="my-2 md:flex">
-                        <div class="w-full">
-                            <label for="photoThubnail" class="py-2">Photo Thumbnail</label>
-                            <input class="photoThumbnail" type="file" id="photoThubnail" name="thumbnail">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-span-2 lg:col-span-1">
-                    <div class="my-2 md:flex">
-                        <div class="w-full">
-                            <label for="videoThumbnail" class="py-2">Video Thumbnail</label>
-                            <input class="videoThumbnail" type="file" id="videoThumbnail" name="video">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div>
+            <div class="flex flex-col bg-white border border-gray-200 shadow-sm rounded-xl p-4 md:p-5 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
+                Under Construction !!!
+              </div>
                 <x-form.submit-button />
             </div>
         </form>

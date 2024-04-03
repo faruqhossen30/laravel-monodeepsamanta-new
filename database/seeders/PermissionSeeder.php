@@ -106,7 +106,7 @@ class PermissionSeeder extends Seeder
             ['name' => 'websitesetting',       'module_name' => 'setting'],
             ['name' => 'socialmedia setting',  'module_name' => 'setting'],
             ['name' => 'contactsetting',       'module_name' => 'setting'],
-            ['name' => 'chatsatting',       'module_name' => 'setting'],
+            ['name' => 'chat setting',       'module_name' => 'setting'],
             // websitesetting
 
         ]);

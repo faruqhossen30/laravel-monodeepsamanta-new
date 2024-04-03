@@ -30,7 +30,8 @@
                                             </button>
                                             <input type="hidden" name="thumbnail" value="{{ $adminprofile->thumbnail }}">
                                             <img class="max-h-60 w-auto rounded-full p-4"
-                                                src="{{ asset('uploads/galleries/' . $adminprofile->thumbnail) }}" alt="thumbnail">
+                                                src="{{ asset('uploads/galleries/' . $adminprofile->thumbnail) }}"
+                                                alt="thumbnail">
                                         </div>
                                     @else
                                         <div class="flex flex-col items-center justify-center pt-5 pb-6 cursor-pointer"
@@ -55,24 +56,10 @@
                             </div>
                         </div>
                         <div class="items-center sm:flex xl:block 2xl:flex sm:space-x-4 xl:space-x-0 2xl:space-x-4">
-                            <div class="justify-center">
+                            <div class="justify-center text-gray-500 dark:text-gray-400">
                                 <h3 class="mb-1 text-xl font-bold text-gray-900 dark:text-white">Profile picture</h3>
                                 <div class="mb-4 text-sm text-gray-500 dark:text-gray-400">
                                     JPG, GIF or PNG. Max size of 800K
-                                </div>
-                                <div class="flex items-center space-x-4">
-                                    <button type="button"
-                                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                                        <svg class="w-4 h-4 mr-2 -ml-1" fill="currentColor" viewBox="0 0 20 20"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M5.5 13a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 13H11V9.413l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13H5.5z">
-                                            </path>
-                                            <path d="M9 13h2v5a1 1 0 11-2 0v-5z"></path>
-                                        </svg>
-                                        Upload picture
-                                    </button>
-
                                 </div>
 
                                 <div class="grid grid-cols-5 px-1 py-1  mt-5">
@@ -99,20 +86,27 @@
                         class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
                         <div class="flex justify-between">
                             <div>
-                                <h3 class="mb-4 text-xl font-semibold dark:text-white">Reset your password information !!!</h3>
+                                <h3 class="mb-4 text-xl font-semibold dark:text-white">Change your name!
+                                </h3>
                             </div>
                             <div>
-                              <a href="{{route('admin.profile.resetpassword',$adminprofile->id)}}" class="py-1 my-2 px-3 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800">Reset Password</a>
+
+
+                                <a href="{{ route('admin.profile.resetpassword', $adminprofile->id) }}"
+                                    class="py-1 my-2 px-3 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                                    </svg>
+                                    Password Reset</a>
                             </div>
                         </div>
 
-                        <x-form.input label="Name" name="name" value="{{ $adminprofile->name }}" />
                         <x-form.input name="email" label="Email" type="email" disable="disabled"
                             value="{{ $adminprofile->email }}" />
-
-                        {{-- <x-form.input name="password" label="Password" type="password" />
-                        <x-form.input name="password_confirmation" label="Confirm Password" type="password" /> --}}
-                        <x-form.submit-button />
+                        <x-form.input label="Name" name="name" value="{{ $adminprofile->name }}" />
+                        <x-form.submit-button title="Update Name" />
 
                     </div>
                 </div>

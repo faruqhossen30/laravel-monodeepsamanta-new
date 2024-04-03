@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class ChatSectionController extends Controller
 {
     public function chatsection(){
-        if(!Auth::user()->can('chatsatting')){
+        if(!Auth::user()->can('chat setting')){
             abort(403);
         }
 
