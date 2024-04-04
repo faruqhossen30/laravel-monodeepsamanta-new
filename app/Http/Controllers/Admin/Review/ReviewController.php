@@ -103,7 +103,7 @@ class ReviewController extends Controller
     public function update(Request $request, string $id)
     {
 
-
+        // return $request->all();
         if(!Auth::user()->can('review update')){
             abort(403);
         }

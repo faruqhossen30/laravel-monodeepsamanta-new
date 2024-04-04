@@ -14,7 +14,7 @@
             <div>
                 @if ($content->photo)
                     <div>
-                        <img src="{{ asset('uploads/galleries/'.$content->photo) }}" alt="">
+                        <img src="{{ asset('uploads/galleries/'.$content->photo) }}" class="w-full" alt="">
                     </div>
                 @endif
                 @if ($content->video)

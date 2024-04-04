@@ -26,7 +26,7 @@
                             <div class="col-span-12 lg:col-span-8">
                                 <x-form.input label="Buyer Name" name="name" value="{{ $review->name }}" />
                                 <x-form.input label="Rating" name="rating" type="number" value="{{ $review->rating }}" />
-                                <x-form.input label="Review URL" name="revie_url" type="text"
+                                <x-form.input label="Review URL" name="review_url" type="text"
                                     value="{{ $review->review_url }}" />
                                 <x-form.textarea label="Review Text" type="text" name="review"
                                     value="{{ $review->review }}" />
