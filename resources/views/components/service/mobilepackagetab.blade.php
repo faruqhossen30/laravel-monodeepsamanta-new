@@ -3,31 +3,31 @@
         <div class="border p-3 sticky top-36 rounded-md">
             <div class="lg:col-span-4">
                 <div class="mb-4 border-gray-200 dark:border-gray-700">
-                    <div class="grid grid-cols-3" id="default-tab" data-tabs-toggle="#default-tab-content" data-tabs-active-classes="border-black" role="tablist">
+                    <div class="grid grid-cols-3" id="mobiledefault-tab" data-tabs-toggle="#mobiledefault-tab-content" data-tabs-active-classes="border-black" role="tablist">
                         <div class="me-2 col-span-1 text-center " role="presentation">
                             <button
                                 class="hs-tab-active:bg-black border hs-tab-active:text-white hs-tab-active:hover:text-white hs-tab-active:dark:text-white py-2 px-4 basis-0 grow inline-flex justify-center items-center gap-x-2 bg-transparent text-sm font-bold text-center text-black hover:text-brand rounded-[4px] disabled:opacity-50 disabled:pointer-events-none dark:text-gray-400 dark:hover:text-gray-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600 w-full active"
-                                id="profile-tab" data-tabs-target="#profile" type="button" role="tab"
-                                aria-controls="profile" aria-selected="false">Stater</button>
+                                id="mobileprofile-tab" data-tabs-target="#mobileprofile" type="button" role="tab"
+                                aria-controls="mobileprofile" aria-selected="false">Stater</button>
                         </div>
 
                         <div class="me-2 col-span-1 text-center" role="presentation">
                             <button
                                 class="hs-tab-active:bg-black w-full border hs-tab-active:text-white hs-tab-active:hover:text-white hs-tab-active:dark:text-white py-2 px-4 basis-0 grow inline-flex justify-center items-center gap-x-2 bg-transparent text-sm font-bold text-center text-black hover:text-brand rounded-[4px] disabled:opacity-50 disabled:pointer-events-none dark:text-gray-400 "
-                                id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab"
-                                aria-controls="dashboard" aria-selected="false">Strandred</button>
+                                id="mobiledashboard-tab" data-tabs-target="#mobiledashboard" type="button" role="tab"
+                                aria-controls="mobiledashboard" aria-selected="false">Strandred</button>
                         </div>
                         <div class="me-2 col-span-1 text-center" role="presentation">
                             <button
                                 class="hs-tab-active:bg-black w-full border hs-tab-active:text-white hs-tab-active:hover:text-white hs-tab-active:dark:text-white py-2 px-4 basis-0 grow inline-flex justify-center items-center gap-x-2 bg-transparent text-sm font-bold text-center text-black hover:text-brand rounded-[4px] disabled:opacity-50 disabled:pointer-events-none dark:text-gray-400 dark:hover:text-gray-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600  hover:text-gray-600"
-                                id="settings-tab" data-tabs-target="#settings" type="button" role="tab"
-                                aria-controls="settings" aria-selected="false">Advance</button>
+                                id="mobilesettings-tab" data-tabs-target="#mobilesettings" type="button" role="tab"
+                                aria-controls="mobilesettings" aria-selected="false">Advance</button>
                         </div>
                     </div>
                 </div>
-                <div id="default-tab-content">
-                    <div class="hidden p-4 rounded-lg bg-white dark:bg-gray-800" id="profile" role="tabpanel"
-                        aria-labelledby="profile-tab">
+                <div id="mobiledefault-tab-content">
+                    <div class="hidden p-4 rounded-lg bg-white dark:bg-gray-800" id="mobileprofile" role="tabpanel"
+                        aria-labelledby="mobileprofile-tab">
                         <h1 class="text-[26px] leading-[32px] py-2 font-bold">
                             ${{ optional($service->package)->starter_price }}</h1>
                         <div class="flex items-center space-x-1">
@@ -61,7 +61,7 @@
 
                             <a href="{{ $service->package->starter_url ?? '#' }}"
                                 class="w-full py-2 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-sm border border-black bg-black text-white hover:text-gray-800 hover:bg-white disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
-                                Continue ( ${{ $service->package->starter_price }})
+                                Get a FREE Customize Package
                             </a>
                             <a href="https://calendly.com/monodeepsamanta/15min" target="_blank"
                                 class="w-full py-2 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-sm border border-black bg-white text-black hover:bg-[#1b1021] hover:text-white disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
@@ -69,8 +69,8 @@
                             </a>
                         </div>
                     </div>
-                    <div class="hidden p-4 rounded-lg bg-white dark:bg-gray-800" id="dashboard" role="tabpanel"
-                        aria-labelledby="dashboard-tab">
+                    <div class="hidden p-4 rounded-lg bg-white dark:bg-gray-800" id="mobiledashboard" role="tabpanel"
+                        aria-labelledby="mobiledashboard-tab">
                         <h1 class="text-[26px] leading-[32px] py-2 font-bold">${{ $service->package->standard_price }}
                         </h1>
                         <div class="flex items-center space-x-1">
@@ -105,7 +105,7 @@
                                 <input type="hidden" name="price" value="{{ $service->package->standard_price }}">
                                 <a href="{{ $service->package->standard_url ?? '#' }}"
                                     class="w-full py-2 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-sm border border-black bg-black text-white hover:text-gray-800 hover:bg-white disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
-                                    Continue ( ${{ $service->package->standard_price }})
+                                    Get a FREE Customize Package
                                 </a>
                             </form>
                             <a href="https://calendly.com/monodeepsamanta/15min" target="_blank"
@@ -114,8 +114,8 @@
                             </a>
                         </div>
                     </div>
-                    <div class="hidden p-4 rounded-lg bg-white dark:bg-gray-800" id="settings" role="tabpanel"
-                        aria-labelledby="settings-tab">
+                    <div class="hidden p-4 rounded-lg bg-white dark:bg-gray-800" id="mobilesettings" role="tabpanel"
+                        aria-labelledby="mobilesettings-tab">
                         <h1 class="text-[26px] leading-[32px] py-2 font-bold">${{ $service->package->advance_price }}
                         </h1>
                         <div class="flex items-center space-x-1">
@@ -151,7 +151,7 @@
                                     </form> --}}
                             <a href="{{ $service->package->advance_url ?? '#' }}"
                                 class="w-full py-2 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-sm border border-black bg-black text-white hover:text-gray-800 hover:bg-white disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
-                                Continue ( ${{ $service->package->advance_price }})
+                                Get a FREE Customize Package
                             </a>
                             <a href="https://calendly.com/monodeepsamanta/15min" target="_blank"
                                 class="w-full py-2 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-sm border border-black bg-white text-black hover:bg-[#1b1021] hover:text-white disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">

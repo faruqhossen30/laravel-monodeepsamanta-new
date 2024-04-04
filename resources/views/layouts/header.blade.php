@@ -4,7 +4,7 @@
 @endphp
 
 <header class="sticky top-0 bg-white mynavbar z-50">
-    <div class="container mx-auto flex items-center justify-between lg:py-2 py-2 px-5 lg:px-0">
+    <div class="container mx-auto flex items-center justify-between lg:py-2 py-2 px-3 lg:px-0">
         <div class="flex items-center space-x-6 ">
             <a href="{{ route('homepage') }}" class="flex-none text-xl font-semibold dark:text-white">
                 <img src="{{ asset('img/logo.webp') }}" alt="" class="w-12 lg:w-14 h-12 lg:h-14 hover:animate-pulse ring-2 lg:ring-0 ring-cyan-500 rounded-full lg:rounded-none hover:ring-1 hover:ring-brand  hover:rounded-full">

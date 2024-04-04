@@ -9,7 +9,7 @@
             <x-icon.listcheck />
             <x-h1>See My Services</x-h1>
         </x-heading.heading-one>
-        <x-arrow-link route="portfoliopage">
+        <x-arrow-link route="servicepage">
             See All Services
         </x-arrow-link>
     </div>

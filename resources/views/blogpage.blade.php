@@ -2,10 +2,10 @@
 @section('title', 'Dashboard & UX/UI Designer | Blogs')
 @section('content')
     <section class="container px-3 mx-auto lg:px-0">
-        <div class="grid grid-cols-12 gap-5 space-y-8 max-[768px]:pt-3 py-10 lg:py-20 lg:space-y-0">
+        <div class="grid grid-cols-12 gap-5 space-y-8 lg:py-10 lg:space-y-0">
             <!--FEATURED WORK section start from here-->
             <div class="col-span-12 space-y-4 lg:col-span-7">
-                <div class="pb-5">
+                <div class="pb-2 lg:pb-5 pt-4 lg:pt-0">
                     <x-h1>
                         <svg class="inline w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                             viewBox="0 0 20 20" fill="none">
@@ -19,13 +19,15 @@
                         Design Matters
                     </x-h1>
                 </div>
-                <p class="text-lg text-justify">I am sharing practical tips and real-world experiences to help both budding and seasoned
-                    designers level up their skills. Dive into the latest trends, discover the best tools, and explore the
-                    art
-                    of creating user-friendly designs.</p>
-                <p class="text-lg text-justify">My articles are your go-to source for simplified design wisdom. Let’s grow together in
-                    this
-                    vibrant UI/UX design blog community.</p>
+                <div class="space-y-4">
+                    <p class="text-lg text-justify p-0 ">I am sharing practical tips and real-world experiences to help both budding and seasoned
+                        designers level up their skills. Dive into the latest trends, discover the best tools, and explore the
+                        art
+                        of creating user-friendly designs.</p>
+                    <p class="text-lg text-justify">My articles are your go-to source for simplified design wisdom. Let’s grow together in
+                        this
+                        vibrant UI/UX design blog community.</p>
+                </div>
             </div>
             <!--FEATURED WORK section End from here-->
             <div class="col-span-12 lg:col-span-5">

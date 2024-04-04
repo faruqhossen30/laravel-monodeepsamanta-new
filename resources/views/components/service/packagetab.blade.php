@@ -61,7 +61,7 @@
 
                             <a href="{{ $service->package->starter_url ?? '#' }}"
                                 class="w-full py-2 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-sm border border-black bg-black text-white hover:text-gray-800 hover:bg-white disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
-                                Continue ( ${{ $service->package->starter_price }})
+                                Get a FREE Customize Package
                             </a>
                             <a href="https://calendly.com/monodeepsamanta/15min" target="_blank"
                                 class="w-full py-2 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-sm border border-black bg-white text-black hover:bg-[#1b1021] hover:text-white disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
@@ -105,7 +105,7 @@
                                 <input type="hidden" name="price" value="{{ $service->package->standard_price }}">
                                 <a href="{{ $service->package->standard_url ?? '#' }}"
                                     class="w-full py-2 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-sm border border-black bg-black text-white hover:text-gray-800 hover:bg-white disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
-                                    Continue ( ${{ $service->package->standard_price }})
+                                    Get a FREE Customize Package
                                 </a>
                             </form>
                             <a href="https://calendly.com/monodeepsamanta/15min" target="_blank"
@@ -151,7 +151,7 @@
                                     </form> --}}
                             <a href="{{ $service->package->advance_url ?? '#' }}"
                                 class="w-full py-2 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-sm border border-black bg-black text-white hover:text-gray-800 hover:bg-white disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
-                                Continue ( ${{ $service->package->advance_price }})
+                                Get a FREE Customize Package
                             </a>
                             <a href="https://calendly.com/monodeepsamanta/15min" target="_blank"
                                 class="w-full py-2 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-sm border border-black bg-white text-black hover:bg-[#1b1021] hover:text-white disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">

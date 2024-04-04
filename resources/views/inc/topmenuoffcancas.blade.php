@@ -1,13 +1,12 @@
-<!-- drawer init and toggle -->
-<div class="text-center">
+<!-- le -->
+<div class="flex justify-end">
     <button
-        class="md:hidden overflow-y-auto text-black bg-white hover:bg-bran font-medium rounded-lg text-sm py-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none "
+        class="md:hidden overflow-y-auto text-black bg-white hover:bg-bran font-medium rounded-lg text-sm p-0 m-0 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none "
         type="button" data-drawer-target="drawer-top-example" data-drawer-show="drawer-top-example"
         data-drawer-placement="top" aria-controls="drawer-top-example">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h10 rotate-180 font-bold">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 rotate-180 font-bold">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12H12m-8.25 5.25h16.5" />
           </svg>
-
     </button>
 </div>
 
