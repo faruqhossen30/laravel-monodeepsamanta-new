@@ -10,9 +10,9 @@
     </div>
     <div class="hidden lg:block">
         <x-section-client />
+        <x-section-feature />
+        <x-section-chat />
     </div>
-    <x-section-feature />
-    <x-section-chat />
     <x-section-service />
     <x-section-video />
     <x-section-testmonial />
