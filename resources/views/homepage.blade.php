@@ -5,8 +5,12 @@
     <div class="py-[30px] pt-8">
         <x-section-chat />
     </div>
-    <x-section-aboutme />
-    <x-section-client />
+    <div class="hidden lg:block">
+        <x-section-aboutme />
+    </div>
+    <div class="hidden lg:block">
+        <x-section-client />
+    </div>
     <x-section-feature />
     <x-section-chat />
     <x-section-service />

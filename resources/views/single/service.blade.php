@@ -2,7 +2,7 @@
 @section('title', "{$service->title} | Dashboard & UX/UI Designer")
 @section('content')
 
-    <section class="container mx-auto">
+    <section class="container mx-auto px-3 lg:px-0">
         <div class="grid grid-cols-12 gap-1 pt-3">
             <div class="col-span-12 lg:col-span-8 lg:pr-10">
                 <x-heading.heading-one>
@@ -290,7 +290,7 @@
     <div>
         <x-section-service />
         <div class="flex justify-center py-5 lg:py-20">
-            <a href="{{ route('servicepage') }}" class="text-primary font-bold flex items-center space-x-2">
+            <a href="{{ route('servicepage') }}" class="text-primary font-bold flex items-center space-x-2 hover:text-brand">
                 <span class="text-[15px] leading-[15px]">See All Services</span>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="#FF003A" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" data-slot="icon" class="w-4 h-4 font-bold">
@@ -405,6 +405,13 @@
                 loop: true,
                 margin: 10,
                 dots: false
+            });
+
+            $('#serviceslider').owlCarousel({
+                items: 2,
+                loop: true,
+                margin: 10,
+                dots:false
             });
 
         });

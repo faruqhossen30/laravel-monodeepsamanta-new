@@ -3,7 +3,7 @@
         <div class="border p-3 sticky top-36 rounded-md">
             <div class="lg:col-span-4">
                 <div class="mb-4 border-gray-200 dark:border-gray-700">
-                    <div class="grid grid-cols-3" id="default-tab" data-tabs-toggle="#default-tab-content" role="tablist">
+                    <div class="grid grid-cols-3" id="default-tab" data-tabs-toggle="#default-tab-content" data-tabs-active-classes="border-black" role="tablist">
                         <div class="me-2 col-span-1 text-center " role="presentation">
                             <button
                                 class="hs-tab-active:bg-black border hs-tab-active:text-white hs-tab-active:hover:text-white hs-tab-active:dark:text-white py-2 px-4 basis-0 grow inline-flex justify-center items-center gap-x-2 bg-transparent text-sm font-bold text-center text-black hover:text-brand rounded-[4px] disabled:opacity-50 disabled:pointer-events-none dark:text-gray-400 dark:hover:text-gray-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600 w-full active"

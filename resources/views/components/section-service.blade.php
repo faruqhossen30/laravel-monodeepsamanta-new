@@ -18,7 +18,7 @@
 <section class="hidden md:block container mx-auto px-3 lg:px-0">
     <div class="grid-cols-12 gap-3 lg:grid">
         @foreach ($services as $service)
-            <a href="#" class="col-span-12 p-3 border group md:col-span-6 lg:col-span-4" data-aos="fade"
+            <a href="{{ route('singleservice', $service->slug) }}" class="col-span-12 p-3 border group md:col-span-6 lg:col-span-4" data-aos="fade"
                 data-aos-duration="2000">
                 <div class="relative overflow-hidden font-bold text-white rounded-md shadow cursor-pointer">
                     @if ($service->video)
@@ -31,8 +31,8 @@
                     @endif
                 </div>
                 <div class="py-2 mt-5 space-y-1">
-                    <h3 class="text-xl font-bold hover:text-[#FF003A]">Larave Dashboard Desigh</h3>
-                    <h2 class="text-lg text-brand font-bold">Starting at 100 </h2>
+                    <h3 class="text-xl font-bold hover:text-[#FF003A]">{{ $service->title }}</h3>
+                    <h2 class="text-lg text-brand font-bold">Starting at ${{ $service->package->starter_price ?? '' }} </h2>
                 </div>
             </a>
         @endforeach

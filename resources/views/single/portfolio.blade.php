@@ -1,14 +1,42 @@
 @extends('layouts.app')
 @section('title', "Dashboard & UX/UI Designer | {$portfolio->title}")
 @section('content')
+    <section class="container mx-auto px-3 lg:px-0 pb-[30px] max-[768px]:pt-3 min-[768px]:py-[30px]">
+        <div class="flex flex-row items-center justify-between">
+            <x-heading.heading-one>
+                <x-h1>{{ $portfolio->title }}</x-h1>
+            </x-heading.heading-one>
+        </div>
+    </section>
 
-    <section class="container mx-auto px-3 lg:px-0 mb-24 pt-3">
-        <x-h1>{{ $portfolio->title }}</x-h1>
-        {{-- <h3 class="lg:-mt-4 text-3xl font-bold">{{ $portfolio->title }}</h3> --}}
-        <div class="my-6">
+    <section class="container mx-auto px-3 lg:px-0 lg:mb-24">
+        @foreach ($portfolio->contents as $content)
+            <div>
+                @if ($content->photo)
+                    <div>
+                        <img src="{{ asset('uploads/galleries/'.$content->photo) }}" alt="">
+                    </div>
+                @endif
+                @if ($content->video)
+                    <div>
+                        {!!$content->video!!}
+                    </div>
+                @endif
+
+                @if ($content->heading || $content->description)
+                    <div class="w-full md:w-10/12 lg:w-8/12 mx-auto py-10 lg:py-16 space-y-8">
+                        <h2 class=" font-bold text-2xl">{{ $content->heading }}</h2>
+                        <div class="text-xl leading-8">
+                            {{ $content->description }}
+                        </div>
+                    </div>
+                @endif
+            </div>
+        @endforeach
+
+        {{-- <div class="my-6">
             @foreach ($portfolio->images as $image)
                 @if ($image->video)
-                    {{-- <p>{{ $image }}</p> --}}
                     @if ($image->caption)
                         <div class="py-2">
                             <h2 class="py-2 text-lg shadow-md">{{ $image->caption }}</h2>
@@ -25,11 +53,11 @@
                     @endif
                     <img src="{{ asset('uploads/galleries/' . $image->image) }}" class="w-full h-auto" alt="">
                 @endif
-            @endforeach
+            @endforeach --}}
         </div>
     </section>
 
-    <section class="container mx-auto px-3 lg:px-0">
+    <section class="hidden lg:block container mx-auto px-3 lg:px-0">
         <div class="flex justify-between items-center space-y-8 md:space-y-0 py-2">
             <div class="">
                 @if (isset($portfolio->previous))
@@ -49,6 +77,40 @@
 
         </div>
     </section>
+
+    {{-- For Mobile version --}}
+
+    <section class="lg:hidden container mx-auto px-3 lg:px-0">
+        <div class="flex justify-between items-center">
+            <div class="">
+                @if (isset($portfolio->previous))
+                <div class="flex">
+                    <!-- Previous Button -->
+                    <a href="{{ route('singleportfolio', $portfolio->previous->slug) }}" class="flex items-center justify-center px-3 h-8 me-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-brand dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                      <svg class="w-3.5 h-3.5 me-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5H1m0 0 4 4M1 5l4-4"/>
+                      </svg>
+                      Previous
+                    </a>
+                  </div>
+                @endif
+            </div>
+
+            <div class="">
+                @if (isset($portfolio->next))
+                <a href="{{ route('singleportfolio', $portfolio->next->slug) }}" class="flex items-center justify-center px-3 h-8 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-brand dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                    Next
+                    <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                    </svg>
+                  </a>
+
+                @endif
+            </div>
+
+        </div>
+    </section>
+
 
 
     <div class="mb-20 mt-5">

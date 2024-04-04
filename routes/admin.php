@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\Gallery\GalleryCategoryController;
 use App\Http\Controllers\Admin\Gallery\GalleryController;
+use App\Http\Controllers\Admin\Portfolio\PortfolioContentController;
 use App\Http\Controllers\Admin\Portfolio\PortfolioController;
 use App\Http\Controllers\Admin\Portfolio\PortfolioImageController;
 use App\Http\Controllers\Admin\Review\ReviewController;
@@ -47,7 +48,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('review',             ReviewController::class);
 
     Route::resource('portfolio',          PortfolioController::class);
-    Route::get('portfolio/image/{id}', [PortfolioImageController::class, 'index'])->name('portfolioimage.create');
+    Route::get('portfolio/content/{id}', [PortfolioContentController::class, 'create'])->name('portfolioimage.create');
+    Route::post('portfolio/content/{id}', [PortfolioContentController::class, 'store'])->name('portfolioimage.store');
 
 
     Route::resource('service',            ServiceController::class);
