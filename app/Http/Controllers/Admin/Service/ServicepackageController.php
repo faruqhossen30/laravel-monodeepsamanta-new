@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Service\Service;
 use App\Models\Service\ServicePackage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class ServicepackageController extends Controller
