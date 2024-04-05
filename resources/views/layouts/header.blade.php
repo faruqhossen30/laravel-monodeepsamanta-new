@@ -7,7 +7,21 @@
     <div class="container mx-auto flex items-center justify-between lg:py-2 py-2 px-3 lg:px-0">
         <div class="flex items-center space-x-6 ">
             <a href="{{ route('homepage') }}" class="flex-none text-xl font-semibold dark:text-white">
-                <img src="{{ asset('img/logo.webp') }}" alt="" class="w-12 lg:w-14 h-12 lg:h-14 hover:animate-pulse ring-2 lg:ring-0 ring-cyan-500 rounded-full lg:rounded-none hover:ring-1 hover:ring-brand  hover:rounded-full">
+
+                {{-- <div class="relative">
+                    <img class="w-12 h-12 lg:w-14 lg:h-14 rounded-full hover:ring-2 hover:ring-green-400" src="{{asset('logo.jpg')}}" alt="">
+                    <span class="bottom-0 left-9 lg:left-10 absolute w-3.5 h-3.5 lg:w-4 lg:h-4 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full"></span>
+                </div> --}}
+                <div class="relative">
+                    <img class="w-12 h-12 lg:w-14 lg:h-14 rounded-full hover:ring-2 hover:ring-green-400" src="{{asset('logo.jpg')}}" alt="">
+                    <span class="relative flex h-3 w-3 bottom-2.5 lg:bottom-3 left-9 lg:left-10">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2.5 lg:h-3 w-2.5 lg:w-3 bg-green-400"></span>
+                    </span>
+                </div>
+
+
+                {{-- <img src="{{ asset('img/logo.webp') }}" alt="" class="w-12 lg:w-14 h-12 lg:h-14 hover:animate-pulse ring-2 lg:ring-0 ring-cyan-500 rounded-full lg:rounded-none hover:ring-1 hover:ring-brand  hover:rounded-full"> --}}
             </a>
             <div class="space-y-2">
                 <div class="flex items-center space-x-2">
