@@ -49,7 +49,7 @@
                     <x-service.mobilepackagetab :service="$service" />
                 </span>
                 {{-- Slider Start --}}
-                <div class="py-8 prose">
+                <div class="py-8 prose max-w-none">
                     {!! $service->description !!}
                 </div>
 

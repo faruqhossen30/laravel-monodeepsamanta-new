@@ -25,7 +25,7 @@
             </a>
             <div class="space-y-2">
                 <div class="flex items-center space-x-2">
-                    <a href="{{ route('homepage') }}" class="sm:text-lg text-xl md:text-[22px] lg:text-2xl font-bold hover:text-brand">
+                    <a href="{{ route('aboutpage') }}" class="sm:text-lg text-xl md:text-[22px] lg:text-2xl font-bold hover:text-brand">
                         Monodeep Samanta
                     </a>
                     <div class="hidden lg:flex items-center space-x-2">
