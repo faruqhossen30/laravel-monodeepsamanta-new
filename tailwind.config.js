@@ -11,6 +11,11 @@ export default {
     ],
 
     theme: {
+        container:{
+            screens:{
+                '2xl':'1280px'
+            }
+        },
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
@@ -21,5 +26,5 @@ export default {
         },
     },
 
-    plugins: [forms, require('flowbite/plugin'),require('@tailwindcss/typography')],
+    plugins: [forms, require('flowbite/plugin'), require('@tailwindcss/typography')],
 };
