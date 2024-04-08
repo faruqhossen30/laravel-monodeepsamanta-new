@@ -5,7 +5,7 @@
         <div class="grid grid-cols-12 gap-5 space-y-8 lg:py-10 lg:space-y-0">
             <!--FEATURED WORK section start from here-->
             <div class="col-span-12 space-y-4 lg:col-span-7">
-                <div class="pb-2 lg:pb-5 pt-4 lg:pt-0">
+                <div class="pt-4 pb-2 lg:pb-5 lg:pt-0">
                     <x-h1>
                         <svg class="inline w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                             viewBox="0 0 20 20" fill="none">
@@ -20,7 +20,7 @@
                     </x-h1>
                 </div>
                 <div class="space-y-4">
-                    <p class="text-lg text-justify p-0 ">I am sharing practical tips and real-world experiences to help both budding and seasoned
+                    <p class="p-0 text-lg text-justify ">I am sharing practical tips and real-world experiences to help both budding and seasoned
                         designers level up their skills. Dive into the latest trends, discover the best tools, and explore the
                         art
                         of creating user-friendly designs.</p>
@@ -76,14 +76,14 @@
                     </a>
                 @endforeach
             </div>
-            <div class="py-10">
+            <div class="py-2 lg:py-10">
                 {{ $posts->links('pagination::custom') }}
             </div>
         </div>
     </section>
 
 
-    <div class="py-5 lg:py-10">
+    <div class="">
         <x-section-chat />
 
     </div>

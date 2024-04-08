@@ -2,7 +2,7 @@
 @section('title', 'Dashboard & UX/UI Designer | About Me')
 @section('content')
     <x-section-aboutme />
-    <div class="mt-5 lg:mt-12">
+    <div class="mt-5 mb-4 lg:mt-8 lg:mb-0">
         <x-section-chat />
     </div>
     <x-section-portfolio />

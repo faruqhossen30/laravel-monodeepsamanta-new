@@ -25,7 +25,7 @@
 @section('content')
 
     <article class="">
-        <aside class="sticky top-36 z-40 pt-14  container mx-auto hidden lg:block" data-aos="fade-right"
+        <aside class="container sticky z-40 hidden mx-auto top-36 pt-14 lg:block" data-aos="fade-right"
             data-aos-duration="1000">
             <ul class="space-y-2">
                 <li>
@@ -105,12 +105,12 @@
 
         <div class="container mx-auto">
             <div class="w-11/12 max-w-6xl mx-auto -mt-44">
-                <img class="rounded-md w-full" src="{{ asset('uploads/galleries/' . $post->thumbnail) }}" alt="">
+                <img class="w-full rounded-md" src="{{ asset('uploads/galleries/' . $post->thumbnail) }}" alt="">
             </div>
         </div>
 
         {{-- start --}}
-        <div class="grid w-11/12 max-w-6xl grid-cols-12 lg:gap-10 px-5 lg:px-10 mx-auto my-6 text-sm border rounded-md shadow py-14 space-y-4"
+        <div class="grid w-11/12 max-w-6xl grid-cols-12 px-5 mx-auto my-6 space-y-4 text-sm border rounded-md shadow lg:gap-10 lg:px-10 py-14"
             >
             <div class="col-span-12 lg:col-span-6">
                 <h2 class="mb-5 font-semibold uppercase ">About This Project</h2>
@@ -137,7 +137,7 @@
         </div>
 
         {{-- End --}}
-        <div class="w-11/12 max-w-3xl py-10 mx-auto prose ">
+        <div class="w-11/12 max-w-4xl py-10 mx-auto prose ">
             {!! $post->description !!}
         </div>
 
@@ -172,14 +172,14 @@
 
 
     <div class="container mx-auto">
-        <div class="py-10 mt-14 text-center">
+        <div class="py-10 text-center mt-14">
             <h1 class="text-3xl font-bold">
                 Related posts
             </h1>
             <p class="py-4 text-lg font-normal text-gray-500">Check out more blogs and stories.</p>
         </div>
         <div id="postSlider"
-            class="grid grid-cols-2 px-4 py-16 lg:px-0 owl-carousel owl-theme sm:grid-cols-2 lg:grid-cols-4 slider">
+            class="grid grid-cols-2 px-4 pt-16 lg:px-0 owl-carousel owl-theme sm:grid-cols-2 lg:grid-cols-4 slider">
             @foreach ($posts as $post)
                 <a class="overflow-hidden rounded-lg group dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                     href="{{ route('singleblog', $post->slug) }}">

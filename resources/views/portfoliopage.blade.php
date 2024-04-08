@@ -10,8 +10,8 @@
 
     <x-portfolio.creativework />
     <section class="hidden lg:block sticky top-[90px] z-30 bg-white">
-        <div class="container mx-auto px-3 lg:px-0 my-5 py-3 ">
-            <div class=" text-gray-500 space-x-2" data-aos="fade-down" data-aos-duration="1000">
+        <div class="container px-3 py-3 mx-auto my-5 lg:px-0 ">
+            <div class="space-x-2 text-gray-500 " data-aos="fade-down" data-aos-duration="1000">
                 <a href="{{ route('portfoliopage') }}"
                     class="mb-2 inline-block font-bold border px-6 py-1 rounded  transition @if (!$query) bg-black text-white @endif">All
                     Capabilities</a>
@@ -24,7 +24,7 @@
         </div>
     </section>
 
-    <div class="container mx-auto sticky z-30 block bg-white lg:hidden top-20 lg:top-20">
+    <div class="container sticky z-30 block mx-auto bg-white lg:hidden top-20 lg:top-20">
         <div id="categorySlider" class="w-full py-2 mr-4 space-y-2 text-gray-500 owl-carousel owl-theme">
             <a href="{{ route('portfoliopage') }}"
                 class="mb-2 inline-block font-bold border px-6 py-1 rounded  transition @if (!$query) bg-black text-white @endif">All
@@ -37,7 +37,7 @@
     </div>
 
 
-    <div class="container mx-auto px-3 lg:px-0">
+    <div class="container px-3 mx-auto lg:px-0">
         <div class="grid grid-cols-12 gap-3 mixingContainer">
             @foreach ($portfolios as $portfolio)
                 <x-portfolio.portfolioitem :portfolio="$portfolio" />
@@ -49,7 +49,7 @@
     </div>
     <x-section-chat />
     <x-section-service islink="true" />
-    <div class="pb-[20px]"></div>
+    <div class="pb-[0px]"></div>
 @endsection
 
 @push('styles')

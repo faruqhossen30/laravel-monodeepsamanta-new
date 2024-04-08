@@ -21,7 +21,7 @@
 
     <section class="container px-3 mx-auto lg:px-0">
         @foreach ($reviews as $review)
-            <div class="justify-between py-6 md:flex lg:py-12">
+            <div class="justify-between py-6 first:pt-0 md:flex lg:py-12">
                 <div class="flex space-x-3" data-aos="fade-right" data-aos-duration="1000">
                     <div class="flex items-center justify-center w-8 h-8 p-6 rounded-full bg-zinc-200">
                         <span class="font-bold">{{ acronym($review->name) }}</span>
@@ -43,7 +43,7 @@
                         <div class="flex items-center py-4 space-x-2">
                             <p class="text-sm">Originally Posted on:</p>
                             <a href="{{ $review->review_url ?? '#' }}" target="_blank"
-                                class="flex text-sm leading-[18px] text-primary font-bold items-center space-x-2">
+                                class=" hover:text-brand flex text-sm leading-[18px] text-primary font-bold items-center space-x-2">
                                 <span>{{ $review->type->name }}</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
@@ -56,18 +56,18 @@
                     </div>
                 </div>
 
-                <div data-aos="fade-left" data-aos-duration="1000">
+                <div >
                     <div class="flex justify-center">
                         <img src="{{ asset('uploads/galleries/' . $review->thumbnail) }}"
                             class="lg:max-w-[194px] min-w-[176px]" alt="{{ $review->category->slug }}">
                     </div>
                     <div class="flex items-center justify-center py-3 space-x-2 text-center group ">
                         <a href="{{ route('portfoliopage', ['category' => $review->category->slug]) }}"
-                            class="font-bold text-center text-primary group-hover:text-black">Similar Works
+                            class="font-bold text-center text-primary group-hover:text-brand">Similar Works
                         </a>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="#FF003A" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" data-slot="icon"
-                            class="w-4 h-4 font-bold text-[#FF003A] group-hover:text-black">
+                            class="w-4 h-4 font-bold group-hover:text-brand">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                         </svg>
                     </div>
@@ -84,12 +84,13 @@
     {{-- <div class="lg:py-6"></div> --}}
     <div>
         <x-section-service islink="true" />
-        <div class="flex justify-center py-5 lg:py-10" data-aos="fade-up" data-aos-duration="1000">
+        <div class="flex justify-center pt-5 lg:pt-10" data-aos="fade-up" data-aos-duration="1000">
             <a href="{{ route('servicepage') }}" class="flex items-center space-x-2 font-bold text-primary">
-                <span class="text-[15px] leading-[15px]">See All Services</span>
+                <span class="text-[15px] leading-[15px] text-brand">See All Services</span>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="#FF003A" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" data-slot="icon" class="w-4 h-4 font-bold">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                            stroke="currentColor" data-slot="icon"
+                            class="w-4 h-4 font-bold text-[#FF003A] group-hover:text-black">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                 </svg>
             </a>
         </div>

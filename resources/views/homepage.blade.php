@@ -2,7 +2,7 @@
 @section('title', 'Dashboard & UX/UI Designer | Home')
 @section('content')
     <x-section-portfolio />
-    <div class="py-[30px] pt-8">
+    <div class="pt-[30px] pt-8">
         <x-section-chat />
     </div>
     <div class="hidden lg:block">
@@ -16,7 +16,7 @@
     <x-section-service />
     <x-section-video />
     <x-section-testmonial />
-    <div class="py-[30px] pb-8">
+    <div class="pt-[30px]">
         <x-section-blog />
     </div>
 @endsection
