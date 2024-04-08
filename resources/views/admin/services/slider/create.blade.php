@@ -48,7 +48,7 @@
                         <div id="photosDivParent">
                             <div class="space-y-2 py-2" id="photosDiv">
 
-                                @if (count($service->sliders))
+                                {{-- @if (count($service->sliders))
                                     @foreach ($service->sliders as $slider)
                                         @if ($slider->video)
                                             <div class="flex items-center justify-between border dark:border-gray-800">
@@ -84,7 +84,7 @@
                                         @endif
                                     @endforeach
 
-                                @endif
+                                @endif --}}
                             </div>
 
                         </div>
@@ -107,7 +107,8 @@
     <script src="{{ asset('js/sortablejs.js') }}"></script>
     <script>
         @foreach ($service->sliders as $slider)
-            photos.push('{{ $slider->thumbnail }}')
+            photos.push('{{ $slider->thumbnail ??  $slider->video}}')
         @endforeach
+        generatePhotoInput();
     </script>
 @endpush

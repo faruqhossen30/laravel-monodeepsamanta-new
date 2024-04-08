@@ -120,8 +120,9 @@
     </div>
 </header>
 
+{{-- sticky top-24 z-50 --}}
 
-<section class="hidden md:block  bg-white border-b z-0 px-4 2xlg:px-0">
+<section id="mymunebar" class=" hidden md:block  bg-white border-b px-4 2xlg:px-0 transition-all">
     <nav class="bg-white flex space-x-6 text-gray-400 container mx-auto">
         <a href="{{ route('homepage') }}"
             class="@if (request()->routeIs('homepage')) border-b-2 border-b-[#FF003A] text-brand @endif inline-flex items-center gap-x-2 text-lg leading-[21px] whitespace-nowrap  focus:outline-none dark:text-blue-500 dark:focus:text-blue-400 menuhover pb-2 hover:text-brand">

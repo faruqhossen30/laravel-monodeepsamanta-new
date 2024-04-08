@@ -113,6 +113,22 @@
                 }
             }); //win func.
         }); //ready func.
+
+
+
+        var lastScrollTop = 0;
+        var mynavbar = document.querySelector("#mynavbar");
+        var mymunebar = document.querySelector("#mymunebar");
+
+        window.addEventListener('scroll', function() {
+            var scrollTOp = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTOp > lastScrollTop) {
+                mymunebar.classList.remove('sticky','top-24','z-50');
+            } else {
+                mymunebar.classList.add('sticky','top-24','z-50');
+            }
+            lastScrollTop = scrollTOp;
+        });
     </script>
     @stack('scripts')
 </body>
