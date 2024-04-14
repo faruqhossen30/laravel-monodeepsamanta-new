@@ -11,7 +11,7 @@
 
                 {{-- Slider Start --}}
                 @if ($service->sliders->count())
-                    <div class="pt-4">
+                    <div class="pt-4 overflow-hidden">
                         <div id="singleServiceCarousel" class="owl-carousel owl-theme slider bg-gray-100 mx-5">
                             @foreach ($service->sliders as $key => $slider)
                                 <div class="item mx-auto" data-hash="{{ $key }}" style="width: calc(100% - 50px)">
@@ -21,7 +21,7 @@
                                         <a href="{{ asset('uploads/galleries/' . $slider->thumbnail) }}"
                                             class="cwa-lightbox-image" data-desc="{{ $service->title }}">
                                             <img src="{{ asset('uploads/galleries/' . $slider->thumbnail) }}"
-                                                class=" h-[495px]" alt="">
+                                                class="" alt="">
                                         </a>
                                     @endif
 
