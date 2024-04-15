@@ -3,16 +3,16 @@
 @section('content')
 
     <section class="container mx-auto px-3 lg:px-0">
-        <div class="grid grid-cols-12 gap-1 pt-3">
-            <div class="col-span-12 lg:col-span-8 lg:pr-10">
+        <div class="grid grid-cols-12 gap-0 lg:gap-10 pt-3">
+            <div class="col-span-12 lg:col-span-8">
                 <x-heading.heading-one>
                     <x-h1>{{ $service->title }}</x-h1>
                 </x-heading.heading-one>
 
                 {{-- Slider Start --}}
                 @if ($service->sliders->count())
-                    <div class="pt-4 overflow-hidden">
-                        <div id="singleServiceCarousel" class="owl-carousel owl-theme slider bg-gray-100 mx-5">
+                    <div class="pt-4 ">
+                        <div id="singleServiceCarousel" class="owl-carousel owl-theme slider bg-gray-100 mx-5 w-cal30 lg:w-cal40">
                             @foreach ($service->sliders as $key => $slider)
                                 <div class="item mx-auto" data-hash="{{ $key }}" style="width: calc(100% - 50px)">
                                     @if ($slider->video)
@@ -324,10 +324,6 @@
             --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
             box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
         }
-
-        /* .owl-nav .owl-next span{
-                                                                font-size: 30px;
-                                                            } */
 
         .owl-nav .owl-prev {
             position: absolute;

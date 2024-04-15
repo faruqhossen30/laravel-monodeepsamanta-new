@@ -11,9 +11,9 @@ export default {
     ],
 
     theme: {
-        container:{
-            screens:{
-                '2xl':'1280px'
+        container: {
+            screens: {
+                '2xl': '1280px'
             }
         },
         extend: {
@@ -22,6 +22,10 @@ export default {
             },
             colors: {
                 'brand': '#FF003A',
+            },
+            width: {
+                'cal30': 'calc(100% - 30px) !important',
+                'cal40': 'calc(100% - 40px) !important',
             },
         },
     },
