@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('portfolio_contents', function (Blueprint $table) {
+        Schema::create('portfolio_sections', function (Blueprint $table) {
             $table->id();
             $table->foreignId('portfolio_id')->constrained('portfolios')->onDelete('cascade');
-            $table->enum('content_type',['photo','video']);
-            $table->string('heading')->nullable();
-            $table->string('description',2000)->nullable();
-            $table->string('photo')->nullable();
-            $table->string('video',1000)->nullable();
+            $table->string('thumbnail')->nullable();
+            $table->string('iframe',1000)->nullable();
+            $table->longText('content')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('portfolio_contents');
+        Schema::dropIfExists('portfolio_sections');
     }
 };

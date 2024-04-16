@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\Gallery\GalleryController;
 use App\Http\Controllers\Admin\Portfolio\PortfolioContentController;
 use App\Http\Controllers\Admin\Portfolio\PortfolioController;
 use App\Http\Controllers\Admin\Portfolio\PortfolioImageController;
+use App\Http\Controllers\Admin\Portfolio\PortfolioSectionController;
 use App\Http\Controllers\Admin\Review\ReviewController;
 use App\Http\Controllers\Admin\Review\ReviewtypeController;
 use App\Http\Controllers\Admin\Service\ServiceController;
@@ -48,8 +49,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('review',             ReviewController::class);
 
     Route::resource('portfolio',          PortfolioController::class);
-    Route::get('portfolio/content/{id}', [PortfolioContentController::class, 'create'])->name('portfolioimage.create');
-    Route::post('portfolio/content/{id}', [PortfolioContentController::class, 'store'])->name('portfolioimage.store');
+    // Route::get('portfolio/content/{id}', [PortfolioContentController::class, 'create'])->name('portfolioimage.create');
+    // Route::post('portfolio/content/{id}', [PortfolioContentController::class, 'store'])->name('portfolioimage.store');
+
+    Route::get('portfolio/section/{id}', [PortfolioSectionController::class, 'create'])->name('portfoliosection.create');
+    Route::post('portfolio/section/{id}', [PortfolioSectionController::class, 'store'])->name('portfoliosection.store');
 
 
     Route::resource('service',            ServiceController::class);

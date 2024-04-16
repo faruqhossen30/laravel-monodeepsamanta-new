@@ -102,13 +102,13 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="{{ asset('js/dropify.min.js') }}"></script>
-    <script>
+    {{-- <script>
         ClassicEditor
             .create(document.querySelector('#editor'))
             .catch(error => {
                 console.log(error);
             });
-    </script>
+    </script> --}}
     <script>
         $(document).ready(function() {
             $('.dropify').dropify({

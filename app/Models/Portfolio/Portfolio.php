@@ -58,8 +58,8 @@ class Portfolio extends Model
         return $this->hasOne(Category::class, 'id', 'category_id');
     }
 
-    public function contents()
+    public function sections()
     {
-        return $this->hasMany(PortfolioContent::class);
+        return $this->hasMany(PortfolioSection::class);
     }
 }

@@ -17,6 +17,13 @@ export default {
             }
         },
         extend: {
+            typography: {
+                DEFAULT: {
+                    css: {
+                        maxWidth: '100%', // add required value here
+                    }
+                }
+            },
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
