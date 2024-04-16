@@ -136,12 +136,47 @@
     </div>
 @endsection
 
+
+
 @push('styles')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.css">
+    <style>
+        .label-info {
+            background-color: blue;
+            padding: 8px 16px;
+            color: white;
+            border-radius: 16px;
+            font-weight: bold;
+        }
+    </style>
+
+    <link rel="stylesheet" href="{{ asset('css/dropify.min.css') }}">
+    <style>
+        .dropify-message p {
+            font-size: 24px
+        }
+    </style>
 @endpush
 
 @push('scripts')
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="{{ asset('plugin/Sortable.min.js') }}"></script>
+    <script src="{{ asset('js/dropify.min.js') }}"></script>
+    <script>
+
+        function createDropify() {
+            $('.dropify').dropify({
+                messages: {
+                    'default': 'Drag and drop a file here or click',
+                    'replace': 'Drag and drop or click to replace',
+                    'remove': 'Remove',
+                    'error': 'Ooops, something wrong happended.'
+                }
+            });
+        }
+
+
+    </script>
     <script>
         $(document).ready(function() {
             $(document).on('click', '#addImageSection', function() {
@@ -179,22 +214,7 @@
                             </div>
                             <div class="col-span-4 flex justify-center">
                                 <div class="flex items-center justify-center w-10/12 max-h-72 py-2">
-                                    <div for="dropzone-file" id="dropZoneArea${i}"
-                                        class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg  bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
-                                        <div class="flex flex-col items-center justify-center pt-5 pb-6 cursor-pointer" onclick="showModal()">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                                stroke="currentColor" class="w-20 h-20 text-gray-400">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
-                                            </svg>
-
-                                            <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to
-                                                    upload</span> or drag and drop</p>
-                                            <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX.
-                                                800x400px)</p>
-                                        </div>
-
-                                    </div>
+                                    <input class="dropify" type="file" name="thumbnail[]">
                                 </div>
 
                             </div>
@@ -202,6 +222,7 @@
                     </div>
                 </div>
                 `)
+                createDropify()
             });
 
 
@@ -239,7 +260,7 @@
                                 <textarea name="description[]" class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" rows="3" placeholder="Description"></textarea>
                             </div>
                             <div class="col-span-4">
-                                <x-form.textarea name="thumbnail[${i}]" label="Iframe" placeholder="Video Iframe here" />
+                                <x-form.textarea name="iframe[${i}]" label="Iframe" placeholder="Video Iframe here" />
                             </div>
                         </div>
                     </div>

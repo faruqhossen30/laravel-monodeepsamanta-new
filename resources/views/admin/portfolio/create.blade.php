@@ -30,17 +30,14 @@
                                 <x-form.input label="Meta Tag" name="meta_tag" />
                                 <x-form.textarea label="Meta Description" name="meta_description" />
                                 <x-form.input label="Meta Keyword" name="keyword" />
-                                {{-- <label for="input-label"
-                                    class="block text-sm font-medium mb-2 dark:text-white">Email</label>
-                                <input type="email" id="input-label"
-                                    class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                                    placeholder="you@site.com" data-role="tagsinput"> --}}
+
 
                             </div>
                             <div class="col-span-12 lg:col-span-4 bg-white dark:bg-gray-800 p-4 rounded-lg">
                                 @include('components.form.video-thumbnail')
-                                <x-form.thumbnail-single />
+                                {{-- <x-form.thumbnail-single /> --}}
                                 {{-- <x-form.thumbnail-multiple /> --}}
+                                <input class="dropify" type="file" id="myDropify" name="thumbnail">
                             </div>
 
                         </div>
@@ -65,8 +62,33 @@
             font-weight: bold;
         }
     </style>
+
+<link rel="stylesheet" href="{{ asset('css/dropify.min.css') }}">
+<style>
+    .dropify-message p {
+        font-size: 24px
+    }
+</style>
 @endpush
 
 @push('scripts')
     <script src="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="{{ asset('js/dropify.min.js') }}"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.dropify').dropify({
+                messages: {
+                    'default': 'Drag and drop a file here or click',
+                    'replace': 'Drag and drop or click to replace',
+                    'remove': 'Remove',
+                    'error': 'Ooops, something wrong happended.'
+                }
+            });
+            $('.js-example-basic-multiple').select2();
+
+        });
+    </script>
 @endpush

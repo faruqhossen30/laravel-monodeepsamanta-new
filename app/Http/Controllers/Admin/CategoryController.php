@@ -49,7 +49,7 @@ class CategoryController extends Controller
 
         $data=[
             'name'      => $request->name,
-            'slug'      => Str::slug($request->name),
+            'slug'      => Str ::slug($request->name),
             'author_id' => Auth::user()->id,
             'thumbnail' => $request->thumbnail,
         ];

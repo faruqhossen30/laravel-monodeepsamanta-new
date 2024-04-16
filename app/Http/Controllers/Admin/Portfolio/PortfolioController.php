@@ -56,13 +56,17 @@ class PortfolioController extends Controller
             'slug'             => Str::slug($request->title, '-'),
             'user_id'          => Auth::user()->id,
             'category_id'      => $request->category_id,
-            'thumbnail'        => $request->thumbnail,
             'slider'           => json_encode($request->slider),
             'meta_tag'         => $request->meta_tag,
             'meta_description' => $request->meta_description,
             'keyword'          => $request->keyword,
             'status'           => $request->status,
         ];
+
+        if($request->file('thumbnail')){
+            $file_name = $request->file('thumbnail')->store('portfolio/thumbnail');
+            $data['thumbnail'] = $file_name;
+        }
 
         $porfolio = Portfolio::create($data);
 
@@ -125,6 +129,8 @@ class PortfolioController extends Controller
     public function update(Request $request, string $id)
     {
 
+
+        // return $request->all();
         if(!Auth::user()->can('portfolio update')){
             abort(403);
         }
@@ -137,13 +143,17 @@ class PortfolioController extends Controller
             'title'            => $request->title,
             'slug'             => Str::slug($request->title, '-'),
             'category_id'      => $request->category_id,
-            'thumbnail'        => $request->thumbnail,
             'slider'           => json_encode($request->slider),
             'meta_tag'         => $request->meta_tag,
             'meta_description' => $request->meta_description,
             'keyword'          => $request->keyword,
             'status'           => $request->status,
         ];
+
+        if($request->file('thumbnail')){
+            $file_name = $request->file('thumbnail')->store('portfolio/thumbnail');
+            $data['thumbnail'] = $file_name;
+        }
 
         Portfolio::firstWhere('id', $id)->update($data);
 
@@ -157,7 +167,7 @@ class PortfolioController extends Controller
                 'resolution'    => $request->resolution
             ]);
         }else{
-            PortfolioVideo::firstWhere('portfolio_id', $id)->delete();
+            // PortfolioVideo::firstWhere('portfolio_id', $id)->delete();
         }
 
 

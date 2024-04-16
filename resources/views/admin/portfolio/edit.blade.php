@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('breadcrumb')
-    <x-breadcrumb pageone="Portfolio" pageoneRoute="{{ route('portfolio.index') }}" pagetwo="Create" />
+    <x-breadcrumb pageone="Portfolio" pageoneRoute="{{ route('portfolio.index') }}" pagetwo="Edit" />
 @endsection
 @section('content')
 
@@ -78,8 +78,8 @@
                                 @else
                                     @include('components.form.video-thumbnail')
                                 @endif
-
-                                <x-form.thumbnail-single :thumbnail="$portfolio->thumbnail" />
+                                <input class="dropify" type="file" id="myDropify" name="thumbnail" data-default-file="{{asset('portfolio/thumbnail'.$portfolio->thumbnail)}}">
+                                {{-- <x-form.thumbnail-single :thumbnail="$portfolio->thumbnail" /> --}}
                                 <x-form.thumbnail-multiple :data="$portfolio" />
                             </div>
                         </div>
@@ -92,3 +92,46 @@
         </div>
     </div>
 @endsection
+
+@push('styles')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.css">
+    <style>
+        .label-info {
+            background-color: blue;
+            padding: 8px 16px;
+            color: white;
+            border-radius: 16px;
+            font-weight: bold;
+        }
+    </style>
+
+<link rel="stylesheet" href="{{ asset('css/dropify.min.css') }}">
+<style>
+    .dropify-message p {
+        font-size: 24px
+    }
+</style>
+@endpush
+
+@push('scripts')
+    <script src="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="{{ asset('js/dropify.min.js') }}"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.dropify').dropify({
+                messages: {
+                    'default': 'Drag and drop a file here or click',
+                    'replace': 'Drag and drop or click to replace',
+                    'remove': 'Remove',
+                    'error': 'Ooops, something wrong happended.'
+                }
+            });
+            $('.js-example-basic-multiple').select2();
+
+        });
+    </script>
+@endpush
+
