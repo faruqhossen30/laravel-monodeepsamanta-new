@@ -35,7 +35,7 @@ class PortfolioSectionController extends Controller
         foreach ($request->sections as $key => $section) {
 
             $thumbnail_file_name = null;
-            if (array_key_exists($key, $thumbnails)) {
+            if ($thumbnails && array_key_exists($key, $thumbnails)) {
                 $thumbnail_file_name =  $request->file('thumbnails')[$key]->store('portfolio/section');
             }
 

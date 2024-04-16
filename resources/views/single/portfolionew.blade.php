@@ -11,10 +11,16 @@
 
     <section class="container mx-auto px-3 lg:px-0 lg:mb-24">
         @foreach ($portfolio->sections as $section)
-
             @if ($section->thumbnail)
                 <div>
-                    <img src="{{ asset('storage/' . $section->thumbnail) }}" class="w-full @if ($section->content) rounded-2xl @endif" alt="thumbnail">
+                    <img src="{{ asset('storage/' . $section->thumbnail) }}"
+                        class="w-full @if ($section->content) rounded-2xl @endif" alt="thumbnail">
+                </div>
+            @endif
+
+            @if ($section->iframe)
+                <div>
+                    {!! $section->iframe !!}
                 </div>
             @endif
 
