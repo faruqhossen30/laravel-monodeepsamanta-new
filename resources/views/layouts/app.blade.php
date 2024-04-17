@@ -123,9 +123,9 @@
         window.addEventListener('scroll', function() {
             var scrollTOp = window.pageYOffset || document.documentElement.scrollTop;
             if (scrollTOp > lastScrollTop) {
-                mymunebar.classList.remove('sticky','top-24','z-50');
+                mymunebar.classList.remove('sticky','top-[90px]','z-50');
             } else {
-                mymunebar.classList.add('sticky','top-24','z-50');
+                mymunebar.classList.add('sticky','top-[90px]','z-50');
             }
             lastScrollTop = scrollTOp;
         });
