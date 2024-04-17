@@ -78,7 +78,7 @@
                                 @else
                                     @include('components.form.video-thumbnail')
                                 @endif
-                                <input class="dropify" type="file" id="myDropify" name="thumbnail" data-default-file="{{asset('portfolio/thumbnail'.$portfolio->thumbnail)}}">
+                                <input class="dropify" type="file" id="myDropify" name="thumbnail" data-default-file="{{asset('storage/'.$portfolio->thumbnail)}}">
                                 {{-- <x-form.thumbnail-single :thumbnail="$portfolio->thumbnail" /> --}}
                                 <x-form.thumbnail-multiple :data="$portfolio" />
                             </div>
