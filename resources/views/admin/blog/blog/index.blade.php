@@ -43,8 +43,8 @@
                                             {{ $blog->title }}
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">
-                                            <img src="{{ asset('uploads/galleries/' . $blog->thumbnail) }}"
-                                            class="h-6 w-auto" alt="">
+                                            <img src="{{ asset('storage/' . $blog->thumbnail) }}"
+                                            class="h-6 w-auto" alt="thumbnail">
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
 

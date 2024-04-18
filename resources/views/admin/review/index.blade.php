@@ -48,7 +48,7 @@
                                         </td>
                                         <td
                                                 class="px-3 py-2 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">
-                                                <img src="{{ asset('uploads/galleries/' . $item->thumbnail) }}"
+                                                <img src="{{ asset('storage/' . $item->thumbnail) }}"
                                                     class="h-6 w-auto" alt="some">
                                         </td>
 

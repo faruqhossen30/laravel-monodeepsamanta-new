@@ -45,7 +45,13 @@
 
                             </div>
                             <div class="col-span-12 lg:col-span-4 bg-white dark:bg-gray-800 p-4 rounded-lg">
-                                <x-form.thumbnail-single :thumbnail="$blog->thumbnail" />
+                                {{-- <x-form.thumbnail-single :thumbnail="$blog->thumbnail" /> --}}
+                                    <div class="col-span-3 pt-1 space-y-2">
+                                        <label for="thumbnail"
+                                            class="text-gray-500 dark:text-gray-500 text-sm font-medium">Image</label>
+                                        <input name="thumbnail" class="dropify" type="file" id="myDropify"
+                                            data-default-file="{{ asset('storage/' . $blog->thumbnail) }}">
+                                    </div>
                                 <x-form.textarea label="Project Description" name="project_description" value="{{ $blog->project_description }}"/>
                                 {{-- <div class="py-2"> --}}
                                 <label for="category_ids" class="block text-sm font-medium mb-2 dark:text-white">Select
@@ -95,6 +101,11 @@
 @endsection
 @push('styles')
     <script src="{{asset('ckeditor/ckeditor.js')}}"></script>
+    <link rel="stylesheet" href="{{ asset('css/dropify.min.css') }}">
+    <style>
+        .dropify-message p {
+            font-size: 24px
+        }
     </style>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 @endpush
@@ -102,9 +113,17 @@
 @push('scripts')
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="{{ asset('js/dropify.min.js') }}"></script>
     <script>
         $(document).ready(function() {
-
+            $('.dropify').dropify({
+                messages: {
+                    'default': 'Drag and drop a file here or click',
+                    'replace': 'Drag and drop or click to replace',
+                    'remove': 'Remove',
+                    'error': 'Ooops, something wrong happended.'
+                }
+            });
             $('.js-example-basic-multiple').select2();
         });
     </script>

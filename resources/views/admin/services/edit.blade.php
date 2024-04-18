@@ -89,7 +89,13 @@
                                 @else
                                     @include('components.form.video-thumbnail')
                                 @endif
-                                <x-form.thumbnail-single :thumbnail="$service->thumbnail" />
+                                <div class="col-span-3 pt-1 space-y-2">
+                                    <label for="thumbnail"
+                                        class="text-gray-500 dark:text-gray-500 text-sm font-medium">Image</label>
+                                    <input name="thumbnail" class="dropify" type="file" id="myDropify"
+                                        data-default-file="{{ asset('storage/' . $service->thumbnail) }}">
+                                </div>
+                                {{-- <x-form.thumbnail-single :thumbnail="$service->thumbnail" /> --}}
                             </div>
 
                             <div class="col-span-12 lg:col-span-12 bg-white  dark:bg-gray-800 p-4 rounded-lg">
@@ -216,13 +222,32 @@
 
 @push('style')
 <script src="{{asset('ckeditor/ckeditor.js')}}"></script>
-
+<link rel="stylesheet" href="{{ asset('css/dropify.min.css') }}">
+<style>
+    .dropify-message p {
+        font-size: 24px
+    }
+</style>
 @endpush
 
 @push('script')
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="{{ asset('plugin/Sortable.min.js') }}"></script>
     <script src="{{ asset('js/sortablejs.js') }}"></script>
+    <script src="{{ asset('js/dropify.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('.dropify').dropify({
+                messages: {
+                    'default': 'Drag and drop a file here or click',
+                    'replace': 'Drag and drop or click to replace',
+                    'remove': 'Remove',
+                    'error': 'Ooops, something wrong happended.'
+                }
+            });
+           //  $('.js-example-basic-multiple').select2();
+        });
+    </script>
     <script>
         $(document).ready(function() {
             let num = 0;

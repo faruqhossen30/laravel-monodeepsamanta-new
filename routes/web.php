@@ -14,6 +14,7 @@ use App\Http\Controllers\PortfoliopageController;
 use App\Http\Controllers\PricepageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReviewpageController;
+use App\Http\Controllers\ReviewSubmitController;
 use App\Http\Controllers\ServicepageController;
 use App\Http\Controllers\TearmsController;
 use Illuminate\Support\Facades\Route;
@@ -43,7 +44,7 @@ Route::get('blog/{slug}', [BlogpageController::class, 'singleBlog'])->name('sing
 Route::get('/test', function () {
     return view('test');
 });
-
+Route::post('review-submit', [ReviewSubmitController::class, 'store'])->name('reviewsubmit');
 
 Route::group(['prefix' => 'ajax'], function () {
     Route::get('galleries', [GalleryAjaxController::class, 'getGallery'])->name('ajax.galleries');

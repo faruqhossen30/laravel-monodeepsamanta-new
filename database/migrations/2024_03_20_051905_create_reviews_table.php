@@ -14,14 +14,19 @@ return new class extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->double('rating');
+            $table->string('email');
+            $table->longText('review')->nullable();
+            $table->double('rating')->nullable();
+            $table->double('review_communication')->nullable();
+            $table->double('review_recommend')->nullable();
+            $table->double('review_described')->nullable();
             $table->timestamp('date');
             $table->string('thumbnail')->nullable();
-            $table->longText('review')->nullable();
-            $table->unsignedBigInteger('review_type_id');
-            $table->unsignedBigInteger('category_id');
+
+            $table->unsignedBigInteger('review_type_id')->nullable();
+            $table->unsignedBigInteger('category_id')->nullable();
             $table->string('review_url')->nullable();
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->boolean('status')->default(false);
             $table->timestamps();
         });
