@@ -49,7 +49,8 @@
                             </div>
                             <div class="col-span-12 lg:col-span-4 bg-white dark:bg-gray-800 p-4 rounded-lg">
                                 @include('components.form.video-thumbnail')
-                                <x-form.thumbnail-single />
+                                {{-- <x-form.thumbnail-single /> --}}
+                                <input class="dropify" type="file" id="myDropify" name="thumbnail">
                             </div>
 
                             <div class="col-span-12 lg:col-span-12 bg-white  dark:bg-gray-800 p-4 rounded-lg">
@@ -161,17 +162,20 @@
 
 
 @push('style')
-
-<script src="{{asset('ckeditor/ckeditor.js')}}"></script>
-
-
+    <script src="{{asset('ckeditor/ckeditor.js')}}"></script>
+    <link rel="stylesheet" href="{{ asset('css/dropify.min.css') }}">
+    <style>
+        .dropify-message p {
+            font-size: 24px
+        }
+    </style>
 @endpush
 
 @push('script')
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="{{ asset('js/dropify.min.js') }}"></script>
     <script src="{{ asset('plugin/Sortable.min.js') }}"></script>
     <script src="{{ asset('js/sortablejs.js') }}"></script>
-    {{-- <script src="{{ asset('js/dropify.min.js') }}"></script> --}}
     <script>
         ClassicEditor
             .create(document.querySelector('#editor'))
@@ -179,7 +183,19 @@
                 console.error(error);
             });
     </script>
-
+ <script>
+     $(document).ready(function() {
+         $('.dropify').dropify({
+             messages: {
+                 'default': 'Drag and drop a file here or click',
+                 'replace': 'Drag and drop or click to replace',
+                 'remove': 'Remove',
+                 'error': 'Ooops, something wrong happended.'
+             }
+         });
+         $('.js-example-basic-multiple').select2();
+     });
+ </script>
 
     <script>
         $(document).ready(function() {

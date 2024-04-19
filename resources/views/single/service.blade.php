@@ -12,7 +12,8 @@
                 {{-- Slider Start --}}
                 @if ($service->sliders->count())
                     <div class="pt-4 ">
-                        <div id="singleServiceCarousel" class="owl-carousel owl-theme slider bg-gray-100 mx-5 w-cal30 lg:w-cal40">
+                        <div id="singleServiceCarousel"
+                            class="owl-carousel owl-theme slider bg-gray-100 mx-5 w-cal30 lg:w-cal40">
                             @foreach ($service->sliders as $key => $slider)
                                 <div class="item mx-auto" data-hash="{{ $key }}" style="width: calc(100% - 50px)">
                                     @if ($slider->video)
@@ -20,8 +21,8 @@
                                     @else
                                         <a href="{{ asset('uploads/galleries/' . $slider->thumbnail) }}"
                                             class="cwa-lightbox-image" data-desc="{{ $service->title }}">
-                                            <img src="{{ asset('uploads/galleries/' . $slider->thumbnail) }}"
-                                                class="" alt="">
+                                            <img src="{{ asset('uploads/galleries/' . $slider->thumbnail) }}" class=""
+                                                alt="">
                                         </a>
                                     @endif
 
@@ -32,7 +33,7 @@
                             @foreach ($service->sliders as $key => $slider)
                                 <a href="#{{ $key }}" class="" data-slider="{{ $key }}">
                                     @if ($slider->video)
-                                        <img src="{{asset('img/media-player.png')}}" alt=""
+                                        <img src="{{ asset('img/media-player.png') }}" alt=""
                                             class="w-32 custompacity sliderlinkimage{{ $key }}">
                                     @else
                                         <img src="{{ asset('uploads/galleries/' . $slider->thumbnail) }}" alt=""
@@ -126,7 +127,7 @@
 
                 <div class="border my-8 p-2 rounded-2xl lg:flex items-center">
                     <div class="grow">
-                        <img class="w-80 max-w-lg" src="{{ asset('img/man-working-from-home.webp') }}" alt="">
+                        <img class="w-80 max-w-lg" src="{{ asset('img/man-working-from-home.webp') }}" alt="Monodeep">
                     </div>
                     <div class="grow space-y-5">
                         <h3 class="text-[20px] leading-[26px] font-bold">Customized this project</h3>
@@ -290,7 +291,8 @@
     <div>
         <x-section-service />
         <div class="flex justify-center py-5 lg:py-20">
-            <a href="{{ route('servicepage') }}" class="text-primary font-bold flex items-center space-x-2 hover:text-brand">
+            <a href="{{ route('servicepage') }}"
+                class="text-primary font-bold flex items-center space-x-2 hover:text-brand">
                 <span class="text-[15px] leading-[15px]">See All Services</span>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="#FF003A" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" data-slot="icon" class="w-4 h-4 font-bold">
@@ -365,11 +367,71 @@
             line-height: 38px;
             color: #282828;
         }
+
+        .tabactivecustomclass {
+            color: white;
+            background: black;
+
+        }
+
+        .tabinactivecustomclass:hover {
+            color: red
+        }
+        .error{
+            color: red;
+        }
     </style>
 @endpush
 
 @push('scripts')
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.js"></script>
+    <script>
+        $("#reviewForm").validate({
+            rules: {
+                // no quoting necessary
+                name: {
+                    required:true
+                },
+                email: {
+                    required:true
+                },
+                review: {
+                    required:true,
+                    minlength:20
+                },
+                website: {
+                    required:true,
+
+                },
+            },
+            messages: {
+                name: {
+                    required: "Please enter your name",
+                },
+                email: {
+                    required: "Please enter your email",
+                },
+                review: {
+                    required: "Please enter your review",
+                },
+                website: {
+                    required: "Please enter your website",
+                },
+            },
+            errorElement: 'span',
+            // errorPlacement: function(error, element) {
+            //     console.log(error);
+            //     element.addClass('text-red-500');
+            // },
+            highlight: function(element, errorClass, validClass) {
+                $(element).addClass('text-red-500');
+            },
+            // unhighlight: function(element, errorClass, validClass) {
+            //     $(element).removeClass('is-invalid');
+            // }
+        });
+    </script>
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
     <script>
         $(document).ready(function() {
@@ -407,7 +469,7 @@
                 items: 2,
                 loop: true,
                 margin: 10,
-                dots:false
+                dots: false
             });
 
         });

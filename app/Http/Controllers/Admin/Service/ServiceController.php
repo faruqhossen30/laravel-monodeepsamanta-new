@@ -10,6 +10,7 @@ use App\Models\Service\ServiceVideo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ServiceController extends Controller
@@ -60,7 +61,7 @@ class ServiceController extends Controller
             'title'            => $request->title,
             'slug'             => Str::slug($request->title, '-'),
             'description'      => $request->description,
-            'thumbnail'        => $request->thumbnail,
+            // 'thumbnail'        => $request->thumbnail,
             'category_id'      => $request->category_id,
             'user_id'          => Auth::user()->id,
             'status'           => $request->status,
@@ -68,6 +69,10 @@ class ServiceController extends Controller
             'meta_description' => $request->meta_description,
             'meta_keyword'     => $request->meta_keyword
         ];
+        if($request->file('thumbnail')){
+            $file_name = $request->file('thumbnail')->store('thumbnail/service/');
+            $data['thumbnail'] = $file_name;
+        }
 
         $service = Service::create($data);
 
@@ -148,7 +153,7 @@ class ServiceController extends Controller
             'title'            => $request->title,
             'slug'             => Str::slug($request->title, '-'),
             'description'      => $request->description,
-            'thumbnail'        => $request->thumbnail,
+            // 'thumbnail'        => $request->thumbnail,
             'category_id'      => $request->category_id,
             'user_id'          => Auth::user()->id,
             'status'           => $request->status,
@@ -157,6 +162,10 @@ class ServiceController extends Controller
             'meta_keyword'     => $request->meta_keyword
         ];
 
+        if($request->file('thumbnail')){
+            $file_name = $request->file('thumbnail')->store('thumbnail/service/');
+            $data['thumbnail'] = $file_name;
+        }
         $service=  Service::firstWhere('id', $id)->update($data);
 
 
@@ -205,7 +214,9 @@ class ServiceController extends Controller
         if(!Auth::user()->can('service delete')){
             abort(403);
         }
-        Service::firstWhere('id', $id)->delete();
+        $service = Service::findOrFail($id);
+        Storage::delete($service->thumbnail);
+        $service->delete();
         return redirect()->route('service.index');
     }
 }

@@ -44,9 +44,9 @@
 
                             </div>
                             <div class="col-span-12 lg:col-span-4 bg-white dark:bg-gray-800 p-4 rounded-lg">
-                                <x-form.thumbnail-single />
-                                {{-- <h2>About Project</h2>
-                                <hr> --}}
+                                {{-- <x-form.thumbnail-single /> --}}
+
+                                <input class="dropify" type="file" id="myDropify" name="thumbnail">
                                 <x-form.textarea label="Project Description" name="project_description" />
                                 {{-- <div class="py-2"> --}}
                                 <label for="category_ids" class="block text-sm font-medium mb-2 dark:text-white">Select
@@ -93,7 +93,10 @@
 @push('styles')
 <script src="{{asset('ckeditor/ckeditor.js')}}"></script>
     <link rel="stylesheet" href="{{ asset('css/dropify.min.css') }}">
-
+    <style>
+        .dropify-message p {
+            font-size: 24px
+        }
     </style>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 @endpush

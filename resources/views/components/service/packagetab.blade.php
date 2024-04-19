@@ -3,30 +3,30 @@
         <div class="border p-3 sticky top-36 rounded-md">
             <div class="lg:col-span-4">
                 <div class="mb-4 border-gray-200 dark:border-gray-700">
-                    <div class="grid grid-cols-3" id="default-tab" data-tabs-toggle="#default-tab-content" data-tabs-active-classes="border-black" role="tablist">
+                    <div class="grid grid-cols-3" id="default-tab" data-tabs-toggle="#default-tab-content" data-tabs-active-classes="border-black tabactivecustomclass" data-tabs-inactive-classes="tabinactivecustomclass" role="tablist">
                         <div class="me-2 col-span-1 text-center " role="presentation">
                             <button
-                                class="hs-tab-active:bg-black border hs-tab-active:text-white hs-tab-active:hover:text-white hs-tab-active:dark:text-white py-2 px-4 basis-0 grow inline-flex justify-center items-center gap-x-2 bg-transparent text-sm font-bold text-center text-black hover:text-brand rounded-[4px] disabled:opacity-50 disabled:pointer-events-none dark:text-gray-400 dark:hover:text-gray-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600 w-full active"
+                                class="hs-tab-active:bg-black border hs-tab-active:text-white hs-tab-active:hover:text-white hs-tab-active:dark:text-white py-2 px-4 basis-0 grow inline-flex justify-center items-center gap-x-2 bg-transparent text-sm font-bold text-center text-black rounded-[4px] disabled:opacity-50 disabled:pointer-events-none dark:text-gray-400 dark:hover:text-gray-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600 w-full active"
                                 id="profile-tab" data-tabs-target="#profile" type="button" role="tab"
                                 aria-controls="profile" aria-selected="false">Stater</button>
                         </div>
 
                         <div class="me-2 col-span-1 text-center" role="presentation">
                             <button
-                                class="hs-tab-active:bg-black w-full border hs-tab-active:text-white hs-tab-active:hover:text-white hs-tab-active:dark:text-white py-2 px-4 basis-0 grow inline-flex justify-center items-center gap-x-2 bg-transparent text-sm font-bold text-center text-black hover:text-brand rounded-[4px] disabled:opacity-50 disabled:pointer-events-none dark:text-gray-400 "
+                                class="hs-tab-active:bg-black w-full border hs-tab-active:text-white hs-tab-active:hover:text-white hs-tab-active:dark:text-white py-2 px-4 basis-0 grow inline-flex justify-center items-center gap-x-2 bg-transparent text-sm font-bold text-center text-black rounded-[4px] disabled:opacity-50 disabled:pointer-events-none dark:text-gray-400"
                                 id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab"
                                 aria-controls="dashboard" aria-selected="false">Strandred</button>
                         </div>
                         <div class="me-2 col-span-1 text-center" role="presentation">
                             <button
-                                class="hs-tab-active:bg-black w-full border hs-tab-active:text-white hs-tab-active:hover:text-white hs-tab-active:dark:text-white py-2 px-4 basis-0 grow inline-flex justify-center items-center gap-x-2 bg-transparent text-sm font-bold text-center text-black hover:text-brand rounded-[4px] disabled:opacity-50 disabled:pointer-events-none dark:text-gray-400 dark:hover:text-gray-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600  hover:text-gray-600"
+                                class="hs-tab-active:bg-black w-full border hs-tab-active:text-white hs-tab-active:hover:text-white hs-tab-active:dark:text-white py-2 px-4 basis-0 grow inline-flex justify-center items-center gap-x-2 bg-transparent text-sm font-bold text-center text-black rounded-[4px] disabled:opacity-50 disabled:pointer-events-none dark:text-gray-400 dark:hover:text-gray-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600  "
                                 id="settings-tab" data-tabs-target="#settings" type="button" role="tab"
                                 aria-controls="settings" aria-selected="false">Advance</button>
                         </div>
                     </div>
                 </div>
                 <div id="default-tab-content">
-                    <div class="hidden p-4 rounded-lg bg-white dark:bg-gray-800" id="profile" role="tabpanel"
+                    <div class="hidden rounded-lg bg-white dark:bg-gray-800" id="profile" role="tabpanel"
                         aria-labelledby="profile-tab">
                         <h1 class="text-[26px] leading-[32px] py-2 font-bold">
                             ${{ optional($service->package)->starter_price }}</h1>
@@ -69,7 +69,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="hidden p-4 rounded-lg bg-white dark:bg-gray-800" id="dashboard" role="tabpanel"
+                    <div class="hidden rounded-lg bg-white dark:bg-gray-800" id="dashboard" role="tabpanel"
                         aria-labelledby="dashboard-tab">
                         <h1 class="text-[26px] leading-[32px] py-2 font-bold">${{ $service->package->standard_price }}
                         </h1>
@@ -114,7 +114,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="hidden p-4 rounded-lg bg-white dark:bg-gray-800" id="settings" role="tabpanel"
+                    <div class="hidden rounded-lg bg-white dark:bg-gray-800" id="settings" role="tabpanel"
                         aria-labelledby="settings-tab">
                         <h1 class="text-[26px] leading-[32px] py-2 font-bold">${{ $service->package->advance_price }}
                         </h1>

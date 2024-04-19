@@ -9,6 +9,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ReviewController extends Controller
@@ -59,13 +60,18 @@ class ReviewController extends Controller
             'rating'         => $request->rating,
             'date'           => $request->date,
             'review'         => $request->review,
-            'thumbnail'      => $request->thumbnail,
             'review_type_id' => $request->review_type_id,
             'category_id'    => $request->category_id,
             'review_url'     => $request->review_url,
             'user_id'        => Auth::user()->id,
             'status'         => $request->status
         ];
+
+        if($request->file('thumbnail')){
+            $file_name = $request->file('thumbnail')->store('thumbnail/review/');
+            $data['thumbnail'] = $file_name;
+        }
+
 
         Review::create($data);
 
@@ -124,10 +130,13 @@ class ReviewController extends Controller
             'review_type_id' => $request->review_type_id,
             'category_id'    => $request->category_id,
             'review_url'     => $request->review_url,
-            'thumbnail'     => $request->thumbnail,
             'status'         => $request->status
         ];
 
+        if($request->file('thumbnail')){
+            $file_name = $request->file('thumbnail')->store('thumbnail/review/');
+            $data['thumbnail'] = $file_name;
+        }
 
 
         Review::firstWhere('id', $id)->update($data);
@@ -145,7 +154,10 @@ class ReviewController extends Controller
         if(!Auth::user()->can('review delete')){
             abort(403);
         }
-        Review::firstWhere('id', $id)->delete();
-        return redirect()->back();
+        $review = Review::findOrFail($id);
+        Storage::delete($review->thumbnail);
+        $review->delete();
+        // return "welcome";
+        return redirect()->route('review.index');
     }
 }

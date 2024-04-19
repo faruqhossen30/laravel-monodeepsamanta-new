@@ -12,6 +12,7 @@ use App\Models\Blog\BlogCategory;
 use App\Models\Blog\BlogSoftware;
 use App\Models\Blog\Software;
 use App\Models\Category;
+use Illuminate\Support\Facades\Storage;
 
 class BlogController extends Controller
 {
@@ -62,13 +63,18 @@ class BlogController extends Controller
             'short_description'   => $request->short_description,
             'project_description' => $request->project_description,
             'description'         => $request->description,
-            'thumbnail'         => $request->thumbnail,
+            // 'thumbnail'         => $request->thumbnail,
             'user_id'             => Auth::user()->id,
             'meta_title'          => $request->meta_title,
             'meta_description'    => $request->meta_description,
             'meta_keyword'        => $request->meta_keyword,
             'status'              => $request->status
         ];
+
+        if($request->file('thumbnail')){
+            $file_name = $request->file('thumbnail')->store('thumbnail/blog/');
+            $data['thumbnail'] = $file_name;
+        }
 
         $blog = Blog::create($data);
 
@@ -144,7 +150,7 @@ class BlogController extends Controller
             'short_description'   => $request->short_description,
             'project_description' => $request->project_description,
             'description'         => $request->description,
-            'thumbnail'           => $request->thumbnail,
+            // 'thumbnail'           => $request->thumbnail,
             'user_id'             => Auth::user()->id,
             'meta_title'          => $request->meta_title,
             'meta_description'    => $request->meta_description,
@@ -152,7 +158,10 @@ class BlogController extends Controller
             'status'              => $request->status
         ];
 
-
+        if($request->file('thumbnail')){
+            $file_name = $request->file('thumbnail')->store('thumbnail/blog/');
+            $data['thumbnail'] = $file_name;
+        }
 
         $blog = Blog::firstWhere('id',$id)->update($data);
 
@@ -188,7 +197,9 @@ class BlogController extends Controller
         if(!Auth::user()->can('blog delete')){
             abort(403);
         }
-        Blog::where('id', $id)->delete();
+        $blog = Blog::findOrFail($id);
+        Storage::delete($blog->thumbnail);
+        $blog->delete();
         return redirect()->route('blog.index')->with('success','data successfully Deleted');
     }
 }

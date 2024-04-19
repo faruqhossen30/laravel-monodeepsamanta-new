@@ -43,12 +43,16 @@
     <meta property="og:image" content="https://flowbite-admin-dashboard.vercel.app/images/og-image.png">
     <meta property="og:image:type" content="image/png">
 
-<style>
-    #sliderVideoTag{
-        max-width: 50px;
-        max-width: 50px;
-    }
-</style>
+    <style>
+        #sliderVideoTag {
+            max-width: 50px;
+            max-width: 50px;
+        }
+
+        /* .dropify-wrapper .dropify-preview .dropify-render img {
+            margin: 0 auto;
+        } */
+    </style>
 
 
 
