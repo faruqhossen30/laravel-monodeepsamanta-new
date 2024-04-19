@@ -2,7 +2,8 @@
     <h3 class="text-[22px] leading-[32px] font-semibold">Submit a review</h3>
 
 
-    <form action="{{ route('reviewsubmit') }}" method="POST" enctype="multipart/form-data">
+    {{-- <form id="reviewForm" action="{{ route('reviewsubmit') }}" method="POST" enctype="multipart/form-data"> --}}
+    <form id="reviewForm" action="" method="POST">
         @csrf
         <div>
             <label for="name" class="block text-[15px] leading-[25px] font-normal mb-2 dark:text-white">Name <span
@@ -15,7 +16,7 @@
             @enderror
         </div>
         <div>
-            <label for="email" class="block text-[15px] leading-[25px] font-normal mb-2 dark:text-white">Email <span
+            <label for="email" class="block text-[15px] leading-[25px] font-normal py-3 dark:text-white">Email <span
                     class="text-red-600">*</span></label>
             <input type="text" id="email" name="email"
                 class="py-3 px-4 block w-full border-gray-200 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" value="{{old('email')}}">
@@ -24,7 +25,7 @@
                 <p class="text-red-600">{{ $message }}</p>
             @enderror
         </div>
-        <div>
+        <div class="py-5">
             <ul role="list" class="marker:text-blue-600 space-y-2 text-sm text-black dark:text-gray-400">
                 <li class="flex space-x-2">
                     <span class="ext-black text-[16px] leading-[28px] font-bold">Seller communication
@@ -228,7 +229,7 @@
                 @enderror
             </ul>
         </div>
-        <h6>Review <span class="text-red-600">*</span></h6>
+
         <textarea
             class="py-3 px-4 block w-full border-gray-200 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
             rows="6" placeholder="Write your review" name="review" >{{old('review')}}</textarea>
@@ -236,7 +237,7 @@
             <p class="text-red-600">{{ $message }}</p>
         @enderror
         <div>
-            <label for="website" class="block text-[15px] leading-[25px] font-normal mb-2 dark:text-white">Website
+            <label for="website" class="block text-[15px] leading-[25px] font-normal py-3 dark:text-white">Website
                 <span class="text-red-600">*</span></label>
             <input type="text" id="website" name="review_url" value="{{old('review_url')}}"
                 class="py-3 px-4 block w-full border-gray-200 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600">
