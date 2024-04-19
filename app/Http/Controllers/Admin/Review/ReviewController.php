@@ -50,7 +50,6 @@ class ReviewController extends Controller
             'name'           => 'required',
             'rating'         => 'required',
             'date'           => 'required',
-            'review_type_id' => 'required',
             'review'         => 'required'
         ]);
 
@@ -117,7 +116,6 @@ class ReviewController extends Controller
             'name'           => 'required',
             'rating'         => 'required',
             'date'           => 'required',
-            'review_type_id' => 'required',
             'review'         => 'required'
         ]);
 
@@ -130,6 +128,7 @@ class ReviewController extends Controller
             'review_type_id' => $request->review_type_id,
             'category_id'    => $request->category_id,
             'review_url'     => $request->review_url,
+            'website'        => $request->website,
             'status'         => $request->status
         ];
 
@@ -155,7 +154,9 @@ class ReviewController extends Controller
             abort(403);
         }
         $review = Review::findOrFail($id);
-        Storage::delete($review->thumbnail);
+        if($review->thumbnail != null && Storage::exists($review->thumbnail)){
+            Storage::delete($review->thumbnail);
+        }
         $review->delete();
         // return "welcome";
         return redirect()->route('review.index');

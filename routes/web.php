@@ -44,6 +44,7 @@ Route::get('blog/{slug}', [BlogpageController::class, 'singleBlog'])->name('sing
 Route::get('/test', function () {
     return view('test');
 });
+
 Route::post('review-submit', [ReviewSubmitController::class, 'store'])->name('reviewsubmit');
 
 Route::group(['prefix' => 'ajax'], function () {

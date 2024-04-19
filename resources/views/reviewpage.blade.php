@@ -14,14 +14,13 @@
                         fill="#FF003A"></path>
                 </svg>
                 <x-h1>Reviews</x-h1>
-                {{-- <h1 class="text-lg text-[26px] font-bold">Reviews</h1> --}}
             </div>
         </div>
     </section>
 
     <section class="container px-3 mx-auto lg:px-0">
         @foreach ($reviews as $review)
-            <div class="justify-between py-6 first:pt-0 md:flex lg:py-12">
+            <div class="justify-between items-center py-6 first:pt-0 md:flex lg:py-12">
                 <div class="flex space-x-3" data-aos="fade-right" data-aos-duration="1000">
                     <div class="flex items-center justify-center w-8 h-8 p-6 rounded-full bg-zinc-200">
                         <span class="font-bold">{{ acronym($review->name) }}</span>
@@ -34,42 +33,64 @@
                                 <path
                                     d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
                             </svg>
-                            <p>{{ $review->rating }}</p>
+                            <p>{{ number_format($review->rating, 1) }}</p>
                             <p class="text-gray-500">{{ $review->date->format('d M, Y') }}</p>
                         </div>
                         <div>
                             <p class="text-[18px] leading-[26px] max-w-4xl">{{ $review->review }}</p>
                         </div>
-                        <div class="flex items-center py-4 space-x-2">
-                            <p class="text-sm">Originally Posted on:</p>
-                            <a href="{{ $review->review_url ?? '#' }}" target="_blank"
-                                class=" hover:text-brand flex text-sm leading-[18px] text-primary font-bold items-center space-x-2">
-                                <span>{{ $review->type->name }}</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-                                </svg>
 
-                            </a>
+                        <div class="flex items-center py-4 space-x-2">
+                            @if ($review->website)
+                                <p class="text-sm">Originally Posted on:</p>
+                                <a href="{{ $review->website ?? '#' }}" target="_blank"
+                                    class=" hover:text-brand flex text-sm leading-[18px] text-primary font-bold items-center space-x-2">
+                                    <span>Link</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                                    </svg>
+                                </a>
+                            @endif
+
+                            @if ($review->review_url)
+                                <p class="text-sm">Originally Posted on:</p>
+                                <a href="{{ $review->review_url ?? '#' }}" target="_blank"
+                                    class=" hover:text-brand flex text-sm leading-[18px] text-primary font-bold items-center space-x-2">
+                                    <span>{{ $review->type->name ?? '' }}</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                                    </svg>
+                                </a>
+                            @endif
                         </div>
+
+
                     </div>
                 </div>
 
-                <div >
-                    <div class="flex justify-center">
-                        <img src="{{ asset('uploads/galleries/' . $review->thumbnail) }}"
-                            class="lg:max-w-[194px] min-w-[176px]" alt="{{ $review->category->slug }}">
-                    </div>
+                <div class="">
+                    @if ($review->thumbnail)
+                        <div class="flex justify-center">
+                            <img src="{{ asset('storage/' . $review->thumbnail) }}"
+                                class="lg:max-w-[194px] min-w-[176px]" alt="{{ $review->category->slug ?? '' }}">
+                        </div>
+                    @endif
                     <div class="flex items-center justify-center py-3 space-x-2 text-center group ">
-                        <a href="{{ route('portfoliopage', ['category' => $review->category->slug]) }}"
-                            class="font-bold text-center text-primary group-hover:text-brand">Similar Works
-                        </a>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="#FF003A" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" data-slot="icon"
-                            class="w-4 h-4 font-bold group-hover:text-brand">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                        </svg>
+                        @if ($review->category)
+                            <a href="{{ route('portfoliopage', ['category' => $review->category->slug]) }}"
+                                class="font-bold text-center text-primary group-hover:text-brand">Similar Works
+                            </a>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="#FF003A" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" data-slot="icon" class="w-4 h-4 font-bold group-hover:text-brand">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                            </svg>
+                        @endif
+
                     </div>
                 </div>
             </div>
@@ -88,9 +109,8 @@
             <a href="{{ route('servicepage') }}" class="flex items-center space-x-2 font-bold text-primary">
                 <span class="text-[15px] leading-[15px] text-brand">See All Services</span>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="#FF003A" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" data-slot="icon"
-                            class="w-4 h-4 font-bold text-[#FF003A] group-hover:text-black">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                    stroke="currentColor" data-slot="icon" class="w-4 h-4 font-bold text-[#FF003A] group-hover:text-black">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                 </svg>
             </a>
         </div>
@@ -130,7 +150,7 @@
                 items: 2,
                 loop: true,
                 margin: 10,
-                dots:false
+                dots: false
             });
         });
     </script>

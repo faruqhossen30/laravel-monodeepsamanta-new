@@ -9,9 +9,10 @@ use Illuminate\View\View;
 
 class ReviewpageController extends Controller
 {
-    public function index():View
+    public function index()
     {
         $reviews = Review::with('type','category')->where('status',true)->latest()->paginate(10);
+        // return $reviews;
         return view('reviewpage', compact('reviews'));
     }
 }

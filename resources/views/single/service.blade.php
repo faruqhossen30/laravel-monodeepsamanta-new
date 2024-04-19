@@ -2,6 +2,36 @@
 @section('title', "{$service->title} | Dashboard & UX/UI Designer")
 @section('content')
 
+    @if (session('reviewsubmit'))
+        <div id="alert-additional-content-3"
+            class="p-4 my-4 container mx-auto text-green-800 border border-green-300 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800"
+            role="alert">
+            <div class="flex items-center">
+                <svg class="flex-shrink-0 w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                </svg>
+                <span class="sr-only">Info</span>
+                <h3 class="text-lg font-medium">The review has been submited !</h3>
+            </div>
+            <div class="mt-2 mb-4 text-sm">
+                Thank you so much for taking the time to submit your review! Your feedback is invaluable to us and helps us
+                continually improve our products/services. <br>
+                 We will review and publish it verry soon . <br>
+
+                Thanks again for choosing us and for sharing your experience with others.
+            </div>
+            <div class="flex">
+                <button type="button"
+                    class="text-green-800 bg-transparent border border-green-800 hover:bg-green-900 hover:text-white focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-xs px-3 py-1.5 text-center dark:hover:bg-green-600 dark:border-green-600 dark:text-green-400 dark:hover:text-white dark:focus:ring-green-800"
+                    data-dismiss-target="#alert-additional-content-3" aria-label="Close">
+                    Ok
+                </button>
+            </div>
+        </div>
+    @endif
+
     <section class="container mx-auto px-3 lg:px-0">
         <div class="grid grid-cols-12 gap-0 lg:gap-10 pt-3">
             <div class="col-span-12 lg:col-span-8">
@@ -133,7 +163,7 @@
                         <h3 class="text-[20px] leading-[26px] font-bold">Customized this project</h3>
                         <p class="text-[18px] leading-[26px]">I offer you my best service in illustration. I take your
                             ideas and bring them to a next level.I will help you to make..</p>
-                        <button type="button"
+                        <button type="button" onclick="tidioChatApi.display(true);tidioChatApi.open()"
                             class="py-2 px-8 inline-flex items-center gap-x-2 text-md rounded-md font-normal border-black bg-black hover:bg-[#FF003A] text-white hover:text-white disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
                             Send Request
                         </button>
@@ -166,98 +196,6 @@
                         </div>
                     @endforeach
 
-                </div>
-                {{-- For Mobile --}}
-                <div class="hidden lg:block border my-8 p-10 rounded-2xl ">
-                    <h3 class="p-4 font-bold text-[26px] leading-['32px']">Frequently Asked Questions </h3>
-                    <div class="flex space-x-4 py-8">
-                        <div class="flex justify-center items-center p-8 bg-lime-600 w-8 h-8 rounded-full">
-                            <span class="font-bold text-lg text-white">1</span>
-                        </div>
-                        <div class="space-y-4">
-                            <p>After purchasing the project, send requirements so monodeep can start the project. Delivery
-                                time
-                                starts when Writi receives requirements from you.</p>
-                            <a href="#"
-                                class="flex text-sm leading-[18px] text-primary font-bold items-center space-x-2">
-                                <span>View Requirements</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="flex space-x-4 py-8">
-                        <div class="flex justify-center items-center p-8 bg-lime-600 w-8 h-8 rounded-full">
-                            <span class="font-bold text-lg text-white">2</span>
-                        </div>
-                        <div class="space-y-4">
-                            <p>Writi works on your project following the steps below. Revisions may occur after the delivery
-                                date.</p>
-                            <div class="border rounded-2xl p-6 m-14">
-                                <ul class="space-y-10 py-4 text-sm">
-                                    <li class="flex space-x-3">
-                                        <svg class="flex-shrink-0 h-6 w-6 mt-0.5 text-teal-500"
-                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <polyline points="20 6 9 17 4 12" />
-                                        </svg>
-                                        <span class="text-gray-600 dark:text-white">
-                                            <p>
-                                                Initial Questions <br>
-                                                I will ask you few initial questions at the time of starting the project.
-                                                That
-                                                would help me understand the company / product and it is crucial before
-                                                starting
-                                                a design process
-                                            </p>
-                                        </span>
-                                    </li>
-                                    <li class="flex space-x-3">
-                                        <svg class="flex-shrink-0 h-6 w-6 mt-0.5 text-teal-500"
-                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <polyline points="20 6 9 17 4 12" />
-                                        </svg>
-                                        <span class="text-gray-600 dark:text-white">
-                                            <p>
-                                                Initial Questions <br>
-                                                I will ask you few initial questions at the time of starting the project.
-                                                That
-                                                would help me understand the company / product and it is crucial before
-                                                starting
-                                                a design process
-                                            </p>
-                                        </span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex space-x-4 py-8">
-                        <div class="flex justify-center items-center p-8 bg-lime-600 w-8 h-8 rounded-full">
-                            <span class="font-bold text-lg text-white">3</span>
-                        </div>
-                        <div class="space-y-4">
-                            <p>Writi works on your project following the steps below. Revisions may occur after the delivery
-                                date.</p>
-                            <a href="#"
-                                class="flex text-sm leading-[18px] text-primary font-bold items-center space-x-2">
-                                <span>What If I'm Not Happy With The Work?</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                                </svg>
-
-
-                            </a>
-                        </div>
-                    </div>
                 </div>
 
                 <x-section-video />
@@ -377,7 +315,8 @@
         .tabinactivecustomclass:hover {
             color: red
         }
-        .error{
+
+        .error {
             color: red;
         }
     </style>
@@ -391,18 +330,20 @@
             rules: {
                 // no quoting necessary
                 name: {
-                    required:true
+                    required: true
                 },
                 email: {
-                    required:true
+                    required: true,
+                    email:true
                 },
                 review: {
-                    required:true,
-                    minlength:20
+                    required: true,
+                    minlength: 20,
+                    maxlength: 500
                 },
                 website: {
-                    required:true,
-
+                    required: true,
+                    url: true
                 },
             },
             messages: {
@@ -417,19 +358,10 @@
                 },
                 website: {
                     required: "Please enter your website",
+                    url: "Please enter valid website link. Like 'https://example.com' ",
                 },
             },
             errorElement: 'span',
-            // errorPlacement: function(error, element) {
-            //     console.log(error);
-            //     element.addClass('text-red-500');
-            // },
-            highlight: function(element, errorClass, validClass) {
-                $(element).addClass('text-red-500');
-            },
-            // unhighlight: function(element, errorClass, validClass) {
-            //     $(element).removeClass('is-invalid');
-            // }
         });
     </script>
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>

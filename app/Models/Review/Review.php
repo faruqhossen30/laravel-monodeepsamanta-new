@@ -22,7 +22,9 @@ class Review extends Model
         'thumbnail',
         'review_type_id',
         'category_id',
+        'service_id',
         'review_url',
+        'website',
         'user_id',
         'status'
     ];

@@ -3,8 +3,9 @@
 
 
     {{-- <form id="reviewForm" action="{{ route('reviewsubmit') }}" method="POST" enctype="multipart/form-data"> --}}
-    <form id="reviewForm" action="" method="POST">
+    <form id="reviewForm" action="{{ route('reviewsubmit') }}" method="POST">
         @csrf
+        <input type="hidden" name="service_id" value="{{$service->id}}">
         <div>
             <label for="name" class="block text-[15px] leading-[25px] font-normal mb-2 dark:text-white">Name <span
                     class="text-red-600">*</span></label>
@@ -239,7 +240,7 @@
         <div>
             <label for="website" class="block text-[15px] leading-[25px] font-normal py-3 dark:text-white">Website
                 <span class="text-red-600">*</span></label>
-            <input type="text" id="website" name="review_url" value="{{old('review_url')}}"
+            <input type="text" id="website" name="website" value="{{old('website')}}"
                 class="py-3 px-4 block w-full border-gray-200 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600">
 
             @error('review_url')
