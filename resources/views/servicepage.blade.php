@@ -28,8 +28,8 @@
                                 <source src="{{ video_link($service->video) }}" type="video/mp4">
                             </video>
                         @else
-                            <img src="{{ asset('uploads/galleries/' . $service->thumbnail) }}"
-                                class="transition duration-500 group-hover:scale-110 group-hover:rotate-3" alt="">
+                            <img src="{{ asset('storage/' . $service->thumbnail) }}"
+                                class="transition duration-500 group-hover:scale-110 group-hover:rotate-3" alt="{{$service->title}}">
                         @endif
 
                     </div>

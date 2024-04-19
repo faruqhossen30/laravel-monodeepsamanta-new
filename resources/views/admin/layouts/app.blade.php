@@ -49,9 +49,9 @@
             max-width: 50px;
         }
 
-        /* .dropify-wrapper .dropify-preview .dropify-render img {
+        .dropify-wrapper .dropify-preview .dropify-render img {
             margin: 0 auto;
-        } */
+        }
     </style>
 
 

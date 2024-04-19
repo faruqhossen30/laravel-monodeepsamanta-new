@@ -15,7 +15,7 @@ class ServicesliderController extends Controller
     public function create($id)
     {
 
-        if(!Auth::user()->can('service create')){
+        if (!Auth::user()->can('service create')) {
             abort(403);
         }
         $service = Service::with('sliders')->firstWhere('id', $id);
@@ -29,29 +29,34 @@ class ServicesliderController extends Controller
         // return $request->all();
         $request->validate(
             [
-                'slider' => 'required|array'
-            ],
-            [
-                'slider.required' => 'Image of Video code not found'
+                'ordernumber' => 'required|array'
             ]
         );
 
 
-        if (!empty($request->slider)) {
+        if (!empty($request->ordernumber)) {
             $old = ServiceSlider::where('service_id', $id)->delete();
-            foreach ($request->slider as $slider) {
-                $is_video = str_contains($slider, 'https://iframe.mediadelivery.net');
-                if ($is_video) {
+            foreach ($request->ordernumber as $key => $item) {
+                // Store Image
+                if ($request->thumbnails && array_key_exists($key, $request->thumbnails)) {
+                    $file_name = null;
+                    if($request->file('thumbnails')[$key]){
+                        $file_name = $request->file('thumbnails')[$key]->store('service/slider');
+                    }
                     ServiceSlider::create([
                         'service_id' => $id,
-                        'video' => $slider,
-                        'thumbnail' => null,
-                    ]);
-                } else {
-                    ServiceSlider::create([
-                        'service_id' => $id,
-                        'thumbnail' => $slider,
                         'video' => null,
+                        'thumbnail' => $file_name,
+                        'order_number' => $key,
+                    ]);
+                }
+                // Store IFrame
+                if ($request->iframes && array_key_exists($key, $request->iframes)) {
+                    ServiceSlider::create([
+                        'service_id' => $id,
+                        'video' => $request->iframes[$key],
+                        'thumbnail' => null,
+                        'order_number' => $key,
                     ]);
                 }
             }

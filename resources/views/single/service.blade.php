@@ -33,15 +33,21 @@
     @endif
 
     <section class="container mx-auto px-3 lg:px-0">
-        <div class="grid grid-cols-12 gap-0 lg:gap-10 pt-3">
+        <div class="grid grid-cols-12 gap-0 lg:gap-10">
             <div class="col-span-12 lg:col-span-8">
-                <x-heading.heading-one>
-                    <x-h1>{{ $service->title }}</x-h1>
-                </x-heading.heading-one>
+                <section class="container mx-auto px-3 lg:px-0 pb-[30px] max-[768px]:pt-3 min-[768px]:py-[30px]">
+                    <div class="flex flex-row items-center justify-between">
+                        <x-heading.heading-one>
+                            <x-h1>{{ $service->title }}</x-h1>
+                        </x-heading.heading-one>
+                    </div>
+                </section>
+
+
 
                 {{-- Slider Start --}}
                 @if ($service->sliders->count())
-                    <div class="pt-4 ">
+                    <div class="">
                         <div id="singleServiceCarousel"
                             class="owl-carousel owl-theme slider bg-gray-100 mx-5 w-cal30 lg:w-cal40">
                             @foreach ($service->sliders as $key => $slider)

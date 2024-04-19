@@ -70,7 +70,7 @@ class ServiceController extends Controller
             'meta_keyword'     => $request->meta_keyword
         ];
         if($request->file('thumbnail')){
-            $file_name = $request->file('thumbnail')->store('thumbnail/service/');
+            $file_name = $request->file('thumbnail')->store('service/thumbnail');
             $data['thumbnail'] = $file_name;
         }
 
