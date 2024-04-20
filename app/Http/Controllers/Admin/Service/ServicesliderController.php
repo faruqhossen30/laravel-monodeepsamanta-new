@@ -20,7 +20,7 @@ class ServicesliderController extends Controller
         }
         $service = Service::with('sliders')->firstWhere('id', $id);
         $photos = ServiceSlider::where('service_id', $id)->get();
-        // return $service;
+        // return $photos;
         return view('admin.services.slider.create', compact('service', 'photos'));
     }
 
@@ -44,31 +44,27 @@ class ServicesliderController extends Controller
                         $file_name = $request->file('thumbnails')[$key]->store('service/slider');
                     }
                     ServiceSlider::create([
-                        'service_id' => $id,
-                        'video' => null,
-                        'thumbnail' => $file_name,
+                        'service_id'   => $id,
+                        'video'        => null,
+                        'thumbnail'    => $file_name,
                         'order_number' => $key,
                     ]);
                 }
                 // Store IFrame
                 if ($request->iframes && array_key_exists($key, $request->iframes)) {
                     ServiceSlider::create([
-                        'service_id' => $id,
-                        'video' => $request->iframes[$key],
-                        'thumbnail' => null,
+                        'service_id'   => $id,
+                        'video'        => $request->iframes[$key],
+                        'thumbnail'    => null,
                         'order_number' => $key,
                     ]);
                 }
             }
         }
 
-
-
-
-
-
         return redirect()->route('service.index');
     }
+
 
 
 

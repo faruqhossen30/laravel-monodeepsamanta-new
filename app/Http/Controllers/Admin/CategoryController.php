@@ -51,9 +51,12 @@ class CategoryController extends Controller
             'name'      => $request->name,
             'slug'      => Str ::slug($request->name),
             'author_id' => Auth::user()->id,
-            'thumbnail' => $request->thumbnail,
+            // 'thumbnail' => $request->thumbnail,
         ];
-
+        if($request->file('thumbnail')){
+            $file_name = $request->file('thumbnail')->store('thumbnail/category');
+            $data['thumbnail'] = $file_name;
+        }
         Category::create($data);
 
         return redirect()->route('category.index');
@@ -92,9 +95,12 @@ class CategoryController extends Controller
             'name'      => $request->name,
             'slug'      => Str::slug($request->name),
             'author_id' => Auth::user()->id,
-            'thumbnail' => $request->thumbnail,
+            // 'thumbnail' => $request->thumbnail,
         ];
-
+        if($request->file('thumbnail')){
+            $file_name = $request->file('thumbnail')->store('thumbnail/category');
+            $data['thumbnail'] = $file_name;
+        }
 
 
         Category::firstwhere('id', $id)->update($data);
