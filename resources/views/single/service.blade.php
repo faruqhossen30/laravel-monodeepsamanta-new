@@ -55,9 +55,9 @@
                                     @if ($slider->video)
                                         {!! $slider->video !!}
                                     @else
-                                        <a href="{{ asset('uploads/galleries/' . $slider->thumbnail) }}"
+                                        <a href="{{ asset('storage/' . $slider->thumbnail) }}"
                                             class="cwa-lightbox-image" data-desc="{{ $service->title }}">
-                                            <img src="{{ asset('uploads/galleries/' . $slider->thumbnail) }}" class=""
+                                            <img src="{{ asset('storage/' . $slider->thumbnail) }}" class=""
                                                 alt="">
                                         </a>
                                     @endif
@@ -72,7 +72,7 @@
                                         <img src="{{ asset('img/media-player.png') }}" alt=""
                                             class="w-32 custompacity sliderlinkimage{{ $key }}">
                                     @else
-                                        <img src="{{ asset('uploads/galleries/' . $slider->thumbnail) }}" alt=""
+                                        <img src="{{ asset('storage/' . $slider->thumbnail) }}" alt=""
                                             class="w-32 custompacity sliderlinkimage{{ $key }}">
                                     @endif
 

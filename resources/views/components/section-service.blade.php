@@ -26,7 +26,7 @@
                             <source src="{{ video_link($service->video) }}" type="video/mp4">
                         </video>
                     @else
-                        <img src="{{ asset('uploads/galleries/' . $service->thumbnail) }}"
+                        <img src="{{ asset('storage/' . $service->thumbnail) }}"
                             class="transition duration-500 group-hover:scale-110 group-hover:rotate-3" alt="">
                     @endif
                 </div>
@@ -46,7 +46,7 @@
             <a href="{{ route('singleservice', $service->slug) }}" class="col-span-12 p-3 md:col-span-6 lg:col-span-4"
                 data-aos="fade" data-aos-duration="2000">
                 <div class="relative overflow-hidden font-bold text-white rounded-md shadow cursor-pointer">
-                    <img src="{{ asset('uploads/galleries/' . $service->thumbnail) }}"
+                    <img src="{{ asset('storage/' . $service->thumbnail) }}"
                         class="transition duration-500 group-hover:scale-110 group-hover:rotate-3" alt="">
                 </div>
                 <div class="py-2 mt-5 space-y-1">

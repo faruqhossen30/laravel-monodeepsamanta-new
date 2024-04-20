@@ -70,7 +70,7 @@ class ServiceController extends Controller
             'meta_keyword'     => $request->meta_keyword
         ];
         if($request->file('thumbnail')){
-            $file_name = $request->file('thumbnail')->store('service/thumbnail');
+            $file_name = $request->file('thumbnail')->store('service');
             $data['thumbnail'] = $file_name;
         }
 
@@ -148,7 +148,6 @@ class ServiceController extends Controller
             'category_id' => 'required'
         ]);
 
-
         $data = [
             'title'            => $request->title,
             'slug'             => Str::slug($request->title, '-'),
@@ -163,7 +162,7 @@ class ServiceController extends Controller
         ];
 
         if($request->file('thumbnail')){
-            $file_name = $request->file('thumbnail')->store('thumbnail/service/');
+            $file_name = $request->file('thumbnail')->store('service');
             $data['thumbnail'] = $file_name;
         }
         $service=  Service::firstWhere('id', $id)->update($data);
