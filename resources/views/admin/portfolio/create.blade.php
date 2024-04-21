@@ -41,8 +41,6 @@
                             </div>
 
                         </div>
-                        @include('admin.inc.modal.photo-gallery')
-                        @include('admin.inc.modal.multi-photo-gallery')
                         <x-form.submit-button />
                     </form>
                 </div>

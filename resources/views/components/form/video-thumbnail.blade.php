@@ -10,7 +10,7 @@
     <div x-show="video">
         <div class="space-y-1 py-1">
             <label for="pull_zone" class="text-gray-500 dark:text-gray-500 text-sm font-medium">Zone</label>
-            <input id="pull_zone" type="text" name="pull_zone"
+            <input id="pull_zone" type="text" name="pull_zone" value="https://vz-042d75cc-e8d.b-cdn.net"
                 class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
                 placeholder="Zone" x-bind:required="video" >
             @error('pull_zone')
@@ -22,7 +22,7 @@
             <label for="video_id" class="text-gray-500 dark:text-gray-500 text-sm font-medium">Video ID</label>
             <input id="video_id" type="text" name="video_id"
                 class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                placeholder="Zone" x-bind:required="video" >
+                placeholder="Video ID" x-bind:required="video" >
             @error('video_id')
                 <p class="text-sm text-red-600 mt-2">{{ $message }}</p>
             @enderror
@@ -37,7 +37,6 @@
                 <option value="360p">360p</option>
                 <option value="480p">480p</option>
                 <option value="720p">720p</option>
-                <option value="1080p">1080p</option>
             </select>
             @error('{{ $resolution }}')
                 <p class="text-sm text-red-600 mt-2">{{ $message }}</p>

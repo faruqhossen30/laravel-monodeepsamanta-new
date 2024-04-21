@@ -35,27 +35,29 @@ class PortfolioSectionController extends Controller
         $images = $request->images;
 
         PortfolioSection::where('portfolio_id', $id)->delete();
-        foreach ($request->sections as $key => $section) {
+        if(!empty($request->sections)){
+            foreach ($request->sections as $key => $section) {
 
 
-            $thumbnail_file_name = null;
-            if ($thumbnails && array_key_exists($key, $thumbnails)) {
-                $thumbnail_file_name =  $request->file('thumbnails')[$key]->store('portfolio/section');
-            } elseif ($images && array_key_exists($key, $images)) {
-                $thumbnail_file_name = $images[$key];
+                $thumbnail_file_name = null;
+                if ($thumbnails && array_key_exists($key, $thumbnails)) {
+                    $thumbnail_file_name =  $request->file('thumbnails')[$key]->store('portfolio/section');
+                } elseif ($images && array_key_exists($key, $images)) {
+                    $thumbnail_file_name = $images[$key];
+                }
+
+                // $thumbnail_file_name = null;
+                // if (array_key_exists($key, $iframes)) {
+                //     $thumbnail_file_name =  $request->file('thumbnails')[$key]->store('portfolio/thumbnail');
+                // }
+
+                PortfolioSection::create([
+                    'portfolio_id' => $id,
+                    'thumbnail' => $thumbnail_file_name,
+                    'iframe' => $iframes[$key],
+                    'content' => $section,
+                ]);
             }
-
-            // $thumbnail_file_name = null;
-            // if (array_key_exists($key, $iframes)) {
-            //     $thumbnail_file_name =  $request->file('thumbnails')[$key]->store('portfolio/thumbnail');
-            // }
-
-            PortfolioSection::create([
-                'portfolio_id' => $id,
-                'thumbnail' => $thumbnail_file_name,
-                'iframe' => $iframes[$key],
-                'content' => $section,
-            ]);
         }
 
         return redirect()->route('portfolio.index');

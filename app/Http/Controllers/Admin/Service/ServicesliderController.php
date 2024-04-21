@@ -27,20 +27,20 @@ class ServicesliderController extends Controller
     public function store(Request $request, $id)
     {
         // return $request->all();
-        $request->validate(
-            [
-                'ordernumber' => 'required|array'
-            ]
-        );
+        // $request->validate(
+        //     [
+        //         'ordernumber' => 'required|array'
+        //     ]
+        // );
 
 
+        $old = ServiceSlider::where('service_id', $id)->delete();
         if (!empty($request->ordernumber)) {
-            $old = ServiceSlider::where('service_id', $id)->delete();
             foreach ($request->ordernumber as $key => $item) {
                 // Store Image
                 if ($request->thumbnails && array_key_exists($key, $request->thumbnails)) {
                     $file_name = null;
-                    if($request->file('thumbnails')[$key]){
+                    if ($request->file('thumbnails')[$key]) {
                         $file_name = $request->file('thumbnails')[$key]->store('service/slider');
                     }
                     ServiceSlider::create([
@@ -50,6 +50,19 @@ class ServicesliderController extends Controller
                         'order_number' => $key,
                     ]);
                 }
+
+                $checkdata = ($request->thumbnails && array_key_exists($key, $request->thumbnails)) ? false : true;
+
+                if ($request->images && array_key_exists($key, $request->images) && $checkdata) {
+                        ServiceSlider::create([
+                            'service_id'   => $id,
+                            'video'        => null,
+                            'thumbnail'    => $request->images[$key],
+                            'order_number' => $key,
+                        ]);
+                }
+
+
                 // Store IFrame
                 if ($request->iframes && array_key_exists($key, $request->iframes)) {
                     ServiceSlider::create([

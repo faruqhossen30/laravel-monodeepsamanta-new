@@ -65,26 +65,20 @@
                                                     480p</option>
                                                 <option value="720p" @if ($portfolio->video->resolution == '720p') selected @endif>
                                                     720p</option>
-                                                <option value="1080p" @if ($portfolio->video->resolution == '1080p') selected @endif>
-                                                    1080p</option>
                                             </select>
                                             @error('{{ $resolution }}')
                                                 <p class="text-sm text-red-600 mt-2">{{ $message }}</p>
                                             @enderror
                                         </div>
-
-
                                     </div>
                                 @else
                                     @include('components.form.video-thumbnail')
                                 @endif
-                                <input class="dropify" type="file" id="myDropify" name="thumbnail" data-default-file="{{asset('storage/'.$portfolio->thumbnail)}}">
+                                <input class="dropify" type="file" id="myDropify" name="thumbnail" @if (Storage::exists($portfolio->thumbnail != null && $portfolio->thumbnail)) data-default-file="{{asset('storage/'.$portfolio->thumbnail)}}" @endif >
                                 {{-- <x-form.thumbnail-single :thumbnail="$portfolio->thumbnail" /> --}}
                                 <x-form.thumbnail-multiple :data="$portfolio" />
                             </div>
                         </div>
-                        @include('admin.inc.modal.photo-gallery')
-                        @include('admin.inc.modal.multi-photo-gallery')
                         <x-form.submit-button title="Update" />
                     </form>
                 </div>

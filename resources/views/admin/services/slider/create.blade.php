@@ -44,30 +44,69 @@
                         <div class="">
                             <div class="grid grid-cols-3" id="drofifySectionDiv">
                                 @foreach ($photos as $key => $slider)
-                                    <div class="col-span-2 lg:col-span-1 p-4">
-                                        <div
-                                            class="flex flex-col my-4 bg-white border shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7]">
+                                    @if ($slider->video)
+                                        <div class="col-span-2 lg:col-span-1 p-4">
                                             <div
-                                                class="flex justify-between bg-gray-100 border-b rounded-t-xl py-3 px-4 md:py-4 md:px-5 dark:bg-slate-900 dark:border-gray-700">
-                                                <p class="mt-1 text-sm text-gray-500 dark:text-gray-500">
-                                                    Add Slider Image
-                                                </p>
-                                                <input type="hidden" value="{{$key}}" name="ordernumber[]" />
-                                                <button type="button" class="removesectionbutton">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                                        class="w-6 h-6 text-red-600">
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                            d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                            <div>
-                                                <input class="dropify" type="file" name="thumbnails[${lng}]" data-default-file="{{ asset('storage/' . $slider->thumbnail) }}" >
-                                            </div>
+                                                class="flex flex-col my-4 bg-white border shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7]">
+                                                <div
+                                                    class="flex justify-between bg-gray-100 border-b rounded-t-xl py-3 px-4 md:py-4 md:px-5 dark:bg-slate-900 dark:border-gray-700">
+                                                    <p class="mt-1 text-sm text-gray-500 dark:text-gray-500">
+                                                        Add Video IFrame
+                                                    </p>
+                                                    <input type="text" value="{{ $slider->order_number }}"
+                                                        name="ordernumber[]" />
+                                                    <button type="button" class="removesectionbutton">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                            class="w-6 h-6 text-red-600">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                                <div class="p-4">
+                                                    <div class="space-y-1 py-2">
+                                                        <label for=""
+                                                            class="text-gray-500 dark:text-gray-500 text-sm font-medium mb-2 ">Video
+                                                            IFrameTag</label>
+                                                        <textarea id="" name="iframes[${lng}]"
+                                                            class="iframe py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
+                                                            rows="5" placeholder="Video IFrame Tag">{{$slider->video}}</textarea>
+                                                    </div>
+                                                </div>
 
+                                            </div>
                                         </div>
-                                    </div>
+                                    @else
+                                        <div class="col-span-2 lg:col-span-1 p-4">
+                                            <div
+                                                class="flex flex-col my-4 bg-white border shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7]">
+                                                <div
+                                                    class="flex justify-between bg-gray-100 border-b rounded-t-xl py-3 px-4 md:py-4 md:px-5 dark:bg-slate-900 dark:border-gray-700">
+                                                    <p class="mt-1 text-sm text-gray-500 dark:text-gray-500">
+                                                        Add Slider Image
+                                                    </p>
+                                                    <input type="text" value="{{ $slider->order_number }}"
+                                                        name="ordernumber[]" />
+                                                    <button type="button" class="removesectionbutton">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                            class="w-6 h-6 text-red-600">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                                <div>
+                                                    <input type="text" class=".hideinput" name="images[]"
+                                                        value="{{ $slider->thumbnail }}">
+                                                    <input class="dropify" type="file" name="thumbnails[]"
+                                                        data-default-file="{{ asset('storage/' . $slider->thumbnail) }}">
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    @endif
                                 @endforeach
                             </div>
                         </div>
@@ -118,7 +157,7 @@
                                 <p class="mt-1 text-sm text-gray-500 dark:text-gray-500">
                                     Add Slider Image
                                 </p>
-                                <input type="hidden" value="${lng}" name="ordernumber[]" />
+                                <input type="text" value="${lng}" name="ordernumber[]" />
                                 <button type="button" class="removesectionbutton">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-600">
@@ -153,7 +192,7 @@
                                 <p class="mt-1 text-sm text-gray-500 dark:text-gray-500">
                                     Add Video IFrame
                                 </p>
-                                <input type="hidden" value="${lng}" name="ordernumber[]" />
+                                <input type="text" value="${lng}" name="ordernumber[]" />
                                 <button type="button" class="removesectionbutton">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-600">
