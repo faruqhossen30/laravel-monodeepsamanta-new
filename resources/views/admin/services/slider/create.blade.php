@@ -53,7 +53,7 @@
                                                     <p class="mt-1 text-sm text-gray-500 dark:text-gray-500">
                                                         Add Video IFrame
                                                     </p>
-                                                    <input type="text" value="{{ $slider->order_number }}"
+                                                    <input type="hidden" value="{{ $slider->order_number }}"
                                                         name="ordernumber[]" />
                                                     <button type="button" class="removesectionbutton">
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -86,7 +86,7 @@
                                                     <p class="mt-1 text-sm text-gray-500 dark:text-gray-500">
                                                         Add Slider Image
                                                     </p>
-                                                    <input type="text" value="{{ $slider->order_number }}"
+                                                    <input type="hidden" value="{{ $slider->order_number }}"
                                                         name="ordernumber[]" />
                                                     <button type="button" class="removesectionbutton">
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -98,7 +98,7 @@
                                                     </button>
                                                 </div>
                                                 <div>
-                                                    <input type="text" class=".hideinput" name="images[]"
+                                                    <input type="hidden" class=".hideinput" name="images[]"
                                                         value="{{ $slider->thumbnail }}">
                                                     <input class="dropify" type="file" name="thumbnails[]"
                                                         data-default-file="{{ asset('storage/' . $slider->thumbnail) }}">
@@ -157,7 +157,7 @@
                                 <p class="mt-1 text-sm text-gray-500 dark:text-gray-500">
                                     Add Slider Image
                                 </p>
-                                <input type="text" value="${lng}" name="ordernumber[]" />
+                                <input type="hidden" value="${lng}" name="ordernumber[]" />
                                 <button type="button" class="removesectionbutton">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-600">
@@ -192,7 +192,7 @@
                                 <p class="mt-1 text-sm text-gray-500 dark:text-gray-500">
                                     Add Video IFrame
                                 </p>
-                                <input type="text" value="${lng}" name="ordernumber[]" />
+                                <input type="hidden" value="${lng}" name="ordernumber[]" />
                                 <button type="button" class="removesectionbutton">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-600">
