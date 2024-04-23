@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('site_title')->nullable();
             $table->string('email')->nullable();
             $table->string('address')->nullable();
+            $table->longText('aboutme')->nullable();
             $table->string('telephone_no')->nullable();
             $table->string('working_day')->nullable();
             $table->string('working_time')->nullable();

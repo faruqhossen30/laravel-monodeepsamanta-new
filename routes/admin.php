@@ -21,6 +21,7 @@ use App\Http\Controllers\Admin\Service\ServiceController;
 use App\Http\Controllers\Admin\Service\ServicefaqController;
 use App\Http\Controllers\Admin\Service\ServicepackageController;
 use App\Http\Controllers\Admin\Service\ServicesliderController;
+use App\Http\Controllers\Admin\Setting\AboutmeSettingController;
 use App\Http\Controllers\Admin\Setting\ChatSectionController;
 use App\Http\Controllers\Admin\Setting\ContactSettingController;
 use App\Http\Controllers\Admin\Setting\SideSettingController;
@@ -28,6 +29,7 @@ use App\Http\Controllers\Admin\Setting\SiteSettingController;
 use App\Http\Controllers\Admin\Setting\SocialmediaSettingController;
 use App\Http\Controllers\Admin\Setting\WebsiteSettingController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\Skill\SkillController;
 use App\Http\Controllers\Admin\UserController;
 
 
@@ -47,19 +49,20 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('gallery-category',   GalleryCategoryController::class);
     Route::resource('reviewtype',         ReviewtypeController::class);
     Route::resource('review',             ReviewController::class);
+    Route::resource('skill',              SkillController::class);
 
     Route::resource('portfolio',          PortfolioController::class);
     // Route::get('portfolio/content/{id}', [PortfolioContentController::class, 'create'])->name('portfolioimage.create');
     // Route::post('portfolio/content/{id}', [PortfolioContentController::class, 'store'])->name('portfolioimage.store');
 
-    Route::get('portfolio/section/{id}', [PortfolioSectionController::class, 'create'])->name('portfoliosection.create');
+    Route::get( 'portfolio/section/{id}', [PortfolioSectionController::class, 'create'])->name('portfoliosection.create');
     Route::post('portfolio/section/{id}', [PortfolioSectionController::class, 'store'])->name('portfoliosection.store');
 
 
     Route::resource('service',            ServiceController::class);
-    Route::get('service/{id}/delete',[ ServicesliderController::class, 'removeImage'])->name('removesliderimage');
+    Route::get('service/{id}/delete',[    ServicesliderController::class, 'removeImage'])->name('removesliderimage');
     Route::get('service/{id}/create-faq', [ServicefaqController::class, 'create'])->name('service.faq.create');
-    Route::post('service/{id}/create-faq', [ServicefaqController::class, 'store'])->name('service.faq.store');
+    Route::post('service/{id}/create-faq',[ServicefaqController::class, 'store'])->name('service.faq.store');
 
     Route::get('service/{id}/create-package',  [ServicepackageController::class, 'create'])->name('service.package.create')->middleware('can:service update');
     Route::post('service/{id}/create-package', [ServicepackageController::class, 'store'])->name('service.package.store');
@@ -84,5 +87,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         Route::post('/social-media/store',[SocialmediaSettingController::class,'socialmediastore'])->name('socialmedia.setting.store');
         Route::get('/contact-setting',[ContactSettingController::class,'contactsetting'])->name('contact.setting');
         Route::post('/contact-setting/store',[ContactSettingController::class,'contactsettingstore'])->name('contact.setting.store');
+        Route::get('/about-me',[AboutmeSettingController::class ,'aboutMeSetting'])->name('setting.aboutme');
+        Route::post('/about-me/store',[AboutmeSettingController::class ,'aboutMesettingStore'])->name('setting.aboutme.store');
     });
 });

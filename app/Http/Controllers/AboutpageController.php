@@ -3,13 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Portfolio;
+use App\Models\Setting\WebsiteSetting;
+use App\Models\Skill\Skill;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class AboutpageController extends Controller
 {
-    public function index():View
+    public function index()
     {
-        return view('aboutpage');
+        $site = WebsiteSetting::first();
+        $skills = Skill::first();
+        // return $skills ;
+        return view('aboutpage',compact('site','skills'));
     }
 }

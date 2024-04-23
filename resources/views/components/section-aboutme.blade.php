@@ -1,3 +1,11 @@
+@php
+
+    use App\Models\Setting\WebsiteSetting;
+    use App\Models\Skill\Skill;
+    $site = WebsiteSetting::first();
+    $skills = Skill::get();
+@endphp
+
 <section class="container mx-auto px-3 lg:px-0 pb-[25px] pt-2 lg:pt-8">
     <div class="flex flex-row items-center justify-between">
         <x-heading.heading-one>
@@ -11,21 +19,16 @@
     </div>
 </section>
 
-
+{{-- @php
+use App\Models\Setting\WebsiteSetting;
+    $site = WebsiteSetting::all();
+@endphp --}}
 <section class="container px-3 mx-auto lg:px-0">
     <div class="grid grid-cols-12 gap-4">
         <div class="order-2 col-span-12 lg:col-span-8 lg:order-1">
             <div class="pr-12 mb-5 space-y-2 text-lg md:mb-0" data-aos="fade-up" data-aos-duration="1000">
-                <p class="leading-[26px]">I am Monodeep Samanta, the leading UI/UX designer. I create designs that help your
-                    website turn
-                    visitors into loyal customers. So your business can increase margins. One call with me will change
-                    your UX/UI ideas forever. 15-30 minutes of consultation will take your business to the next level.
-                    My designs will make your ads and marketing better regardless of your target audience and their
-                    locations. I am really good at what I do. People love my designs because they are easy to use with
-                    satisfying
-                    layouts. With my visionary concepts, more people will return to your website and show interest in
-                    your products and services. I can handle big projects and make your business grow. Let’s make your
-                    website amazing. Contact me today, and have a flying start!</p>
+
+                <p class="leading-[26px]">{!!$site->aboutme!!}</p>
             </div>
             <div class="hidden md:block" data-aos="fade-up" data-aos-duration="1000">
 
@@ -40,8 +43,12 @@
                     </div>
                 </div>
 
-                <button class="btn" style="font-size: 14px">Website Design</button>
-                <button class="btn" style="font-size: 14px">App Design</button>
+
+                @foreach ( $skills as $skill)
+                <button class="btn" style="font-size: 14px">{{ $skill->title}}</button>
+
+                @endforeach
+                {{-- <button class="btn" style="font-size: 14px">App Design</button>
                 <button class="btn" style="font-size: 14px">Landing Page Design</button>
                 <button class="btn" style="font-size: 14px">Design Advice</button>
                 <button class="btn" style="font-size: 14px">Graphic Design</button>
@@ -54,7 +61,7 @@
                 <button class="btn" style="font-size: 14px">Flyer Design</button>
                 <button class="btn" style="font-size: 14px">UI Design</button>
                 <button class="btn" style="font-size: 14px">Digital Marketing</button>
-                <button class="btn" style="font-size: 14px">UX Design</button>
+                <button class="btn" style="font-size: 14px">UX Design</button> --}}
             </div>
             {{-- <div class="hidden h-24 lg:block"></div> --}}
         </div>

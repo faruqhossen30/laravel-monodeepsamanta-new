@@ -25,6 +25,7 @@ class SocialmediaSettingController extends Controller
     public function socialmediastore(Request $request){
 
 
+
         WebsiteSetting::updateOrInsert([
             'id'=>1
         ],[

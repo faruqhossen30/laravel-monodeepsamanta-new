@@ -13,6 +13,7 @@ class WebsiteSetting extends Model
         'site_title',
         'working_time',
         'working_day',
+        'aboutme',
         'address',
         'email',
         'telephone_no',

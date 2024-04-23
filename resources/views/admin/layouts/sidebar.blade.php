@@ -278,8 +278,24 @@ w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text
                     <!------------Category end--------->
 
 
+                        <li>
+                            <a href="{{ route('skill.create') }}"
+                                class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700 ">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    class="sidebaricon">
+                                    <path
+                                        d="M18.75 12.75h1.5a.75.75 0 0 0 0-1.5h-1.5a.75.75 0 0 0 0 1.5ZM12 6a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 12 6ZM12 18a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 12 18ZM3.75 6.75h1.5a.75.75 0 1 0 0-1.5h-1.5a.75.75 0 0 0 0 1.5ZM5.25 18.75h-1.5a.75.75 0 0 1 0-1.5h1.5a.75.75 0 0 1 0 1.5ZM3 12a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 3 12ZM9 3.75a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5ZM12.75 12a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0ZM9 15.75a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z" />
+                                </svg>
+                                <span class="ml-3" sidebar-toggle-item>Skills</span>
+                            </a>
+                        </li>
+
+                    <!------------Category end--------->
+
+
+
                     <!--------------Setting start------>
-                    {{-- @canany(['websitesetting', 'socialmedia setting', 'contactsetting', 'chat setting'])
+                    @canany(['websitesetting', 'socialmedia setting', 'contactsetting', 'chat setting'])
                         <li>
                             <a href="{{ route('settingpage') }}"
                                 class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700 ">
@@ -293,7 +309,7 @@ w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text
                                 <span class="ml-3" sidebar-toggle-item>Settings</span>
                             </a>
                         </li>
-                    @endcanany --}}
+                    @endcanany
                     <!---------------Setting end-------->
 
 
