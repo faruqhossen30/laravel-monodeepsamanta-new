@@ -82,7 +82,7 @@ use App\Models\Setting\WebsiteSetting;
                     <h3 class="text-[18px] leading-[18px] font-semibold py-2 pt-2">My Online presence</h3>
                     <div class="inline-flex items-center mt-3 space-x-6">
                         <a href="https://www.behance.net/monodeepsamanta" target="_blank"
-                            class="inline-flex justify-center items-center w-10 h-10 text-center text-white hover:bg-brand bg-black hover:text-white hover:bg-[#FF003A] rounded-full focus:outline-none focus:ring-2  focus:ring-offset-2 focus:ring-offset-white transition dark:text-gray-500 dark:hover:text-gray-200 dark:hover:bg-gray-800">
+                            class="inline-flex justify-center items-center w-10 h-10 text-center text-white hover:bg-brand bg-black hover:text-white rounded-full focus:outline-none focus:ring-2  focus:ring-offset-2 focus:ring-offset-white transition dark:text-gray-500 dark:hover:text-gray-200 dark:hover:bg-gray-800">
                             <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                 class="bi bi-behance" viewBox="0 0 16 16">
                                 <path
@@ -90,7 +90,7 @@ use App\Models\Setting\WebsiteSetting;
                             </svg>
                         </a>
                         <a href="https://dribbble.com/monodeepsamanta" target="_blank"
-                            class="inline-flex justify-center items-center w-10 h-10 text-center text-white hover:bg-brand bg-black hover:text-white hover:bg-[#FF003A] rounded-full focus:outline-none focus:ring-2  focus:ring-offset-2 focus:ring-offset-white transition dark:text-gray-500 dark:hover:text-gray-200 dark:hover:bg-gray-800">
+                            class="inline-flex justify-center items-center w-10 h-10 text-center text-white hover:bg-brand bg-black hover:text-white rounded-full focus:outline-none focus:ring-2  focus:ring-offset-2 focus:ring-offset-white transition dark:text-gray-500 dark:hover:text-gray-200 dark:hover:bg-gray-800">
                             <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                 fill="currentColor" class="bi bi-dribbble" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
@@ -98,16 +98,16 @@ use App\Models\Setting\WebsiteSetting;
                             </svg>
                         </a>
                         <a href="https://www.flickr.com/photos/monodeepsamanta/" target="_blank"
-                            class="inline-flex justify-center items-center w-10 h-10 text-center text-white hover:bg-brand bg-black hover:text-white hover:bg-[#FF003A] rounded-full focus:outline-none focus:ring-2  focus:ring-offset-2 focus:ring-offset-white transition dark:text-gray-500 dark:hover:text-gray-200 dark:hover:bg-gray-800">
+                            class="inline-flex justify-center items-center w-10 h-10 text-center text-white hover:bg-brand bg-black hover:text-white rounded-full focus:outline-none focus:ring-2  focus:ring-offset-2 focus:ring-offset-white transition dark:text-gray-500 dark:hover:text-gray-200 dark:hover:bg-gray-800">
                             <img class="w-6 h-6" src="{{ asset('img/icon/flickr.png') }}" alt="">
                         </a>
                         <a target="_blank"
-                            class="inline-flex justify-center items-center w-10 h-10 text-center text-white hover:bg-brand bg-black hover:text-white hover:bg-[#FF003A] rounded-full focus:outline-none focus:ring-2  focus:ring-offset-2 focus:ring-offset-white transition dark:text-gray-500 dark:hover:text-gray-200 dark:hover:bg-gray-800"
+                            class="inline-flex justify-center items-center w-10 h-10 text-center text-white hover:bg-brand bg-black hover:text-white rounded-full focus:outline-none focus:ring-2  focus:ring-offset-2 focus:ring-offset-white transition dark:text-gray-500 dark:hover:text-gray-200 dark:hover:bg-gray-800"
                             href="#">
                             <img class="w-6 h-6" src="{{ asset('img/icon/500px-monogramwhite.png') }}" alt="">
                         </a>
                         <a href="https://www.linkedin.com/in/monodeepsamanta/" target="_blank"
-                            class="inline-flex justify-center items-center w-10 h-10 text-center text-white hover:bg-brand bg-black hover:text-white hover:bg-[#FF003A] rounded-full focus:outline-none focus:ring-2  focus:ring-offset-2 focus:ring-offset-white transition dark:text-gray-500 dark:hover:text-gray-200 dark:hover:bg-gray-800">
+                            class="inline-flex justify-center items-center w-10 h-10 text-center text-white hover:bg-brand bg-black hover:text-white rounded-full focus:outline-none focus:ring-2  focus:ring-offset-2 focus:ring-offset-white transition dark:text-gray-500 dark:hover:text-gray-200 dark:hover:bg-gray-800">
                             <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                 fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
                                 <path
