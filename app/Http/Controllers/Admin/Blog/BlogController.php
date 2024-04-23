@@ -78,6 +78,8 @@ class BlogController extends Controller
 
         $blog = Blog::create($data);
 
+
+
         if(!empty($request->category_ids)){
              foreach($request->category_ids as $id){
                 BlogCategory::create([

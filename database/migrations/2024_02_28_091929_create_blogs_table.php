@@ -22,7 +22,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('meta_title')->nullable();
             $table->string('meta_description')->nullable();
-            $table->string('meta_keyword')->nullable();
+            $table->string('meta_keyword',1000)->nullable();
             $table->boolean('status')->nullable()->default(0);
             $table->timestamps();
         });

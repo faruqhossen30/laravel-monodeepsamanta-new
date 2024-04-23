@@ -12,7 +12,6 @@ class Portfolio extends Model
     protected $fillable = [
         'title',
         'slug',
-        'category_id',
         'thumbnail',
         'slider',
         'user_id',
@@ -61,5 +60,10 @@ class Portfolio extends Model
     public function sections()
     {
         return $this->hasMany(PortfolioSection::class);
+    }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, 'portfolio_categories');
     }
 }

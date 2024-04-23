@@ -21,7 +21,7 @@
             </div>
         </div>
         <div>
-            <img src="{{ asset('uploads/blog/' . $post->thumbnail) }}" class="object-cover w-full max-h-80 " alt="">
+            <img src="{{ asset('storage/' . $post->thumbnail) }}" class="object-cover w-full max-h-80 " alt="">
         </div>
         <div class="flex justify-center mx-auto space-x-14 mt-[90px] ">
 

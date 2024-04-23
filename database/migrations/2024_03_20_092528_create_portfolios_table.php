@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug');
-            $table->unsignedBigInteger('category_id');
             $table->string('thumbnail')->nullable();
             $table->json('slider')->nullable();
             $table->unsignedBigInteger('user_id');

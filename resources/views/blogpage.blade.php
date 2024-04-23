@@ -64,7 +64,7 @@
                         class="overflow-hidden rounded-lg group dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
                         <div class="relative pt-[50%] sm:pt-[70%] rounded-lg overflow-hidden">
                             <img class="absolute top-0 object-cover w-full h-full transition-transform duration-500 ease-in-out rounded-lg start-0 group-hover:scale-105"
-                                src="{{ asset('uploads/galleries/' . $post->thumbnail) }}" alt="{{ $post->title }}">
+                                src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->title }}">
 
                         </div>
 

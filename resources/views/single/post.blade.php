@@ -16,7 +16,7 @@
         <meta name="twitter:site" content="@heshelghor" />
         <meta property="og:title" content="{{ $post->title }}" />
         <meta property="og:description" content="{{ $post->project_description }}" />
-        <meta property="og:image" content="{{ asset('uploads/post/' . $post->thumbnail) }}" />
+        <meta property="og:image" content="{{ asset('storage/' . $post->thumbnail) }}" />
     @endsection
 @endpush
 
@@ -105,7 +105,7 @@
 
         <div class="container mx-auto">
             <div class="w-11/12 max-w-6xl mx-auto -mt-44">
-                <img class="w-full rounded-md" src="{{ asset('uploads/galleries/' . $post->thumbnail) }}" alt="">
+                <img class="w-full rounded-md" src="{{ asset('storage/' . $post->thumbnail) }}" alt="">
             </div>
         </div>
 
@@ -185,7 +185,7 @@
                     href="{{ route('singleblog', $post->slug) }}">
                     <div class="relative pt-[50%] sm:pt-[70%] rounded-lg overflow-hidden">
                         <img class="absolute top-0 object-cover w-full h-full transition-transform duration-500 ease-in-out rounded-lg start-0 group-hover:scale-105"
-                            src="{{ asset('uploads/galleries/' . $post->thumbnail) }}" alt="Image Description">
+                            src="{{ asset('storage/' . $post->thumbnail) }}" alt="Image Description">
                     </div>
 
                     <div class="mt-7">

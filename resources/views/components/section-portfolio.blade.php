@@ -24,7 +24,7 @@
                 </div>
                 <!--layer end-->
                 <img class="object-top w-full transition duration-500 group-hover:scale-110 group-hover:rotate-3"
-                    src="{{ asset('uploads/galleries/' . $category->thumbnail) }}" alt="">
+                    src="{{ asset('storage/' . $category->thumbnail) }}" alt="">
                 <div
                     class="absolute bottom-0 z-10 hidden space-y-2 group-hover:bottom-6 group-hover:left-6 group-hover:block">
                     <h1 class="text-2xl">{{ $category->name }}</h1>

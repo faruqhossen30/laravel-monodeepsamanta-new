@@ -45,23 +45,10 @@ use App\Models\Setting\WebsiteSetting;
 
 
                 @foreach ( $skills as $skill)
-                <button class="btn" style="font-size: 14px">{{ $skill->title}}</button>
-
+                    <button class="btn" type="submit" style="font-size: 14px">{{ $skill->title}}</button>
                 @endforeach
-                {{-- <button class="btn" style="font-size: 14px">App Design</button>
-                <button class="btn" style="font-size: 14px">Landing Page Design</button>
-                <button class="btn" style="font-size: 14px">Design Advice</button>
-                <button class="btn" style="font-size: 14px">Graphic Design</button>
-                <button class="btn" style="font-size: 14px">Web Design</button>
-                <button class="btn" style="font-size: 14px">Logo Designing Advice</button>
-                <button class="btn" style="font-size: 14px">Adobe Photoshop</button>
-                <button class="btn" style="font-size: 14px">WordPress</button>
-                <button class="btn" style="font-size: 14px">Social media Marketing</button>
-                <button class="btn" style="font-size: 14px">Digital Marketing</button>
-                <button class="btn" style="font-size: 14px">Flyer Design</button>
-                <button class="btn" style="font-size: 14px">UI Design</button>
-                <button class="btn" style="font-size: 14px">Digital Marketing</button>
-                <button class="btn" style="font-size: 14px">UX Design</button> --}}
+               {{-- <button class="btn" style="font-size: 14px">App Design</button> --}}
+
             </div>
             {{-- <div class="hidden h-24 lg:block"></div> --}}
         </div>
