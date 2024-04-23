@@ -38,10 +38,16 @@
                                 <div id="itemListDiv" class=" space-x-2 space-y-2">
 
                                     @foreach ($skills as $skill)
-                                        <div class="border inline-flex space-x-4 px-4 py-2 rounded-lg">
+                                        <div class="border dark:border-gray-600 inline-flex space-x-4 px-2 py-2 rounded-lg">
                                             <input type="hidden" name="item[]" value="{{ $skill->title }}">
-                                            <span>{{ $skill->title }}</span>
-                                            <button class=" cursor-pointer text-red-600 removebutton" type="button">x</button>
+                                            <span class="text-gray-900 dark:text-gray-400">{{ $skill->title }}</span>
+                                            <button class=" cursor-pointer text-red-600 removebutton" type="button">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                                  </svg>
+
+
+                                            </button>
                                         </div>
                                     @endforeach
                                 </div>
@@ -69,14 +75,17 @@
             </script>
             <script>
                 $(document).on('click', '#addItemButton', function() {
-
                     let titleValue = $('input[name="title"]').val();
 
                     $('#itemListDiv').append(`
-                    <div class="border inline-flex space-x-4 px-4 py-2 rounded-lg">
+                    <div class="border dark:border-gray-600 inline-flex space-x-4 px-2 py-2 rounded-lg">
                         <input type="hidden" name="item[]" value="${titleValue}">
-                        <span>${titleValue}</span>
-                        <button class=" cursor-pointer text-red-600 removebutton" type="button">x</button>
+                        <span class="text-gray-900 dark:text-gray-400">${titleValue}</span>
+                        <button class=" cursor-pointer text-red-600 removebutton" type="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                            </svg>
+                        </button>
                     </div>
                     `);
                     $('input[name="title"]').val('');

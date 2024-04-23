@@ -42,18 +42,19 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://flowbite-admin-dashboard.vercel.app/images/og-image.png">
     <meta property="og:image:type" content="image/png">
+    <meta name="google-site-verification" content="wn1oFpUqzZ6XoS6WgEWRF3U8ZCWRvVXryKbCWix9xD0" />
+
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-824VLTPPNZ"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-268HXW509V"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'G-824VLTPPNZ');
+      gtag('config', 'G-268HXW509V');
     </script>
+
+
     <!-- clarity -->
     <script type="text/javascript">
         (function(c, l, a, r, i, t, y) {
