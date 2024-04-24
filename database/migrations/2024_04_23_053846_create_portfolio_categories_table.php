@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('portfolio_categories', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('portfolio_id')->constrained('portfolios')->onDelete('cascade');
             $table->unsignedBigInteger('category_id')->nullable();
+            $table->foreignId('portfolio_id')->constrained('portfolios')->onDelete('cascade');
             $table->timestamps();
         });
     }

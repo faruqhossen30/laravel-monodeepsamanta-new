@@ -15,6 +15,11 @@ class PortfoliopageController extends Controller
      */
     public function index(Request $request)
     {
+        // $cat = Category::with('portfolios')->get();
+        // return $cat;
+
+
+
         $category = null;
         $cat = null;
         if (isset($_GET['category'])) {
@@ -23,16 +28,16 @@ class PortfoliopageController extends Controller
         }
 
         $portfolios = Portfolio::with('category')
-            ->when($cat, function ($query, $cat) {
-                return $query->where('category_id', $cat->id);
-            })
+            // ->when($cat, function ($query, $cat) {
+            //     return $query->whrere('category_id', $cat->id);
+            // })
             ->where('status', true)
             ->latest()
             ->paginate(12);
 
 
         $categories = Category::get();
-        // return $portfolios;
+        return $portfolios;
 
         return view('portfoliopage', compact('portfolios', 'categories'));
     }

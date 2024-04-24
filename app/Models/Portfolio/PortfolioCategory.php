@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class PortfolioCategory extends Model
 {
     use HasFactory;
-    protected $fillable = ['portfolio_id','category_id'];
+    protected $fillable = ['category_id','portfolio_id'];
 }
