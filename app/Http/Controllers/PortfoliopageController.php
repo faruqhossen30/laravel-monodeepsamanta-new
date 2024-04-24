@@ -17,27 +17,37 @@ class PortfoliopageController extends Controller
     {
         // $cat = Category::with('portfolios')->get();
         // return $cat;
-
-
-
         $category = null;
-        $cat = null;
         if (isset($_GET['category'])) {
             $category = trim($_GET['category']);
-            $cat = Category::firstWhere('slug', $category);
+            // $cat = Category::with('portfolios')->firstWhere('slug', $category);
+            // return $cat;
         }
 
-        $portfolios = Portfolio::with('category')
-            // ->when($cat, function ($query, $cat) {
-            //     return $query->whrere('category_id', $cat->id);
-            // })
+        // $portfolios = Portfolio::whereHas('categories', function ($query) {
+        //     $query->where('slug', 'landing-page');
+        // })
+        //     // ->when($cat, function ($query, $cat) {
+        //     //     return $query->where('category_id', $cat->id);
+        //     // })
+        //     ->where('status', true)
+        //     ->latest()
+        //     ->paginate(12);
+
+        $portfolios = Portfolio::when($category, function ($query, $category) {
+            return $query->whereHas('categories', function ($query) use($category) {
+                $query->where('slug', $category);
+            });
+        })
             ->where('status', true)
             ->latest()
             ->paginate(12);
 
 
+
+        // return $portfolios;
+
         $categories = Category::get();
-        return $portfolios;
 
         return view('portfoliopage', compact('portfolios', 'categories'));
     }

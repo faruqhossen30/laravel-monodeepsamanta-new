@@ -8,9 +8,26 @@ use Illuminate\View\View;
 
 class BlogpageController extends Controller
 {
-    public function index(): View
+    public function index()
     {
-        $posts = Blog::latest()->paginate(10);
+
+        $search = null;
+        $post = null;
+        if (isset($_GET['search'])) {
+            $search = trim($_GET['search']);
+            $post = Blog::where('slug', 'like', '%' . $search . '%')->get();
+        }
+
+
+        // return  $post;
+
+
+        $posts = Blog::when($search, function ($query, $search) {
+                return $query->where('slug', 'like', '%' . $search . '%');
+            })->latest()->paginate(10);
+
+
+
         return view('blogpage', compact('posts'));
     }
     public function singleBlog($slug)

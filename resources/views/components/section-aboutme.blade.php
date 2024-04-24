@@ -45,7 +45,7 @@ use App\Models\Setting\WebsiteSetting;
 
 
                 @foreach ( $skills as $skill)
-                    <button class="btn" type="submit" style="font-size: 14px">{{ $skill->title}}</button>
+                    <a  href="{{route('blogpage',['search'=> $skill->slug])}}"  class="btn inline-block" style="font-size: 14px">{{ $skill->title}}</a>
                 @endforeach
                {{-- <button class="btn" style="font-size: 14px">App Design</button> --}}
 

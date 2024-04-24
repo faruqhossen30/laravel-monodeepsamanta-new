@@ -9,10 +9,9 @@
 
                     <div>
                         <label for="address"
-                            class="block text-sm font-medium mb-2 dark:text-white">Address</label>
+                            class="block text-sm font-medium mb-2  text-gray-800 dark:text-gray-400">Address</label>
                         <div class="flex rounded-lg shadow-sm">
-                            <span
-                                class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <span class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
                                   </svg>
@@ -24,7 +23,7 @@
                     </div>
                     <div>
                         <label for="email"
-                            class="block text-sm font-medium mb-2 dark:text-white">Email</label>
+                            class="block text-sm font-medium mb-2 ">Email</label>
                         <div class="flex rounded-lg shadow-sm">
                             <span
                                 class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
@@ -38,7 +37,7 @@
                     </div>
                     <div>
                         <label for="telephone_no"
-                            class="block text-sm font-medium mb-2 dark:text-white">Telephone No</label>
+                            class="block text-sm font-medium mb-2 ">Telephone No</label>
                         <div class="flex rounded-lg shadow-sm">
                             <span
                                 class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
@@ -52,7 +51,7 @@
                     </div>
                     <div>
                         <label for="mobile_no"
-                            class="block text-sm font-medium mb-2 dark:text-white">Mobile No</label>
+                            class="block text-sm font-medium mb-2 ">Mobile No</label>
                         <div class="flex rounded-lg shadow-sm">
                             <span
                                 class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-phone" viewBox="0 0 16 16">

@@ -42,11 +42,9 @@ class SkillController extends Controller
         skill::query()->delete();
 
         foreach($items as $key=> $item){
-
-
             Skill::create([
                 'title' =>$item,
-                'slug'  => Str::slug($request->title, '-'),
+                'slug'  => Str::slug($item, '-'),
                 'author_id'=> Auth::user()->id,
             ]);
         }

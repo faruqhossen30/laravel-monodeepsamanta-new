@@ -45,9 +45,7 @@
 
                             </div>
                             <div class="col-span-12 lg:col-span-4 bg-white dark:bg-gray-800 p-4 rounded-lg">
-                                @include('components.form.video-thumbnail')
-                                {{-- <x-form.thumbnail-single /> --}}
-                                {{-- <x-form.thumbnail-multiple /> --}}
+
                                 <input class="dropify" type="file" id="myDropify" name="thumbnail">
                             </div>
 
