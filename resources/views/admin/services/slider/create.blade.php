@@ -1,16 +1,6 @@
 @extends('admin.layouts.app')
 @section('title', 'Home Page')
 @section('content')
-    {{-- @if ($errors->any())
-        <div class="text-red-500">
-            <p><strong>Opps Something went wrong</strong></p>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif --}}
 
     <div class="bg-white dark:bg-gray-800 dark:text-slate-400 p-2">
         <form action="{{ route('service.slider.store', $service->id) }}" method="POST" enctype="multipart/form-data">

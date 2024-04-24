@@ -17,7 +17,7 @@
         <div class="col-span-12 lg:col-span-5 py-2 lg:py-0">
             {{-- <div style="position:relative;padding-top:56.25%;"><iframe src="https://iframe.mediadelivery.net/embed/223687/f270e63c-dbb6-46ce-8936-4e407cd9bffa?autoplay=true&loop=true&muted=true&preload=false&responsive=true" loading="lazy" style="border:0;position:absolute;top:0;height:100%;width:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe></div> --}}
             <video autoplay loop muted controls class="w-full h-full transition duration-1000 group-hover:scale-110 group-hover:rotate-3">
-                <source src="https://vz-bd35e0b4-b90.b-cdn.net/ef6858af-e792-4d67-8403-9023278b6715/play_480p.mp4" type="video/mp4">
+                <source src="https://vz-042d75cc-e8d.b-cdn.net/3bb83795-d67d-4900-a20e-b26966351882/play_480p.mp4" type="video/mp4">
             </video>
         </div>
     </div>

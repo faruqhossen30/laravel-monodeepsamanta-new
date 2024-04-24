@@ -24,12 +24,15 @@ use App\Http\Controllers\Admin\Service\ServicesliderController;
 use App\Http\Controllers\Admin\Setting\AboutmeSettingController;
 use App\Http\Controllers\Admin\Setting\ChatSectionController;
 use App\Http\Controllers\Admin\Setting\ContactSettingController;
+use App\Http\Controllers\Admin\Setting\PortfolioVideoController;
 use App\Http\Controllers\Admin\Setting\SideSettingController;
 use App\Http\Controllers\Admin\Setting\SiteSettingController;
 use App\Http\Controllers\Admin\Setting\SocialmediaSettingController;
+use App\Http\Controllers\Admin\Setting\TestminialVideoController;
 use App\Http\Controllers\Admin\Setting\WebsiteSettingController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\Skill\SkillController;
+use App\Http\Controllers\Admin\Slider\SliderControler;
 use App\Http\Controllers\Admin\UserController;
 
 
@@ -50,6 +53,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('reviewtype',         ReviewtypeController::class);
     Route::resource('review',             ReviewController::class);
     Route::resource('skill',              SkillController::class);
+    Route::resource('slider',             SliderControler::class);
 
     Route::resource('portfolio',          PortfolioController::class);
     // Route::get('portfolio/content/{id}', [PortfolioContentController::class, 'create'])->name('portfolioimage.create');
@@ -80,6 +84,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         Route::get('/', [SettingController::class, 'index'])->name('settingpage');
         Route::get('/site-setting', [SiteSettingController::class, 'sitesetting'])->name('sitesetting')->middleware('can:websitesetting');
         Route::get('/chat-section', [ChatSectionController::class, 'chatsection'])->name('chatsection');
+        Route::post('/chat-section/store', [ChatSectionController::class, 'chatsectionStore'])->name('chatsection.store');
+
+        Route::get('/portfolio-video', [PortfolioVideoController::class, 'portfolioVideo'])->name('portfolio.video');
+        Route::post('/portfolio-video/store', [PortfolioVideoController::class, 'portfolioVideoStore'])->name('portfolio.Video.store');
+
+        Route::get('/testmonial-video', [TestminialVideoController::class, 'testmonialVideo'])->name('testmonial.video');
+        Route::post('/testmonial-video/store', [TestminialVideoController::class, 'testmonialVideoStore'])->name('testmonial.video.store');
 
         Route::get('/website-setting',[WebsiteSettingController::class,'websitesetting'])->name('website.setting');
         Route::post('/website-setting',[WebsiteSettingController::class,'websitestoresetting'])->name('website.setting.store');

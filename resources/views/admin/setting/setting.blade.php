@@ -6,42 +6,18 @@
     </div>
 @endsection
 @section('content')
-    <div class="flex flex-row-reverse py-2">
 
-    </div>
     <div class="flex justify-between py-2">
-        {{-- <x-dashboard.breadcrumb title="Settings" route="settingpage" /> --}}
-
-        {{-- <button id="dropdownDividerButton" data-dropdown-toggle="dropdownDivider"
-            class="inline-flex items-center px-4 py-2 space-x-1 text-sm font-medium text-center text-gray-800 border border-gray-200 rounded-lg dark:text-gray-400 dark:bg-slate-900 dark:border-gray-800"
-            type="button">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                class="w-4 h-4">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-            </svg>
-
-            <span>Create</span>
-        </button> --}}
 
         <!-- Dropdown menu -->
         <div id="dropdownDivider"
             class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
-            {{-- <ul class="py-2 text-sm text-gray-700 dark:text-gray-200 divide-y-1" aria-labelledby="dropdownDividerButton">
-                <li>
-                    <a href="{{route('service.create')}}"
-                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Add Service</a>
-                </li>
-                <li>
-                    <a href="{{route('portfolio.create')}}"
-                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Add Portfolio</a>
-                </li>
-            </ul> --}}
+
         </div>
 
     </div>
     <section
-        class="container mx-auto bg-gray-100 border-2 rounded-md dark:bg-gray-800 dark:text-slate-400 dark:border-gray-500">
+        class="container mx-auto bg-gray-100 border-2 py-4 rounded-md dark:bg-gray-800 w-full dark:text-slate-400 dark:border-gray-500">
         <div class="flex items-center justify-between p-6 py-8 pl-4 border-b-2 border-gray-200 dark:border-gray-500">
             <div class="flex items-end">
                 <h2 class="text-3xl font-semibold text-gray-500">Website Settings</h2>
@@ -64,7 +40,7 @@
                 {{-- sidebar start --}}
                 @can('websitesetting')
 
-                <a href="{{ route('website.setting') }}"
+                <a href="#"
                     class="flex items-center p-2 text-base text-gray-900 border-b border-gray-200 shadow-sm dark:border-gray-500 hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700">
                     <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                         fill="currentColor" viewBox="0 0 16 16" class="sidebaricon">
@@ -89,9 +65,6 @@
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z" />
                             </svg>
-
-
-
                             <span
                                 class="ml-3 text-gray-600 rounded-lg hover:text-gray-800 hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700 "
                                 sidebar-toggle-item>Chat Section</span>
@@ -99,7 +72,6 @@
                     </li>
                     @endcan
                     @can('contactsetting')
-
                     <li>
                         <a href="{{ route('setting.aboutme') }}"
                             class="flex items-center p-2 text-base text-gray-900 border-b-2 dark:border-gray-500 hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700">
@@ -108,16 +80,44 @@
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z" />
                             </svg>
-
-
-
                             <span
                                 class="ml-3 text-gray-600 rounded-lg hover:text-gray-800 hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700 "
                                 sidebar-toggle-item>About me</span>
                         </a>
                     </li>
                     @endcan
-                    @can('socialmedia setting')
+                    @can('contactsetting')
+                    <li>
+                        <a href="{{ route('portfolio.video') }}"
+                            class="flex items-center p-2 text-base text-gray-900 border-b-2 dark:border-gray-500 hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-4 h-4">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z" />
+                            </svg>
+                            <span
+                                class="ml-3 text-gray-600 rounded-lg hover:text-gray-800 hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700 "
+                                sidebar-toggle-item>Portfolio Video</span>
+                        </a>
+                    </li>
+                    @endcan
+                    @can('contactsetting')
+                    <li>
+                        <a href="{{ route('testmonial.video') }}"
+                            class="flex items-center p-2 text-base text-gray-900 border-b-2 dark:border-gray-500 hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-4 h-4">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z" />
+                            </svg>
+                            <span
+                                class="ml-3 text-gray-600 rounded-lg hover:text-gray-800 hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700 "
+                                sidebar-toggle-item>Testmonial Video</span>
+                        </a>
+                    </li>
+                    @endcan
+
+                    {{-- @can('socialmedia setting')
                         <li>
                             <a href="{{ route('socialmedia.setting') }}"
                                 class="flex items-center p-2 text-base text-gray-900 border-b-2 dark:border-gray-500 hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700">
@@ -134,9 +134,9 @@
                                     sidebar-toggle-item>Social Media</span>
                             </a>
                         </li>
-                    @endcan
+                    @endcan --}}
 
-                    <li>
+                    {{-- <li>
                         <a href="#"
                             class="flex items-center p-2 text-base text-gray-900 border-b-2 dark:border-gray-500 hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -183,7 +183,7 @@
                                 class="ml-3 text-gray-600 rounded-lg hover:text-gray-800 hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700 "
                                 sidebar-toggle-item>Select Fields</span>
                         </a>
-                    </li>
+                    </li> --}}
 
                 </ul>
             </div>

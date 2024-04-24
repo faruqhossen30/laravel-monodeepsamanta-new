@@ -12,7 +12,22 @@ class ChatSectionController extends Controller
         if(!Auth::user()->can('chat setting')){
             abort(403);
         }
-
-        return view('admin.setting.chat-section');
+        $testmonialvideo = option('chat_section_thumbnail');
+        return view('admin.setting.chat-section',compact('testmonialvideo'));
     }
+
+    public function chatsectionStore(Request $request){
+
+        // return $request->all();
+
+        if($request->file('thumbnail')){
+            $file_name = $request->file('thumbnail')->store('chatsection');
+            option(['chat_section_thumbnail' => $file_name]);
+        }
+        return redirect()->back();
+    }
+
+
+
+
 }
