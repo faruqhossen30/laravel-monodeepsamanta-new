@@ -83,8 +83,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::group(['prefix' => 'setting'], function () {
         Route::get('/', [SettingController::class, 'index'])->name('settingpage');
         Route::get('/site-setting', [SiteSettingController::class, 'sitesetting'])->name('sitesetting')->middleware('can:websitesetting');
-        Route::get('/chat-section', [ChatSectionController::class, 'chatsection'])->name('chatsection');
-        Route::post('/chat-section/store', [ChatSectionController::class, 'chatsectionStore'])->name('chatsection.store');
+
 
         Route::get('/portfolio-video', [PortfolioVideoController::class, 'portfolioVideo'])->name('portfolio.video');
         Route::post('/portfolio-video/store', [PortfolioVideoController::class, 'portfolioVideoStore'])->name('portfolio.Video.store');
@@ -98,7 +97,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         Route::post('/social-media/store',[SocialmediaSettingController::class,'socialmediastore'])->name('socialmedia.setting.store');
         Route::get('/contact-setting',[ContactSettingController::class,'contactsetting'])->name('contact.setting');
         Route::post('/contact-setting/store',[ContactSettingController::class,'contactsettingstore'])->name('contact.setting.store');
+        // Setting Start
         Route::get('/about-me',[AboutmeSettingController::class ,'aboutMeSetting'])->name('setting.aboutme');
         Route::post('/about-me/store',[AboutmeSettingController::class ,'aboutMesettingStore'])->name('setting.aboutme.store');
+        Route::get('/chat-section', [ChatSectionController::class, 'chatsection'])->name('chatsection');
+        Route::post('/chat-section/store', [ChatSectionController::class, 'chatsectionStore'])->name('chatsection.store');
     });
 });

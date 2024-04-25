@@ -1,6 +1,6 @@
 <section class="container mx-auto px-3 lg:px-0">
     <div class="container rounded-md mx-auto py-5 lg:py-[60px] space-y-2 text-white text-center"
-    style="background-image: url('{{ asset('img/action-bg.webp') }}')">
+    style="background-image: url('{{ asset('storage/'.option('chat_section_thumbnail')) }}')">
     <h5 class="font-black text-3xl lg:text-[40px] lg:leading-[50px] mt-2">HAVE A PROJECT</h5>
     <h5 class="text-lg lg:text-[24px]  lg:leading-[28px] font-black">THAT NEEDS SOME SOME</h5>
     <button onclick="tidioChatApi.display(true);tidioChatApi.open()"

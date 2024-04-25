@@ -1,10 +1,10 @@
-<x-setting.setting-master title="Chat Section Photo/Video Setting">
+<x-setting.setting-master title="Portfolio Video Settings">
 
     <div class="p-4">
         <form action="{{route('portfolio.Video.store')}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="py-2">
-                <x-form.textarea label="Portfolio ifrem" name="portfolio_video" value="{{$testmonialvideo}}" />
+                <x-form.input label="Video ID" name="portfolio_video" value="{{$testmonialvideo}}" placeholder="Video ID" />
                 @error('Portfolio')
                     <p class="text-sm text-red-600 mt-2">{{ $message }}</p>
                 @enderror

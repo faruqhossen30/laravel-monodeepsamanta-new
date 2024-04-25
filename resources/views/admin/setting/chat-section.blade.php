@@ -1,4 +1,4 @@
-<x-setting.setting-master title="Chat Section Photo/Video Setting">
+<x-setting.setting-master title="Chat Section Backgound Image Setting">
 
     <div class="p-4">
         <form action="{{ route('chatsection.store') }}" method="post" enctype="multipart/form-data">
@@ -13,7 +13,7 @@
 
                 <div class="col-span-3 pt-1 space-y-2">
                     <label for="thumbnail"
-                        class="text-gray-500 dark:text-gray-500 text-sm font-medium">Chatsection</label>
+                        class="text-gray-500 dark:text-gray-500 text-sm font-medium">Image Size Must be 1240 x 240 Pixel</label>
                     <input name="thumbnail" class="dropify" type="file" id="myDropify"
                         data-default-file="{{ asset('storage/' . $testmonialvideo) }}">
                 </div>
