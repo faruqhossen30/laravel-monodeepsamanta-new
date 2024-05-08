@@ -1,4 +1,4 @@
-<x-setting.setting-master title="About me Setting">
+<x-setting.setting-master  title="About me Setting">
 
     <div class="p-4">
         <form action="{{ route('setting.aboutme.store') }}" method="post" enctype="multipart/form-data">
@@ -6,7 +6,7 @@
 
             <div class="">
 
-                <label for="aboutme" class="block text-sm font-medium mb-2 dark:text-white">About Me</label>
+                <label for="aboutme" class="block text-sm font-medium text-gray-500 mb-2 dark:text-gray-200">About Me</label>
                     <textarea name="aboutme" class="ckeditor" id="editor" cols="30" rows="10">{{ $site->aboutme }}
                     </textarea>
                     @error('aboutme')

@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('meta_title')->nullable();
             $table->string('meta_description')->nullable();
             $table->string('meta_keyword',1000)->nullable();
+            $table->string('color')->nullable();
             $table->boolean('status')->nullable()->default(0);
             $table->timestamps();
         });

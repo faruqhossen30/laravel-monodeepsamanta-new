@@ -47,6 +47,8 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
+
+        // return $request->all();
         $request->validate(
             [
                 'title'               => 'required',
@@ -63,11 +65,12 @@ class BlogController extends Controller
             'short_description'   => $request->short_description,
             'project_description' => $request->project_description,
             'description'         => $request->description,
-            // 'thumbnail'         => $request->thumbnail,
+            // 'thumbnail'        => $request->thumbnail,
             'user_id'             => Auth::user()->id,
             'meta_title'          => $request->meta_title,
             'meta_description'    => $request->meta_description,
             'meta_keyword'        => $request->meta_keyword,
+            'color'               => $request->color,
             'status'              => $request->status
         ];
 
@@ -157,6 +160,7 @@ class BlogController extends Controller
             'meta_title'          => $request->meta_title,
             'meta_description'    => $request->meta_description,
             'meta_keyword'        => $request->meta_keyword,
+            'color'               => $request->color,
             'status'              => $request->status
         ];
 

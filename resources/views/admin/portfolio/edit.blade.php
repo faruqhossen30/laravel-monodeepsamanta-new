@@ -87,10 +87,13 @@
                                 @else
                                     @include('components.form.video-thumbnail')
                                 @endif
-                                <input class="dropify" type="file" id="myDropify" name="thumbnail"
+                                {{-- <input class="dropify" type="file" id="myDropify" name="thumbnail"
                                     @if (Storage::exists($portfolio->thumbnail != null && $portfolio->thumbnail)) data-default-file="{{ asset('storage/' . $portfolio->thumbnail) }}" @endif>
+                                     --}}
+                                     <input name="thumbnail" class="dropify" type="file" id="myDropify"
+                                        data-default-file="{{ asset('storage/' . $portfolio->thumbnail) }}">
                                 {{-- <x-form.thumbnail-single :thumbnail="$portfolio->thumbnail" /> --}}
-                                <x-form.thumbnail-multiple :data="$portfolio" />
+                                {{-- <x-form.thumbnail-multiple :data="$portfolio" /> --}}
                             </div>
                         </div>
                         <x-form.submit-button title="Update" />

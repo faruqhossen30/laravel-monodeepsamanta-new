@@ -31,7 +31,7 @@
                                 </div>
                                 <x-form.select-status />
 
-                                <textarea name="description"  class="ckeditor" id="editor" cols="30" rows="10"></textarea>
+                                <textarea name="description" class="ckeditor" id="editor" cols="30" rows="10"></textarea>
                                 @error('description')
                                     <p class="text-sm text-red-600 mt-2">{{ $message }}</p>
                                 @enderror
@@ -77,7 +77,10 @@
 
                                 <x-form.select :data="$categories"lable="category" name="category_id" />
 
+                                <label for="color"> Header Color:</label>
+                                <input type="color" value="" name="color" id="color" />
 
+                                {{-- <x-form.input label="color" type="color" name="color" /> --}}
                             </div>
 
                         </div>
@@ -91,7 +94,7 @@
     </div>
 @endsection
 @push('styles')
-<script src="{{asset('ckeditor/ckeditor.js')}}"></script>
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('css/dropify.min.css') }}">
     <style>
         .dropify-message p {
@@ -126,6 +129,3 @@
         });
     </script>
 @endpush
-
-
-
