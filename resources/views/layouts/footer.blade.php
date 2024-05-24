@@ -41,7 +41,10 @@
       </div>
       <!-- End Social Brands -->
       <div class=" mt-11">
-        <p class="text-sm text-white">© Copyright {{date('Y')}}  reserved by Monodeep Samanta.</p>
+        <p class="text-white">Address: 124 City Rd, London EC1V 2NX, United Kingdom.</p>
+        <p class="text-white">Phone: +44 7810 293819 </p>
+        <p class="text-white">Email: monodeepsamanta@gmail.com</p>
+        <p class="text-sm text-white py-5">© Copyright {{date('Y')}}  reserved by Monodeep Samanta.</p>
       </div>
     </div>
     <!-- End Grid -->
