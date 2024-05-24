@@ -31,7 +31,7 @@
         <div class="py-1">
             <label for="resolution" class="text-gray-500 dark:text-gray-500">Video Resulation</label>
             <select name="resolution" id="resolution"
-                class="js-example-basic-multiple py-2 px-4 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" x-bind:required="video">
+                class=" py-2 px-4 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" x-bind:required="video">
                 <option value="">Select</option>
                 <option value="240p">240p</option>
                 <option value="360p">360p</option>

@@ -4,7 +4,7 @@
         <form action="{{route('portfolio.Video.store')}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="py-2">
-                <x-form.input label="Video ID" name="portfolio_video" value="{{$testmonialvideo}}" placeholder="Video ID" />
+                <x-form.input label="Video ID" name="portfolio_video" class="" value="{{$testmonialvideo}}" placeholder="Video ID" />
                 @error('Portfolio')
                     <p class="text-sm text-red-600 mt-2">{{ $message }}</p>
                 @enderror

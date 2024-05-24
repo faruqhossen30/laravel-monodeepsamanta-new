@@ -44,7 +44,7 @@
                                                     </button>
                                                 </div>
                                                 <div>
-                                                    <input type="hidden" class=".hideinput" name="images[]"
+                                                    <input type="text" class=".hideinput" name="images[]"
                                                         value="{{ $slider->photo }}">
                                                     <input class="dropify" type="file" name="thumbnails[]"
                                                         data-default-file="{{ asset('storage/' . $slider->photo) }}">
@@ -104,6 +104,8 @@
                                     Add items
                                 </p>
 
+
+
                                 <button type="button" class="removesectionbutton">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-600">
@@ -137,8 +139,6 @@
                     }
                 });
             }
-
-
         });
 
         function generateOrderNumber() {

@@ -7,6 +7,7 @@ use App\Models\Service\Service;
 use App\Models\Service\ServiceSlider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Image;
 
@@ -42,7 +43,10 @@ class ServicesliderController extends Controller
                     $file_name = null;
                     if ($request->file('thumbnails')[$key]) {
                         $file_name = $request->file('thumbnails')[$key]->store('service/slider');
+
+
                     }
+
                     ServiceSlider::create([
                         'service_id'   => $id,
                         'video'        => null,

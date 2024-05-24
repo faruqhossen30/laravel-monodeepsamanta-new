@@ -33,6 +33,8 @@ class BlogpageController extends Controller
     public function singleBlog($slug)
     {
         $post = Blog::firstWhere('slug', $slug);
+
+        // return $post ;
         return view('single.post', compact('post'));
     }
 }

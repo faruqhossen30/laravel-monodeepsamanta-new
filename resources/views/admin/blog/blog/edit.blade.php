@@ -85,7 +85,8 @@
                                 </div>
 
                                 <x-form.select :data="$categories"lable="category" name="category_id" />
-
+                                <label for="color">Header Color:</label>
+                                <input type="color" value="{{$blog->color}}" name="color" id="color" />
 
                             </div>
 

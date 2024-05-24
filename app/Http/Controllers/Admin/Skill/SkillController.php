@@ -23,7 +23,6 @@ class SkillController extends Controller
      */
     public function create()
     {
-
         $skills = Skill::get();
        return view('admin.skill.create',compact('skills'));
     }

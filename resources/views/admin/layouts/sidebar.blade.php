@@ -289,10 +289,10 @@ w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text
                         </li>
 
                     <!------------Category end--------->
-                    <!------------slider end--------->
+                    {{-- <!------------slider end--------->
 
 
-                        {{-- <li>
+                        <li>
                             <a href="{{ route('slider.create') }}"
                                 class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700 ">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -300,9 +300,9 @@ w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text
                                   </svg>
                                 <span class="ml-3" sidebar-toggle-item>Slider</span>
                             </a>
-                        </li> --}}
+                        </li>
 
-                    <!------------slider end--------->
+                    <!------------slider end---------> --}}
 
 
 

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->longText('review')->nullable();
             $table->double('rating')->nullable();
             $table->double('review_communication')->nullable();

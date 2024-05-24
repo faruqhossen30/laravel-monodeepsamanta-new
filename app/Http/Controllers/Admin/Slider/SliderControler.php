@@ -34,25 +34,32 @@ class SliderControler extends Controller
      */
     public function store(Request $request)
     {
+        // return $request->all();
+        // Slider::get()->delete();
+
+        $thumbnails = $request->file('thumbnails');
+        $images = $request->images;
+
 
         foreach ($request->thumbnails as $key => $photo) {
 
-            if ($request->thumbnails && array_key_exists($key, $request->thumbnails)) {
-                $file_name = null;
-                if ($request->file('thumbnails')[$key]) {
-                    $file_name = $request->file('thumbnails')[$key]->store('slider');
-                }
-                slider::create([
-                    'photo'    => $file_name,
-                    'author_id'    => Auth::user()->id,
-                ]);
+            $file_name = null;
+            if ($request->thumbnails && $request->file('thumbnails')[$key]) {
+                $file_name = $request->file('thumbnails')[$key]->store('slider');
             }
+
+
+            // if ($request->thumbnails && array_key_exists($key, $request->thumbnails)) {
+
+            // }
+
+
         }
 
 
         // Slider::create($data);
         Session::flash('create');
-        return redirect()->route('slider.index');
+        return redirect()->back();
     }
 
     /**

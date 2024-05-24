@@ -59,9 +59,9 @@
                 </li>
             </ul>
         </aside>
-
+        {{-- bg-[#CFE2F3] --}}
         <div class="lg:-mt-[216px] ">
-            <div class=" bg-[#CFE2F3] py-10 w-full pb-60">
+            <div class="  py-10 w-full pb-60" style="background-color: {{$post->color ?? '#CFE2F3'}}">
                 <div class="flex justify-center space-y-3 text-center lg:text-right lg:hidden">
                     <div class="py-2 lg:py-0">
                         <a href="https://www.facebook.com/sharer/sharer.php?u={{ route('singleblog', $post->slug) }}"
