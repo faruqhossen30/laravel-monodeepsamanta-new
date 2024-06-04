@@ -31,7 +31,7 @@
 @endsection
 
 
-@section('title', 'Dashboard & UX/UI Designer | Home')
+@section('title', 'Monodeep Samanata - Best UIUX Designer in London UK')
 @section('content')
     <x-section-portfolio />
     <div class="pt-[30px] pt-8">
