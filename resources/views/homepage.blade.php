@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@section('SEO')
+<meta name = "title" content="Monodeep Samanata - Best UIUX Designer in London UK" >
+<meta name = "description" content="Monodeep Samanta, the best UI/UX designer in London, UK. Specialize in creating easy-to-use and engaging digital designs for users.">
+@endsection
+
+
 @section('OG')
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
