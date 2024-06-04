@@ -1,4 +1,24 @@
 @extends('layouts.app')
+@section('OG')
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+    <meta name="twitter:title" content="Monodeep Samanata Blogs | All Latest Contribution of Monodeep ">
+    <meta name="twitter:description"
+        content="Stay updated with Monodeep Samanta's blog, featuring insights and tips from an experienced  UI/UX designer.">
+    <meta name="twitter:image" content="{{ asset('logo.jpg') }}">
+
+    <!-- Facebook -->
+    <meta property="og:url" content="{{ route('homepage') }}">
+    <meta property="og:title" content="Monodeep Samanata Blogs | All Latest Contribution of Monodeep ">
+    <meta property="og:description"
+        content="Stay updated with Monodeep Samanta's blog, featuring insights and tips from an experienced  UI/UX designer.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="{{ asset('logo.jpg') }}">
+    <meta property="og:image:type" content="image/png">
+
+@endsection
 @section('title', 'Dashboard & UX/UI Designer | Blogs')
 @section('content')
     <section class="container px-3 mx-auto lg:px-0">
@@ -20,11 +40,14 @@
                     </x-h1>
                 </div>
                 <div class="space-y-4">
-                    <p class="p-0 text-lg text-justify ">I am sharing practical tips and real-world experiences to help both budding and seasoned
-                        designers level up their skills. Dive into the latest trends, discover the best tools, and explore the
+                    <p class="p-0 text-lg text-justify ">I am sharing practical tips and real-world experiences to help both
+                        budding and seasoned
+                        designers level up their skills. Dive into the latest trends, discover the best tools, and explore
+                        the
                         art
                         of creating user-friendly designs.</p>
-                    <p class="text-lg text-justify">My articles are your go-to source for simplified design wisdom. Let’s grow together in
+                    <p class="text-lg text-justify">My articles are your go-to source for simplified design wisdom. Let’s
+                        grow together in
                         this
                         vibrant UI/UX design blog community.</p>
                 </div>

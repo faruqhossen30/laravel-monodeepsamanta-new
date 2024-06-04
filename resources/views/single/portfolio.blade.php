@@ -1,4 +1,6 @@
 @extends('layouts.app')
+
+
 @section('title', "Dashboard & UX/UI Designer | {$portfolio->title}")
 @section('content')
     <section class="container mx-auto px-3 lg:px-0 pb-[30px] max-[768px]:pt-3 min-[768px]:py-[30px]">
@@ -14,12 +16,12 @@
             <div>
                 @if ($content->photo)
                     <div>
-                        <img src="{{ asset('storage/'.$content->photo) }}" class="w-full" alt="thumbnail">
+                        <img src="{{ asset('storage/' . $content->photo) }}" class="w-full" alt="thumbnail">
                     </div>
                 @endif
                 @if ($content->video)
                     <div>
-                        {!!$content->video!!}
+                        {!! $content->video !!}
                     </div>
                 @endif
 
@@ -84,27 +86,32 @@
         <div class="flex justify-between items-center">
             <div class="">
                 @if (isset($portfolio->previous))
-                <div class="flex">
-                    <!-- Previous Button -->
-                    <a href="{{ route('singleportfolio', $portfolio->previous->slug) }}" class="flex items-center justify-center px-3 h-8 me-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-brand dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                      <svg class="w-3.5 h-3.5 me-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5H1m0 0 4 4M1 5l4-4"/>
-                      </svg>
-                      Previous
-                    </a>
-                  </div>
+                    <div class="flex">
+                        <!-- Previous Button -->
+                        <a href="{{ route('singleportfolio', $portfolio->previous->slug) }}"
+                            class="flex items-center justify-center px-3 h-8 me-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-brand dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                            <svg class="w-3.5 h-3.5 me-2 rtl:rotate-180" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 5H1m0 0 4 4M1 5l4-4" />
+                            </svg>
+                            Previous
+                        </a>
+                    </div>
                 @endif
             </div>
 
             <div class="">
                 @if (isset($portfolio->next))
-                <a href="{{ route('singleportfolio', $portfolio->next->slug) }}" class="flex items-center justify-center px-3 h-8 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-brand dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                    Next
-                    <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                    </svg>
-                  </a>
-
+                    <a href="{{ route('singleportfolio', $portfolio->next->slug) }}"
+                        class="flex items-center justify-center px-3 h-8 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-brand dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                        Next
+                        <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M1 5h12m0 0L9 1m4 4L9 9" />
+                        </svg>
+                    </a>
                 @endif
             </div>
 

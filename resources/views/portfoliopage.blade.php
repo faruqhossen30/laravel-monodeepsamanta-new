@@ -5,6 +5,27 @@
     }
 @endphp
 @extends('layouts.app')
+
+@section('OG')
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+    <meta name="twitter:title" content="Monodeep Samanta- All Portfolio ">
+    <meta name="twitter:description"
+        content="Explore the portfolio of Monodeep Samanta, a top UI/UX designer in London. See his work in creating easy-to-use and engaging digital designs">
+    <meta name="twitter:image" content="{{ asset('logo.jpg') }}">
+
+    <!-- Facebook -->
+    <meta property="og:url" content="{{ route('homepage') }}">
+    <meta property="og:title" content="Monodeep Samanta- All Portfolio ">
+    <meta property="og:description"
+        content="Explore the portfolio of Monodeep Samanta, a top UI/UX designer in London. See his work in creating easy-to-use and engaging digital designs">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="{{ asset('logo.jpg') }}">
+    <meta property="og:image:type" content="image/png">
+
+@endsection
 @section('title', 'Portfolio | Dashboard & UX/UI Designer | Home')
 @section('content')
 
@@ -20,7 +41,6 @@
                         class="mb-2 inline-block font-bold border px-6 py-1 rounded  transition @if ($cat->slug == $query) bg-black text-white @endif">{{ $cat->name }}</a>
                 @endforeach
             </div>
-
         </div>
     </section>
 

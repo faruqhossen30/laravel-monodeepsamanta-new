@@ -35,9 +35,9 @@
                                </div>
                                 <div class="pt-8">
                                     <x-form.card title="SEO Section" class="p-8">
-                                        <x-form.input label="Meta Tag" name="meta_tag" />
+                                        <x-form.input label="Meta Tag" name="meta_title" />
                                         <x-form.textarea label="Meta Description" name="meta_description" />
-                                        <x-form.input label="Meta Keyword" name="keyword" />
+                                        <x-form.input label="Meta Keyword" name="meta_keyword" />
                                      </x-form.card>
                                 </div>
                                 {{-- <label for="input-label"

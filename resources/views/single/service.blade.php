@@ -1,4 +1,32 @@
 @extends('layouts.app')
+
+@section('SEO')
+<meta name = "description" content="{{$service->meta_title}}">
+<meta name = "keywords" content="{{$service->meta_keyword}}">
+@endsection
+
+@section('OG')
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+    <meta name="twitter:title" content="{{$service->meta_title}}">
+    <meta name="twitter:description"
+        content="{{$service->meta_description}}">
+    <meta name="twitter:image" content="{{ asset('storage/'.$service->thumbnail) }}">
+
+    <!-- Facebook -->
+
+    <meta property="og:url" content="{{ route('homepage') }}">
+    <meta property="og:title" content="{{$service->meta_title}}">
+    <meta property="og:description"
+        content="{{$service->meta_description}}">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="{{ asset('storage/'.$service->thumbnail) }}">
+    <meta property="og:image:type" content="image/png">
+
+@endsection
+
 @section('title', "{$service->title} | Dashboard & UX/UI Designer")
 @section('content')
 

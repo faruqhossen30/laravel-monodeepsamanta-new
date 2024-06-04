@@ -1,4 +1,27 @@
 @extends('layouts.app')
+
+@section('OG')
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+    <meta name="twitter:title" content=" Monodeep Samanat Services  ">
+    <meta name="twitter:description"
+        content=" Discover the services offered by Monodeep Samanta, a popular UI/UX designer in London. Specializing in creating user-friendly and engaging digital designs tailored to your needs">
+    <meta name="twitter:image" content="{{ asset('logo.jpg') }}">
+
+    <!-- Facebook -->
+    <meta property="og:url" content="{{ route('homepage') }}">
+    <meta property="og:title" content=" Monodeep Samanat Services  ">
+    <meta property="og:description"
+        content=" Discover the services offered by Monodeep Samanta, a popular UI/UX designer in London. Specializing in creating user-friendly and engaging digital designs tailored to your needs">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="{{ asset('logo.jpg') }}">
+    <meta property="og:image:type" content="image/png">
+
+@endsection
+
+
 @section('title', 'Dashboard & UX/UI Designer | Service')
 @section('content')
 
@@ -29,7 +52,8 @@
                             </video>
                         @else
                             <img src="{{ asset('storage/' . $service->thumbnail) }}"
-                                class="transition duration-500 group-hover:scale-110 group-hover:rotate-3" alt="{{$service->title}}">
+                                class="transition duration-500 group-hover:scale-110 group-hover:rotate-3"
+                                alt="{{ $service->title }}">
                         @endif
 
                     </div>

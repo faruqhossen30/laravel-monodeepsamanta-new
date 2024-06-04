@@ -1,4 +1,30 @@
 @extends('layouts.app')
+
+@section('OG')
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+    <meta name="twitter:title" content="Monodeep Samanata - Best UIUX Designer in London UK
+    ">
+    <meta name="twitter:description"
+        content="Monodeep Samanta, the best UI/UX designer in London, UK. Specialize in creating easy-to-use and engaging digital designs for users.">
+    <meta name="twitter:image" content="{{ asset('logo.jpg') }}">
+
+    <!-- Facebook -->
+
+    <meta property="og:url" content="{{ route('homepage') }}">
+    <meta property="og:title" content="Monodeep Samanata - Best UIUX Designer in London UK
+    ">
+    <meta property="og:description"
+        content="Monodeep Samanta, the best UI/UX designer in London, UK. Specialize in creating easy-to-use and engaging digital designs for users.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="{{ asset('logo.jpg') }}">
+    <meta property="og:image:type" content="image/png">
+
+@endsection
+
+
 @section('title', 'Dashboard & UX/UI Designer | Home')
 @section('content')
     <x-section-portfolio />
@@ -85,7 +111,7 @@
                 items: 2,
                 loop: true,
                 margin: 10,
-                dots:false
+                dots: false
             });
             $('#blogslider').owlCarousel({
                 items: 2,

@@ -1,4 +1,26 @@
 @extends('layouts.app')
+@section('OG')
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+    <meta name="twitter:title" content=" Monodeep Samanat - About Me ">
+    <meta name="twitter:description"
+        content="Learn about Monodeep Samanta, a leading UI/UX designer in London. Discover his passion for creating user-friendly and engaging digital experiences">
+    <meta name="twitter:image" content="{{ asset('logo.jpg') }}">
+
+    <!-- Facebook -->
+
+    <meta property="og:url" content="{{ route('homepage') }}">
+    <meta property="og:title" content=" Monodeep Samanat - About Me ">
+    <meta property="og:description"
+        content="Learn about Monodeep Samanta, a leading UI/UX designer in London. Discover his passion for creating user-friendly and engaging digital experiences">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="{{ asset('logo.jpg') }}">
+    <meta property="og:image:type" content="image/png">
+
+@endsection
+
 @section('title', 'Dashboard & UX/UI Designer | About Me')
 @section('content')
     <x-section-aboutme />
@@ -42,7 +64,7 @@
                 items: 2,
                 loop: true,
                 margin: 10,
-                dots:false
+                dots: false
             });
         });
     </script>

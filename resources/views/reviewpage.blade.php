@@ -1,4 +1,24 @@
 @extends('layouts.app')
+@section('OG')
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+    <meta name="twitter:title" content=" Monodeep Samanta Reviews | Customer Real Feedback  ">
+    <meta name="twitter:description"
+        content="  Read reviews about Monodeep Samanta, a creative UI/UX designer in London. See what clients say about his user-friendly and engaging digital designs">
+    <meta name="twitter:image" content="{{ asset('logo.jpg') }}">
+
+    <!-- Facebook -->
+    <meta property="og:url" content="{{ route('homepage') }}">
+    <meta property="og:title" content=" Monodeep Samanta Reviews | Customer Real Feedback  ">
+    <meta property="og:description"
+        content="  Read reviews about Monodeep Samanta, a creative UI/UX designer in London. See what clients say about his user-friendly and engaging digital designs">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="{{ asset('logo.jpg') }}">
+    <meta property="og:image:type" content="image/png">
+
+@endsection
 @section('title', 'Dashboard & UX/UI Designer | Reviews')
 @section('content')
     <section class="container px-3 pb-0 mx-auto lg:px-0">

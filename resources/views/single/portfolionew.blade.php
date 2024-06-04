@@ -1,4 +1,30 @@
 @extends('layouts.app')
+
+
+@section('SEO')
+    <meta name = "description" content="{{ $portfolio->meta_tag }}">
+    <meta name = "keywords" content="{{ $portfolio->keyword }}">
+@endsection
+
+@section('OG')
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+    <meta name="twitter:title" content="{{ $portfolio->meta_tag }}">
+    <meta name="twitter:description" content="{{ $portfolio->meta_description }}">
+    <meta name="twitter:image" content="{{ asset('storage/' . $portfolio->thumbnail) }}">
+
+    <!-- Facebook -->
+
+    <meta property="og:url" content="{{ route('homepage') }}">
+    <meta property="og:title" content="{{ $portfolio->meta_tag }}">
+    <meta property="og:description" content="{{ $portfolio->meta_description }}">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="{{ asset('storage/' . $portfolio->thumbnail) }}">
+    <meta property="og:image:type" content="image/png">
+
+@endsection
 @section('title', "Dashboard & UX/UI Designer | {$portfolio->title}")
 @section('content')
     <section class="container mx-auto px-3 lg:px-0 pb-[30px] max-[768px]:pt-3 min-[768px]:py-[30px]">

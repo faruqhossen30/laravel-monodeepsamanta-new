@@ -22,36 +22,21 @@
     {{-- Style Sheets --}}
 
     <meta name="theme-color" content="#ffffff">
-
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@">
-    <meta name="twitter:creator" content="@">
-    <meta name="twitter:title" content="Dashboard | Comment Jet">
-    <meta name="twitter:description"
-        content="Get started with a free and open-source admin dashboard layout built with Tailwind CSS and Flowbite featuring charts, widgets, CRUD layouts, authentication pages, and more">
-    <meta name="twitter:image" content="https://flowbite-admin-dashboard.vercel.app/">
-
-    <!-- Facebook -->
-
-    <meta property="og:url" content="https://flowbite-admin-dashboard.vercel.app/">
-    <meta property="og:title" content="Tailwind CSS Admin Dashboard - Flowbite">
-    <meta property="og:description"
-        content="Get started with a free and open-source admin dashboard layout built with Tailwind CSS and Flowbite featuring charts, widgets, CRUD layouts, authentication pages, and more">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://flowbite-admin-dashboard.vercel.app/images/og-image.png">
-    <meta property="og:image:type" content="image/png">
     <meta name="google-site-verification" content="wn1oFpUqzZ6XoS6WgEWRF3U8ZCWRvVXryKbCWix9xD0" />
 
+    @yield('SEO')
+    @yield('OG')
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-268HXW509V"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
 
-      gtag('config', 'G-268HXW509V');
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-268HXW509V');
     </script>
 
 
@@ -124,9 +109,9 @@
         window.addEventListener('scroll', function() {
             var scrollTOp = window.pageYOffset || document.documentElement.scrollTop;
             if (scrollTOp > lastScrollTop) {
-                mymunebar.classList.remove('sticky','top-[90px]','z-50');
+                mymunebar.classList.remove('sticky', 'top-[90px]', 'z-50');
             } else {
-                mymunebar.classList.add('sticky','top-[90px]','z-50');
+                mymunebar.classList.add('sticky', 'top-[90px]', 'z-50');
             }
             lastScrollTop = scrollTOp;
         });
