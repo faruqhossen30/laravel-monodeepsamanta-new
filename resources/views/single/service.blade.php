@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('SEO')
-<meta name = "description" content="{{$service->meta_title}}">
-<meta name = "keywords" content="{{$service->meta_keyword}}">
+<meta name = "title" content="{{$service->meta_title}}">
+<meta name = "description" content="{{$service->meta_keyword}}">
 @endsection
 
 @section('OG')
@@ -27,7 +27,7 @@
 
 @endsection
 
-@section('title', "{$service->title} | Dashboard & UX/UI Designer")
+@section('title', "{$service->meta_title} ")
 @section('content')
 
     @if (session('reviewsubmit'))

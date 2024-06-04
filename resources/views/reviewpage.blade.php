@@ -1,4 +1,10 @@
 @extends('layouts.app')
+
+@section('SEO')
+    <meta name ="title" content="Monodeep Samanta Reviews | Customer Real Feedback ">
+    <meta name ="description"
+        content="Read reviews about Monodeep Samanta, a creative UI/UX designer in London. See what clients say about his user-friendly and engaging digital designs">
+@endsection
 @section('OG')
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
@@ -19,7 +25,7 @@
     <meta property="og:image:type" content="image/png">
 
 @endsection
-@section('title', 'Dashboard & UX/UI Designer | Reviews')
+@section('title', 'Monodeep Samanta Reviews | Customer Real Feedback ')
 @section('content')
     <section class="container px-3 pb-0 mx-auto lg:px-0">
         <div class="flex flex-row items-center justify-between py-3 lg:py-10" data-aos="fade-down" data-aos-duration="1000">
@@ -95,8 +101,8 @@
                 <div class="">
                     @if ($review->thumbnail)
                         <div class="flex justify-center">
-                            <img src="{{ asset('storage/' . $review->thumbnail) }}"
-                                class="lg:max-w-[194px] min-w-[176px]" alt="{{ $review->category->slug ?? '' }}">
+                            <img src="{{ asset('storage/' . $review->thumbnail) }}" class="lg:max-w-[194px] min-w-[176px]"
+                                alt="{{ $review->category->slug ?? '' }}">
                         </div>
                     @endif
                     <div class="flex items-center justify-center py-3 space-x-2 text-center group ">
@@ -129,7 +135,8 @@
             <a href="{{ route('servicepage') }}" class="flex items-center space-x-2 font-bold text-primary">
                 <span class="text-[15px] leading-[15px] text-brand">See All Services</span>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="#FF003A" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" data-slot="icon" class="w-4 h-4 font-bold text-[#FF003A] group-hover:text-black">
+                    stroke="currentColor" data-slot="icon"
+                    class="w-4 h-4 font-bold text-[#FF003A] group-hover:text-black">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                 </svg>
             </a>

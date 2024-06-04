@@ -5,7 +5,11 @@
     }
 @endphp
 @extends('layouts.app')
-
+@section('SEO')
+<meta name = "title" content="Monodeep Samanta- All Portfolio ">
+    <meta name = "description" content=" Monodeep Samanta, the best UI/UX designer in London, UK. Specialize in creating easy-to-use and engaging digital designs for users.
+">
+@endsection
 @section('OG')
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
@@ -26,7 +30,7 @@
     <meta property="og:image:type" content="image/png">
 
 @endsection
-@section('title', 'Portfolio | Dashboard & UX/UI Designer | Home')
+@section('title', 'Monodeep Samanta- All Portfolio ')
 @section('content')
 
     <x-portfolio.creativework />

@@ -1,4 +1,11 @@
 @extends('layouts.app')
+
+@section('SEO')
+    <meta name = "title" content="Monodeep Samanat - About Me">
+    <meta name = "description"
+        content="Learn about Monodeep Samanta, a leading UI/UX designer in London. Discover his passion for creating user-friendly and engaging digital experiences">
+
+@endsection
 @section('OG')
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
@@ -21,7 +28,7 @@
 
 @endsection
 
-@section('title', 'Dashboard & UX/UI Designer | About Me')
+@section('title', 'Monodeep Samanat - About Me')
 @section('content')
     <x-section-aboutme />
     <div class="mt-5 mb-4 lg:mt-8 lg:mb-0">

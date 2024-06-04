@@ -2,6 +2,13 @@
     use App\Models\Blog;
     $posts = Blog::where('status', true)->latest()->take(5)->get();
 @endphp
+
+
+@section('SEO')
+    <meta name ="title" content="{{ $post->meta_title }}">
+    <meta name ="description"
+        content="{{ $post->meta_description }}">
+@endsection
 @push('OG')
     @section('OG')
         <!-- Facebook Open Graph -->
@@ -21,7 +28,7 @@
 @endpush
 
 @extends('layouts.app')
-@section('title', 'Home Page')
+@section('title', '{{$post->meta_title}}')
 @section('content')
 
     <article class="">

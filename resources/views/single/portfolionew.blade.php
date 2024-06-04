@@ -2,8 +2,8 @@
 
 
 @section('SEO')
-    <meta name = "description" content="{{ $portfolio->meta_tag }}">
-    <meta name = "keywords" content="{{ $portfolio->keyword }}">
+    <meta name = "title" content="{{ $portfolio->meta_tag }}">
+    <meta name = "description" content="{{ $portfolio->meta_description }}">
 @endsection
 
 @section('OG')
@@ -25,7 +25,7 @@
     <meta property="og:image:type" content="image/png">
 
 @endsection
-@section('title', "Dashboard & UX/UI Designer | {$portfolio->title}")
+@section('title', "{$portfolio->meta_tag}")
 @section('content')
     <section class="container mx-auto px-3 lg:px-0 pb-[30px] max-[768px]:pt-3 min-[768px]:py-[30px]">
         <div class="flex flex-row items-center justify-between">

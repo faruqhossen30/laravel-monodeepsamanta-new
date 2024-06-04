@@ -1,4 +1,11 @@
 @extends('layouts.app')
+
+@section('SEO')
+    <meta name ="title" content="Monodeep Samanata Blogs | All Latest Contribution of Monodeep">
+    <meta name ="description"
+        content="Stay updated with Monodeep Samanta's blog, featuring insights and tips from an experienced  UI/UX designer.">
+@endsection
+
 @section('OG')
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
@@ -19,7 +26,7 @@
     <meta property="og:image:type" content="image/png">
 
 @endsection
-@section('title', 'Dashboard & UX/UI Designer | Blogs')
+@section('title', 'Monodeep Samanata Blogs | All Latest Contribution of Monodeep')
 @section('content')
     <section class="container px-3 mx-auto lg:px-0">
         <div class="grid grid-cols-12 gap-5 space-y-8 lg:py-10 lg:space-y-0">
