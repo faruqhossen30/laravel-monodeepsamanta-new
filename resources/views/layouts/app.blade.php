@@ -4,11 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Multi Award Winning United Kingdom Designer">
     <meta name="author" content="Faruq Hossen">
     <meta name="generator" content="MonodeepSamanta 2.0">
     <link rel="icon" type="image/x-icon" href="{{ asset('MonodeepSamanta.png') }}">
-
+    @yield('SEO')
     <title> @yield('title', '')</title>
 
 
@@ -24,7 +23,7 @@
     <meta name="theme-color" content="#ffffff">
     <meta name="google-site-verification" content="wn1oFpUqzZ6XoS6WgEWRF3U8ZCWRvVXryKbCWix9xD0" />
 
-    @yield('SEO')
+
     @yield('OG')
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-268HXW509V"></script>
