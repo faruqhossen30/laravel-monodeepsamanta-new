@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('SEO')
-<meta name = "title" content="{{$service->meta_title}}">
-<meta name = "description" content="{{$service->meta_keyword}}">
+    <meta name = "title" content="{{ $service->meta_title }}">
+    <meta name = "description" content="{{ $service->meta_keyword }}">
 @endsection
 
 @section('OG')
@@ -10,19 +10,17 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@">
     <meta name="twitter:creator" content="@">
-    <meta name="twitter:title" content="{{$service->meta_title}}">
-    <meta name="twitter:description"
-        content="{{$service->meta_description}}">
-    <meta name="twitter:image" content="{{ asset('storage/'.$service->thumbnail) }}">
+    <meta name="twitter:title" content="{{ $service->meta_title }}">
+    <meta name="twitter:description" content="{{ $service->meta_description }}">
+    <meta name="twitter:image" content="{{ asset('storage/' . $service->thumbnail) }}">
 
     <!-- Facebook -->
 
     <meta property="og:url" content="{{ route('homepage') }}">
-    <meta property="og:title" content="{{$service->meta_title}}">
-    <meta property="og:description"
-        content="{{$service->meta_description}}">
+    <meta property="og:title" content="{{ $service->meta_title }}">
+    <meta property="og:description" content="{{ $service->meta_description }}">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="{{ asset('storage/'.$service->thumbnail) }}">
+    <meta property="og:image" content="{{ asset('storage/' . $service->thumbnail) }}">
     <meta property="og:image:type" content="image/png">
 
 @endsection
@@ -32,11 +30,9 @@
 
     @if (session('reviewsubmit'))
         <div id="alert-additional-content-3"
-            class="p-4 my-4 container mx-auto text-green-800 border border-green-300 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800"
-            role="alert">
+            class="p-4 my-4 container mx-auto text-green-800 border border-green-300 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800" role="alert">
             <div class="flex items-center">
-                <svg class="flex-shrink-0 w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor" viewBox="0 0 20 20">
+                <svg class="flex-shrink-0 w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                     <path
                         d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
                 </svg>
@@ -46,7 +42,7 @@
             <div class="mt-2 mb-4 text-sm">
                 Thank you so much for taking the time to submit your review! Your feedback is invaluable to us and helps us
                 continually improve our products/services. <br>
-                 We will review and publish it verry soon . <br>
+                We will review and publish it verry soon . <br>
 
                 Thanks again for choosing us and for sharing your experience with others.
             </div>
@@ -76,17 +72,14 @@
                 {{-- Slider Start --}}
                 @if ($service->sliders->count())
                     <div class="">
-                        <div id="singleServiceCarousel"
-                            class="owl-carousel owl-theme slider bg-gray-100 mx-5 w-cal30 lg:w-cal40">
+                        <div id="singleServiceCarousel" class="owl-carousel owl-theme slider bg-gray-100 mx-5 w-cal30 lg:w-cal40">
                             @foreach ($service->sliders as $key => $slider)
                                 <div class="item mx-auto" data-hash="{{ $key }}" style="width: calc(100% - 50px)">
                                     @if ($slider->video)
                                         {!! $slider->video !!}
                                     @else
-                                        <a href="{{ asset('storage/' . $slider->thumbnail) }}"
-                                            class="cwa-lightbox-image" data-desc="{{ $service->title }}">
-                                            <img src="{{ asset('storage/' . $slider->thumbnail) }}" class=""
-                                                alt="">
+                                        <a href="{{ asset('storage/' . $slider->thumbnail) }}" class="cwa-lightbox-image" data-desc="{{ $service->title }}">
+                                            <img src="{{ asset('storage/' . $slider->thumbnail) }}" class="" alt="">
                                         </a>
                                     @endif
 
@@ -97,11 +90,9 @@
                             @foreach ($service->sliders as $key => $slider)
                                 <a href="#{{ $key }}" class="" data-slider="{{ $key }}">
                                     @if ($slider->video)
-                                        <img src="{{ asset('img/media-player.png') }}" alt=""
-                                            class="w-32 custompacity sliderlinkimage{{ $key }}">
+                                        <img src="{{ asset('img/media-player.png') }}" alt="" class="w-32 custompacity sliderlinkimage{{ $key }}">
                                     @else
-                                        <img src="{{ asset('storage/' . $slider->thumbnail) }}" alt=""
-                                            class="w-32 custompacity sliderlinkimage{{ $key }}">
+                                        <img src="{{ asset('storage/' . $slider->thumbnail) }}" alt="" class="w-32 custompacity sliderlinkimage{{ $key }}">
                                     @endif
 
                                 </a>
@@ -137,25 +128,20 @@
                                     <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                                         <tbody class="divide-y divide-gray-100 dark:divide-gray-700">
                                             @if ($service->package)
-                                                <tr
-                                                    class="divide-x divide-gray-100 odd:bg-white  even:bg-gray-50 dark:odd:bg-slate-900 dark:even:bg-slate-800">
-                                                    <td
-                                                        class="px-6 py-6 whitespace-nowrap text-gray-800 dark:text-gray-200 text-start text-[18px] leading-[16px]">
+                                                <tr class="divide-x divide-gray-100 odd:bg-white  even:bg-gray-50 dark:odd:bg-slate-900 dark:even:bg-slate-800">
+                                                    <td class="px-6 py-6 whitespace-nowrap text-gray-800 dark:text-gray-200 text-start text-[18px] leading-[16px]">
                                                         Services Tiers</td>
-                                                    <td
-                                                        class="px-6 py-6 whitespace-nowrap text-[18px] leading-[16px] text-gray-800 dark:text-gray-200 text-center">
+                                                    <td class="px-6 py-6 whitespace-nowrap text-[18px] leading-[16px] text-gray-800 dark:text-gray-200 text-center">
                                                         Starter <p class="py-2">
                                                             ${{ optional($service->package)->starter_price }}</p>
                                                     </td>
-                                                    <td
-                                                        class="px-6 py-6 whitespace-nowrap text-[18px] leading-[16px] text-gray-800 dark:text-gray-200 text-center">
+                                                    <td class="px-6 py-6 whitespace-nowrap text-[18px] leading-[16px] text-gray-800 dark:text-gray-200 text-center">
                                                         Standard <br>
                                                         <p class="py-2">
                                                             ${{ optional($service->package)->standard_price }}
                                                         </p>
                                                     </td>
-                                                    <td
-                                                        class="px-6 py-6 whitespace-nowrap text-[18px] leading-[16px] text-gray-800 dark:text-gray-200 text-center">
+                                                    <td class="px-6 py-6 whitespace-nowrap text-[18px] leading-[16px] text-gray-800 dark:text-gray-200 text-center">
                                                         Advanced <br>
                                                         <p class="py-2">${{ optional($service->package)->advance_price }}
                                                         </p>
@@ -164,19 +150,14 @@
                                             @endif
 
                                             @foreach ($service->features as $feature)
-                                                <tr
-                                                    class="divide-x divide-gray-100 odd:bg-white even:bg-gray-50 dark:odd:bg-slate-900 dark:even:bg-slate-800">
-                                                    <td
-                                                        class="px-6 py-5 whitespace-nowrap text-[16px] leading-[19px] text-gray-800 dark:text-gray-200 text-start">
+                                                <tr class="divide-x divide-gray-100 odd:bg-white even:bg-gray-50 dark:odd:bg-slate-900 dark:even:bg-slate-800">
+                                                    <td class="px-6 py-5 whitespace-nowrap text-[16px] leading-[19px] text-gray-800 dark:text-gray-200 text-start">
                                                         {{ $feature->feature }}</td>
-                                                    <td
-                                                        class="text-[18px] leading-[16px] px-6 py-5 whitespace-nowrap text-gray-800 dark:text-gray-200 text-center">
+                                                    <td class="text-[18px] leading-[16px] px-6 py-5 whitespace-nowrap text-gray-800 dark:text-gray-200 text-center">
                                                         {{ $feature->starter }}</td>
-                                                    <td
-                                                        class="text-[18px] leading-[16px] px-6 py-5 whitespace-nowrap text-gray-800 dark:text-gray-200 text-center">
+                                                    <td class="text-[18px] leading-[16px] px-6 py-5 whitespace-nowrap text-gray-800 dark:text-gray-200 text-center">
                                                         {{ $feature->standard }}</td>
-                                                    <td
-                                                        class="text-[18px] leading-[16px] px-6 py-5 whitespace-nowrap  dark:text-gray-200 text-center">
+                                                    <td class="text-[18px] leading-[16px] px-6 py-5 whitespace-nowrap  dark:text-gray-200 text-center">
                                                         {{ $feature->advanced }}
                                                     </td>
                                                 </tr>
@@ -204,40 +185,35 @@
                     </div>
                 </div>
 
-                <div class="hidden lg:block hs-accordion-group">
+                <div id="accordion-color" data-accordion="collapse" data-active-classes="bg-none text-brand" data-inactive-classes="text-black">
                     @foreach ($service->faqs as $faq)
-                        <div class="hs-accordion" id="hs-basic-with-title-and-arrow-stretched-heading{{ $faq->id }}">
-                            <button
-                                class="hs-accordion-toggle hs-accordion-active:text-blue-600 py-3 inline-flex items-center justify-between gap-x-3 w-full font-semibold text-start text-gray-800 hover:text-gray-500 rounded-lg disabled:opacity-50 disabled:pointer-events-none dark:hs-accordion-active:text-blue-500 dark:text-gray-200 dark:hover:text-gray-400 dark:focus:outline-none dark:focus:text-gray-400"
-                                aria-controls="hs-basic-with-title-and-arrow-stretched-collapse{{ $faq->id }}">
-                                {{ $faq->question }}
-                                <svg class="hs-accordion-active:hidden block w-4 h-4" xmlns="http://www.w3.org/2000/svg"
-                                    width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="m6 9 6 6 6-6" />
-                                </svg>
-                                <svg class="hs-accordion-active:block hidden w-4 h-4" xmlns="http://www.w3.org/2000/svg"
-                                    width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="m18 15-6-6-6 6" />
-                                </svg>
+                        <h2 id="accordion-color-heading-{{ $faq->id }}">
+                            <button type="button"
+                                class="flex  items-center justify-between w-full py-3  rtl:text-right text-black font-bold  rounded-t-xl  dark:border-gray-700 dark:text-gray-400  dark:hover:bg-gray-800 gap-1"
+                                data-accordion-target="#accordion-color-body-{{ $faq->id }}" aria-expanded="true" aria-controls="accordion-color-body-{{ $faq->id }}">
+                                <span >{{ $faq->question }}</span>
+                                <svg class="hs-accordion-active:hidden block w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg>
                             </button>
-                            <div id="hs-basic-with-title-and-arrow-stretched-collapse{{ $faq->id }}"
-                                class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
-                                aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading{{ $faq->id }}">
-                                <p>{{ $faq->answer }}</p>
+                        </h2>
+                        <div id="accordion-color-body-{{ $faq->id }}" class="hidden" aria-labelledby="accordion-color-heading-{{ $faq->id }}">
+                            <div class="p-5  dark:border-gray-700 dark:bg-gray-900">
+                                <p class="mb-2 text-black dark:text-gray-400">{{ $faq->answer }}</p>
+
                             </div>
                         </div>
                     @endforeach
-
                 </div>
+
+
 
                 <x-section-video />
                 <div class="hidden lg:block">
                     <section>
                         <h1 class="flex items-center text-2xl space-x-2 py-4 my-8 font-bold">
-                            <svg class="" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                viewBox="0 0 20 20" fill="none">
+                            <svg class="" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                                 <path
                                     d="M17.334 0.833984H2.66732C1.65898 0.833984 0.833984 1.65898 0.833984 2.66732V19.1673L4.50065 15.5007H17.334C18.3423 15.5007 19.1673 14.6757 19.1673 13.6673V2.66732C19.1673 1.65898 18.3423 0.833984 17.334 0.833984ZM17.334 13.6673H3.73982L2.66732 14.7398V2.66732H17.334V13.6673Z"
                                     fill="#FF003A"></path>
@@ -263,11 +239,9 @@
     <div>
         <x-section-service />
         <div class="flex justify-center py-5 lg:py-20">
-            <a href="{{ route('servicepage') }}"
-                class="text-primary font-bold flex items-center space-x-2 hover:text-brand">
+            <a href="{{ route('servicepage') }}" class="text-primary font-bold flex items-center space-x-2 hover:text-brand">
                 <span class="text-[15px] leading-[15px]">See All Services</span>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="#FF003A" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" data-slot="icon" class="w-4 h-4 font-bold">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="#FF003A" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" data-slot="icon" class="w-4 h-4 font-bold">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                 </svg>
             </a>
@@ -369,7 +343,7 @@
                 },
                 email: {
                     required: true,
-                    email:true
+                    email: true
                 },
                 review: {
                     required: true,

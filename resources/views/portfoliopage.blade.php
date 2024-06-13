@@ -68,7 +68,7 @@
             @endforeach
         </div>
         <div class="py-10">
-            {{ $portfolios->links('pagination::custom') }}
+            {{ $portfolios->appends($_GET)->links('pagination::custom') }}
         </div>
     </div>
     <x-section-chat />
