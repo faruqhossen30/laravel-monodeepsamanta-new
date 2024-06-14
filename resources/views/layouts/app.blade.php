@@ -24,18 +24,17 @@
 
 
     @yield('OG')
+
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-268HXW509V"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N0WCQL5XN0"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'G-268HXW509V');
+      gtag('config', 'G-N0WCQL5XN0');
     </script>
+
 
 
     <!-- clarity -->
