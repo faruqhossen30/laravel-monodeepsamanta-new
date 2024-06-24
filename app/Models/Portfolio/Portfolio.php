@@ -15,6 +15,7 @@ class Portfolio extends Model
         'thumbnail',
         'slider',
         'user_id',
+        'category_id',
         'meta_tag',
         'meta_description',
         'keyword',

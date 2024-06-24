@@ -56,7 +56,7 @@ class PortfolioController extends Controller
             'title'            => $request->title,
             'slug'             => Str::slug($request->title, '-'),
             'user_id'          => Auth::user()->id,
-            // 'category_id'      => $request->category_id,
+            'category_id'      => $request->category_id,
             'slider'           => json_encode($request->slider),
             'meta_tag'         => $request->meta_tag,
             'meta_description' => $request->meta_description,
@@ -93,15 +93,15 @@ class PortfolioController extends Controller
                 ]);
             }
         }
-        $categoryids = $request->category_ids;
-        $porfolioid  = $porfolio->id;
+        // $categoryids = $request->category_ids;
+        // $porfolioid  = $porfolio->id;
 
-            foreach($categoryids as $key => $catid){
-               PortfolioCategory::create([
-                   'portfolio_id'=>$porfolioid,
-                   'category_id'=>$catid
-               ]);
-            }
+        //     foreach($categoryids as $key => $catid){
+        //        PortfolioCategory::create([
+        //            'portfolio_id'=>$porfolioid,
+        //            'category_id'=>$catid
+        //        ]);
+        //     }
 
 
         Session::flash('create');
@@ -161,6 +161,7 @@ class PortfolioController extends Controller
             'meta_description' => $request->meta_description,
             'keyword'          => $request->keyword,
             'status'           => $request->status,
+
         ];
 
         if($request->file('thumbnail')){
@@ -184,15 +185,15 @@ class PortfolioController extends Controller
         }
 
 
-        if(!empty($request->category_ids)){
-            PortfolioCategory::where('portfolio_id', $id)->delete();
-             foreach($request->category_ids as $cat){
-                PortfolioCategory::create([
-                    'portfolio_id'=> $id,
-                    'category_id' => $cat
-                ]);
-             }
-        }
+        // if(!empty($request->category_ids)){
+        //     PortfolioCategory::where('portfolio_id', $id)->delete();
+        //      foreach($request->category_ids as $cat){
+        //         PortfolioCategory::create([
+        //             'portfolio_id'=> $id,
+        //             'category_id' => $cat
+        //         ]);
+        //      }
+        // }
 
         Session::flash('create');
         return redirect()->route('portfolio.index');

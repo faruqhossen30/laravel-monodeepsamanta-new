@@ -34,7 +34,7 @@ class AdminProfileController extends Controller
 
     User::findOrFail($adminid)->update([
         'name'   => $request->name,
-      'thumbnail' => $request->thumbnail,
+        'thumbnail' => $request->thumbnail,
 
 
     ]);

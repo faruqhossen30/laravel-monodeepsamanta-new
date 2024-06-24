@@ -25,18 +25,15 @@
                         <div class="grid grid-cols-12 gap-5">
                             <div class="col-span-12 lg:col-span-8 bg-white text-gray-500 dark:text-gray-500 p-4 rounded-lg">
                                 <x-form.input label="Portfolio Title" name="title" value="{{ $portfolio->title }}" />
-                                {{-- <x-form.select label="Select Category" name="category_id" :data="$categories"
-                                    :id="$portfolio->category_id" /> --}}
 
                                 <label for="category_ids" class="block text-sm font-medium mb-2 dark:text-white">Select
                                         Categories</label>
-                                <select id="category_ids" name="category_ids[]"
-                                    class="js-example-basic-multiple py-3 px-4 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                                    multiple="multiple">
+                                <select id="category_ids" name="category_id"
+                                    class=" py-3 px-4 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600">
                                     <option>Select Categories</option>
                                     @foreach ($categories as $cat)
                                         <option value="{{ $cat->id }}"
-                                            @if (in_array($cat->id, $cat_ids)) selected @endif>{{ $cat->name }}
+                                            @if ($cat->id == $portfolio->category_id) selected @endif>{{ $cat->name }}
                                         </option>
                                     @endforeach
                                 </select>
