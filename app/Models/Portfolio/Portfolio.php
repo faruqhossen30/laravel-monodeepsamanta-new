@@ -39,7 +39,7 @@ class Portfolio extends Model
      */
     public function getNextAttribute()
     {
-        return static::where('id', '>', $this->id)->orderBy('id', 'asc')->first();
+        return static::where('category_id', $this->category_id)->where('id', '>', $this->id)->orderBy('id', 'asc')->first();
     }
 
     /**
@@ -49,7 +49,7 @@ class Portfolio extends Model
      */
     public  function getPreviousAttribute()
     {
-        return static::where('id', '<', $this->id)->orderBy('id', 'desc')->first();
+        return static::where('category_id', $this->category_id)->where('id', '<', $this->id)->orderBy('id', 'desc')->first();
     }
 
 
