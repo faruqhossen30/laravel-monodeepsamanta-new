@@ -108,11 +108,11 @@ class BlogController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $slug)
     {
-        if(!Auth::user()->can('blog  show')){
-            abort(403);
-        }
+
+        // return $slug;
+        return redirect()->route('singleblog',$slug);
     }
 
     /**
@@ -204,7 +204,7 @@ class BlogController extends Controller
             abort(403);
         }
         $blog = Blog::findOrFail($id);
-        Storage::delete($blog->thumbnail);
+        Storage::delete($blog->thumbnail ?? '');
         $blog->delete();
         return redirect()->route('blog.index')->with('success','data successfully Deleted');
     }

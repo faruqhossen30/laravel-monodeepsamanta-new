@@ -48,7 +48,8 @@
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
 
-                                            <x-table.crudactionbutton route="blog" :id="$blog->id" />
+                                                <x-table.eye_button route="singleblog" :paramiter="$blog->slug" />
+                                                <x-table.action_button route="blog" :id="$blog->id" />
                                         </td>
                                     </tr>
                                 @empty
