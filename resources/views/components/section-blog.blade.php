@@ -19,7 +19,7 @@
 <section class="container mx-auto px-3 lg:px-0">
     <div class="hidden lg:grid grid-cols-12 gap-6">
         @foreach ($posts as $post)
-            <a href="#" class="col-span-6 lg:col-span-4 overflow-hidden rounded-lg group dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+            <a href="{{route('singleblog', $post->slug)}}" class="col-span-6 lg:col-span-4 overflow-hidden rounded-lg group dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                 data-aos="fade" data-aos-duration="2000" href="{{ route('singleblog', $post->slug) }}">
                 <div class="relative pt-[50%] sm:pt-[70%] rounded-lg overflow-hidden">
                     <img class="absolute top-0 object-cover w-full h-full transition-transform duration-500 ease-in-out rounded-lg start-0 group-hover:scale-105"
