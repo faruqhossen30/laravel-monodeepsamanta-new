@@ -3,6 +3,7 @@
     $posts = Blog::where('status', true)->latest()->take(5)->get();
 @endphp
 
+@section('title', $post->title)
 
 @section('SEO')
     <meta name ="title" content="{{ $post->meta_title }}">
