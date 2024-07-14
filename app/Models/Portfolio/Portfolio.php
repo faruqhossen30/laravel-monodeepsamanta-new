@@ -39,7 +39,14 @@ class Portfolio extends Model
      */
     public function getNextAttribute()
     {
-        return static::where('category_id', $this->category_id)->where('id', '>', $this->id)->orderBy('id', 'asc')->first();
+        $portfolio = static::where('category_id', $this->category_id)->where('id', '>', $this->id)->orderBy('id', 'asc')->first();
+
+        if (is_null($portfolio)) {
+            return $portfolio = static::where('category_id', $this->category_id)->orderBy('id', 'asc')->first();
+        } else {
+            return $portfolio;
+        }
+
     }
 
     /**
