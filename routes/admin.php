@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\Blog\SoftwareController;
 use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\EditorImageController;
 use App\Http\Controllers\Admin\Gallery\GalleryCategoryController;
 use App\Http\Controllers\Admin\Gallery\GalleryController;
 use App\Http\Controllers\Admin\Portfolio\PortfolioContentController;
@@ -42,6 +43,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('software', SoftwareController::class);
     Route::resource('blog', BlogController::class);
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::post('editor/image/store', [EditorImageController::class, 'store'])->name('editorimagestore');
     // Route::resource('role', RoleController::class);
     // Start Work
 

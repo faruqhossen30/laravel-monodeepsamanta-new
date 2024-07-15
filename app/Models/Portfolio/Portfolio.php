@@ -39,13 +39,14 @@ class Portfolio extends Model
      */
     public function getNextAttribute()
     {
-        $portfolio = static::where('category_id', $this->category_id)->where('id', '>', $this->id)->orderBy('id', 'asc')->first();
+        // $portfolio = static::where('category_id', $this->category_id)->where('id', '>', $this->id)->orderBy('id', 'asc')->first();
 
-        if (is_null($portfolio)) {
-            return $portfolio = static::where('category_id', $this->category_id)->orderBy('id', 'asc')->first();
-        } else {
-            return $portfolio;
-        }
+        // if (is_null($portfolio)) {
+        //     return $portfolio = static::where('category_id', $this->category_id)->orderBy('id', 'asc')->first();
+        // } else {
+        //     return $portfolio;
+        // }
+        return static::where('category_id', $this->category_id)->where('id', '<', $this->id)->orderBy('id', 'desc')->first();
 
     }
 
@@ -56,7 +57,16 @@ class Portfolio extends Model
      */
     public  function getPreviousAttribute()
     {
-        return static::where('category_id', $this->category_id)->where('id', '<', $this->id)->orderBy('id', 'desc')->first();
+        // return static::where('category_id', $this->category_id)->where('id', '<', $this->id)->orderBy('id', 'desc')->first();
+
+
+        $portfolio = static::where('category_id', $this->category_id)->where('id', '>', $this->id)->orderBy('id', 'asc')->first();
+
+        if (is_null($portfolio)) {
+            return $portfolio = static::where('category_id', $this->category_id)->orderBy('id', 'asc')->first();
+        } else {
+            return $portfolio;
+        }
     }
 
 

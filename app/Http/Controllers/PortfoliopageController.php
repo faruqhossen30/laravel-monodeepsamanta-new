@@ -56,6 +56,10 @@ class PortfoliopageController extends Controller
     public function singlePortfolio(Request $request, $slug)
     {
         $portfolio = Portfolio::with('sections')->firstWhere('slug', $slug);
+
+        // return $portfolio;
+        // return $portfolio->next;
+        // return $portfolio->previous;
         return view('single.portfolionew', compact('portfolio'));
     }
 }
